@@ -171,6 +171,15 @@ p, a {
 		}
 }
 @media (max-width: 480px) {
+	.col-lg-7.content-login h3 {
+		font-family: Inter;
+		font-size: 33px;
+		font-weight: 600;
+		line-height: 39.94px;
+	}
+	.col-lg-12.d-md-none.text-center {
+		padding: 15px;
+	}
 	.register-page .col-lg-6 {
 		width: 100%;
 		padding: 0px 20px;
