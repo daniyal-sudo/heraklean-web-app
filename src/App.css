@@ -1,0 +1,12 @@
+body {
+    overflow-x: hidden; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    background-color: #FCF8F3;  
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera: Hide scrollbar */
+} 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+

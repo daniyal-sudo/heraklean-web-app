@@ -1,0 +1,85 @@
+/* @media screen and (min-width: 300px) and (max-width: 800px) {
+	* {
+		overflow-x: hidden;
+	}
+} */
+.login_button {
+	font-family: Inter;
+	font-size: 23px;
+	font-weight: 600;
+	height: 60px;
+	text-align: center;
+	border-radius: 11px;
+	background: #53afe6;
+	border: none;
+	color: white;
+}
+.line-separator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.line-separator .line {
+	height: 1px;
+	background-color: #ddd;
+	flex-grow: 1;
+}
+
+.line-separator span {
+	margin: 0 10px;
+	font-size: 12px;
+	color: #666;
+}
+.login_input_field {
+	padding: 27px !important;
+	border-left: none !important;
+	border-radius: 0px 11px 11px 0px !important;
+}
+.icon_back {
+	background-color: white !important;
+}
+.login_icon_color {
+	color: #53afe6;
+}
+.logo-container {
+	position: absolute; /* Position the logo absolutely */
+	top: -120px; /* Adjust vertical position */
+	left: 20px; /* Adjust horizontal position */
+	width: 100px;
+	height: 100px;
+}
+
+.logo-container img {
+	border-radius: 50%;
+	object-fit: cover;
+}
+.icon_border {
+	border-radius: 11px 0px 0px 11px;
+	border: 1px solid #0000006b;
+}
+.registration_screen_small {
+	background-image: url("/register_image.jpeg");
+	background-size: cover;
+	background-position: center center;
+	height: 100%;
+	width: 100%;
+}
+@media screen and (min-width: 300px) and (max-width: 766px) {
+	.registration_screen_small {
+		background-image: url("/register_image.jpeg");
+		background-size: cover;
+		background-position: 50% 32%;
+		height: 100%;
+		width: 100%;
+	}
+	.small_screen_padding {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+	.small_screen_image_width {
+		width: 100px !important;
+	}
+}

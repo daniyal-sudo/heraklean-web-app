@@ -1,0 +1,349 @@
+ /* Container for the whole calendar and details section */
+
+.calendar-main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* padding: 20px; */
+  }
+  
+  
+  .calendar-and-details {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+  }
+  
+  /* Calendar container styling */
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* margin-right: 20px; 
+    Add some space between calendar and meeting details */
+  }
+  
+  /* Meeting details styling */
+  .meeting-details {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+  }
+  
+  /* Other styles */
+  .schedule-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;   
+  }
+  
+  .schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-left h2 {
+    margin: 0;
+    color: #DEDEDE;
+  }
+  
+  .month-navigation {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+  
+  .date-range {
+    margin-left: 20px;
+    color: gray;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .weekly-button, .add-meeting-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+  }
+  
+  .add-meeting-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .day-header {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+  }
+  
+  .calendar-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .time-slot {
+    display: flex;
+    border-bottom: 1px solid #ddd !important;
+  }
+  
+  .day-slot {
+    flex: 1;
+    /* border-right: 1px solid #ddd !important; */
+    border :1px solid rgb(209, 187, 187) !important;
+    padding: 10px;
+    min-height: 50px;
+    position: relative;
+  }
+  
+  .meeting {
+    background-color: #007bff;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .meeting.Blocked {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  .trainer-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .meeting-info p {
+    margin: 10px 0;
+  }
+  
+  .meeting-actions {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .meeting-actions button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .reschedule-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .cancel-button {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  .approve-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .decline-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .calendar-main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .schedule-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .month-navigation {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+  
+  .date-range {
+    margin-left: 20px;
+    color: #888;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .calendar-and-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .calendar-container {
+    width: 75%;
+    /* padding: 20px; */
+  }
+  
+  .calendar-header, .calendar-body {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    /* gap: 5px; */
+  }
+  
+  .time-slot-header, .time-slot-label {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .day-header, .day-slot {
+    border: 1px solid #d1bbbb !important;
+    text-align: center;
+    /* padding: 20px; */
+    cursor: pointer;
+  }
+  
+  .meeting-details {
+    width: 35%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+  }
+  
+  .form-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    z-index: 1000;
+    width: 300px;
+  }
+  
+  .form-popup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-popup label {
+    margin-bottom: 10px;
+  }
+  
+  .form-popup button {
+    margin-top: 10px;
+  }
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .time-slot-header {
+    width: 180px; /* Adjust as needed */
+  }
+  
+  .day-header {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .calendar-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .time-slot-row {
+    display: flex;
+    height: 80px;
+  }
+  
+  .time-slot-label {
+    width: 90px; /* Should match time-slot-header width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .day-slot {
+    flex: 1;
+    /* border: 1px solid #ccc; */
+    position: relative;
+  }
+  
+  .meeting {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e6f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    cursor: pointer;
+  }
+
+  /* .home-container {
+    display: flex;
+    width: 100%;
+  }
+   */
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .header-fullwidth {
+    /* width: 100%; */
+    background-color: #fff; 
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  /* Add these styles to your existing calendar.css file */
+

@@ -1,0 +1,16 @@
+/* App.css */
+.app-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    display: flex;
+    margin-left: 100px; /* Adjust this value based on your sidebar width */
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0;
+    }
+  }

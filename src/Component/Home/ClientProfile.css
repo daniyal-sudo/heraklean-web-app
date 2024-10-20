@@ -1,0 +1,219 @@
+/* Add these styles globally or in the component if needed */
+.appointment-card {
+	max-width: 450px;
+	border: 1px solid #e5e5e5;
+	border-radius: 8px;
+	padding: 16px;
+	background-color: #fff;
+}
+
+.appointment-card img {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+}
+
+.appointment-card h6 {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.appointment-card .appointment-details {
+	color: #6cace4;
+	font-size: 14px;
+}
+
+.appointment-card .text-muted {
+	color: #6cace4 !important;
+}
+
+.appointment-card .chevron-icon {
+	color: #bdbdbd;
+}
+body {
+	background-color: #fcf8f3;
+}
+
+/* Adjust overall padding and margins for mobile */
+@media (max-width: 768px) {
+
+	.content-wrapper {
+		padding: 10px; /* Adjust content padding */
+	}
+
+	.card-body img {
+		width: 70px;
+		height: 70px;
+	}
+
+	/* Adjust heading sizes */
+	h5,
+	h4 {
+		font-size: 18px !important;
+	}
+
+	.card-text {
+		font-size: 14px !important;
+	}
+
+	.btn {
+		font-size: 14px !important;
+		padding: 10px 15px !important;
+	}
+
+	/* Make appointment cards stack vertically */
+	.appointment-card {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.appointment-card img {
+		width: 40px;
+		height: 40px;
+		margin-bottom: 8px;
+	}
+
+	.appointment-card h6 {
+		font-size: 14px;
+	}
+
+	.appointment-card .appointment-details {
+		font-size: 12px;
+	}
+
+	.chevron-icon {
+		display: none; /* Hide chevron on smaller screens */
+	}
+}
+
+/* Adjust columns for smaller screens */
+@media (max-width: 576px) {
+	.col-12.col-md-6 {
+		width: 100%; /* Full width for smaller screens */
+	}
+
+	.col-12.col-md-4 {
+		width: 100%; /* Ensure full width for client cards */
+	}
+
+	.bg-white {
+		padding: 15px; /* Smaller padding for mobile */
+	}
+
+	.appointment-card {
+		width: 100%; /* Full width for appointment cards */
+		margin-bottom: 16px;
+	}
+
+	/* Adjust profile picture */
+	.card-body img {
+		width: 60px;
+		height: 60px;
+	}
+
+	/* Alert Client section adjustments */
+	.alert-client {
+		margin-top: 20px;
+	}
+}
+
+/* Handle very small screens (phones in portrait mode) */
+@media (max-width: 400px) {
+	h5,
+	h4 {
+		font-size: 16px;
+	}
+
+	.btn {
+		font-size: 12px;
+		padding: 8px 12px;
+	}
+
+	/* Adjust text alignment for smaller screens */
+	.d-flex {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.appointment-card {
+		padding: 10px;
+	}
+
+	.nav-item span {
+		display: none; /* Hide text on nav items for space */
+	}
+
+	/* Image adjustments */
+	img {
+		width: 80%;
+		height: auto;
+	}
+}
+
+.box_height {
+	height: 125px;
+}
+.upcoming_border-line {
+	position: relative;
+	display: inline-block;
+	padding-bottom: 10px; /* Adds space between text and border */
+}
+
+.upcoming_border-line::after {
+	content: "";
+	position: absolute;
+	bottom: -5px; /* Aligns the line at the bottom of the text */
+	left: 0;
+	width: 90%; /* Width of the line */
+	height: 4px; /* Thickness of the line */
+	background-color: #53afe6; /* Line color */
+	border-radius: 9px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+  .upcoming_border-line {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px; /* Adds space between text and border */
+  }
+  
+  .upcoming_border-line::after {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Aligns the line at the bottom of the text */
+    left: 0;
+    width: 90%; /* Width of the line */
+    height: 4px; /* Thickness of the line */
+    background-color: #53afe6; /* Line color */
+    border-radius: 9px;
+  }
+
+  
+}
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+  .mbile_screen_margin{
+    margin-bottom:20px;
+  }
+  
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 4000px) {
+  .margin_right_left{
+    margin-left: 20px !important; 
+    margin-right: 20px !important;
+  }
+}
+
+.vertical_scroll_content{
+	height: calc(100vh - 117px);
+	overflow-y: auto;
+}
+
+
+
+
+
+

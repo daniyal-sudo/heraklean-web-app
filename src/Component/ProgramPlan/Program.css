@@ -1,0 +1,30 @@
+.card {
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .home-container {
+    display: flex;
+    width: 100% !important;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+  }
+  
+  .header-fullwidth {
+    /* width: 173% !important; */
+    background-color: #fff; /* Optional: Ensure background covers full width */
+    padding: 10px 0; /* Adjust padding if necessary */
+  }
+  
