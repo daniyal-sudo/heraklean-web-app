@@ -45,9 +45,9 @@
 	color: #53afe6;
 }
 .logo-container {
-	position: absolute; /* Position the logo absolutely */
-	top: -120px; /* Adjust vertical position */
-	left: 20px; /* Adjust horizontal position */
+	position: absolute; 
+	top: -120px; 
+	left: 20px; 
 	width: 100px;
 	height: 100px;
 }
@@ -63,23 +63,81 @@
 .registration_screen_small {
 	background-image: url("/register_image.jpeg");
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-position: center center;
-	height: 100%;
 	width: 100%;
 }
-@media screen and (min-width: 300px) and (max-width: 766px) {
-	.registration_screen_small {
-		background-image: url("/register_image.jpeg");
-		background-size: cover;
-		background-position: 50% 32%;
-		height: 100%;
-		width: 100%;
-	}
-	.small_screen_padding {
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-	}
-	.small_screen_image_width {
-		width: 100px !important;
+.header-desktop {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+h3 {
+font-family: Inter;
+font-size: 32px;
+font-weight: 600;
+line-height: 38.73px;
+text-align: start;
+
+}
+p, a {
+	font-family: Inter;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 21.78px;
+	text-align: center;
+}
+.input-group input:focus-visible {
+	box-shadow: none !important;
+	outline: none !important;
+	border: 1px solid #dee2e6 !important;
+}
+.input-group input::placeholder {
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20.57px;
+}
+.choose_file input:focus {
+  box-shadow: none;
+  outline: none;
+  border: 1px solid #dee2e6 !important;
+}
+.register-from {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.logo-img {
+    width: 100px;
+    border-radius: 50%;
+}
+.logo-img {
+    width: 100px;
+    border-radius: 50%;
+}
+.line-separator span {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: left;
+}
+.custom-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20.57px;
+	color: #000000;
+}
+.custom-text:hover {
+	color: #000000;
+}
+/* responsive */
+@media (max-width: 1024px) {
+	.register-from .col-lg-7 {
+		padding: 0px;
 	}
 }
