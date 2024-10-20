@@ -50,10 +50,15 @@ const Registration = () => {
 	return (
 		<div className="container-fluid">
 			<div className="row">
-				<div className="col-lg-6 col-md-12 align-self-center">
+			<div className="col-lg-12 d-md-none text-center pb-3">
+					<img src="/image 45.png" className="small_screen_image_width" alt="Logo" />
+				</div>
+			</div>
+			<div className="row register-page">
+				<div className="col-lg-6 align-self-center">
 					<div className="text-center">
 						<div className="d-flex justify-content-start flex-column">
-							<div className="header-desktop">
+							<div className="header-desktop mt-2">
 								<img src="/image 45.png" alt="Logo" className="logo-img" />
 								</div>
 						</div>
@@ -194,7 +199,7 @@ const Registration = () => {
 								</div>
 							</form>
 					
-							<div className="text-center mt-4">
+							<div className="text-center mt-4 mb-4">
 								<span>
 									Already a User?{" "}
 									<Link to="/login" className="text-decoration-none custom-text">

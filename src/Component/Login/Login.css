@@ -70,7 +70,9 @@
 	background-image: url(/login.png);
 	background-size: cover;
 	background-position: center;
-	height: 100vh;
+	background-repeat: no-repeat;
+	min-height: calc(100dvh - 0px);
+	height: 100%;
 	width: 100%;
 }
 .login-screen h3 {

@@ -26,18 +26,17 @@ const Login = () => {
 	};
 
 	return (
-		<div className="container-fluid vh-100">
+		<div className="container-fluid">
 			<div className="row">
 			<div className="col-lg-12 d-md-none text-center pb-3">
 					<img src="/image 45.png" className="small_screen_image_width" alt="Logo" />
 				</div>
 			</div>
 
-			<div className="row h-100 login-section">
-				{/* Login Form */}
+			<div className="row login-section">
 				<div className="col-lg-6 col-md-12 d-flex justify-content-center align-items-center login-screen">
 					<div className="header-desktop">
-						<div className="text-center d-none d-lg-block mb-4">
+						<div className="text-center d-lg-block">
 								<img src="/image 45.png" alt="Logo" className="logo-img" />
 							</div>
 						</div>
@@ -64,7 +63,6 @@ const Login = () => {
 									/>
 								</div>
 							</div>
-
 							<div className="form-group mb-3">
 								<div className="input-group">
 									<div className="input-group-prepend">
@@ -83,21 +81,17 @@ const Login = () => {
 									/>
 								</div>
 							</div>
-
 							<div className="text-end mb-3">
 								<Link to="/forgot-password" className="text-decoration-none text-black">
 									Forgot Password?
 								</Link>
 							</div>
-
 							<button type="submit" className="login_button w-100">Login</button>
-
 							{error && (
 								<div className="alert alert-danger mt-3 text-center" role="alert">
 									{error}
 								</div>
 							)}
-
 							<div className="text-center mt-4">
 								<span>
 									New User ?{" "}
@@ -106,13 +100,11 @@ const Login = () => {
 									</Link>
 								</span>
 							</div>
-
 							<div className="line-separator my-4">
 								<div className="line"></div>
 								<span className="fw-bold text-black">Or Login with</span>
 								<div className="line"></div>
 							</div>
-
 							<div className="row text-center d-flex justify-content-center align-items-center">
 								<div className="col-2">
 									<img src="/fb_login_logo.png" alt="Facebook Login" className="social-icon" />
@@ -125,8 +117,6 @@ const Login = () => {
 					</div>
 				
 				</div>
-
-				{/* Right Image Section */}
 				<div className="col-lg-6 col-md-12 login_image_container">
 					<div className="login_image"></div>
 				</div>
