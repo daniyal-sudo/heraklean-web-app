@@ -28,108 +28,107 @@ const Login = () => {
 	return (
 		<div className="container-fluid vh-100">
 			<div className="row">
-				<div className="col-lg-12 d-md-none ">
-					<div class="text-center pb-3">
-						<img src="/image 45.png" className="small_screen_image_width" alt="Logo" />
-					</div>
+			<div className="col-lg-12 d-md-none text-center pb-3">
+					<img src="/image 45.png" className="small_screen_image_width" alt="Logo" />
 				</div>
 			</div>
-			<div className="row h-100">
-				<div className="col-lg-6 col-md-12 col-sm-12 align-self-center order-1 order-lg-0">
-					<div class="logo-container d-none d-md-block">
-						<img src="/image 45.png" alt="Logo" />
-					</div>
-					<div className="row justify-content-center align-self-center">
-						<div className="col-lg-7">
-							<h3 className="mb-3 text-black">Login</h3>
-							<p className="mb-4">Access back to your account</p>
-							<form onSubmit={handleSubmit} noValidate>
-								<div className="form-group mb-3">
-									<div className="input-group">
-										<div className="input-group-prepend">
-											<span className="input-group-text icon_back">
-												<i className="bi bi-envelope login_icon_color"></i>
-											</span>
-										</div>
-										<input
-											type="email"
-											className="form-control login_input_field"
-											id="email"
-											placeholder="Email Address"
-											onChange={(e) => setEmail(e.target.value)}
-											required
-										/>
-									</div>
-								</div>
 
-								<div className="form-group mb-3">
-									<div className="input-group">
-										<div className="input-group-prepend ">
-											<span className="input-group-text icon_back">
-												<i className="bi bi-lock login_icon_color"></i>
-											</span>
-										</div>
-										<input
-											type="password"
-											className="form-control login_input_field"
-											id="password"
-											placeholder="Password"
-											value={password}
-											onChange={(e) => setPassword(e.target.value)}
-											required
-										/>
+			<div className="row h-100 login-section">
+				{/* Login Form */}
+				<div className="col-lg-6 col-md-12 d-flex justify-content-center align-items-center login-screen">
+					<div className="header-desktop">
+						<div className="text-center d-none d-lg-block mb-4">
+								<img src="/image 45.png" alt="Logo" className="logo-img" />
+							</div>
+						</div>
+						
+					<div className="col-lg-7 content-login">
+						<h3 className="mb-3 text-black text-center text-lg-start">Login</h3>
+						<p className="mb-4 text-center text-lg-start">Access back to your account</p>
+
+						<form onSubmit={handleSubmit} noValidate>
+							<div className="form-group mb-3">
+								<div className="input-group">
+									<div className="input-group-prepend">
+										<span className="input-group-text icon_back">
+											<i className="bi bi-envelope login_icon_color"></i>
+										</span>
 									</div>
+									<input
+										type="email"
+										className="form-control login_input_field"
+										id="email"
+										placeholder="Email Address"
+										onChange={(e) => setEmail(e.target.value)}
+										required
+									/>
 								</div>
-								<div className="text-end">
-									<Link to="/forgot-password" className="text-decoration-none text-black">
-										Forgot Password?
+							</div>
+
+							<div className="form-group mb-3">
+								<div className="input-group">
+									<div className="input-group-prepend">
+										<span className="input-group-text icon_back">
+											<i className="bi bi-lock login_icon_color"></i>
+										</span>
+									</div>
+									<input
+										type="password"
+										className="form-control login_input_field"
+										id="password"
+										placeholder="Password"
+										value={password}
+										onChange={(e) => setPassword(e.target.value)}
+										required
+									/>
+								</div>
+							</div>
+
+							<div className="text-end mb-3">
+								<Link to="/forgot-password" className="text-decoration-none text-black">
+									Forgot Password?
+								</Link>
+							</div>
+
+							<button type="submit" className="login_button w-100">Login</button>
+
+							{error && (
+								<div className="alert alert-danger mt-3 text-center" role="alert">
+									{error}
+								</div>
+							)}
+
+							<div className="text-center mt-4">
+								<span>
+									New User ?{" "}
+									<Link to="/registration" style={{ fontWeight: "500" }} className="text-decoration-none text-black account-resigter">
+										Register Account
 									</Link>
-								</div>
-								<button type="submit" className="login_button w-100 mt-3">
-									Login
-								</button>
-								{/* <button type="submit" className="login_button w-100 mt-3">
-									Login
-								</button> */}
-								{error && (
-									<div className="alert alert-danger mt-3 text-center" role="alert">
-										{error}
-									</div>
-								)}
+								</span>
+							</div>
 
-								<div className="text-center mt-4">
-									<span>
-										New User ?{" "}
-										<Link to="/registration" style={{ fontWeight: "500" }} className="text-decoration-none text-black">
-											Register Account
-										</Link>
-									</span>
-								</div>
+							<div className="line-separator my-4">
+								<div className="line"></div>
+								<span className="fw-bold text-black">Or Login with</span>
+								<div className="line"></div>
+							</div>
 
-								<div class="line-separator">
-									<div class="line"></div>
-									<span className="fw-bold text-black">Or Login with</span>
-									<div class="line"></div>
+							<div className="row text-center d-flex justify-content-center align-items-center">
+								<div className="col-2">
+									<img src="/fb_login_logo.png" alt="Facebook Login" className="social-icon" />
 								</div>
-							</form>
-						</div>
-						<div className="row">
-							<div className="col-6">
-								<div className="text-end mt-4">
-									<img src="/fb_login_logo.png" alt="Google Login" style={{ width: "30px", cursor: "pointer" }} />
+								<div className="col-2">
+									<img src="/google-login-logo.png" alt="Google Login" className="social-icon" />
 								</div>
 							</div>
-							<div className="col-6">
-								<div className="text-start mt-4">
-									<img src="/google-login-logo.png" alt="Google Login" style={{ width: "30px", cursor: "pointer" }} />
-								</div>
-							</div>
-						</div>
+						</form>
 					</div>
+				
 				</div>
 
-				<div className="col-lg-6 col-md-12 col-sm-12 order-0 order-lg-1 small_screen_padding">
-					<div className="login_screen_small"></div>
+				{/* Right Image Section */}
+				<div className="col-lg-6 col-md-12 login_image_container">
+					<div className="login_image"></div>
 				</div>
 			</div>
 		</div>
@@ -137,3 +136,4 @@ const Login = () => {
 };
 
 export default Login;
+

@@ -1,28 +1,35 @@
-/* @media screen and (min-width: 300px) and (max-width: 800px) {
-* {
-	overflow-x: hidden;
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+	body {
+		font-family: 'Poppins'; 
+	}
+.container-fluid {
+	background-color: #f8f9fa;
 }
-} */
+
+.logo-img {
+	width: 100px;
+	border-radius: 50%;
+}
+
 .login_button {
-	font-family: Inter;
+	font-family: 'Inter', sans-serif;
 	font-size: 23px;
 	font-weight: 600;
 	height: 60px;
-	text-align: center;
 	border-radius: 11px;
 	background: #53afe6;
 	border: none;
 	color: white;
 }
+
 .line-separator {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	margin-top: 20px;
-	margin-bottom: 10px;
+	justify-content: center;
 }
 
-.line-separator .line {
+.line {
 	height: 1px;
 	background-color: #ddd;
 	flex-grow: 1;
@@ -33,54 +40,122 @@
 	font-size: 12px;
 	color: #666;
 }
-.login_input_field {
-	padding: 27px !important;
-	border-left: 0px !important;
-	border-radius: 11px 0px 0px 11px;
-	border: 1px solid #0000006b;
-}
-.icon_back {
-	background-color: white !important;
-}
-.login_icon_color {
-	color: #53afe6;
-}
-.logo-container {
-	position: absolute; /* Position the logo absolutely */
-	top: -120px; /* Adjust vertical position */
-	left: 20px; /* Adjust horizontal position */
-	width: 100px;
-	height: 100px;
+
+.social-icon {
+	width: 30px;
+	cursor: pointer;
 }
 
-.logo-container img {
-	border-radius: 50%;
-	object-fit: cover;
-}
-.icon_border {
-	border-radius: 11px 0px 0px 11px;
+.login_input_field {
+	padding: 27px;
+	border-left: 0;
+	border-radius: 11px 0 0 11px;
 	border: 1px solid #0000006b;
 }
-.login_screen_small {
+
+.icon_back {
+	background-color: white;
+}
+
+.login_icon_color {
+	color: #53afe6;
+	font-size: 24px;
+}
+
+.login_image_container {
+	position: relative;
+}
+
+.login_image {
 	background-image: url(/login.png);
 	background-size: cover;
-	background-position: center center;
-	height: 100%;
+	background-position: center;
+	height: 100vh;
 	width: 100%;
 }
-@media screen and (min-width: 300px) and (max-width: 766px) {
-	.login_screen_small {
-		background-image: url(/login.png);
-		background-size: cover;
-		background-position: 50% 32%;
-		height: 100%;
-		width: 100%;
+.login-screen h3 {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38.73px;
+    text-align: center;
+}
+.login-screen p {
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 24.2px;
+}
+.login-screen .input-group input:focus-visible {
+	box-shadow: none !important;
+	outline: none !important;
+	border: 1px solid #dee2e6 !important;
+}
+.login-screen .input-group input::placeholder {
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20.57px;
+}
+.login-screen .input-group input {
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20.57px;
+}
+p, a {
+		font-family: Inter;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 21.78px;
+		text-align: center;
+}
+.login_button.w-100 {
+    font-family: Inter;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: center;
+}
+.account-resigter a {
+    font-family: Inter;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20.57px;
+    text-align: center;
+}
+.login-screen .input-group .icon_back {
+    background-color: transparent !important;
+}
+.line-separator .line {
+    border: 1px solid #00000047;
+}
+.line-separator span {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: left;
+}
+.login-screen {
+    flex-direction: column;
+	padding-top: 20px;
+}
+.login-screen .header-desktop {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+/* Responsive for smaller screens */
+@media (max-width: 767px) {
+	.login_image_container {
+		display: none;
 	}
-	.small_screen_padding {
-		padding-left: 0 !important;
-		padding-right: 0 !important;
+	.login_button {
+		font-size: 20px;
 	}
 	.small_screen_image_width {
-		width: 100px !important;
+		width: 80px;
 	}
 }
