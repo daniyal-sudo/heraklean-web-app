@@ -150,14 +150,47 @@ p, a {
     width: 100%;
 }
 /* Responsive for smaller screens */
-@media (max-width: 767px) {
-	.login_image_container {
-		display: none;
+@media (max-width: 992px) {
+	.login-section .col-lg-6 {
+		width: 50%;
 	}
+}
+@media (max-width: 768px) {
 	.login_button {
 		font-size: 20px;
 	}
 	.small_screen_image_width {
 		width: 80px;
+		border-radius: 20px;
+	}
+	.login-screen .header-desktop {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.login-section {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.login-section .col-lg-6 {
+		width: 100%;
+		padding: 0px;
+	}
+	.col-lg-7.content-login {
+		max-width: 500px;
+		margin: auto;
+	}
+	.login-section .login-screen {
+		padding: 20px;
+	}
+}
+@media (max-width: 480px) {
+	.login_image {
+		min-height: calc(100dvh - 400px);
+		width: 100%;
+	}
+	.logo-img {
+		display: none;
 	}
 }

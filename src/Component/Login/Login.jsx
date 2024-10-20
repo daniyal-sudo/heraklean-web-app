@@ -34,7 +34,7 @@ const Login = () => {
 			</div>
 
 			<div className="row login-section">
-				<div className="col-lg-6 col-md-12 d-flex justify-content-center align-items-center login-screen">
+				<div className="col-lg-6 d-flex justify-content-center align-items-center login-screen">
 					<div className="header-desktop">
 						<div className="text-center d-lg-block">
 								<img src="/image 45.png" alt="Logo" className="logo-img" />
@@ -117,7 +117,7 @@ const Login = () => {
 					</div>
 				
 				</div>
-				<div className="col-lg-6 col-md-12 login_image_container">
+				<div className="col-lg-6 login_image_container">
 					<div className="login_image"></div>
 				</div>
 			</div>
