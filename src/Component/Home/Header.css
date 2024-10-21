@@ -55,7 +55,7 @@
 .notification_dd {
 	position: absolute;
 	right: 94px;
-	top: 60px;
+    top: 81px;
 	width: 350px;
 	background: white;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -69,6 +69,9 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	height: 410px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .notification_ul li {

@@ -153,7 +153,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="profile-pic me-4 mx-2">
+        <div className="">
           <img
             src={profilePic || 'picture.png'} // Fallback image if no profilePic is available
             className="img-fluid rounded-circle"
