@@ -84,7 +84,7 @@ const Registration = () => {
               </div>
               <div className="col-lg-7">
                 <div className="form-group mb-2 choose_file" style={{
-					alignItems:'start'
+					textAlign:'start'
 				}}>
                  
                   <ImageUploader  handleImageUpload={handleImageUpload} selectedImage={formData.profilePic} />
