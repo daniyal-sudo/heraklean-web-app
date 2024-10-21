@@ -111,7 +111,7 @@ const AllClients = () => {
 	return (
 		<>
 			<div className="container my-4 clinet_height">
-				<div className="row justify-content-center">
+				<div className="row">
 					<div className="col-lg-10 p-3 bg-white rounded-3">
 						<div className="row">
 							<div className="col-lg-3">
