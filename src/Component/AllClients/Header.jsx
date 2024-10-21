@@ -104,11 +104,7 @@ const Header = () => {
 			<header className="header mobile_view_header">
 				<div className="header-content flex justify-between items-center">
 					<div className="greeting mx-5 col-lg-4">
-					<h5 className="card-text mt-3 mx-2">Good Morning, Afnan Ali</h5>
-							{/* <p className="card-text fw-bold fs-4 mx-2 small">
-								{" "}
-								{trainerInfo.Fname} {trainerInfo.lastName}
-							</p> */}
+					<h5 className="card-text mx-2">Good Morning, Afnan Ali</h5>
 					</div>
 
 					<div className="notifications">

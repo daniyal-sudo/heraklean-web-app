@@ -3,17 +3,16 @@ import Header from './../AllClients/Header';
 import Sidebar from './../Home/Sidebar';
 import './../CreateClient/CreateClient.css';
 import ProfileData from './ProfileData';
-import './Profile.css';
 
 function Profile() {
 
   return (
     <div className="home-container">
     <div className="d-flex">
-      <Sidebar /> {/* Sidebar on the left */}
+      <Sidebar />
       
       <div className="content-wrapper">
-        <div className="header-fullwidth"> {/* Make header full width */}
+        <div className="header-fullwidth">
           <Header />
         </div>
         <ProfileData />

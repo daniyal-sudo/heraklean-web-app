@@ -122,6 +122,23 @@ border: 1px solid #DEDEDE !important;
 .from-profile button:active, :focus {
   background: #53AFE6;
 }
+/* ===chosse file== */
+.custom-file-upload input[type="file"] {
+  display: none; 
+}
+.custom-file-upload label {
+  display: inline-block;
+  padding: 10px 12px;
+  background: #53AFE6;
+  border: #53AFE6;
+  color: white;
+  border-radius: 17px;
+  cursor: pointer;
+}
+.custom-file-upload label:hover, :focus, :active, :focus-visible {
+  background: #53AFE6;
+  border: #53AFE6;
+}
 @media only screen and (max-width: 992px) {
     .profile-page {
       padding: 20px;

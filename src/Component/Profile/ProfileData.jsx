@@ -74,7 +74,10 @@ const ProfileData = () => {
               <div className="row">
                 <div className="col profile-buttons">
                   <div className="profile_chosse">
-                      <input type="file"  onChange={handleImageUpload} className="form-control" />
+                  <div class="custom-file-upload">
+                        <label for="fileUpload" class="btn btn-primary">Upload picture</label>
+                        <input id="fileUpload" type="file"  onChange={handleImageUpload} className="form-control-file" />
+                 </div>
                       <button type="button" className="btn btn-white" onClick={() => setFormData({ ...formData, profilePic: '' })}
                         >  <i className="bi bi-trash-fill" style={{ fontSize: '1rem' }}></i>Delete</button>
                     </div>
