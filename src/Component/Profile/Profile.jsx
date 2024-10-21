@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './../AllClients/Header';
 import Sidebar from './../Home/Sidebar';
 import './../CreateClient/CreateClient.css';
 import ProfileData from './ProfileData';
+import Header from '../CommonComponent/Header';
 
 function Profile() {
 
@@ -13,7 +13,7 @@ function Profile() {
       
       <div className="content-wrapper">
         <div className="header-fullwidth">
-          <Header />
+      <Header />  
         </div>
         <ProfileData />
       </div>
