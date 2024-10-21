@@ -135,7 +135,7 @@ border: 1px solid #DEDEDE !important;
   border-radius: 17px;
   cursor: pointer;
 }
-.custom-file-upload label:hover, :focus, :active, :focus-visible {
+.custom-file-upload label:hover, :focus {
   background: #53AFE6;
   border: #53AFE6;
 }
