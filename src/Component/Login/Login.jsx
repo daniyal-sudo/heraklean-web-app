@@ -105,7 +105,7 @@ const Login = () => {
 								<span className="fw-bold text-black">Or Login with</span>
 								<div className="line"></div>
 							</div>
-							<div className="row text-center d-flex justify-content-center align-items-center">
+							<div className="row text-center   flex-row d-flex justify-content-center align-items-center">
 								<div className="col-2">
 									<img src="/fb_login_logo.png" alt="Facebook Login" className="social-icon" />
 								</div>
