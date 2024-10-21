@@ -1,11 +1,163 @@
-/* Ensure the home-container uses full width */
-/* .home-container {
-    display: flex;
+.profile-section p {
+  text-align: start !important;
+  margin-bottom: 40px;
+}
+.col-8.profile-section input:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #DEDEDE !important;
+}
+.profile_chosse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.profile-section button {
+border: 1px solid #DEDEDE !important;
+}
+.profile-section button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #DEDEDE !important;
+
+}
+.profile-section button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.para-profile p {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.col-lg-6 label {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.from-profile .col-lg-6 input {
+    padding: 15px 16px 11px 16px;
+    border-radius: 8px;
+    border: 1px solid #DEDEDE;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+
+}
+.from-profile .col-lg-6 label input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.from-profile button {
+  width: 227px;
+  height: 70px;
+  border-radius: 11px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 29.03px;
+  text-align: left;
+  color: #FFFFFF;
+  background: #53AFE6;
+}
+  .from-profile button:hover {
+    background: #53AFE6 !important;
+  }
+  .from-profile button:focus {
+    box-shadow: none !important;
+  }
+/* head */
+
+.head-profile {
+  position: relative; 
+  display: inline-block;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+}
+
+.head-profile::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  bottom: -5px;
+  width: 47px;
+  height: 3px;
+  border-radius: 5px;
+  background: #53AFE6;
+}
+.profile-page {
+  border-radius: 17px;
+  background-color: #FFFFFF;
+  border: none !important;
+  position: relative;
+  padding: 35px;
+}
+.profile-screen {
+      background-color: #f8f6fb;
+      padding: 30px !important;
+}
+.profile_chosse button {
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 24px;
+      text-align: left;
+}
+.from-profile button:active, :focus {
+  background: #53AFE6;
+}
+@media only screen and (max-width: 992px) {
+    .profile-page {
+      padding: 20px;
+  }
+  .col-8.profile-section {
     width: 100%;
-   
-  } */
-  
-  
-  /* Content should take the remaining width */
+    max-width: 100%;
+  }
+  .from-profile .col-lg-6 {
+   width: 50%;
+}
+
+}
+@media only screen and (max-width: 480px) {
+    .col.profile-buttons {
+      padding: 0px;
+  }
+  .from-profile .col-lg-6 {
+    padding: 0px;
+    width: 100%;
+}
+    .profile-screen {
+    background-color: #f8f6fb;
+    padding: 10px !important;
+    }
+    .profile_chosse {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+}
+
+
+
+
+
+
+
+
 
  

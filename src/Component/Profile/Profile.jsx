@@ -6,6 +6,7 @@ import ProfileData from './ProfileData';
 import './Profile.css';
 
 function Profile() {
+
   return (
     <div className="home-container">
     <div className="d-flex">
