@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Header from '../CommonComponent/Header';
 import Sidebar from './../Home/Sidebar';
 import './../CreateClient/CreateClient.css';
 import DietData from './DietData';
