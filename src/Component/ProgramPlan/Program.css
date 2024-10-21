@@ -23,8 +23,7 @@
   }
   
   .header-fullwidth {
-    /* width: 173% !important; */
-    background-color: #fff; /* Optional: Ensure background covers full width */
-    padding: 10px 0; /* Adjust padding if necessary */
+    background-color: #fff;
+ 
   }
   

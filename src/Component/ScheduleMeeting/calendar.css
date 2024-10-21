@@ -281,7 +281,7 @@
   }
   
   .time-slot-header {
-    width: 180px; /* Adjust as needed */
+    width: 180px; 
   }
   
   .day-header {
@@ -299,7 +299,7 @@
   }
   
   .time-slot-label {
-    width: 90px; /* Should match time-slot-header width */
+    width: 90px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -307,7 +307,6 @@
   
   .day-slot {
     flex: 1;
-    /* border: 1px solid #ccc; */
     position: relative;
   }
   
@@ -324,12 +323,6 @@
     font-size: 0.8em;
     cursor: pointer;
   }
-
-  /* .home-container {
-    display: flex;
-    width: 100%;
-  }
-   */
   .content-wrapper {
     display: flex;
     flex-direction: column;
@@ -337,13 +330,10 @@
   }
   
   .header-fullwidth {
-    /* width: 100%; */
     background-color: #fff; 
-    padding: 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
   }
-  /* Add these styles to your existing calendar.css file */
 
