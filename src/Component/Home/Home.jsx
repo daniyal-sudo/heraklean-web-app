@@ -12,19 +12,19 @@ const Home = () => {
 	};
 
 	return (
-		<div className={`container-fluid home-container full_page_height ${isSidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
-			<div className="row">
-				<div className="col-lg-2 col-12 px-0 side_content"> 
+		<div className="home-container">
+    <div className="d-flex">
+				<div className="side_content"> 
 					<Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 				</div>
-				<div className="col-lg-10 col-12 px-0 profile_content" style={{ background: '#F8F6FB' }}>
-					<div className="content-wrapper">
+				<div className="content-wrapper d-flex flex-column">
 						<Header toggleSidebar={toggleSidebar} />
 						<ClientProfile />
-					</div>
-				</div>
-			</div>
-		</div>
+						</div>
+    </div>
+  </div>
+			
+		
 	);
 };
 
