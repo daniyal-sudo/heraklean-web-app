@@ -295,7 +295,7 @@ const ClientProfile = () => {
 						</h4>
 
 						{/* Removed the <img> tag and replaced it with the styled border */}
-						<div classNname="upcoming-card">
+						<div className="upcoming-card">
 						<div className="row">
 						
 							{appointments && appointments.length > 0 ? (

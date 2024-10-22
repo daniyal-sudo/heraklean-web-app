@@ -94,71 +94,76 @@ const Form = () => {
   }
 
   return (
-
-    <div className="container my-5 shadow p-3 mb-5 bg-white rounded mx-5  ">
-      <div className="row">
-        <div className="col-lg-12">
-          <h1 className='fw-bold fs-3'> Create Client</h1>
-        </div>
-
-
-    <form onSubmit={handleSubmit}>
-      <div className='row'>
-        <div className="col-6 mb-3 ">
-
-        <label htmlFor="fullname">Full Name</label>
-        <input className='form-control' type="text" id="fullname" value={formData.fullname} onChange={handleInputChange} required />
-        </div>
-      <div className='col-6 mb-3'>
-        <label htmlFor="email">Email</label>
-        <input className='form-control' type="email" id="email" value={formData.email} onChange={handleInputChange} required />
-      </div>
-      </div>
-      <div className='row'>
-        <div className="col-6">
-
-        <label htmlFor="password">Password</label>
-        <input className='form-control' type="password" id="password" value={formData.password} onChange={handleInputChange} required />
-        </div>
-      <div className='col-6 mb-3'>
-        <label htmlFor="startingWeight">Starting Weight</label>
-        <input className='form-control'  type="number" id="startingWeight" value={formData.startingWeight} onChange={handleInputChange} required />
-      </div>
-      </div>
-      <div className='row '>
-        <div className="col-6 mb-3">
-
-        <label htmlFor="attachDietId">Attach Diet Plan</label>
-        <select id="attachDietId" className='form-control' value={formData.attachDietId[0] || ''} onChange={handleInputChange} required>
-          <option value="">Select Diet Plan</option>
-          {dietPlans.map((diet) => (
-            <option key={diet._id} value={diet._id}>{diet.dietTitle}</option>
-          ))}
-        </select>
-          </div>
-      <div className='col-6 mb-3'>
-        <label htmlFor="attachProgramId" >Attach Program Plan</label>
-        <select id="attachProgramId" className='form-control' value={formData.attachProgramId[0] || ''} onChange={handleInputChange} required>
-          <option value="">Select Program Plan</option>
-          {programPlans.map((program) => (
-            <option key={program._id} value={program._id}>{program.programTitle}</option>
-          ))}
-        </select>
-      </div>
-          </div>
-      <div className='row'>
-        <div className="col-6 mb-3">
-        <label htmlFor="subamount" >Subscription Amount</label>
-        <input type="number" className='form-control' id="subamount" value={formData.subamount} onChange={handleInputChange} required />
-        </div>
-      <div className='col-6 mb-3'>
-        <label htmlFor="upload">Profile Picture</label>
-        <input type="file" id="upload" className='form-control' onChange={handleFileChange} />
-      </div>
-      </div>
-      <button type="submit" className='btn btn-primary mb-3'>Create Client</button>
-    </form>
+   <div className="create-modal">
+        <div className="container shadow p-4 bg-white rounded modal-crative2">
+          <div className="row">
+            <div className="col-lg-12">
+              <h1 className='head-profiles'> Create Client</h1>
             </div>
+
+
+        <form onSubmit={handleSubmit} className="creative-from">
+          <div className='row'>
+            <div className="col-6 mb-3 ">
+
+            <label htmlFor="fullname">Full Name</label>
+            <input className='form-control' type="text" id="fullname" placeholder="Type" value={formData.fullname} onChange={handleInputChange} required />
+            </div>
+          <div className='col-6 mb-3'>
+            <label htmlFor="email">Email</label>
+            <input className='form-control' type="email" id="email" placeholder="Type" value={formData.email} onChange={handleInputChange} required />
+          </div>
+          </div>
+          <div className='row'>
+            <div className="col-6 mb-3">
+
+            <label htmlFor="password">Password</label>
+            <input className='form-control' type="password" id="password" value={formData.password} onChange={handleInputChange} required />
+            </div>
+          <div className='col-6 mb-3'>
+            <label htmlFor="startingWeight">Starting Weight</label>
+            <input className='form-control'  type="number" id="startingWeight" value={formData.startingWeight} onChange={handleInputChange} required />
+          </div>
+          </div>
+          <div className='row '>
+            <div className="col-6 mb-3">
+
+            <label htmlFor="attachDietId">Attach Diet Plan</label>
+            <select id="attachDietId" className='form-control' value={formData.attachDietId[0] || ''} onChange={handleInputChange} required>
+              <option value="">Select Diet Plan</option>
+              {dietPlans.map((diet) => (
+                <option key={diet._id} value={diet._id}>{diet.dietTitle}</option>
+              ))}
+            </select>
+              </div>
+          <div className='col-6 mb-3'>
+            <label htmlFor="attachProgramId" >Attach Program Plan</label>
+            <select id="attachProgramId" className='form-control' value={formData.attachProgramId[0] || ''} onChange={handleInputChange} required>
+              <option value="">Select Program Plan</option>
+              {programPlans.map((program) => (
+                <option key={program._id} value={program._id}>{program.programTitle}</option>
+              ))}
+            </select>
+          </div>
+              </div>
+          <div className='row'>
+            <div className="col-6 mb-3">
+            <label htmlFor="subamount" >Subscription Amount</label>
+            <input type="number" className='form-control' id="subamount" value={formData.subamount} onChange={handleInputChange} required />
+            </div>
+          <div className='col-6 mb-3'>
+            <label htmlFor="upload">Profile Picture</label>
+            <input type="file" id="upload" className='form-control' onChange={handleFileChange} />
+          </div>
+          </div>
+          <div className="crative-button">
+              <button type="submit" className='btn btn-primary'>Create</button>
+              <button type="cancel" className='btn btn-light'>Cancel</button>
+          </div>
+
+        </form>
+                </div>
+        </div>
     </div>
   );
 };
