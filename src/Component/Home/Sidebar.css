@@ -147,6 +147,7 @@
 }
 .custom-sidebar {
     background: #fff;
+	padding: 0px 20px;
 }
 @media screen and (min-width: 320px) and (max-width: 768px) {
 .custom-sidebar {
