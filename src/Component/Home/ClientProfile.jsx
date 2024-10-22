@@ -16,7 +16,7 @@ const AppointmentCard = ({ name, date, time, imgSrc }) => {
 			>
 				{/* Profile Image */}
 				<div className="d-flex align-items-center">
-					<img src={imgSrc} alt={name} className="rounded" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
+					<img src={imgSrc} alt={name} className="rounded" style={{ width: "80px", height: "80px", objectFit: "cover" }} />
 					{/* Text Content */}
 					<div className="ms-3">
 						<h6 className="mb-0 custom-font-head">
