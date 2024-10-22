@@ -114,7 +114,39 @@ const ClientProfile = () => {
 
 
 
-
+	const appointmentsStaticData = [
+		{
+		  clientName: "John Doe",
+		  date: "2024-10-23T09:00:00Z",
+		  time: "10:00 AM",
+		  clientProfilePic: "https://randomuser.me/api/portraits/men/1.jpg", // Example live image URL
+		},
+		{
+		  clientName: "Jane Smith",
+		  date: "2024-10-24T14:30:00Z",
+		  time: "2:30 PM",
+		  clientProfilePic: "https://randomuser.me/api/portraits/women/1.jpg", // Example live image URL
+		},
+		{
+		  clientName: "Mike Johnson",
+		  date: "2024-10-25T11:15:00Z",
+		  time: "11:15 AM",
+		  clientProfilePic: "", // Default pic will be used here
+		},
+		{
+		  clientName: "Alice Brown",
+		  date: "2024-10-26T16:00:00Z",
+		  time: "4:00 PM",
+		  clientProfilePic: "https://randomuser.me/api/portraits/women/2.jpg", // Example live image URL
+		},
+		{
+		  clientName: "Emma Davis",
+		  date: "2024-10-27T09:45:00Z",
+		  time: "9:45 AM",
+		  clientProfilePic: "https://randomuser.me/api/portraits/women/3.jpg", // Example live image URL
+		},
+	  ];
+	  
 
 
 
@@ -181,7 +213,11 @@ const ClientProfile = () => {
 
 			// Update state with the fetched appointments
 			if (response.data.success) {
-				setAppointments(response.data.meetings);
+				if(!response.data.meetings){
+					setAppointments(appointmentsStaticData)
+				}else{
+					setAppointments(response.data.meetings);
+				}
 				console.log("Upcoming meetings:", response.data.meetings);
 			} else {
 				console.error("Failed to fetch meetings");
