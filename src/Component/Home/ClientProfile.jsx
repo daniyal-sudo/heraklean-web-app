@@ -209,13 +209,13 @@ const ClientProfile = () => {
 	];
 
 	return (
-		<div className="container mt-3 ">
-			<div className="row mb-4">
+		<div className="container ">
+			<div className="row mb-4 mt-4">
 				<div className="col-lg-6 mbile_screen_margin">
 					<div className="row bg-white p-3  margin_right_left rounded-4 box_height">
 						<div className="col-lg-7 col-6 align-self-center">
 							<h5 className="card-text mt-3 mx-2">Good Morning,</h5>
-							<p className="card-text fw-bold fs-4 mx-2 small">
+							<p className="card-text fw-bold fs-4 mx-2 small text-justify">
 								{" "}
 								{trainerInfo.Fname} {trainerInfo.lastName}
 							</p>
@@ -231,8 +231,8 @@ const ClientProfile = () => {
 				<div className="col-lg-6 mbile_screen_margin">
 					<div className="row bg-white p-3 margin_right_left rounded-4 box_height ">
 						<div className="col-lg-7 col-6 align-self-center">
-							<h5 className="card-title fw-bold fs-4 mt-3 mx-3">{totalClients}</h5>
-							<p className="card-text fs-5 mx-3">Clients</p>
+							<h5 className="card-title clinets_score">{totalClients}</h5>
+							<p className="card-text fs-5  text-justify">Clients</p>
 						</div>
 						<div className="col-lg-5 col-6 align-self-center">
 							<div className="text-end">
