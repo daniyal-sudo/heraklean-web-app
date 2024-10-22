@@ -212,10 +212,10 @@ const ClientProfile = () => {
 		<div className="container ">
 			<div className="row mb-4 mt-4">
 				<div className="col-lg-6 mbile_screen_margin">
-					<div className="row bg-white p-3  margin_right_left rounded-4 box_height">
+					<div className="row bg-white p-3 m-2 box_height small-cards">
 						<div className="col-lg-7 col-6 align-self-center">
-							<h5 className="card-text mt-3 mx-2">Good Morning,</h5>
-							<p className="card-text fw-bold fs-4 mx-2 small text-justify">
+							<h5 className="card-text font-custom-card">Good Morning,</h5>
+							<p className="card-text text-justify font-custom-large">
 								{" "}
 								{trainerInfo.Fname} {trainerInfo.lastName}
 							</p>
@@ -229,10 +229,10 @@ const ClientProfile = () => {
 				</div>
 
 				<div className="col-lg-6 mbile_screen_margin">
-					<div className="row bg-white p-3 margin_right_left rounded-4 box_height ">
+					<div className="row bg-white p-3 m-2 box_height small-cards">
 						<div className="col-lg-7 col-6 align-self-center">
-							<h5 className="card-title clinets_score">{totalClients}</h5>
-							<p className="card-text fs-5  text-justify">Clients</p>
+							<h5 className="card-title clinets_score font-custom-card">{totalClients}</h5>
+							<p className="card-text text-justify font-custom-card">Clients</p>
 						</div>
 						<div className="col-lg-5 col-6 align-self-center">
 							<div className="text-end">
@@ -251,7 +251,7 @@ const ClientProfile = () => {
 
 			<div className="row mb-4">
 				<div className="col-lg-12">
-					<div className="bg-white p-4 margin_right_left rounded-4 client-listing">
+					<div className="bg-white p-4  rounded-4 client-listing">
 						<h4 className="card-text fw-bold fs-4 mx-2 small upcoming_border-line" style={{ fontWeight: "bold" }}>
 							Upcoming Schedules
 						</h4>
@@ -283,7 +283,7 @@ const ClientProfile = () => {
 
 			<div className="row mb-5">
 				<div className="col-lg-12">
-					<div className="bg-white p-4 margin_right_left rounded-4 alert-client">
+					<div className="bg-white p-4  rounded-4 alert-client">
 						<h4 className="card-text upcoming_border-line" style={{ fontWeight: "bold" }}>
 							Alerted Clients
 						</h4>

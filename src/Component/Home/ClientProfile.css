@@ -46,7 +46,23 @@ height: 100%;
 	line-height: 25.2px;
 	letter-spacing: 0.24px;
 	color: #000000;
-
+  }
+  .small-cards {
+    height: 163.41px;
+    border-radius: 17px;
+}
+.font-custom-card {
+	font-family: 'Poppins';
+	font-weight: 400;
+	font-size: 24.57px;
+	line-height: 43.87px;
+  }
+  .font-custom-large {
+	font-family: 'Poppins';
+	font-size: 29.83px;
+	font-weight: 600;
+	line-height: 43.87px;
+	text-align: left;
   }
   .font-style-sub {
 	font-family: 'Poppins';
@@ -56,6 +72,21 @@ height: 100%;
 	letter-spacing: 0.236px;
 	text-align: left;
   }
+  .small-cards a.btn {
+	width: 161.22px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.small-cards a {
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 29.03px;
+	text-align: left;
+}
+
 .appointment-card .appointment-details {
 	color: #6cace4;
 	font-size: 14px;
