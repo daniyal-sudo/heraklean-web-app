@@ -148,13 +148,13 @@ nav.custom-sidebar .d-flex a.active {
     width: 142px;
     height: 121px;
 }
+@media only screen and (max-width: 990px) {
+		.profile_chosse {
+			justify-content: flex-start !important;
+		}
+}
 
-@media only screen and (max-width: 768px) {
-	.header-content {
-		flex-direction: column;
-		justify-content: center;
-		text-align: center;
-	}
+@media only screen and (max-width: 769px) {
 	.greeting {
 		margin-bottom: 15px;
 	}
@@ -162,6 +162,22 @@ nav.custom-sidebar .d-flex a.active {
 	.profile {
 		margin-bottom: 10px;
 	}
+	
+	.header-fullwidth {
+		display: none !important;
+	}
+	.home-container .d-flex .navbar-toggler svg {
+		position: relative;
+		z-index: 9;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.home-container .d-flex {
+		display: block !important;
+	}
+		.header {
+			display: none !important;
+		}
 }
 
 
