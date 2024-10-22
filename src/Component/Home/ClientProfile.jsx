@@ -42,19 +42,19 @@ const Card = ({ name, city, imgSrc }) => {
 			{" "}
 			{/* Changed to col-md-4 for 3 cards per row */}
 			<div
-				className="d-flex align-items-center justify-content-between p-3 shadow-sm rounded"
+				className="d-flex align-items-center justify-content-between p-3  min-card"
 				style={{ border: "1px solid #E5E5E5" }}
 			>
 				{/* Profile Image */}
 				<div className="d-flex align-items-center">
-					<img src={imgSrc} alt={name} className="rounded" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
+					<img src={imgSrc} alt={name} className="rounded" style={{ width: "80px", height: "80px", objectFit: "cover" }} />
 					{/* Text Content */}
 					<div className="ms-3">
-						<h6 className="mb-0" style={{ fontWeight: "bold", fontSize: "16px" }}>
+						<h6 className="mb-0 font-custom">
 							{name}
 						</h6>
 						<div className="d-flex align-items-center text-muted mt-1">
-							<span style={{ fontSize: "14px" }}>{city}</span>
+							<span className="font-style-sub">{city}</span>
 						</div>
 					</div>
 				</div>
@@ -251,13 +251,13 @@ const ClientProfile = () => {
 
 			<div className="row mb-4">
 				<div className="col-lg-12">
-					<div className="bg-white p-4 margin_right_left rounded-4">
+					<div className="bg-white p-4 margin_right_left rounded-4 client-listing">
 						<h4 className="card-text fw-bold fs-4 mx-2 small upcoming_border-line" style={{ fontWeight: "bold" }}>
 							Upcoming Schedules
 						</h4>
 
 						{/* Removed the <img> tag and replaced it with the styled border */}
-						<div className="row">
+						<div className="row no record-image">
 							{appointments && appointments.length > 0 ? (
 								appointments.map((appointment, index) => (
 									<AppointmentCard
@@ -283,8 +283,8 @@ const ClientProfile = () => {
 
 			<div className="row mb-5">
 				<div className="col-lg-12">
-					<div className="bg-white p-4 margin_right_left rounded-4 ">
-						<h4 className="card-text fw-bold fs-4 mx-2 small upcoming_border-line" style={{ fontWeight: "bold" }}>
+					<div className="bg-white p-4 margin_right_left rounded-4 alert-client">
+						<h4 className="card-text upcoming_border-line" style={{ fontWeight: "bold" }}>
 							Alerted Clients
 						</h4>
 

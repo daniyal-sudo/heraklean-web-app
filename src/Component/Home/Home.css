@@ -5,20 +5,3 @@
 	align-items: center;
 	height: 97px !important;
 }
-
-@media screen and (min-width: 786px) and (max-width: 4000px) {
-	.profile_content {
-		/* width: "86.33%"; */
-		background: "#F8F6FB";
-	}
-	.side_content {
-		/* width: "13.67%"; */
-		/* height: 65px !important; */
-	}
-}
-
-@media screen and (min-width: 320px) and (max-width: 768px) {
-	.side_content {
-		/* height: 65px !important; */
-	}
-}
