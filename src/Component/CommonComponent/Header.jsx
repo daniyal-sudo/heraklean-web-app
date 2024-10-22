@@ -92,7 +92,7 @@ const Header = () => {
 											{notificationsActive && (
 												<div className="notification-dropdown">
 													<ul>
-														{notifications.map((notification, index) => (
+														{notifications?.length > 0 ? notifications.map((notification, index) => (
 															<li key={index}>
 																<div className="notify-icon">
 																	<span className="icon success"></span>
@@ -101,10 +101,15 @@ const Header = () => {
 																	<p>{notification}</p>
 																</div>
 															</li>
-														))}
-														<li className="show-all">
+														)):
+														 <li className="show-all"
+														>
+															<p className="link">No notification found.</p>
+														</li> 
+														}
+														{/* <li className="show-all">
 															<p className="link">Show All Notifications</p>
-														</li>
+														</li> */}
 													</ul>
 												</div>
 											)}

@@ -111,11 +111,13 @@
 .show-all {
 	text-align: center;
 	padding: 10px;
+	
+	justify-content: center;
 }
 
 .show-all .link {
-	color: #007bff;
 	cursor: pointer;
+	margin-bottom: 0px;
 }
 
 /* Profile Styles */
