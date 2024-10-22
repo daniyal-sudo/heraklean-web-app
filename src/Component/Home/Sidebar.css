@@ -145,6 +145,9 @@
 .text_nav_item {
 	color: #53afe6;
 }
+.custom-sidebar {
+    background: #fff;
+}
 @media screen and (min-width: 320px) and (max-width: 768px) {
 .custom-sidebar {
 	position: fixed;
