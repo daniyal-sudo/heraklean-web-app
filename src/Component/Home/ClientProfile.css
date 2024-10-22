@@ -144,123 +144,6 @@ height: 100%;
 body {
 	background-color: #fcf8f3;
 }
-
-/* Adjust overall padding and margins for mobile */
-@media (max-width: 768px) {
-
-	.content-wrapper {
-		padding: 10px; /* Adjust content padding */
-	}
-
-	.card-body img {
-		width: 70px;
-		height: 70px;
-	}
-
-	/* Adjust heading sizes */
-	h5,
-	h4 {
-		font-size: 18px !important;
-	}
-
-	.card-text {
-		font-size: 14px !important;
-	}
-
-	.btn {
-		font-size: 14px !important;
-		padding: 10px 15px !important;
-	}
-
-	/* Make appointment cards stack vertically */
-	.appointment-card {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.appointment-card img {
-		width: 40px;
-		height: 40px;
-		margin-bottom: 8px;
-	}
-
-	.appointment-card h6 {
-		font-size: 14px;
-	}
-
-	.appointment-card .appointment-details {
-		font-size: 12px;
-	}
-
-	.chevron-icon {
-		display: none; /* Hide chevron on smaller screens */
-	}
-}
-
-/* Adjust columns for smaller screens */
-@media (max-width: 576px) {
-	.col-12.col-md-6 {
-		width: 100%; /* Full width for smaller screens */
-	}
-
-	.col-12.col-md-4 {
-		width: 100%; /* Ensure full width for client cards */
-	}
-
-	.bg-white {
-		padding: 15px; /* Smaller padding for mobile */
-	}
-
-	.appointment-card {
-		width: 100%; /* Full width for appointment cards */
-		margin-bottom: 16px;
-	}
-
-	/* Adjust profile picture */
-	.card-body img {
-		width: 60px;
-		height: 60px;
-	}
-
-	/* Alert Client section adjustments */
-	.alert-client {
-		margin-top: 20px;
-	}
-}
-
-/* Handle very small screens (phones in portrait mode) */
-@media (max-width: 400px) {
-	h5,
-	h4 {
-		font-size: 16px;
-	}
-
-	.btn {
-		font-size: 12px;
-		padding: 8px 12px;
-	}
-
-	/* Adjust text alignment for smaller screens */
-	.d-flex {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.appointment-card {
-		padding: 10px;
-	}
-
-	.nav-item span {
-		display: none; /* Hide text on nav items for space */
-	}
-
-	/* Image adjustments */
-	img {
-		width: 80%;
-		height: auto;
-	}
-}
-
 .box_height {
 	height: 125px;
 }
@@ -310,13 +193,20 @@ body {
 
 
 }
+@media (max-width: 1024px) {
+	.alert-client .col-12.col-md-4 {
+		width: 50%;
+	}
 
-@media screen and (min-width: 768px) and (max-width: 4000px) {
-  .margin_right_left{
-    margin-left: 20px !important; 
-    margin-right: 20px !important;
-  }
 }
+@media (max-width: 480px) {
+	.alert-client .col-12.col-md-4 {
+		width: 100%;
+	}
+
+}
+
+
 
 .vertical_scroll_content{
 	height: calc(100vh - 117px);

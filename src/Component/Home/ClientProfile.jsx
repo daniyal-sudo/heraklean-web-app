@@ -295,7 +295,9 @@ const ClientProfile = () => {
 						</h4>
 
 						{/* Removed the <img> tag and replaced it with the styled border */}
+						<div classNname="upcoming-card">
 						<div className="row">
+						
 							{appointments && appointments.length > 0 ? (
 								appointments.map((appointment, index) => (
 									<AppointmentCard
@@ -307,13 +309,11 @@ const ClientProfile = () => {
 									/>
 								))
 							) : (
-								// <p className="mt-4">No upcoming appointments</p>
 								<div className="text-center record-image">
 									<img src="/no-event.jpg" style={{ width: "130px" }} />
 								</div>
-
-								// Display this when there are no appointments
 							)}
+							</div>
 						</div>
 					</div>
 				</div>
