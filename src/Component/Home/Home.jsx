@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "./Header";
+import Header from '../CommonComponent/Header';
 import Sidebar from "./Sidebar";
 import ClientProfile from "./ClientProfile";
 import "./Home.css"; // Ensure correct path
@@ -18,7 +18,7 @@ const Home = () => {
 					<Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 				</div>
 				<div className="content-wrapper d-flex flex-column">
-						<Header toggleSidebar={toggleSidebar} />
+						<Header />
 						<ClientProfile />
 						</div>
     </div>
