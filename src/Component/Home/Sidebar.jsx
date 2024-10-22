@@ -92,6 +92,7 @@ const Sidebar = () => {
                     ? "text_nav_item"
                     : "text-muted"
                 }`}
+				style={{color:location.pathname === item.path ? " #53AFE6" : "#8F8F8F"}}
               >
                 {item.name}
               </span>
