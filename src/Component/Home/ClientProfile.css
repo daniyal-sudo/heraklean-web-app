@@ -79,13 +79,7 @@ height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.small-cards a {
 	font-family: Inter;
-	font-size: 20px;
-	font-weight: 600;
-	line-height: 29.03px;
-	text-align: left;
 }
 
 .appointment-card .appointment-details {
