@@ -13,8 +13,43 @@
 	object-fit: cover;
 }
 .client-listing {
-    height: 458px;
+    height: 620px;
 }
+.custom-font-head {
+    font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25.2px;
+  letter-spacing: 0.256px;
+  text-align: left;
+}
+.clander-card-content span {
+	font-family: 'Poppins';
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22.4px;
+	letter-spacing: 0.256px; 
+	text-align: left;
+}
+.icon-wrapper {
+	width: 40px; 
+	height: 40px;
+	background-color: #EAF6FE; 
+	border-radius: 50%; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+	margin-right: 5px;
+  }
+  .icon-wrapper svg {
+	width: 20px;
+	height: 19px;
+	top: 718.5px;
+	left: 0px;
+	right: 0px;	
+	margin: 0px !important;
+  }
 .record-image {
 display: flex;
 justify-content: center;
@@ -81,7 +116,19 @@ height: 100%;
     justify-content: center;
 	font-family: Inter;
 }
-
+.upconcoming-cards {
+	width: 495.32px;
+	height: 124px;
+	border-radius: 15px; 
+	border: Mixed solid #0000002E;
+}
+.client-listing h4 {
+    margin-bottom: 30px;
+	margin-top: 30px;
+}
+.client-listing .col-12.col-md-6 .upconcoming-cards {
+    width: 100%;
+}
 .appointment-card .appointment-details {
 	color: #6cace4;
 	font-size: 14px;

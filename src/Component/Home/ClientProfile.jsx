@@ -11,7 +11,7 @@ const AppointmentCard = ({ name, date, time, imgSrc }) => {
 	return (
 		<div className="col-12 col-md-6 mb-4">
 			<div
-				className="d-flex align-items-center justify-content-between p-3 shadow-sm rounded"
+				className="d-flex align-items-center justify-content-between p-3 upconcoming-cards"
 				style={{ border: "1px solid #E5E5E5" }}
 			>
 				{/* Profile Image */}
@@ -19,11 +19,13 @@ const AppointmentCard = ({ name, date, time, imgSrc }) => {
 					<img src={imgSrc} alt={name} className="rounded" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
 					{/* Text Content */}
 					<div className="ms-3">
-						<h6 className="mb-0" style={{ fontWeight: "bold", fontSize: "16px" }}>
+						<h6 className="mb-0 custom-font-head">
 							{name}
 						</h6>
-						<div className="d-flex align-items-center text-muted mt-1">
+						<div className="d-flex align-items-center text-muted mt-1 clander-card-content">
+							<div className="icon-wrapper">
 							<FaCalendarAlt className="me-2" size={16} style={{ color: "#6CACE4" }} />
+							</div>
 							<span style={{ fontSize: "14px" }}>{date}</span>
 							<span className="mx-2">|</span>
 							<span style={{ fontSize: "14px" }}>{time}</span>
@@ -293,7 +295,7 @@ const ClientProfile = () => {
 						</h4>
 
 						{/* Removed the <img> tag and replaced it with the styled border */}
-						<div className="row no record-image">
+						<div className="row">
 							{appointments && appointments.length > 0 ? (
 								appointments.map((appointment, index) => (
 									<AppointmentCard
@@ -306,7 +308,7 @@ const ClientProfile = () => {
 								))
 							) : (
 								// <p className="mt-4">No upcoming appointments</p>
-								<div className="text-center">
+								<div className="text-center record-image">
 									<img src="/no-event.jpg" style={{ width: "130px" }} />
 								</div>
 
