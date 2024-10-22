@@ -181,27 +181,43 @@ body {
     background-color: #53afe6; /* Line color */
     border-radius: 9px;
   }
-
-  
 }
 
-@media screen and (min-width: 320px) and (max-width: 425px) {
-  .mbile_screen_margin{
-    margin-bottom:20px;
-  }
-  
-
-
-}
 @media (max-width: 1024px) {
 	.alert-client .col-12.col-md-4 {
 		width: 50%;
 	}
 
 }
+@media (max-width: 992px) {
+		.container {
+			max-width: 100% !important;
+			padding: 20px;
+			margin: 0px !important;
+		}
+		.container .col-lg-6 {
+			width: 50%;
+		}
+		.font-custom-card {
+			font-size: 19px;
+			line-height: 30px;
+		}
+		.small-cards a.btn {
+			width: 100% !important;
+		}
+}
+@media (max-width: 768px) {
+		.container .col-lg-6 {
+			width: 100%;
+		}
+}
 @media (max-width: 480px) {
 	.alert-client .col-12.col-md-4 {
 		width: 100%;
+	}
+	.clander-card-content span {
+		font-family: 'Poppins';
+		font-size: 12px;
 	}
 
 }

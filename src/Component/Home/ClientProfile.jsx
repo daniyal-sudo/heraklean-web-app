@@ -26,9 +26,9 @@ const AppointmentCard = ({ name, date, time, imgSrc }) => {
 							<div className="icon-wrapper">
 							<FaCalendarAlt className="me-2" size={16} style={{ color: "#6CACE4" }} />
 							</div>
-							<span style={{ fontSize: "14px" }}>{date}</span>
+							<span>{date}</span>
 							<span className="mx-2">|</span>
-							<span style={{ fontSize: "14px" }}>{time}</span>
+							<span>{time}</span>
 						</div>
 					</div>
 				</div>
