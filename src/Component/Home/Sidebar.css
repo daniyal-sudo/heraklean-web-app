@@ -149,6 +149,11 @@
     background: #fff;
 	padding: 0px 20px;
 }
+nav.custom-sidebar .d-flex a:hover {
+	background-color: transparent !important;
+	box-shadow: 2px 2px 18px 0px #53AFE630;
+
+}
 @media screen and (min-width: 320px) and (max-width: 768px) {
 .custom-sidebar {
 	position: fixed;
@@ -204,6 +209,6 @@
 @media screen and (max-width: 4000px) {
  .custom-sidebar .d-flex {
 		display: flex !important;
-		margin-top: 20px !important;
+		margin-top: 10px !important;
 	}
 }

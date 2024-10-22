@@ -144,11 +144,11 @@ nav.custom-sidebar .d-flex span {
 }
 nav.custom-sidebar .d-flex a {
     width: 142px;
-    height: 121px;
+    height: 100px;
 }
 nav.custom-sidebar .d-flex a.active {
     width: 142px;
-    height: 121px;
+    height: 100px;
 }
 @media only screen and (max-width: 990px) {
 		.profile_chosse {
