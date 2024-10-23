@@ -253,7 +253,9 @@ const ClientProfile = () => {
   return (
     <>
       {showComponent === "createClient" ? (
-          <Form />
+          <Form  onClose={()=>{
+			setShowComponent('')
+		  }}/>
       ) : (
         <div className="container ">
           <div className="row mb-4 mt-4">

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Dropdown, Button } from 'react-bootstrap';
 import { IoIosArrowDown } from "react-icons/io";
 
-const Form = () => {
+const Form = ({onClose}) => {
   const [dietPlans, setDietPlans] = useState([]);
   const [programPlans, setProgramPlans] = useState([]);
   const [formData, setFormData] = useState({
@@ -175,7 +175,7 @@ const Form = () => {
 
           <div className="crative-button">
               <button type="submit" className='btn btn-primary'>Create</button>
-              <button type="cancel" className='btn btn-light'>Cancel</button>
+              <button  className='btn btn-light' onClick={onClose}>Cancel</button>
           </div>
         </form>
       </div>
