@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Dropdown, Button } from 'react-bootstrap';
 import { IoIosArrowDown } from "react-icons/io";
+import UploadButton from './UploadButton';
 
 const Form = ({onClose}) => {
   const [dietPlans, setDietPlans] = useState([]);
@@ -134,7 +135,9 @@ const Form = ({onClose}) => {
             <label htmlFor="attachDietId">Attach Diet Plan</label>
             <Dropdown onSelect={(eventKey) => handleSelectChange('attachDietId', eventKey)}>
               <Dropdown.Toggle variant="light" className='form-control'>
+              <div className="button-arrow">
               <IoIosArrowDown />
+            </div>
                 {formData.attachDietId[0] || "Select Diet Plan"}
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -150,7 +153,9 @@ const Form = ({onClose}) => {
             <Dropdown onSelect={(eventKey) => handleSelectChange('attachProgramId', eventKey)}>
             
               <Dropdown.Toggle variant="light" className='form-control'>
+                <div className="button-arrow">
               <IoIosArrowDown />
+              </div>
                 {formData.attachProgramId[0] || "Select Program Plan"}
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -168,8 +173,7 @@ const Form = ({onClose}) => {
             <input type="number" className='form-control' id="subamount" value={formData.subamount} onChange={handleInputChange} required />
             </div>
             <div className='col-6 mb-3'>
-            <label htmlFor="upload">Profile Picture</label>
-            <input type="file" id="upload" className='form-control' onChange={handleFileChange} />
+            <UploadButton />
             </div>
           </div>
 
