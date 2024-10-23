@@ -17,7 +17,6 @@
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-	padding-right: 10px;
 }
 .head-profiles {
 	font-family: Poppins;
@@ -236,7 +235,7 @@ body {
     gap: 30px;
 }
 .crative-button .btn.btn-primary{
-	width: 293px;
+	width: 20%;
 	height: 70px;
 	border-radius: 10px;
 	border: 1px solid #53AFE6;
@@ -253,7 +252,7 @@ body {
 
 }
 .crative-button .btn.btn-light {
-	width: 293px;
+	width: 20%;
 	height: 70px;
 	border-radius: 10px;
 	border: 1px solid #000000;
@@ -362,7 +361,11 @@ body {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+	padding: 0px 20px;
 
+}
+.col-6.mb-3.dropdown-diet button {
+	background-color: transparent !important;
 }
 .col-6.mb-3.dropdown-diet button svg {
     font-size: 20px;
@@ -405,7 +408,6 @@ body {
 .col-6.mb-3.dropdown-diet .dropdown-menu.show {
     width: 100%;
     background: #FFFFFF !important;
-	padding: 10px !important;
 
 }
 .col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item {
@@ -415,12 +417,14 @@ body {
 	font-weight: 400;
 	line-height: 19px;
 	text-align: left;
+	border-bottom: 1px solid #ccc;
 
 }
+.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:last-child {
+	border-bottom: none !important;
+}
 .col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:hover {
-	background: #53AFE6;
-	color: #fff;
-
+	background: transparent !important;
 }
 .col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:first-child { 
 	border-top-left-radius: 4px;
