@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Header from './../AllClients/Header';
+
 import Sidebar from './../Home/Sidebar';
 import './../CreateClient/CreateClient.css';
 import { Modal, Button, Form } from 'react-bootstrap';
+import Header from '../CommonComponent/Header';
 
 const CreateDietPlan = () => {
   const [dietTitle, setDietTitle] = useState('');

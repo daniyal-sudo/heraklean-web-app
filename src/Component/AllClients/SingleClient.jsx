@@ -5,9 +5,9 @@ import { MdModeEdit } from "react-icons/md";
 
 import { Modal, Button, Form } from 'react-bootstrap';
 import Sidebar from './../Home/Sidebar';
-import Header from './../Home/Header';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Header from '../CommonComponent/Header';
 const UpdateMealPlanModal = ({ show, handleClose, clientId, fetchClientData, currentMealPlan }) => {
   const [mealPlanData, setMealPlanData] = useState({
     dietTitle: '',
