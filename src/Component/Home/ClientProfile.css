@@ -364,7 +364,23 @@ body {
 	border: 1px solid #9A9A9A33;
 	background-color: #F5F5F5;
 	text-align: start;
+	display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
 
+}
+.col-6.mb-3.dropdown-diet button svg {
+    font-size: 20px;
+    width: 18px;
+    height: 18px;
+}
+.col-6.mb-3.dropdown-diet button svg {
+    font-size: 20px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #000000;
+    border-radius: 50%;
 }
 .col-6.mb-3.dropdown-diet button:focus {
 	outline: none !important;
@@ -378,16 +394,25 @@ body {
 	display: none !important;
 }
 .col-6.mb-3.dropdown-diet .dropdown-menu.show {
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 0px !important;
     width: 100%;
 	height: 150px;
+	border-radius: 10px;
 	overflow-x: hidden;
 	overflow-y: auto;
+	font-family: Poppins;
+	font-size: 14.39px;
+	font-weight: 700;
+	line-height: 28.7px;
+	text-align: left;
+
 }
 .col-6.mb-3.dropdown-diet .dropdown-menu.show {
-    padding: 0px !important;
     width: 100%;
     background: #FFFFFF !important;
+	padding: 10px !important;
+
 }
 .col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item {
     padding: 20px;

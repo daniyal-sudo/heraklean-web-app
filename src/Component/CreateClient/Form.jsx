@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Dropdown, Button } from 'react-bootstrap'; // Import React Bootstrap components
+import { Dropdown, Button } from 'react-bootstrap';
+import { IoIosArrowDown } from "react-icons/io";
 
 const Form = () => {
   const [dietPlans, setDietPlans] = useState([]);
@@ -133,6 +134,7 @@ const Form = () => {
             <label htmlFor="attachDietId">Attach Diet Plan</label>
             <Dropdown onSelect={(eventKey) => handleSelectChange('attachDietId', eventKey)}>
               <Dropdown.Toggle variant="light" className='form-control'>
+              <IoIosArrowDown />
                 {formData.attachDietId[0] || "Select Diet Plan"}
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -146,7 +148,9 @@ const Form = () => {
             <div className='col-6 mb-3 dropdown-diet'>
             <label htmlFor="attachProgramId">Attach Program Plan</label>
             <Dropdown onSelect={(eventKey) => handleSelectChange('attachProgramId', eventKey)}>
+            
               <Dropdown.Toggle variant="light" className='form-control'>
+              <IoIosArrowDown />
                 {formData.attachProgramId[0] || "Select Program Plan"}
               </Dropdown.Toggle>
               <Dropdown.Menu>
