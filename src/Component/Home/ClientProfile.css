@@ -430,17 +430,10 @@ right: 0px;
 .col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:hover {
 	background: transparent !important;
 }
-.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:first-child { 
-	border-top-left-radius: 4px;
-}
-.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:last-child {
-	border-bottom-left-radius: 4px;
-}
-
 .col-6.mb-3.dropdown-diet .dropdown-menu.show::-webkit-scrollbar {
 	width: 8px;
   }
-  
+
   /* Track */
   .col-6.mb-3.dropdown-diet .dropdown-menu.show::-webkit-scrollbar-track {
 	background: #53AFE65E;
