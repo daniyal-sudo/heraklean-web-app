@@ -18,11 +18,11 @@ const Card = ({ name, city, imgSrc, clientId }) => {
 						src="pic.png"
 						alt={name}
 						className="rounded"
-						style={{ width: "50px", height: "50px", objectFit: "cover" }}
+						style={{ width: "100px", height: "100px", objectFit: "cover" }}
 						onError={(e) => {
-							e.target.onerror = null; // Prevent infinite loop
-							e.target.src = ""; // Set an empty string or default image if needed
-							e.target.alt = "Profile"; // Fallback to "Profile"
+							e.target.onerror = null; 
+							e.target.src = ""; 
+							e.target.alt = "Profile"; 
 						}}
 					/>
 				</div>

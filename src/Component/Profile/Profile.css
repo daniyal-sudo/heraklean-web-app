@@ -189,6 +189,9 @@ border: 1px solid #DEDEDE !important;
     .client-pages-mini .client-mini-cards .col-12 {
       padding: 0px;
   }
+  .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
+    font-size: 18px;
+  }
 }
 
 

@@ -236,3 +236,10 @@
   .listing-card-client {
     padding: 25px;
   }
+  .client-mini-cards {
+    height: 100%;
+    max-height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
