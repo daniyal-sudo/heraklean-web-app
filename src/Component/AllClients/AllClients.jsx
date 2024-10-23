@@ -10,8 +10,8 @@ const Card = ({ name, city, imgSrc, clientId }) => {
 	const imageUrl = imgSrc ? `http://82.112.240.94:5001/${imgSrc.replace(/\\/g, "/")}` : "default_image.png";
 
 	return (
-		<div className="col-lg-12 mb-4">
-			<div className="row align-items-center p-3 rounded" style={{ border: "1px solid #E5E5E5" }}>
+		<div className="col-12 mb-4">
+			<div className="d-flex align-items-center justify-content-between p-3 upconcoming-cards" style={{ border: "1px solid #E5E5E5" }}>
 				{/* Image Section */}
 				<div className="col-auto">
 					<img
@@ -110,9 +110,9 @@ const AllClients = () => {
 	// ];
 	return (
 		<>
-			<div className="container my-4 clinet_height">
+			<div className="container my-4">
 				<div className="row">
-					<div className="col-lg-10 p-3 bg-white rounded-3">
+					<div className="col-lg-12  bg-white rounded-3">
 						<div className="row">
 							<div className="col-lg-3">
 								<h4 className="mb-4 small fs-5 upcoming_border-line" style={{ fontWeight: "bold" }}>
@@ -146,7 +146,7 @@ const AllClients = () => {
 						</div>
 						<div className="row">
 							{clients.map((client) => (
-								<div className="col-lg-5">
+								<div className="col-lg-6">
 									<Card
 										key={client._id}
 										name={client.fullname}
