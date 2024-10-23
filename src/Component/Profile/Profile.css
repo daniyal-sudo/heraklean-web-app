@@ -186,6 +186,9 @@ border: 1px solid #DEDEDE !important;
     .profile_chosse {
       align-items: flex-start;
     }
+    .client-pages-mini .client-mini-cards .col-12 {
+      padding: 0px;
+  }
 }
 
 
