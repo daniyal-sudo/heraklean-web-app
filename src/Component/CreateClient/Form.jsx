@@ -138,54 +138,66 @@ const Form = ({onClose}) => {
           </div>
 
           <div className='row'>
-            <div className="col-6 mb-3 dropdown-diet">
-            <div className="program-dropdown">
-            <label htmlFor="attachDietId">Attach Diet Plan</label>
-            <Dropdown onSelect={(eventKey) => handleSelectChange('attachDietId', eventKey)}>
-            <Dropdown.Toggle variant="light" className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center">
-            <span className="dropdown-icon-wrapper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-chevron-down"
-              width="18"
-              height="18"
-            >
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-                {formData.attachDietId[0] || "Select Diet Plan"}
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="custom-dropdown-menu">
-                {dietPlans.map((diet) => (
-                  <Dropdown.Item key={diet._id} eventKey={diet._id} className="custom-dropdown-item">
-                    <div className="d-flex align-items-start">
-                <input
-                  type="radio"
-                  name="program"
-                  className="me-2"
-                  style={{
-                    paddingLeft:'12px'
-                  }}
-                  checked={formData.attachDietId[0] === diet._id}
-                  onChange={() => handleSelectChange('attachDietId', diet._id)}
-                />
-                <div className="fw-bold">
+          <div className="col-6 mb-3 dropdown-diet">
+  <div className="program-dropdown">
+    <label htmlFor="attachDietId">Attach Diet Plan</label>
+    <Dropdown 
+      onSelect={(eventKey) => handleSelectChange('attachDietId', eventKey)} 
+      disabled={dietPlans.length === 0} // Disable dropdown if no data
+    >
+      <Dropdown.Toggle 
+        variant="light" 
+        className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
+        disabled={dietPlans.length === 0} // Disable toggle if no data
+      >
+        <span className="dropdown-icon-wrapper">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-chevron-down"
+            width="18"
+            height="18"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+        {
+          dietPlans.length === 0 ? "No Diet Plans Available" : 
+          dietPlans.find(diet => diet._id === formData.attachDietId)?.dietTitle || "Select Diet Plan"
+        }
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu className="custom-dropdown-menu">
+        {dietPlans.map((diet) => (
+          <Dropdown.Item 
+            key={diet._id} 
+            eventKey={diet._id} 
+            className="custom-dropdown-item"
+          >
+            <div className="d-flex align-items-start">
+              <input
+                type="radio"
+                name="program"
+                className="me-2"
+                checked={formData.attachDietId === diet._id}
+                onChange={() => handleSelectChange('attachDietId', diet._id)}
+              />
+              <div className="fw-bold">
                 {diet.dietTitle}
-                  {/* <div className="text-muted">{program.description}</div> */}
-                </div>
               </div>
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
             </div>
-            </div>
+          </Dropdown.Item>
+        ))}
+      </Dropdown.Menu>
+    </Dropdown>
+  </div>
+</div>
+
 
             <div className='col-6 mb-3 dropdown-diet'>
             <label htmlFor="attachProgramId">Attach Program Plan</label>
