@@ -192,7 +192,7 @@ p, a {
 		flex-direction: column-reverse;
 	}
 	.login_image {
-		min-height: calc(100dvh - 400px);
+		min-height: calc(100dvh - 600px);
 		width: 100%;
 	}
 	.logo-img {
@@ -202,3 +202,11 @@ p, a {
 		width:100%;
 	}
 }
+
+
+/* @media (max-width: 415px) {
+	.login_image {
+        min-height: calc(100dvh - 426px);
+        width: 100%;
+    }
+} */

@@ -14,6 +14,7 @@ const Registration = () => {
     location: "",
     title: "",
     profilePic: null,
+    profileView: null,
   });
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -21,13 +22,16 @@ const Registration = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    console.log(formData)
   };
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
 		const imageUrl = URL.createObjectURL(file);
-      setFormData({ ...formData, profilePic: imageUrl });
+      // setFormData({ ...formData, profileView: imageUrl });
+      setFormData({ ...formData, profilePic: file,profileView: imageUrl  });
 	  
     }
   };
@@ -87,7 +91,7 @@ const Registration = () => {
 					textAlign:'start'
 				}}>
                  
-                  <ImageUploader  handleImageUpload={handleImageUpload} selectedImage={formData.profilePic} />
+                  <ImageUploader  handleImageUpload={handleImageUpload} selectedImage={formData.profileView} />
                 </div>
               </div>
               <div className="col-lg-7">
