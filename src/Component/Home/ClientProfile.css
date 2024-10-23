@@ -167,12 +167,21 @@ height: 100%;
 	text-align: left;
   }
   .small-cards a.btn {
-	width: 161.22px;
+	height: 70px;
+	width: 161px;
     border-radius: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
 	font-family: Inter;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 29.03px;
+	text-align: start;
+}
+.small-cards a.btn:focus {
+	box-shadow: none !important;
 }
 .upconcoming-cards {
 	width: 495.32px;
