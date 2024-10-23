@@ -35,11 +35,11 @@
     box-shadow: 2px 2px 15px 0px #00000026;
     width: 56px;
     height: 56px;
-    border-radius: 22px;
+    border-radius: 30px;
 }
 .notification-icon i.bi.bi-bell {
     position: absolute;
-    right: 14px;
+    right: 15px;
     top: 10px;
 }
 .header-top {
@@ -50,7 +50,7 @@
 }
 .notification-badge {
 	position: absolute;
-	top: 7px;
+	top: 5px;
     right: 5px;
 	width: 16px;
 	height: 16px;
@@ -139,8 +139,8 @@
 
 /* Profile Styles */
 .profile {
-	width: 40px;
-	height: 40px;
+	width: 64px;
+    height: 64px;
 	border-radius: 50%;
 	overflow: hidden;
 }
