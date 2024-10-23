@@ -15,7 +15,7 @@ const Card = ({ name, city, imgSrc, clientId }) => {
 				{/* Image Section */}
 				<div className="col-auto">
 					<img
-						src={imageUrl}
+						src="pic.png"
 						alt={name}
 						className="rounded"
 						style={{ width: "50px", height: "50px", objectFit: "cover" }}
@@ -29,33 +29,31 @@ const Card = ({ name, city, imgSrc, clientId }) => {
 
 				{/* Name and City Section */}
 				<div className="col">
-					<h6 className="mb-0" style={{ fontWeight: "bold", fontSize: "16px" }}>
+					<h6 className="mb-0">
 						{name.length > 8 ? name.slice(0, 8) + "..." : name}
 					</h6>
-					<div className="d-flex align-items-center text-muted mt-1">
-						<span style={{ fontSize: "14px" }}>{city}</span>
+					<div className="d-flex align-items-center text-muted mt-1 para">
+						<span>{city}</span>
 					</div>
 				</div>
 
 				{/* Notification Badge Section */}
 				<div className="col-auto">
 					<div
-						className="notification_badge_icon_padding"
-						style={{
-							background: "rgba(83, 175, 230, 0.31)",
-							position: "relative",
-							borderRadius: "50%",
-						}}
-					>
+						className="notification_badge_icon_padding">
 						<div className="icon_wrap">
 							<i className="bi bi-bell text-2xl"></i>
 							<span
 								className="notification_badge"
 								style={{
-									background: "#53AFE6",
 									position: "absolute",
-									top: "0",
-									right: "0",
+									background: "rgb(83, 175, 230)",
+										position: "absolute",
+										top: "-4px",
+										right: "-6px",
+										width: "16px",
+										height: "16px",
+										borderRadius: "10px",
 								}}
 							></span>
 						</div>
@@ -110,55 +108,59 @@ const AllClients = () => {
 	// ];
 	return (
 		<>
-			<div className="container my-4">
-				<div className="row">
-					<div className="col-lg-12  bg-white rounded-3">
+			<div className="container client-section">
+					<div className="listing-card-client">
 						<div className="row">
-							<div className="col-lg-3">
-								<h4 className="mb-4 small fs-5 upcoming_border-line" style={{ fontWeight: "bold" }}>
-									All Clients
-								</h4>
-							</div>
-							<div className="col-lg-5">
-								<div className="text-start mb-4">
-									<Link
-										to="/create-client"
-										className="btn px-3 py-2"
-										style={{ backgroundColor: "#53AFE6", color: "#FFFFFF" }}
-									>
-										Create New
-									</Link>
-								</div>
-							</div>
-							<div className="greeting col-lg-4">
-								<div className="search-bar-container mb-4">
-									<div className="input-group position-relative">
-										<div className="search-line"></div> {/* New element for the line */}
-										<input
-											type="text"
-											className="form-control form-control-sm rounded-5 border-2 shadow-sm py-2 pe-5 search-input search_padding"
-											placeholder="Search Here"
-											aria-label="Search"
-										/>
+							<div className="col-lg-12 bg-white rounded-3 client-pages-mini">
+								<div className="row">
+									<div className="col-lg-3">
+										<h4 className="mb-4 small fs-5 upcoming_border-line" style={{ fontWeight: "bold" }}>
+											All Clients
+										</h4>
+									</div>
+									<div className="col-lg-5">
+										<div className="text-start mb-4">
+											<Link
+												to="/create-client"
+												className="btn px-3 py-2"
+												style={{ backgroundColor: "#53AFE6", color: "#FFFFFF" }}
+											>
+												Create New
+											</Link>
+										</div>
+									</div>
+									<div className="greeting col-lg-4">
+										<div className="search-bar-container mb-4">
+											<div className="input-group position-relative">
+												<div className="search-line"></div> {/* New element for the line */}
+												<input
+													type="text"
+													className="form-control form-control-sm search_padding searchbar"
+													placeholder="Search Here"
+													aria-label="Search"
+												/>
+											</div>
+										</div>
 									</div>
 								</div>
+								<div className="client-mini-cards">
+								<div className="row">
+									{clients.map((client) => (
+										<div className="col-lg-6 p-0 font-poppins">
+											<Card
+												key={client._id}
+												name={client.fullname}
+												city={client.city || "Unknown"} // Assuming city is not available in API response
+												imgSrc={client.profilePic || "pic.png"}
+												clientId={client._id}
+											/>
+										</div>
+									))}
+								</div>
+								</div>
 							</div>
 						</div>
-						<div className="row">
-							{clients.map((client) => (
-								<div className="col-lg-6">
-									<Card
-										key={client._id}
-										name={client.fullname}
-										city={client.city || "Unknown"} // Assuming city is not available in API response
-										imgSrc={client.profilePic || "pic.png"}
-										clientId={client._id}
-									/>
-								</div>
-							))}
-						</div>
 					</div>
-				</div>
 			</div>
 		</>
 	);

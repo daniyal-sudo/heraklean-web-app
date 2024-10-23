@@ -135,4 +135,104 @@
     border: none;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
+  /* client-page */
+  .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards {
+    width: 100%;
+}
+.client-pages-mini {
+    padding: 30px;
+}
+.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.31px;
+  }
+  .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .para {
+        font-family: Poppins;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 25.2px;
+        letter-spacing: 0.3060942590236664px;
+        text-align: left;
+}
+.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .notification_badge_icon_padding {
+    background: rgba(83, 175, 230, 0.31);
+    position: relative;
+    border-radius: 50%;
+    width: 43.09px;
+    height: 43.09px;
+    position: relative;
+}
+.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .notification_badge_icon_padding .icon_wrap {
+    width: 31px;
+    height: 31px;
+    padding: 2.58px 5.07px 2.58px 5.07px;
+    position: absolute;
+    top: 2px;
+    right: 6px;
+}
+.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .notification_badge_icon_padding .icon_wrap i {
+    width: 20px;
+    height: 25px;
+    position: relative;
+    display: block;
+    font-size: 20px;
+}
+.client-pages-mini .text-start .btn {
+    width: 161px;
+    height: 60px;
+    top: 192.34px;
+    left: 475.98px;
+    gap: 0px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(83, 175, 230);
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 29.03px;
+    text-align: left;
+
+}
+.client-pages-mini .searchbar {
+    width: 540px;
+    height: 56px;
+    border-radius: 53px !important;
+    border: 1px 0px 0px 0px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    padding: 20px;
+
+}
+.client-pages-mini .searchbar::placeholder {
+   color:#AAAAAA;
+
+}
+.client-mini-cards::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .client-mini-cards::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+
+  .client-mini-cards::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+  .client-section {
+     max-width: 100%;
+  }
+  .listing-card-client {
+    padding: 25px;
+  }
