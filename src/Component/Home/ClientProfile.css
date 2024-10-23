@@ -12,11 +12,12 @@
 	height: 50px;
 	object-fit: cover;
 }
-.client-listing {
-    height: 580px;
+.upcoming-card {
+    height: 400px;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
+	padding-right: 10px;
 }
 .head-profiles {
 	font-family: Poppins;
@@ -228,11 +229,6 @@ body {
 .create-modal {
     padding-top: 20px;
 }
-.upcoming-card {
-	flex-grow: 1;
-	overflow-y: auto;
-	overflow-x: hidden;
-  }
   .crative-button {
     display: flex;
     align-items: center;
@@ -341,18 +337,16 @@ body {
 	}
 
 }
-.client-listing::-webkit-scrollbar {
+.upcoming-card::-webkit-scrollbar {
 	width: 8px;
   }
-  
   /* Track */
-  .client-listing::-webkit-scrollbar-track {
+  .upcoming-card::-webkit-scrollbar-track {
 	background: #f1f1f1; 
 	border-radius: 10px;
   }
-   
   /* Handle */
-  .client-listing::-webkit-scrollbar-thumb {
+  .upcoming-card::-webkit-scrollbar-thumb {
 	background: #888; 
 	border-radius: 10px;
 
