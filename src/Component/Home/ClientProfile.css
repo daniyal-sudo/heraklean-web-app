@@ -341,34 +341,93 @@ body {
 	}
 
 }
-
-/* ================= */
-.custom-select__menu {
-	/* Custom styles for the menu */
+.client-listing::-webkit-scrollbar {
+	width: 8px;
   }
   
-  .custom-select__option {
-	/* Styles for each option */
-  }
-
-  .custom-select__menu {
-	scrollbar-width: thin; 
-	scrollbar-color: #888 #f1f1f1; 
-  }
-  
-  .custom-select__menu::-webkit-scrollbar {
-	width: 5px; 
-  }
-  
-  .custom-select__menu::-webkit-scrollbar-track {
+  /* Track */
+  .client-listing::-webkit-scrollbar-track {
 	background: #f1f1f1; 
-	border-radius: 10px; 
+	border-radius: 10px;
+  }
+   
+  /* Handle */
+  .client-listing::-webkit-scrollbar-thumb {
+	background: #888; 
+	border-radius: 10px;
+
+  }
+/* ================= */
+.col-6.mb-3.dropdown-diet button {
+	height: 55px;
+	border-radius: 11px;
+	border: 1px solid #9A9A9A33;
+	background-color: #F5F5F5;
+	text-align: start;
+
+}
+.col-6.mb-3.dropdown-diet button:focus {
+	outline: none !important;
+	box-shadow: none !important;
+	border: 1px solid #9A9A9A33;
+}
+.col-6.mb-3.dropdown-diet button:hover {
+	background-color: transparent !important;
+}
+.dropdown-toggle::after{
+	display: none !important;
+}
+.col-6.mb-3.dropdown-diet .dropdown-menu.show {
+    padding: 0px !important;
+    width: 100%;
+	height: 150px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.col-6.mb-3.dropdown-diet .dropdown-menu.show {
+    padding: 0px !important;
+    width: 100%;
+    background: #FFFFFF !important;
+}
+.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item {
+    padding: 20px;
+	font-family: Poppins;
+	font-size: 11.78px;
+	font-weight: 400;
+	line-height: 19px;
+	text-align: left;
+
+}
+.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:hover {
+	background: #53AFE6;
+	color: #fff;
+
+}
+.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:first-child { 
+	border-top-left-radius: 4px;
+}
+.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:last-child {
+	border-bottom-left-radius: 4px;
+}
+
+.col-6.mb-3.dropdown-diet .dropdown-menu.show::-webkit-scrollbar {
+	width: 8px;
   }
   
-  .custom-select__menu::-webkit-scrollbar-thumb {
-	background-color: #888; 
-	border-radius: 10px; 
+  /* Track */
+  .col-6.mb-3.dropdown-diet .dropdown-menu.show::-webkit-scrollbar-track {
+	background: #53AFE65E;
+	border-radius: 10px;
   }
+   
+  /* Handle */
+  .col-6.mb-3.dropdown-diet .dropdown-menu.show::-webkit-scrollbar-thumb {
+	background: #53AFE6;
+	border-radius: 10px;
+
+  }
+
+
 
   
 
