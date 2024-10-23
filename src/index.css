@@ -57,6 +57,7 @@
   }
   .col-6.mb-3.upload-buttons {
         max-width: 100%;
+        width: 100%;
 }
   
   .upload-box:hover .upload-label {
