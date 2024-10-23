@@ -101,7 +101,7 @@ const Form = ({onClose}) => {
 
   return (
    <div className="create-modal">
-        <div className="container shadow p-4 bg-white rounded modal-crative2">
+        <div className="container p-4 bg-white modal-crative2">
           <div className="row">
             <div className="col-lg-12">
               <h1 className='head-profiles'> Create Client</h1>

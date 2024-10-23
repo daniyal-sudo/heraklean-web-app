@@ -226,7 +226,7 @@ body {
 	overflow-y: auto;
 }
 .create-modal {
-    padding-top: 20px;
+    padding: 30px;
 }
   .crative-button {
     display: flex;
