@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Dropdown, Button } from 'react-bootstrap';
 import { IoIosArrowDown } from "react-icons/io";
 import UploadButton from './UploadButton';
+import CustomDropdown from '../CommonComponent/CustomDropdown';
 
 const Form = ({onClose}) => {
   const [dietPlans, setDietPlans] = useState([]);
@@ -99,6 +100,12 @@ const Form = ({onClose}) => {
     return <div className="alert alert-danger">{error}</div>;
   }
 
+  const programs = [
+    { title: 'Program Name Here', description: 'Lorem ipsum dolor sit amet consectetur.' },
+    { title: 'Program Name Here', description: 'Lorem ipsum dolor sit amet consectetur.' },
+    // Add more programs as needed
+  ];
+
   return (
    <div className="create-modal">
         <div className="container p-4 bg-white modal-crative2">
@@ -132,20 +139,52 @@ const Form = ({onClose}) => {
 
           <div className='row'>
             <div className="col-6 mb-3 dropdown-diet">
+            <div className="program-dropdown">
             <label htmlFor="attachDietId">Attach Diet Plan</label>
             <Dropdown onSelect={(eventKey) => handleSelectChange('attachDietId', eventKey)}>
-              <Dropdown.Toggle variant="light" className='form-control'>
-              <div className="button-arrow">
-              <IoIosArrowDown />
-            </div>
+            <Dropdown.Toggle variant="light" className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center">
+            <span className="dropdown-icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="feather feather-chevron-down"
+              width="18"
+              height="18"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
                 {formData.attachDietId[0] || "Select Diet Plan"}
               </Dropdown.Toggle>
-              <Dropdown.Menu>
+              <Dropdown.Menu className="custom-dropdown-menu">
                 {dietPlans.map((diet) => (
-                  <Dropdown.Item key={diet._id} eventKey={diet._id}>{diet.dietTitle}</Dropdown.Item>
+                  <Dropdown.Item key={diet._id} eventKey={diet._id} className="custom-dropdown-item">
+                    <div className="d-flex align-items-start">
+                <input
+                  type="radio"
+                  name="program"
+                  className="me-2"
+                  style={{
+                    paddingLeft:'12px'
+                  }}
+                  checked={formData.attachDietId[0] === diet._id}
+                  onChange={() => handleSelectChange('attachDietId', diet._id)}
+                />
+                <div className="fw-bold">
+                {diet.dietTitle}
+                  {/* <div className="text-muted">{program.description}</div> */}
+                </div>
+              </div>
+                  </Dropdown.Item>
                 ))}
               </Dropdown.Menu>
             </Dropdown>
+            </div>
             </div>
 
             <div className='col-6 mb-3 dropdown-diet'>
@@ -165,6 +204,9 @@ const Form = ({onClose}) => {
               </Dropdown.Menu>
             </Dropdown>
             </div>
+            {/* <div className='col-6 mb-3 dropdown-diet'>
+            <CustomDropdown programs={programs} />
+            </div> */}
           </div>
 
           <div className='row'>

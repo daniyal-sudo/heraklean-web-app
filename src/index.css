@@ -64,3 +64,75 @@
   .upload-box:hover .upload-label {
 	color: #000;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .custom-dropdown-toggle {
+    text-align: left;
+    font-size: 16px;
+    color: #aaa;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .dropdown-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .custom-dropdown-menu {
+    width: 100%;
+    border-radius: 10px;
+    padding: 0;
+  }
+  
+  .custom-dropdown-item {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .custom-dropdown-item:last-child {
+    border-bottom: none;
+  }
+  
+  .custom-dropdown-item .fw-bold {
+    font-size: 16px;
+  }
+  
+  .custom-dropdown-item .text-muted {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .custom-dropdown-item input[type='radio'] {
+    margin-top: 2px;
+  }
+  
+  .program-dropdown .dropdown-menu {
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
