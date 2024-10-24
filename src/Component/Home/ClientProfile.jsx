@@ -257,8 +257,8 @@ const ClientProfile = () => {
 			setShowComponent('')
 		  }}/>
       ) : (
-        <div className="container ">
-          <div className="row mb-4 mt-4">
+        <div className="container page_height">
+          <div className="row mb-2 mt-2">
             <div className="col-lg-6 mbile_screen_margin">
               <div className="row bg-white p-3 m-2 box_height small-cards">
                 <div className="col-lg-7 col-6 align-self-center">
@@ -345,9 +345,9 @@ const ClientProfile = () => {
             </div>
           </div>
 
-          <div className="row mb-5">
+          <div className="row">
             <div className="col-lg-12">
-              <div className="bg-white p-4  rounded-4 alert-client">
+              <div className="bg-white   rounded-4 alert-client">
                 <h4
                   className="card-text upcoming_border-line"
                   style={{ fontWeight: "bold" }}

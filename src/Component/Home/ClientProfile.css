@@ -13,7 +13,7 @@
 	object-fit: cover;
 }
 .upcoming-card {
-    height: 400px;
+    height: 268px;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
