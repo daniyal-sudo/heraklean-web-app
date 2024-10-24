@@ -42,7 +42,18 @@ const Sidebar = () => {
         aria-expanded={isOpen}
         aria-label="Toggle navigation"
       >
-        <FaBars size={24} />
+        <svg
+          width="42"
+          height="43"
+          viewBox="0 0 42 43"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 11.1396C7 10.6755 7.18437 10.2304 7.51256 9.90221C7.84075 9.57402 8.28587 9.38965 8.75 9.38965H33.25C33.7141 9.38965 34.1593 9.57402 34.4874 9.90221C34.8156 10.2304 35 10.6755 35 11.1396C35 11.6038 34.8156 12.0489 34.4874 12.3771C34.1593 12.7053 33.7141 12.8896 33.25 12.8896H8.75C8.28587 12.8896 7.84075 12.7053 7.51256 12.3771C7.18437 12.0489 7 11.6038 7 11.1396ZM7 32.1396C7 31.6755 7.18437 31.2304 7.51256 30.9022C7.84075 30.574 8.28587 30.3896 8.75 30.3896H33.25C33.7141 30.3896 34.1593 30.574 34.4874 30.9022C34.8156 31.2304 35 31.6755 35 32.1396C35 32.6038 34.8156 33.0489 34.4874 33.3771C34.1593 33.7053 33.7141 33.8896 33.25 33.8896H8.75C8.28587 33.8896 7.84075 33.7053 7.51256 33.3771C7.18437 33.0489 7 32.6038 7 32.1396ZM8.75 19.8896C8.28587 19.8896 7.84075 20.074 7.51256 20.4022C7.18437 20.7304 7 21.1755 7 21.6396C7 22.1038 7.18437 22.5489 7.51256 22.8771C7.84075 23.2053 8.28587 23.3896 8.75 23.3896H22.75C23.2141 23.3896 23.6592 23.2053 23.9874 22.8771C24.3156 22.5489 24.5 22.1038 24.5 21.6396C24.5 21.1755 24.3156 20.7304 23.9874 20.4022C23.6592 20.074 23.2141 19.8896 22.75 19.8896H8.75Z"
+            fill="black"
+          />
+        </svg>
       </button>
       {/* <div className="text-center logo-design">
         <img
@@ -53,16 +64,17 @@ const Sidebar = () => {
       </div> */}
 
       {/* Sidebar Navigation */}
-      <nav className={`custom-sidebar ${isOpen ? "open" : ""}`}
-      // style={{
-      //   background:'white'
-      // }}
+      <nav
+        className={`custom-sidebar ${isOpen ? "open" : ""}`}
+        // style={{
+        //   background:'white'
+        // }}
       >
         <div className="text-center">
           <img
             src="/image 45.png"
             alt="logo"
-            className="img-fluid side_logo_height_width mt-3"
+            className="img-fluid side_logo_height_width"
           />
         </div>
 
@@ -96,7 +108,10 @@ const Sidebar = () => {
                     ? "text_nav_item"
                     : "text-muted"
                 }`}
-				style={{color:location.pathname === item.path ? " #53AFE6" : "#8F8F8F"}}
+                style={{
+                  color:
+                    location.pathname === item.path ? " #53AFE6" : "#8F8F8F",
+                }}
               >
                 {item.name}
               </span>
