@@ -92,24 +92,76 @@ const DietPlans = () => {
 
               {["meal1", "meal2", "meal3"].map((meal, index) => (
                 selectedDay[meal] && (
-                  <div key={index} className="mt-3">
-                    <h5 className="fw-bold"><strong>{meal}:</strong> {selectedDay[meal].title}</h5>
-                    <p>{selectedDay[meal].description}</p>
-                    <div className="row ">
-                      <div className="col-3">
+                  // <div key={index} className="mt-3">
+                  //   <h5 className="fw-bold"><strong>{meal}:</strong> {selectedDay[meal].title}</h5>
+                  //   <p>{selectedDay[meal].description}</p>
+                  //   <div className="row ">
+                  //     <div className="col-3">
 
-                    <button className="btn btn-outline-danger"><strong>Protein:</strong> {selectedDay[meal].protein}g</button>
-                      </div>
-                      <div className="col-3">
+                  //   <button className="btn btn-outline-danger"><strong>Protein:</strong> {selectedDay[meal].protein}g</button>
+                  //     </div>
+                  //     <div className="col-3">
 
-                    <button className="btn btn-outline-primary"><strong>Calories:</strong> {selectedDay[meal].calories} kcal</button>
-                      </div>
-                      <div className="col-3">
+                  //   <button className="btn btn-outline-primary"><strong>Calories:</strong> {selectedDay[meal].calories} kcal</button>
+                  //     </div>
+                  //     <div className="col-3">
 
-                    <button className="btn btn-outline-success"><strong>Fat:</strong> {selectedDay[meal].fat}g</button>
+                  //   <button className="btn btn-outline-success"><strong>Fat:</strong> {selectedDay[meal].fat}g</button>
+                  //     </div>
+                  //   </div>
+                  // </div>
+                  <div className="card p-3">
+                  <div className="d-flex justify-content-between align-items-start" key={index}>
+                  
+                    <div className="d-flex align-items-start">
+                      <img src="/image 45.png" alt="Diet Plan Image" className="rounded-circle" width="80" height="80"/>
+                      <div className="ms-3">
+                        <h5 className="fw-bold">{selectedDay[meal].title}</h5>
+                       
+                        <div className="d-flex flex-wrap">
+                          <span className="badge bg-danger me-1 mb-1">{selectedDay[meal].protein}</span>
+                          <span className="badge bg-success me-1 mb-1">{selectedDay[meal].calories} kcal</span>
+                          <span className="badge bg-warning text-dark me-1 mb-1">{selectedDay[meal].fat}g</span>
+                          <span className="badge bg-secondary me-1 mb-1">Fats 200g</span>
+                        </div>
                       </div>
                     </div>
+                
+                  
+                    <div className="d-flex">
+                      <button className="btn btn-secondary btn-sm me-2">
+                        <i className="bi bi-pencil"></i>
+                      </button>
+                      <button className="btn btn-primary btn-sm">
+                        <i className="bi bi-send"></i>
+                      </button>
+                    </div>
                   </div>
+                
+                  <div className="row mt-3">
+                    <div className="col-12 col-md-4">
+                      <h6>Meal 1</h6>
+                      <ul className="list-unstyled">
+                        <li>{selectedDay[meal].title}</li>
+                        <li>{selectedDay[meal].title}</li>
+                      </ul>
+                    </div>
+                    <div className="col-12 col-md-4">
+                      <h6>Meal 2</h6>
+                      <ul className="list-unstyled">
+                        <li>{selectedDay[meal].title}</li>
+                        <li>{selectedDay[meal].title}</li>
+                      </ul>
+                    </div>
+                    <div className="col-12 col-md-4">
+                      <h6>Meal 3</h6>
+                      <ul className="list-unstyled">
+                        <li>{selectedDay[meal].title}</li>
+                        <li>{selectedDay[meal].title}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
                 )
               ))}
             </div>
