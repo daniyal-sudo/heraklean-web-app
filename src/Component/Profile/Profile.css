@@ -192,6 +192,12 @@ border: 1px solid #DEDEDE !important;
   .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
     font-size: 18px;
   }
+  .listing-card-client {
+    padding: 15px !important;
+  }
+  .col-auto {
+    padding: 0px;
+  }
 }
 
 
