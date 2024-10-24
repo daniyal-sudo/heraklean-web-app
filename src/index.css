@@ -274,6 +274,21 @@
   border-radius: 21px;
   margin-bottom: 30px;
 }
+.custom-heads {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+}
+.custom-head-bold {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.3060942590236664px;
+  text-align: left;
+}
 .custom-head {
   font-family: Poppins;
   font-size: 24px;
@@ -396,6 +411,20 @@
   width: 50%;
 } 
 
+.program-diet p {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27.54px;
+  letter-spacing: 0.23632286489009857px;
+  text-align: left;
+}
+.program-2 {
+  background-color:  #ffffff;
+  padding: 20px;
+  border-radius: 17px;
+  border: 1.96px solid #0000002E;
+}
 @media (max-width: 480px) {
   .diet-plan-section-page .text-white {
     display: none !important;
