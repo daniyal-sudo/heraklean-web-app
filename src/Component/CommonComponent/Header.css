@@ -188,6 +188,7 @@ nav.custom-sidebar .d-flex a.active {
 	.home-container .d-flex .navbar-toggler svg {
 		position: relative;
 		z-index: 9;
+		top: 11px;
 	}
 }
 @media only screen and (max-width: 480px) {

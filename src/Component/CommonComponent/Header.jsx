@@ -83,7 +83,12 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <div className="header-content">
+        <div
+          className="header-content"
+          style={{
+            justifyContent: window.innerWidth < 786 && "center",
+          }}
+        >
           {/* Greeting Section */}
           {window.innerWidth < 786 ? (
             <>
@@ -91,7 +96,7 @@ const Header = () => {
                 <img
                   src="/image 45.png"
                   alt="logo"
-                  className="img-fluid side_logo_height_width mt-3"
+                  className="img-fluid side_logo_height_width "
                 />
               </div>
             </>
@@ -100,48 +105,53 @@ const Header = () => {
               <h5>Good Morning, Afnan Ali</h5>
             </div>
           )}
-          <div className="header-top">
-            {/* Notifications Section */}
-            <div className="notifications">
-              <div className="notification-icon" onClick={toggleNotifications}>
-                <i className="bi bi-bell"></i>
-                {notifications.length > 0 && (
-                  <span className="notification-badge">
-                    {notifications.length}
-                  </span>
-                )}
-              </div>
-              {notificationsActive && (
-                <div className="notification-dropdown">
-                  <ul>
-                    {notifications?.length > 0 ? (
-                      notifications.map((notification, index) => (
-                        <li key={index}>
-                          <div className="notify-icon">
-                            <span className="icon success"></span>
-                          </div>
-                          <div className="notify-data">
-                            <p>{notification}</p>
-                          </div>
+          {window.innerWidth > 786 && (
+            <div className="header-top">
+              {/* Notifications Section */}
+              <div className="notifications">
+                <div
+                  className="notification-icon"
+                  onClick={toggleNotifications}
+                >
+                  <i className="bi bi-bell"></i>
+                  {notifications.length > 0 && (
+                    <span className="notification-badge">
+                      {notifications.length}
+                    </span>
+                  )}
+                </div>
+                {notificationsActive && (
+                  <div className="notification-dropdown">
+                    <ul>
+                      {notifications?.length > 0 ? (
+                        notifications.map((notification, index) => (
+                          <li key={index}>
+                            <div className="notify-icon">
+                              <span className="icon success"></span>
+                            </div>
+                            <div className="notify-data">
+                              <p>{notification}</p>
+                            </div>
+                          </li>
+                        ))
+                      ) : (
+                        <li className="show-all">
+                          <p className="link">No notification found.</p>
                         </li>
-                      ))
-                    ) : (
-                      <li className="show-all">
-                        <p className="link">No notification found.</p>
-                      </li>
-                    )}
-                    {/* <li className="show-all">
+                      )}
+                      {/* <li className="show-all">
 															<p className="link">Show All Notifications</p>
 														</li> */}
-                  </ul>
-                </div>
-              )}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              {/* Profile Section */}
+              <div className="profile">
+                <img src="picture.png" alt="Profile" className="profile-pic" />
+              </div>
             </div>
-            {/* Profile Section */}
-            <div className="profile">
-              <img src="picture.png" alt="Profile" className="profile-pic" />
-            </div>
-          </div>
+          )}
         </div>
       </header>
     </>
