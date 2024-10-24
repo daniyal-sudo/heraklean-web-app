@@ -49,9 +49,12 @@ const DietPlans = () => {
 
           <div className="d-flex justify-content-end">
             <button className="btn btn-primary" >
+            <img src="/plus.png" className="plus-icon mr-2"alt="img"/>
               <Link to="/create-diet" className="text-white text-decoration-none">
               Add Diet Plan
+           
               </Link>
+           
               </button>
         </div>
           </div>
