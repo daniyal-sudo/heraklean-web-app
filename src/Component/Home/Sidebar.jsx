@@ -44,7 +44,7 @@ const Sidebar = () => {
       >
         <FaBars size={24} />
       </button>
-      <div className="text-center display_class">
+      <div className="text-center logo-design">
         <img
           src="/image 45.png"
           alt="logo"
