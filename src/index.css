@@ -390,15 +390,40 @@
   text-align: left;
 }
 .icon-hide {
-  display: none;
+  display: none !important;
 }
-
+.diet-plan-section-page .row.my-2 .col-lg-6 {
+  width: 50%;
+} 
 
 @media (max-width: 480px) {
+  .diet-plan-section-page .text-white {
+    display: none !important;
+  }
+  .diet-plan-section-page .row.my-2 button {
+    margin: 0px;
+    padding: 0px;
+    justify-content: flex-end;
+  }
+  .diet-plan-section-page .row.my-2 button {
+    width: 206px;
+    height: 60px;
+   background-color: transparent !important;
+   border-radius: 0px !important;
+   border: none !important;
+  }
   .card .diet-plan-section .icon {
     display: none !important;
   }
   .card.diet-plan-section .d-flex.icon-hide {
     justify-content: center;
 }
+    .plus-icon{
+      padding: 5px;
+      background: #53AFE6;
+      border-radius: 5px !important;
+    }
+    .plus-icon.mr-2 svg {
+      background: #53AFE6;
+  }
 }
