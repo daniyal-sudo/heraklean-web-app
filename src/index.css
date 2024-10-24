@@ -369,14 +369,13 @@
 }
 
 .card.diet-plan-section .d-flex.flex-wrap span.badge {
-  font-family: Open Sans;
-  font-size: 10.06px;
+  font-family: Poppins;
+  font-size: 10px;
   font-weight: 400;
-  line-height: 13.7px;
+  line-height: 13px;
   text-align: center;
   border-radius: 4px;
-  width: 74.19px;
-  height: 16.35px;
+  width: 74px;
 }
 .diet-plan-section-page .row.my-2 button {
   width: 206px;
@@ -463,6 +462,19 @@ button.btn.btn-primary {
     .plus-icon.mr-2 svg {
       background: #53AFE6;
   }
+  .diet-plan-section-page .col-12 {
+    padding: 0px;
+}
+.diet-plan-section-page button.btn.btn-primary {
+  background-color: transparent !important;
+  border: none !important;
+}
+.diet-plan-section-page button.btn.btn-primary a {
+  display: none;
+}
+button.btn.btn-secondary.btn-sm.me-2.icon-hidden {
+  display: none;
+}
 }
 .diet-plan-section-page button.btn.btn-primary {
   display: flex;
@@ -506,6 +518,6 @@ button.btn.btn-primary {
   letter-spacing: 0.23632286489009857px;
   text-align: left;
 }
-.program-2 p {
-  margin-bottom: 0px;
+.mobile-icon {
+  display: none;
 }

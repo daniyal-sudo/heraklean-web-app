@@ -120,7 +120,7 @@ const ProgramPlans = () => {
               <div className="card p-3 program-2">
                 <div className="d-flex justify-content-between align-items-start">
                   <h5 className="custom-heads">{selectedProgram}</h5>
-                  <button className="btn btn-secondary btn-sm me-2">
+                  <button className="btn btn-secondary btn-sm me-2 icon-hidden">
                               <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.2433 24.5781H4.58594V18.9207L19.8326 3.67407C20.0826 3.42411 20.4217 3.28369 20.7753 3.28369C21.1288 3.28369 21.4679 3.42411 21.7179 3.67407L25.4899 7.44474C25.6139 7.56857 25.7123 7.71562 25.7794 7.87749C25.8465 8.03935 25.881 8.21285 25.881 8.38807C25.881 8.56329 25.8465 8.7368 25.7794 8.89866C25.7123 9.06052 25.6139 9.20758 25.4899 9.33141L10.2433 24.5781ZM4.58594 27.2447H28.5859V29.9114H4.58594V27.2447Z" fill="white"/>
             </svg>
@@ -142,6 +142,11 @@ const ProgramPlans = () => {
                   <h6 className="custom-head-bold">Duration</h6>
                   <p className="text-muted text-start">{selectedDay.duration}</p>
                 </div>
+                <button className="btn btn-secondary btn-sm me-2 mobile-icon">
+                              <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.2433 24.5781H4.58594V18.9207L19.8326 3.67407C20.0826 3.42411 20.4217 3.28369 20.7753 3.28369C21.1288 3.28369 21.4679 3.42411 21.7179 3.67407L25.4899 7.44474C25.6139 7.56857 25.7123 7.71562 25.7794 7.87749C25.8465 8.03935 25.881 8.21285 25.881 8.38807C25.881 8.56329 25.8465 8.7368 25.7794 8.89866C25.7123 9.06052 25.6139 9.20758 25.4899 9.33141L10.2433 24.5781ZM4.58594 27.2447H28.5859V29.9114H4.58594V27.2447Z" fill="white"/>
+            </svg>
+                  </button>
               </div>
             </div>
           </div>
