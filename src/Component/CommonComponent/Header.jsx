@@ -76,7 +76,7 @@ const Header = () => {
 
 	return (
 		<>
-			<header className="header">
+			<header className="header hide-class">
 				<div className="header-content">
 							{/* Greeting Section */}
 						<div className="greeting">

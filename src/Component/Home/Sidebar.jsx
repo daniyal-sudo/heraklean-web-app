@@ -36,7 +36,7 @@ const Sidebar = () => {
     <>
       {/* Hamburger Button for Small Screens */}
       <button
-        className="navbar-toggler d-md-none"
+        className="navbar-toggler display_class"
         type="button"
         onClick={toggleSidebar}
         aria-expanded={isOpen}
@@ -54,13 +54,13 @@ const Sidebar = () => {
 
       {/* Sidebar Navigation */}
       <nav className={`custom-sidebar ${isOpen ? "open" : ""}`}>
-        <div className="text-center">
+        {/* <div className="text-center">
           <img
             src="/image 45.png"
             alt="logo"
             className="img-fluid side_logo_height_width mt-3"
           />
-        </div>
+        </div> */}
 
         <div className="d-flex flex-column align-items-center mt-5">
           {navItems.map((item, index) => (
