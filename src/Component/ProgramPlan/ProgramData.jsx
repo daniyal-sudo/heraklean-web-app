@@ -80,7 +80,7 @@ const ProgramPlans = () => {
             </button>
           </div>
         </div>
-
+       <div className="">
         <div className="row program-diet">
           {programs.map((program, index) => (
             <div key={index} className="col-md-4 col-sm-6 mb-4">
@@ -146,6 +146,7 @@ const ProgramPlans = () => {
             </div>
           </div>
         )}
+      </div>
       </div>
     </div>
     </div>

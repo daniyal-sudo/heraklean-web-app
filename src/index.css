@@ -425,6 +425,14 @@
   border-radius: 17px;
   border: 1.96px solid #0000002E;
 }
+.diet-plan-section-page .container.mt-5 {
+  height: 100dvh;
+}
+button.btn.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media (max-width: 480px) {
   .diet-plan-section-page .text-white {
     display: none !important;
@@ -455,4 +463,29 @@
     .plus-icon.mr-2 svg {
       background: #53AFE6;
   }
+}
+button.btn.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 29.03px;
+  text-align: left;
+  background: #53AFE6;
+  border-color: #53AFE6 !important;
+}
+button.btn.btn-primary a {
+  background-color: transparent !important;
+  border: none !important;
+}
+button.btn.btn-primary:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+button.btn.btn-secondary.btn-sm.me-2 {
+  width: 47px;
+  height: 45px;
+  margin: 0px;
 }
