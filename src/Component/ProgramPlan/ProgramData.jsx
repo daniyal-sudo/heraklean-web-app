@@ -39,11 +39,14 @@ const ProgramPlans = () => {
     const fetchPrograms = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://82.112.240.94:5001/api/auth/getTrainerProgramPlans",{
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "http://82.112.240.94:5001/api/auth/getTrainerProgramPlans",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setPrograms(response.data.programPlans);
       } catch (error) {
         console.error("Error fetching programs:", error);
@@ -77,7 +80,15 @@ const ProgramPlans = () => {
                 <h5 className="fw-bold">{program.programTitle}</h5>
 
                 <div className="d-flex flex-wrap mt-3">
-                  {["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].map((day) => (
+                  {[
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday",
+                    "sunday",
+                  ].map((day) => (
                     <button
                       key={day}
                       className="btn btn-outline-primary m-1"
@@ -95,21 +106,33 @@ const ProgramPlans = () => {
 
       {/* Show selected day details */}
       {selectedDay && (
-        <div className="card mt-4 p-4 shadow">
-          <h4 className="fw-bold">{selectedProgram}</h4>
-          <h5 className="mt-2">{selectedDay.title}</h5>
-          <p>{selectedDay.description}</p>
-          <div className="mt-2">
-            <h6 className="fw-bold">Modules</h6>
-            <ul className="list-unstyled">
-              {selectedDay.modules.map((module, index) => (
-                <li key={index}>{module}</li>
-              ))}
-            </ul>
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <div className="card p-3 border-0 shadow-sm">
+              <div className="d-flex justify-content-between align-items-start">
+                <h5 className="fw-bold">{selectedProgram}</h5>
+                <button className="btn btn-light rounded-circle p-2">
+                  <i className="bi bi-pencil"></i>
+                </button>
+              </div>
+              <div className="mt-2">
+                <h6 className="fw-bold">{selectedDay.title}</h6>
+                <p className="text-muted text-start">{selectedDay.description}</p>
+              </div>
+              <div className="mt-3">
+                <h6 className="fw-bold">Modules</h6>
+                <ol className="ps-3">
+                  {selectedDay.modules.map((module, index) => (
+                    <li key={index}>{module}</li>
+                  ))}
+                </ol>
+              </div>
+              <div className="mt-3">
+                <h6 className="fw-bold">Duration</h6>
+                <p className="text-muted text-start">{selectedDay.duration}</p>
+              </div>
+            </div>
           </div>
-          <p className="mt-2">
-            <strong>Duration:</strong> {selectedDay.duration}
-          </p>
         </div>
       )}
     </div>
