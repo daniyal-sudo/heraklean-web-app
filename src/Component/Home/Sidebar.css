@@ -161,9 +161,6 @@ nav.custom-sidebar .d-flex a:hover {
 	background-color: #fff;
 }
 @media screen and (max-width: 769px) {
-.hide-class {
-	display: none !important;
-}
 .display_class {
 	display: block !important;
 
