@@ -131,7 +131,7 @@ const DietPlans = () => {
                     </div>
                 
                   
-                    <div className="d-flex">
+                    <div className="d-flex icon">
                       <button className="btn btn-secondary btn-sm me-2">
                         <i className="bi bi-pencil"></i>
                       </button>
@@ -162,6 +162,14 @@ const DietPlans = () => {
                         <li className="meal-list-item">{selectedDay[meal].title}</li>
                         <li className="meal-list-item">{selectedDay[meal].title}</li>
                       </ul>
+                    </div>
+                    <div className="d-flex icon-hide">
+                      <button className="btn btn-secondary btn-sm me-2">
+                        <i className="bi bi-pencil"></i>
+                      </button>
+                      <button className="btn btn-primary btn-sm">
+                        <i className="bi bi-send"></i>
+                      </button>
                     </div>
                   </div>
                 </div>

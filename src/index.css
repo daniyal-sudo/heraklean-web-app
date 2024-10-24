@@ -359,7 +359,9 @@
   font-weight: 400;
   line-height: 13.7px;
   text-align: center;
-  border-radius: 3.77px;
+  border-radius: 4px;
+  width: 74.19px;
+  height: 16.35px;
 }
 .diet-plan-section-page .row.my-2 button {
   width: 206px;
@@ -367,6 +369,9 @@
   border-radius: 11px;
   background: #53AFE6;
   border-color: #53AFE6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .diet-plan-section-page .row.my-2 button:focus {
   background-color: #53AFE6 !important;
@@ -383,4 +388,17 @@
   font-weight: 600;
   line-height: 29.03px;
   text-align: left;
+}
+.icon-hide {
+  display: none;
+}
+
+
+@media (max-width: 480px) {
+  .card .diet-plan-section .icon {
+    display: none !important;
+  }
+  .card.diet-plan-section .d-flex.icon-hide {
+    justify-content: center;
+}
 }
