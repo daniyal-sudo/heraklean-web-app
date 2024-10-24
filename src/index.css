@@ -243,3 +243,15 @@
     overflow-x: hidden;
     position: relative;
   }
+  .diet-plan-section-page {
+    padding: 30px;
+    border: none;
+    background: #ffff;
+    margin: 20px 0px;
+    border-radius: 11px;
+}
+.card.diet-plan-section {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
