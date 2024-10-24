@@ -255,4 +255,109 @@
   border: 1px solid #ccc;
   background: #fff;
   border-radius: 21px;
+  margin-bottom: 30px;
+}
+.custom-head {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+}
+.custom-head::before {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 15px;
+  width: 20%;
+  height: 4px;
+  background-color: #53afe6;
+  border-radius: 9px;
+}
+.diet-plane-2 {
+  border: none !important;
+
+}
+.card.diet-plan-section h5 {
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30.8px;
+  letter-spacing: 0.3060942590236664px;
+  text-align: left;
+}
+.col-12.col-md-4 h6 {
+  height: 28px;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.3060942590236664px;
+  text-align: left;
+   color: #000000;
+}
+.col-md-4 ul.list-unstyled li {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27.54px;
+  letter-spacing: 0.23632286489009857px;
+  text-align: left;
+  text-decoration: dotted;
+}
+.card.diet-plan-section button.btn.btn-secondary.btn-sm.me-2 {
+  background: #263238DE;
+  width: 45px;
+  height: 45px;
+  border-radius: 11px;
+  border-color: #263238DE;
+}
+.card.diet-plan-section button.btn.btn-primary.btn-sm {
+  background: #53AFE6;
+  width: 45px;
+  height: 45px;
+  border-radius: 11px;
+  border-color: #53AFE6;
+
+}
+.card.diet-plan-section button:focus {
+  box-shadow: none !important;
+}
+.card.diet-plan-section i {
+  font-size: 20px;
+  padding: 2.7px 4px 2.67px 4px;
+  color: #FFFFFF;
+}
+.meal-list-item::before {
+  content: "• ";
+  font-weight: bold; 
+  margin-right: 5px;
+  color: #000000A6;
+
+}
+
+.card.diet-plan-section .d-flex.flex-wrap span.badge {
+  font-family: Open Sans;
+  font-size: 10.06px;
+  font-weight: 400;
+  line-height: 13.7px;
+  text-align: center;
+  border-radius: 3.77px;
+}
+.diet-plan-section-page .row.my-2 button {
+  width: 206px;
+  height: 70px;
+  border-radius: 11px;
+  background: #53AFE6;
+  border-color: #53AFE6;
+}
+.card.diet-plan-section button:focus {
+  box-shadow: none !important;
+}
+.diet-plan-section-page .text-white {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 29.03px;
+  text-align: left;
 }

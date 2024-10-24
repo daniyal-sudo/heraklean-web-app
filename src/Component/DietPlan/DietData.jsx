@@ -43,7 +43,7 @@ const DietPlans = () => {
           <div className="row my-2">
         <div className="col-lg-6">
 
-          <h2 className="fw-bold">Diet Plans</h2>
+          <h2 className="custom-head">Diet Plans</h2>
         </div>
         <div className="col-lg-6">
 
@@ -87,7 +87,7 @@ const DietPlans = () => {
   
           <div className="row">
             <div className="col-12">
-            <div className="card diet-plan-section">
+            <div className="card diet-plane-2">
               <h4 className="fw-bold">{selectedDiet}</h4>
 
               {["meal1", "meal2", "meal3"].map((meal, index) => (
@@ -110,13 +110,13 @@ const DietPlans = () => {
                   //     </div>
                   //   </div>
                   // </div>
-                  <div className="card p-3">
+                  <div className="card diet-plan-section">
                   <div className="d-flex justify-content-between align-items-start" key={index}>
                   
                     <div className="d-flex align-items-start">
-                      <img src="/image 45.png" alt="Diet Plan Image" className="rounded-circle" width="80" height="80"/>
+                      <img src="/meal.png" alt="Diet Plan Image" className="meal" width="80" height="80"/>
                       <div className="ms-3">
-                        <h5 className="fw-bold">{selectedDay[meal].title}</h5>
+                        <h5 className="fw-bold mb-4">{selectedDay[meal].title}</h5>
                        
                         <div className="d-flex flex-wrap">
                           <span className="badge bg-danger me-1 mb-1">{selectedDay[meal].protein}</span>
@@ -142,22 +142,22 @@ const DietPlans = () => {
                     <div className="col-12 col-md-4">
                       <h6>Meal 1</h6>
                       <ul className="list-unstyled">
-                        <li>{selectedDay[meal].title}</li>
-                        <li>{selectedDay[meal].title}</li>
+                        <li className="meal-list-item">{selectedDay[meal].title}</li>
+                        <li className="meal-list-item">{selectedDay[meal].title}</li>
                       </ul>
                     </div>
                     <div className="col-12 col-md-4">
                       <h6>Meal 2</h6>
                       <ul className="list-unstyled">
-                        <li>{selectedDay[meal].title}</li>
-                        <li>{selectedDay[meal].title}</li>
+                        <li className="meal-list-item">{selectedDay[meal].title}</li>
+                        <li className="meal-list-item">{selectedDay[meal].title}</li>
                       </ul>
                     </div>
                     <div className="col-12 col-md-4">
                       <h6>Meal 3</h6>
                       <ul className="list-unstyled">
-                        <li>{selectedDay[meal].title}</li>
-                        <li>{selectedDay[meal].title}</li>
+                        <li className="meal-list-item">{selectedDay[meal].title}</li>
+                        <li className="meal-list-item">{selectedDay[meal].title}</li>
                       </ul>
                     </div>
                   </div>
