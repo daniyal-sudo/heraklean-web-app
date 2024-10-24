@@ -483,6 +483,8 @@ button.btn.btn-primary a {
 button.btn.btn-primary:focus {
   box-shadow: none !important;
   outline: none !important;
+  background-color: transparent !important;
+  border: none !important;
 }
 button.btn.btn-secondary.btn-sm.me-2 {
   width: 47px;
