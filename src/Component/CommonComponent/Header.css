@@ -182,9 +182,9 @@ nav.custom-sidebar .d-flex a.active {
 		margin-bottom: 10px;
 	}
 	
-	.header-fullwidth {
+	/* .header-fullwidth {
 		display: none !important;
-	}
+	} */
 	.home-container .d-flex .navbar-toggler svg {
 		position: relative;
 		z-index: 9;
@@ -194,9 +194,9 @@ nav.custom-sidebar .d-flex a.active {
 	.home-container .d-flex {
 		display: block !important;
 	}
-		.header {
+		/* .header {
 			display: none !important;
-		}
+		} */
 }
 
 
