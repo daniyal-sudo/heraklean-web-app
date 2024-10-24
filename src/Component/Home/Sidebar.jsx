@@ -44,23 +44,27 @@ const Sidebar = () => {
       >
         <FaBars size={24} />
       </button>
-      <div className="text-center logo-design">
+      {/* <div className="text-center logo-design">
         <img
           src="/image 45.png"
           alt="logo"
           className="img-fluid side_logo_height_width"
         />
-      </div>
+      </div> */}
 
       {/* Sidebar Navigation */}
-      <nav className={`custom-sidebar ${isOpen ? "open" : ""}`}>
-        {/* <div className="text-center">
+      <nav className={`custom-sidebar ${isOpen ? "open" : ""}`}
+      // style={{
+      //   background:'white'
+      // }}
+      >
+        <div className="text-center">
           <img
             src="/image 45.png"
             alt="logo"
             className="img-fluid side_logo_height_width mt-3"
           />
-        </div> */}
+        </div>
 
         <div className="d-flex flex-column align-items-center mt-5">
           {navItems.map((item, index) => (
