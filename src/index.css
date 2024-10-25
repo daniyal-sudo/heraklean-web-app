@@ -407,9 +407,6 @@
   border-radius: 17px;
   border: 1.96px solid #0000002E;
 }
-.diet-plan-section-page .container.mt-5 {
-  height: 100dvh;
-}
 button.btn.btn-primary {
   display: flex;
   align-items: center;
