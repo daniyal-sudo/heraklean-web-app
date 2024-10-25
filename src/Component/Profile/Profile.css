@@ -86,6 +86,8 @@ border: 1px solid #DEDEDE !important;
   }
   .from-profile button:focus {
     box-shadow: none !important;
+    background: #53AFE6 !important;
+    outline: none !important;
   }
 /* head */
 
@@ -156,6 +158,11 @@ border: 1px solid #DEDEDE !important;
 .custom-file-upload label:hover, :focus {
   background: #53AFE6;
   border: #53AFE6;
+}
+.custom-file-upload label:focus {
+  background: #53AFE6 !important;
+  box-shadow: none !important;
+  
 }
 @media only screen and (max-width: 992px) {
     .profile-page {

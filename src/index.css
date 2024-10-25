@@ -438,8 +438,8 @@ button.btn.btn-primary {
 .diet-plan-section-page button.btn.btn-primary:focus {
   box-shadow: none !important;
   outline: none !important;
-  background-color: transparent !important;
-  border: none !important;
+  background: #53AFE6 !important;
+  border-color: #53AFE6 !important;
 }
 .diet-plan-section-page button.btn.btn-secondary.btn-sm.me-2 {
   width: 47px;

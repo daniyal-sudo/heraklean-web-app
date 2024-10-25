@@ -347,7 +347,7 @@ const ClientProfile = () => {
 
           <div className="row">
             <div className="col-lg-12">
-              <div className="bg-white p-4  rounded-4 alert-client">
+              <div className="bg-white p-4  rounded-4 alert-client mb-4">
                 <h4
                   className="card-text upcoming_border-line"
                   style={{ fontWeight: "bold" }}
