@@ -615,6 +615,9 @@ background: transparent !important;
 
 
 @media (max-width: 1025px) {
+  .client-mini-cards .col-lg-6 {
+    width: 100%;
+}
   .font-custom-card {
     font-size: 20px;
   }
