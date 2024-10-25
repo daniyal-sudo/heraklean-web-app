@@ -249,23 +249,6 @@
     background: #ffff;
     margin: 20px 0px;
     border-radius: 11px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 100dvh;
-}
-.diet-plan-section-page::-webkit-scrollbar {
-    width: 8px;
-}
-
-.diet-plan-section-page::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-  border-radius: 10px;
-}
-  
-.diet-plan-section-page::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 10px;
-
 }
 .card.diet-plan-section {
   padding: 20px;
@@ -520,4 +503,27 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden {
 }
 .mobile-icon {
   display: none;
+}
+
+
+
+/*  */
+.diet-plan-section-pages {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100dvh;
+}
+.diet-plan-section-pages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.diet-plan-section-pages::-webkit-scrollbar-track {
+background: #f1f1f1; 
+border-radius: 10px;
+}
+
+.diet-plan-section-pages::-webkit-scrollbar-thumb {
+background: #888; 
+border-radius: 10px;
+
 }

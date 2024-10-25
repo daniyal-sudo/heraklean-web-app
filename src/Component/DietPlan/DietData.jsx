@@ -38,7 +38,7 @@ const DietPlans = () => {
   return (
     <>
       
-        <div className="container">
+        <div className="container" style={{ height: '100dvh' }}>
         <div className="diet-plan-section-page">
           <div className="row my-2">
         <div className="col-lg-6">
@@ -63,7 +63,7 @@ const DietPlans = () => {
         </div>
           </div>
           </div>
-      
+          <div className="diet-plan-section-pages">
             <div className="row">
               {diets.map((diet, index) => (
                 <div key={index} className="col-md-4 col-sm-6 mb-4">
@@ -183,6 +183,7 @@ const DietPlans = () => {
         </div>
         </div>
       )}
+    </div>
     </div>
     </div>
               </>

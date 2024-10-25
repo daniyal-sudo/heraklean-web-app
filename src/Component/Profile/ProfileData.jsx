@@ -64,7 +64,7 @@ const ProfileData = () => {
   };
 
   return (
-    <div className="container-fluid m-0 profile-screen">
+    <div className="container-fluid m-0 profile-screen" style={{ height: '100%' }}>
       <div className="profile-page" style={{ border: '1px solid #E5E5E5', width: '100%' }}>
         <form onSubmit={handleSubmit} className="col-8 profile-section">
           <div className="row">

@@ -115,7 +115,6 @@ border: 1px solid #DEDEDE !important;
   border: none !important;
   position: relative;
   padding: 35px;
-  height: 900px;
 }
 .custom-sidebar .d-flex a.active span {
   font-family: Poppins;
