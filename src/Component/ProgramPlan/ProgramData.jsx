@@ -138,7 +138,7 @@ const ProgramPlans = () => {
                         checked={selectedProgram === program}
                         readOnly
                       />
-                      <div className="fw-bold">{program.programTitle}</div>
+                      <div className="thin-text">{program.programTitle}</div>
                     </div>
                   </Dropdown.Item>
                 ))}
@@ -185,7 +185,7 @@ const ProgramPlans = () => {
                         checked={selectedDay && selectedProgram[day] === selectedDay}
                         readOnly
                       />
-                      <div className="fw-bold">
+                      <div className="thin-text">
                         {day.charAt(0).toUpperCase() + day.slice(1)}
                       </div>
                     </div>
