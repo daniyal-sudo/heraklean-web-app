@@ -257,7 +257,7 @@ const ClientProfile = () => {
 			setShowComponent('')
 		  }}/>
       ) : (
-        <div className="container page_height">
+        <div className="container">
           <div className="row mb-2 mt-2">
             <div className="col-lg-6 mbile_screen_margin">
               <div className="row bg-white p-3 m-2 box_height small-cards">
