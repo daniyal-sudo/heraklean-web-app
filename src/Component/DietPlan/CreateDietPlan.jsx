@@ -5,6 +5,7 @@ import Sidebar from './../Home/Sidebar';
 import './../CreateClient/CreateClient.css';
 import { Button, Form } from 'react-bootstrap';
 import Header from '../CommonComponent/Header';
+import DropdownDay from './DropdownDay';
 
 const CreateDietPlan = () => {
   const [dietTitle, setDietTitle] = useState('');
@@ -108,7 +109,7 @@ const CreateDietPlan = () => {
                     </div>
                     <div className="row">
                     <div className="col-lg-6">
-                    <div className="form-group mb-3">
+                    {/* <div className="form-group mb-3">
                       <label htmlFor="days">Select Day</label>
                       <Form.Select id="days" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
                         {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map((day) => (
@@ -117,7 +118,8 @@ const CreateDietPlan = () => {
                           </option>
                         ))}
                       </Form.Select>
-                    </div>
+                    </div> */}
+                    <DropdownDay />
                     </div>
                     <div className="col-lg-6 button-section-meals">
                     <div className="d-flex gap-3 meal-button">
