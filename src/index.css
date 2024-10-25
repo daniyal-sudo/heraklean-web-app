@@ -457,9 +457,6 @@ button.btn.btn-primary {
 .mobile-icon {
   display: none;
 }
-
-
-
 /*  */
 .diet-plan-section-pages {
   overflow-x: hidden;
@@ -479,6 +476,72 @@ border-radius: 10px;
   background: #888; 
   border-radius: 10px;
 }
+.space-page {
+  padding: 10px 25px;
+}
+.creative-program input {
+  padding: 15px 16px 11px 16px;
+  border-radius: 8px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  height: 55px;
+  border-radius: 11px;
+  background: #F5F5F5 !important;
+  border: 1px solid #9A9A9A33;
+}
+.creative-program textarea.form-control {
+    background: #F5F5F5 !important;
+    border: 1px solid #9A9A9A33;
+}
+.creative-program input:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #DEDEDE !important;
+}
+.creative-program input::placeholder {
+  color: #9A9A9A;
+}
+.creative-program textarea.form-control::placeholder {
+  color: #9A9A9A;
+}
+
+.creative-program textarea.form-control:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #DEDEDE !important;
+}
+.creative-program label {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-align: left;
+}
+.creative-program h4::after {
+  content: '';
+  position: absolute;
+  left: 26px;
+  top: 69px;
+  width: 15%;
+  height: 3px;
+  border-radius: 5px;
+  background: #53AFE6;
+}
+.creative-program h4 {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.creative-program {
+  position: relative;
+}
 @media (max-width: 1025px) {
   .font-custom-card {
     font-size: 20px;
@@ -488,53 +551,74 @@ border-radius: 10px;
   }
 } 
 @media (max-width: 768px) {
+  .crative-button .button {
+    width: 50% !important;
+  }
+  
   .header-content .greeting h5 {
     display: none;
   }
 }
 @media (max-width: 480px) {
-  .diet-plan-section-page .text-white {
-    display: none !important;
-  }
-  .diet-plan-section-page .row.my-2 button {
-    margin: 0px;
-    padding: 0px;
-    justify-content: flex-end;
-  }
-  .diet-plan-section-page .row.my-2 button {
-    width: 206px;
-    height: 60px;
-   background-color: transparent !important;
-   border-radius: 0px !important;
-   border: none !important;
-  }
-  .card .diet-plan-section .icon {
-    display: none !important;
-  }
-  .card.diet-plan-section .d-flex.icon-hide {
-    justify-content: center;
-}
-    .plus-icon{
-      padding: 5px;
-      background: #53AFE6;
-      border-radius: 5px !important;
-    }
-    .plus-icon.mr-2 svg {
-      background: #53AFE6;
-  }
-  .diet-plan-section-page .col-12 {
-    padding: 0px;
-}
-.diet-plan-section-page button.btn.btn-primary {
-  background-color: transparent !important;
-  border: none !important;
-}
-.diet-plan-section-page button.btn.btn-primary a {
-  display: none;
-}
-button.btn.btn-secondary.btn-sm.me-2.icon-hidden {
-  display: none;
-}
+      .crative-button button.btn.btn-primary {
+        background: #53AFE6 !important;
+      }
+      .diet-plan-section-page .text-white {
+        display: none !important;
+      }
+      .diet-plan-section-page .row.my-2 button {
+        margin: 0px;
+        padding: 0px;
+        justify-content: flex-end;
+      }
+      .diet-plan-section-page .row.my-2 button {
+        width: 206px;
+        height: 60px;
+      background-color: transparent !important;
+      border-radius: 0px !important;
+      border: none !important;
+      }
+      .card .diet-plan-section .icon {
+        display: none !important;
+      }
+      .card.diet-plan-section .d-flex.icon-hide {
+        justify-content: center;
+      }
+      .plus-icon{
+          padding: 5px;
+          background: #53AFE6;
+          border-radius: 5px !important;
+      }
+      .plus-icon.mr-2 svg {
+          background: #53AFE6;
+      }
+      .diet-plan-section-page .col-12 {
+        padding: 0px;
+      }
+      .diet-plan-section-page button {
+      background-color: transparent !important;
+      border: none !important;
+      }
+      .crative-button .cancel-section {
+      border: 1px solid #000000 !important;
+      }
+      .diet-plan-section-page button a {
+      display: none;
+      }
+      .btn.btn-secondary.icon-hidden {
+         display: none;
+       }
+      .creative-program h4::after {
+        width: 50% !important;
+        max-width: 100%;
+      }
+      .creative-program h4 {
+        font-size: 22px;
+        white-space: nowrap;
+      }
+      .diet-plan-section-page {
+        padding: 20px !important;
+      }
 }
 
 

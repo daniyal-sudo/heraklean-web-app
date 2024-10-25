@@ -4,6 +4,7 @@ import Sidebar from './../Home/Sidebar';
 import './../CreateClient/CreateClient.css';
 import { Modal, Button, Form } from 'react-bootstrap';
 import Header from '../CommonComponent/Header';
+import CommonForm from '../ProgramPlan/CommonFrom'
 
 const CreateProgram = () => {
   const [programTitle, setProgramTitle] = useState('');
@@ -98,48 +99,49 @@ const CreateProgram = () => {
         <Sidebar />
         <div className="content-wrapper d-flex flex-column">
           <Header />
+     <div className="space-page"> 
+              <div className="container p-0 m-0" style={{ height: '100dvh' }}>
+                <div className="diet-plan-section-page">
+                  <CommonForm />
+                  {/* <form onSubmit={handleSubmit}>
+                    <div className="row mt-4 me-3">
+                      <p className="fs-4 fw-bold">Create Program</p>
+                      <div className="col-lg-6">
+                        <div className="form-group mb-3">
+                          <label htmlFor="programTitle">Program Title</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="programTitle"
+                            value={programTitle}
+                            onChange={(e) => setProgramTitle(e.target.value)}
+                            required
+                          />
+                        </div>
 
-          <div className="container mt-2 mx-4">
-            <div className="bg-white p-4 rounded" style={{ border: '1px solid #E5E5E5' }}>
-              <form onSubmit={handleSubmit}>
-                <div className="row mt-4 me-3">
-                  <p className="fs-4 fw-bold">Create Program</p>
-                  <div className="col-lg-6">
-                    <div className="form-group mb-3">
-                      <label htmlFor="programTitle">Program Title</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="programTitle"
-                        value={programTitle}
-                        onChange={(e) => setProgramTitle(e.target.value)}
-                        required
-                      />
-                    </div>
-
-                    <div className="form-group mb-3">
-                      <label htmlFor="days">Select Day to Add Program Details</label>
-                      <div className="d-flex flex-wrap gap-2">
-                        {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map((day) => (
-                          <Button key={day} variant="outline-primary" className="me-2 mb-2" onClick={() => handleDayClick(day)}>
-                            {day.charAt(0).toUpperCase() + day.slice(1)}
-                          </Button>
-                        ))}
+                        <div className="form-group mb-3">
+                          <label htmlFor="days">Select Day to Add Program Details</label>
+                          <div className="d-flex flex-wrap gap-2">
+                            {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map((day) => (
+                              <Button key={day} variant="outline-primary" className="me-2 mb-2" onClick={() => handleDayClick(day)}>
+                                {day.charAt(0).toUpperCase() + day.slice(1)}
+                              </Button>
+                            ))}
+                          </div>
+                        </div>
+                        <Button type="submit" className="btn btn-primary">
+                          Submit Program
+                        </Button>
                       </div>
                     </div>
-                    <Button type="submit" className="btn btn-primary">
-                      Submit Program
-                    </Button>
-                  </div>
+                  </form> */}
                 </div>
-              </form>
-            </div>
-          </div>
+              </div>
         </div>
       </div>
 
       {/* Modal for filling day details */}
-      <Modal show={dayModal} onHide={handleClose}>
+      {/* <Modal show={dayModal} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Program Details for {selectedDay.charAt(0).toUpperCase() + selectedDay.slice(1)}</Modal.Title>
         </Modal.Header>
@@ -195,7 +197,8 @@ const CreateProgram = () => {
             Save Details
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
+    </div>
     </div>
   );
 };
