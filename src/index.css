@@ -428,12 +428,12 @@ button.btn.btn-primary {
   box-shadow: none !important;
 }
 .diet-plan-section-page button.btn.btn-primary:active {
-  background-color: transparent !important;
-  border: none !important;
+  background: #53AFE6 !important;
+  border-color: #53AFE6 !important;
 }
 .diet-plan-section-page button.btn.btn-primary a {
-  background-color: transparent !important;
-  border: none !important;
+  background: #53AFE6 !important;
+  border-color: #53AFE6 !important;
 }
 .diet-plan-section-page button.btn.btn-primary:focus {
   box-shadow: none !important;
