@@ -542,6 +542,78 @@ border-radius: 10px;
 .creative-program {
   position: relative;
 }
+/* ======= */
+.custom-dropdown-item.dropdown-item .d-flex.align-items-start input.me-2 {
+  height: auto;
+}
+.program-dropdown .col-6 .dropdown button {
+  height: 55px;
+  border-radius: 11px;
+  border: 1px solid #9A9A9A33;
+  color: #000000;
+  padding: 0px 20px;
+  line-height: 50px;
+}
+.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:first-child {
+  border-top-left-radius: 4px;
+}
+.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom: none !important;
+}
+.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a {
+     padding: 20px;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:hover {
+background: transparent !important;
+}
+.program-dropdown .col-6 .dropdown button {
+  background-color: transparent !important;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #000000;
+}
+.col-6.mb-3.dropdown-diet .dropdown-menu.show a.dropdown-item:focus {
+  background-color: transparent !important;
+}
+.program-dropdown .col-6 .dropdown button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:focus {
+  background-color: transparent !important;
+}
+.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show {
+  height: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+  .program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar {
+      width: 8px;
+  }
+  .program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-track {
+  	background: #53AFE65E;
+    border-radius: 10px;
+  }
+  .program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-thumb {
+    background: #53AFE6;
+    border-radius: 10px;
+
+  }
+
+
+
+
+
 @media (max-width: 1025px) {
   .font-custom-card {
     font-size: 20px;

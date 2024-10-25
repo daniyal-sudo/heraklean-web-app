@@ -91,7 +91,7 @@ const ProgramPlans = () => {
               </button>
             </div>
           </div>
-
+       <div className="program-dropdown">
           <div className="row mb-3">
             {/* Program Dropdown */}
             <div className="col-6">
@@ -194,6 +194,7 @@ const ProgramPlans = () => {
               </Dropdown.Menu>
             </Dropdown>
             </div>
+          </div>
           </div>
 
           {/* Show selected day details */}
