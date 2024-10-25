@@ -89,10 +89,10 @@ const CreateDietPlan = () => {
 
           <div className="container mt-2 mx-4">
             <div className="bg-white p-4 rounded" style={{ border: '1px solid #E5E5E5' }}>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="creative-program">
                 <div className="row mt-4 me-3">
                   <p className="fs-4 fw-bold">Create Diet Plan</p>
-                  <div className="col-lg-6">
+                  <div className="col-lg-12">
                     <div className="form-group mb-3">
                       <label htmlFor="dietTitle">Diet Title</label>
                       <input
@@ -116,7 +116,7 @@ const CreateDietPlan = () => {
                       </Form.Select>
                     </div>
 
-                    <div className="d-flex gap-3 mb-3">
+                    <div className="d-flex gap-3 mb-3 meal-button">
                       {['meal1', 'meal2', 'meal3'].map((meal) => (
                         <Button key={meal} variant={selectedMeal === meal ? 'primary' : 'outline-secondary'} onClick={() => handleMealSelect(meal)}>
                           {meal.charAt(0).toUpperCase() + meal.slice(1)}
@@ -184,13 +184,14 @@ const CreateDietPlan = () => {
                         required
                       />
                     </Form.Group>
-
-                    <Button type="button" className="btn btn-primary" onClick={handleSaveMealDetails}>
-                      Save Meal Details
-                    </Button>
-                    <Button type="submit" className="btn btn-primary mt-2">
-                      Submit Diet Plan
-                    </Button>
+                     <div className="crative-button">
+                        <Button type="button" className="save-button" onClick={handleSaveMealDetails}>
+                          Save Meal Details
+                        </Button>
+                        <Button type="submit" className="cancel-buuton">
+                          Submit Diet Plan
+                        </Button>
+                    </div>
                   </div>
                 </div>
               </form>

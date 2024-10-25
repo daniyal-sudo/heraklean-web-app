@@ -243,7 +243,6 @@ body {
     gap: 30px;
 }
 .crative-button .btn.btn-primary{
-	width: 20%;
 	height: 70px;
 	border-radius: 10px;
 	border: 1px solid #53AFE6;
@@ -260,7 +259,6 @@ body {
 
 }
 .crative-button .btn.btn-light {
-	width: 20%;
 	height: 70px;
 	border-radius: 10px;
 	border: 1px solid #000000;
