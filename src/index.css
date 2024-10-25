@@ -636,6 +636,32 @@ input[type="number"]::-webkit-outer-spin-button,
     text-align: left;
 
   }
+  .custom-header::before {
+    content: "";
+    position: absolute;
+  top: 40px;
+    left: 0px;
+    width: 10%;
+    height: 4px;
+    background-color: #53afe6;
+    border-radius: 9px;
+}
+.crative-button button {
+  width: 20%;
+}
+.col-lg-6.button-section-meals {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.custom-header {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+}
+
 
 
 

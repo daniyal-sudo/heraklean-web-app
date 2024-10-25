@@ -88,11 +88,12 @@ const CreateDietPlan = () => {
           <Header />
 
           <div className="container mt-2 mx-4">
-            <div className="bg-white p-4 rounded" style={{ border: '1px solid #E5E5E5' }}>
+            <div className="profile-page">
               <form onSubmit={handleSubmit} className="creative-program">
                 <div className="row mt-4 me-3">
-                  <p className="fs-4 fw-bold">Create Diet Plan</p>
+                  <p className="custom-header">Create Diet Plan</p>
                   <div className="col-lg-12">
+                  <div className="col-lg-12 p-0">
                     <div className="form-group mb-3">
                       <label htmlFor="dietTitle">Diet Title</label>
                       <input
@@ -104,7 +105,9 @@ const CreateDietPlan = () => {
                         required
                       />
                     </div>
-
+                    </div>
+                    <div className="row">
+                    <div className="col-lg-6">
                     <div className="form-group mb-3">
                       <label htmlFor="days">Select Day</label>
                       <Form.Select id="days" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
@@ -115,35 +118,45 @@ const CreateDietPlan = () => {
                         ))}
                       </Form.Select>
                     </div>
-
-                    <div className="d-flex gap-3 mb-3 meal-button">
+                    </div>
+                    <div className="col-lg-6 button-section-meals">
+                    <div className="d-flex gap-3 meal-button">
                       {['meal1', 'meal2', 'meal3'].map((meal) => (
                         <Button key={meal} variant={selectedMeal === meal ? 'primary' : 'outline-secondary'} onClick={() => handleMealSelect(meal)}>
                           {meal.charAt(0).toUpperCase() + meal.slice(1)}
                         </Button>
                       ))}
                     </div>
-
-                    <Form.Group className="mb-3">
-                      <Form.Label>Title</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="title"
-                        value={mealForm.title || ''}
-                        onChange={handleMealFormChange}
-                        required
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Description</Form.Label>
-                      <Form.Control
-                        as="textarea"
-                        name="description"
-                        value={mealForm.description || ''}
-                        onChange={handleMealFormChange}
-                        required
-                      />
-                    </Form.Group>
+                    </div>
+                    </div>
+                    <div className="row">
+                          <div className="col-lg-6">
+                            <Form.Group className="mb-3">
+                              <Form.Label>Title</Form.Label>
+                              <Form.Control
+                                type="text"
+                                name="title"
+                                value={mealForm.title || ''}
+                                onChange={handleMealFormChange}
+                                required
+                              />
+                            </Form.Group>
+                          </div>
+                        <div className="col-lg-6">
+                          <Form.Group className="mb-3">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control
+                              as="textarea"
+                              name="description"
+                              value={mealForm.description || ''}
+                              onChange={handleMealFormChange}
+                              required
+                            />
+                          </Form.Group>
+                        </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-6">
                     <Form.Group className="mb-3">
                       <Form.Label>Protein</Form.Label>
                       <Form.Control
@@ -154,6 +167,8 @@ const CreateDietPlan = () => {
                         required
                       />
                     </Form.Group>
+                    </div>
+                    <div className="col-lg-6">
                     <Form.Group className="mb-3">
                       <Form.Label>Calories</Form.Label>
                       <Form.Control
@@ -164,26 +179,34 @@ const CreateDietPlan = () => {
                         required
                       />
                     </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Carbs</Form.Label>
-                      <Form.Control
-                        type="number"
-                        name="carbs"
-                        value={mealForm.carbs || ''}
-                        onChange={handleMealFormChange}
-                        required
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Fat</Form.Label>
-                      <Form.Control
-                        type="number"
-                        name="fat"
-                        value={mealForm.fat || ''}
-                        onChange={handleMealFormChange}
-                        required
-                      />
-                    </Form.Group>
+                    </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-6">
+                        <Form.Group className="mb-3">
+                          <Form.Label>Carbs</Form.Label>
+                          <Form.Control
+                            type="number"
+                            name="carbs"
+                            value={mealForm.carbs || ''}
+                            onChange={handleMealFormChange}
+                            required
+                          />
+                        </Form.Group>
+                        </div>
+                        <div className="col-lg-6">
+                        <Form.Group className="mb-3">
+                          <Form.Label>Fat</Form.Label>
+                          <Form.Control
+                            type="number"
+                            name="fat"
+                            value={mealForm.fat || ''}
+                            onChange={handleMealFormChange}
+                            required
+                          />
+                        </Form.Group>
+                        </div>
+                    </div>
                      <div className="crative-button">
                         <Button type="button" className="save-button" onClick={handleSaveMealDetails}>
                           Save Meal Details
