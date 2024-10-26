@@ -145,7 +145,7 @@ const AllClients = () => {
 								</div>
 								<div className="client-mini-cards">
 								<div className="row">
-									{clients.map((client) => (
+									{clients && clients.length > 0 ? clients.map((client) => (
 										<div className="col-lg-6 p-0 font-poppins">
 											<Card
 												key={client._id}
@@ -155,7 +155,10 @@ const AllClients = () => {
 												clientId={client._id}
 											/>
 										</div>
-									))}
+									)):
+									<div className="text-center record-image">
+									<img src="/no-event.jpg" style={{ width: "130px" }} />
+								  </div>}
 								</div>
 								</div>
 							</div>

@@ -62,7 +62,9 @@ const ProgramPlans = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{
+      height:'100dvh'
+    }}>
       <div className="diet-plan-section-page">
         <div className="container mt-5">
           <div className="row mb-4">
@@ -70,6 +72,7 @@ const ProgramPlans = () => {
               <h2 className="custom-head">Program Plans</h2>
               <button className="btn btn-primary">
                 <div className="plus-icon mr-2">
+                <Link to="/create-program" className="btn btn-primary">
                   <svg
                     width="30"
                     height="30"
@@ -84,6 +87,7 @@ const ProgramPlans = () => {
                       fill="white"
                     />
                   </svg>
+                  </Link>
                 </div>
                 <Link to="/create-program" className="btn btn-primary">
                   Create New
