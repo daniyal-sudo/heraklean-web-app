@@ -7,7 +7,6 @@ const DietPlans = () => {
   const [diets, setDiets] = useState([]);
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDiet, setSelectedDiet] = useState(null);
-  
 
   const days = [
     "monday",
@@ -15,7 +14,7 @@ const DietPlans = () => {
     "wednesday",
     "thursday",
     "friday",
-    
+
     "saturday",
     "sunday",
   ];
@@ -37,9 +36,8 @@ const DietPlans = () => {
         response.data.dietPlans.forEach((plan) => {
           console.log(plan.dietTitle);
         });
- 
 
-        const fetchedPrograms =response.data.dietPlans;
+        const fetchedPrograms = response.data.dietPlans;
         setDiets(fetchedPrograms);
 
         // Default to first program and Monday data
@@ -119,14 +117,12 @@ const DietPlans = () => {
             </div>
           </div>
           <div className="diet-plan-section-pages">
-          <div className="row mb-3 g-2">
+            <div className="row mb-3 g-2">
               {" "}
               {/* Add gap between columns with `g-2` */}
               {/* Program Dropdown */}
               <div className="col-12 col-md-6">
-                <Dropdown
-                  onSelect={(key) => handleProgramChange(diets[key])}
-                >
+                <Dropdown onSelect={(key) => handleProgramChange(diets[key])}>
                   <Dropdown.Toggle
                     variant="light"
                     className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
@@ -134,9 +130,7 @@ const DietPlans = () => {
                       height: "55px",
                     }}
                   >
-                    {selectedDiet
-                      ? selectedDiet.dietTitle
-                      : "Select Diet"}
+                    {selectedDiet ? selectedDiet.dietTitle : "Select Diet"}
                     <span className="dropdown-icon-wrapper">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -170,9 +164,7 @@ const DietPlans = () => {
                             // checked={selectedProgram === program}
                             readOnly
                           />
-                          <div className="thin-text">
-                            {program.dietTitle}
-                          </div>
+                          <div className="thin-text">{program.dietTitle}</div>
                         </div>
                       </Dropdown.Item>
                     ))}
@@ -225,8 +217,7 @@ const DietPlans = () => {
                             name="day"
                             className="me-2"
                             checked={
-                              selectedDay &&
-                              selectedDiet[day] === selectedDay
+                              selectedDay && selectedDiet[day] === selectedDay
                             }
                             readOnly
                           />
@@ -248,100 +239,109 @@ const DietPlans = () => {
                   <div className="card diet-plane-2">
                     <h4 className="fw-bold">{selectedDiet.dietTitle}</h4>
 
-                    {["meal1", "meal2", "meal3"].map(
-                      (meal, index) =>
-                        selectedDay[meal] && (
-                          
-                          <div className="card diet-plan-section">
-                            <div
-                              className="d-flex justify-content-between align-items-start"
-                              key={index}
-                            >
-                              <div className="d-flex align-items-start">
-                                <img
-                                  src="/meal.png"
-                                  alt="Diet Plan Image"
-                                  className="meal"
-                                  width="80"
-                                  height="80"
-                                />
-                                <div className="ms-3">
-                                  <h5 className="fw-bold mb-4">
-                                    {selectedDay[meal].title}
-                                  </h5>
+                    {["meal1", "meal2", "meal3"].some(
+                      (meal) => selectedDay[meal]
+                    ) ? (
+                      ["meal1", "meal2", "meal3"].map(
+                        (meal, index) =>
+                          selectedDay[meal] && (
+                            <div className="card diet-plan-section">
+                              <div
+                                className="d-flex justify-content-between align-items-start"
+                                key={index}
+                              >
+                                <div className="d-flex align-items-start">
+                                  <img
+                                    src="/meal.png"
+                                    alt="Diet Plan Image"
+                                    className="meal"
+                                    width="80"
+                                    height="80"
+                                  />
+                                  <div className="ms-3">
+                                    <h5 className="fw-bold mb-4">
+                                      {selectedDay[meal].title}
+                                    </h5>
 
-                                  <div className="d-flex flex-wrap">
-                                    <span className="badge bg-danger me-1 mb-1">
-                                      {selectedDay[meal].protein}
-                                    </span>
-                                    <span className="badge bg-success me-1 mb-1">
-                                      {selectedDay[meal].calories} kcal
-                                    </span>
-                                    <span className="badge bg-warning text-dark me-1 mb-1">
-                                      {selectedDay[meal].fat}g
-                                    </span>
-                                    <span className="badge bg-secondary me-1 mb-1">
-                                      Fats 200g
-                                    </span>
+                                    <div className="d-flex flex-wrap">
+                                      <span className="badge bg-danger me-1 mb-1">
+                                        {selectedDay[meal].protein}
+                                      </span>
+                                      <span className="badge bg-success me-1 mb-1">
+                                        {selectedDay[meal].calories} kcal
+                                      </span>
+                                      <span className="badge bg-warning text-dark me-1 mb-1">
+                                        {selectedDay[meal].fat}g
+                                      </span>
+                                      <span className="badge bg-secondary me-1 mb-1">
+                                        Fats 200g
+                                      </span>
+                                    </div>
                                   </div>
+                                </div>
+
+                                <div className="d-flex icon">
+                                  <button className="btn btn-secondary btn-sm me-2">
+                                    <i className="bi bi-pencil"></i>
+                                  </button>
+                                  <button className="btn btn-primary btn-sm">
+                                    <i className="bi bi-send"></i>
+                                  </button>
                                 </div>
                               </div>
 
-                              <div className="d-flex icon">
-                                <button className="btn btn-secondary btn-sm me-2">
-                                  <i className="bi bi-pencil"></i>
-                                </button>
-                                <button className="btn btn-primary btn-sm">
-                                  <i className="bi bi-send"></i>
-                                </button>
+                              <div className="row mt-3">
+                                <div className="col-12 col-md-4">
+                                  <h6>Meal 1</h6>
+                                  <ul className="list-unstyled">
+                                    <li className="meal-list-item">
+                                      {selectedDay[meal].title}
+                                    </li>
+                                    <li className="meal-list-item">
+                                      {selectedDay[meal].title}
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div className="col-12 col-md-4">
+                                  <h6>Meal 2</h6>
+                                  <ul className="list-unstyled">
+                                    <li className="meal-list-item">
+                                      {selectedDay[meal].title}
+                                    </li>
+                                    <li className="meal-list-item">
+                                      {selectedDay[meal].title}
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div className="col-12 col-md-4">
+                                  <h6>Meal 3</h6>
+                                  <ul className="list-unstyled">
+                                    <li className="meal-list-item">
+                                      {selectedDay[meal].title}
+                                    </li>
+                                    <li className="meal-list-item">
+                                      {selectedDay[meal].title}
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div className="d-flex icon-hide">
+                                  <button className="btn btn-secondary btn-sm me-2">
+                                    <i className="bi bi-pencil"></i>
+                                  </button>
+                                  <button className="btn btn-primary btn-sm">
+                                    <i className="bi bi-send"></i>
+                                  </button>
+                                </div>
                               </div>
                             </div>
-
-                            <div className="row mt-3">
-                              <div className="col-12 col-md-4">
-                                <h6>Meal 1</h6>
-                                <ul className="list-unstyled">
-                                  <li className="meal-list-item">
-                                    {selectedDay[meal].title}
-                                  </li>
-                                  <li className="meal-list-item">
-                                    {selectedDay[meal].title}
-                                  </li>
-                                </ul>
-                              </div>
-                              <div className="col-12 col-md-4">
-                                <h6>Meal 2</h6>
-                                <ul className="list-unstyled">
-                                  <li className="meal-list-item">
-                                    {selectedDay[meal].title}
-                                  </li>
-                                  <li className="meal-list-item">
-                                    {selectedDay[meal].title}
-                                  </li>
-                                </ul>
-                              </div>
-                              <div className="col-12 col-md-4">
-                                <h6>Meal 3</h6>
-                                <ul className="list-unstyled">
-                                  <li className="meal-list-item">
-                                    {selectedDay[meal].title}
-                                  </li>
-                                  <li className="meal-list-item">
-                                    {selectedDay[meal].title}
-                                  </li>
-                                </ul>
-                              </div>
-                              <div className="d-flex icon-hide">
-                                <button className="btn btn-secondary btn-sm me-2">
-                                  <i className="bi bi-pencil"></i>
-                                </button>
-                                <button className="btn btn-primary btn-sm">
-                                  <i className="bi bi-send"></i>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        )
+                          )
+                      )
+                    ) : (
+                      <>
+                        <div className="text-center record-image no-record-found-h">
+                          <img src="/no-event.jpg" style={{ width: "130px" }} />
+                        </div>
+                      </>
                     )}
                   </div>
                 </div>

@@ -466,6 +466,9 @@ button.btn.btn-primary {
 .diet-plan-section-pages::-webkit-scrollbar {
   width: 8px;
 }
+.no-record-found-h{
+  height: 550px;
+}
 
 .diet-plan-section-pages::-webkit-scrollbar-track {
 background: #f1f1f1; 
@@ -806,7 +809,7 @@ input[type="number"]::-webkit-outer-spin-button,
 }
 .custom-dropdown-menu.dropdown-menu.show {
   padding: 0px !important;
-  height: 250px;
+  height: 180px;
   overflow-y: auto;
   overflow-x: hidden;
 }
