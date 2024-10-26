@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import "./registration.css";
+import "./Registration.css";
 import ImageUploader from "../CommonComponent/ImgUploader";
 
 const Registration = () => {
