@@ -3,7 +3,7 @@ import Header from '../CommonComponent/Header';
 import Sidebar from './../Home/Sidebar';
 import './../CreateClient/CreateClient.css';
 import Calendar from './Calendar'
-import "./Calendar.css"
+import "./calendar.css"
 
 function ScheduleMeeting() {
   return (
