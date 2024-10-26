@@ -458,10 +458,10 @@ button.btn.btn-primary {
   display: none;
 }
 /*  */
-.diet-plan-section-pages {
+.diet-plan-scroll {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100dvh;
+  height: 550px;
 }
 .diet-plan-section-pages::-webkit-scrollbar {
   width: 8px;
@@ -721,14 +721,14 @@ input[type="number"]::-webkit-outer-spin-button,
       .diet-plan-section-page .col-12 {
         padding: 0px;
       }
-      .diet-plan-section-page button {
+      .diet-plan-section-page .show-it{
       background-color: transparent !important;
       border: none !important;
       }
       .crative-button .cancel-section {
       border: 1px solid #000000 !important;
       }
-      .diet-plan-section-page button a {
+      .diet-plan-section-page .hiide-it {
       display: none;
       }
       .btn.btn-secondary.icon-hidden {
