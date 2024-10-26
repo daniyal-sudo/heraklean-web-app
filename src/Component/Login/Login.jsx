@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
+import { api_url } from "../../../CommonFunctions";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ const Login = () => {
 		e.preventDefault();
 		setError("");
 		try {
-			const response = await axios.post("http://82.112.240.94:5001/api/auth/login", { email, password });
+			const response = await axios.post(`${api_url}login`, { email, password });
 
 			if (response.data.success) {
 				localStorage.setItem("token", response.data.token);

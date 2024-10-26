@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Dropdown } from "react-bootstrap";
+import { api_url } from "../../../CommonFunctions";
 
 const DietPlans = () => {
   const [diets, setDiets] = useState([]);
@@ -25,14 +26,11 @@ const DietPlans = () => {
     const fetchDiets = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(
-          "http://82.112.240.94:5001/api/auth/getTrainerDietPlans",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${api_url}getTrainerDietPlans`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         response.data.dietPlans.forEach((plan) => {
           console.log(plan.dietTitle);
         });
@@ -122,15 +120,23 @@ const DietPlans = () => {
               {/* Add gap between columns with `g-2` */}
               {/* Program Dropdown */}
               <div className="col-12 col-md-6">
-                <Dropdown onSelect={(key) => handleProgramChange(diets[key])}>
+                <Dropdown
+                  onSelect={(key) => handleProgramChange(diets[key])}
+                  disabled={diets.length === 0}
+                >
                   <Dropdown.Toggle
                     variant="light"
                     className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
                     style={{
                       height: "55px",
                     }}
+                    disabled={diets.length === 0}
                   >
-                    {selectedDiet ? selectedDiet.dietTitle : "Select Diet"}
+                    {diets.length === 0
+                      ? "No Diet Plans Available"
+                      : selectedDiet
+                      ? selectedDiet.dietTitle
+                      : "Select Diet"}
                     <span className="dropdown-icon-wrapper">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -175,15 +181,21 @@ const DietPlans = () => {
               <div className="col-12 col-md-6 ">
                 {" "}
                 {/* Margin-top on small screens for separation */}
-                <Dropdown onSelect={(day) => handleDayChange(day)}>
+                <Dropdown
+                  onSelect={(day) => handleDayChange(day)}
+                  disabled={diets.length === 0}
+                >
                   <Dropdown.Toggle
                     variant="light"
                     className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
                     style={{
                       height: "55px",
                     }}
+                    disabled={diets.length === 0}
                   >
-                    {selectedDay
+                    {diets.length === 0
+                      ? "Select diet first"
+                      : selectedDay
                       ? capitalizeWords(selectedDayValue)
                       : "Select Day"}
                     <span className="dropdown-icon-wrapper">

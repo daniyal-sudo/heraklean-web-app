@@ -5,6 +5,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SingleClient from "./SingleClient";
 import axios from "axios";
+import { api_url } from "../../../CommonFunctions";
 const Card = ({ name, city, imgSrc, clientId }) => {
 	// Assuming your backend serves images from a folder like 'http://localhost:5001/uploads/'
 	const imageUrl = imgSrc ? `http://82.112.240.94:5001/${imgSrc.replace(/\\/g, "/")}` : "default_image.png";
@@ -78,7 +79,7 @@ const AllClients = () => {
 		const fetchClients = async () => {
 			try {
 				const token = localStorage.getItem("token");
-				const response = await axios.get("http://82.112.240.94:5001/api/auth/getTrainerClients", {
+				const response = await axios.get(`${api_url}getTrainerClients`, {
 					headers: {
 						Authorization: `Bearer ${token}`,
 					},

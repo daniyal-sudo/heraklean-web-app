@@ -4,6 +4,7 @@ import { Dropdown, Button } from "react-bootstrap";
 import { IoIosArrowDown } from "react-icons/io";
 import UploadButton from "./UploadButton";
 import CustomDropdown from "../CommonComponent/CustomDropdown";
+import { api_url } from "../../../CommonFunctions";
 
 const Form = ({ onClose }) => {
   const [dietPlans, setDietPlans] = useState([]);
@@ -26,11 +27,11 @@ const Form = ({ onClose }) => {
       const token = localStorage.getItem("token");
       try {
         const [dietResponse, programResponse] = await Promise.all([
-          axios.get("http://82.112.240.94:5001/api/auth/getTrainerDietPlans", {
+          axios.get(`${api_url}getTrainerDietPlans`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
           axios.get(
-            "http://82.112.240.94:5001/api/auth/getTrainerProgramPlans",
+            `${api_url}getTrainerProgramPlans`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -84,7 +85,7 @@ const Form = ({ onClose }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://82.112.240.94:5001/api/auth/createClient",
+        `${api_url}createClient`,
         formDataToSend,
         {
           headers: {

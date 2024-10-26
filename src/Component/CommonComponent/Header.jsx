@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import { api_url } from "../../../CommonFunctions";
 
 const Header = () => {
   const [notificationsActive, setNotificationsActive] = useState(false);
@@ -28,7 +29,7 @@ const Header = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          "http://82.112.240.94:5001/api/auth/notification",
+          `${api_url}notification`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -54,7 +55,7 @@ const Header = () => {
         const token = localStorage.getItem("token");
         const trainerId = localStorage.getItem("trainerId");
         const response = await fetch(
-          `http://82.112.240.94:5001/api/auth/getinfo/${trainerId}`,
+          `${api_url}getinfo/${trainerId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

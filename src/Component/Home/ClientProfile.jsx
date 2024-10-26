@@ -7,6 +7,7 @@ import axios from "axios";
 import Form from "../CreateClient/Form";
 
 import "./ClientProfile.css";
+import { api_url } from "../../../CommonFunctions";
 
 const AppointmentCard = ({ name, date, time, imgSrc }) => {
   return (
@@ -103,7 +104,7 @@ const ClientProfile = () => {
 
       // Make the API call with the correct trainerId
       const response = await axios.get(
-        `http://82.112.240.94:5001/api/auth/getTotalClients/${trainerId}`,
+        `${api_url}getTotalClients/${trainerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -174,7 +175,7 @@ const ClientProfile = () => {
 
       // Make the API call with the correct trainerId
       const response = await axios.get(
-        `http://82.112.240.94:5001/api/auth/getinfo/${trainerId}`,
+        `getinfo/${trainerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -209,7 +210,7 @@ const ClientProfile = () => {
 
       // Fetch the upcoming meetings
       const response = await axios.get(
-        `http://82.112.240.94:5001/api/auth/getUpcomingMeetings/${trainerId}`,
+        `${api_url}getUpcomingMeetings/${trainerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

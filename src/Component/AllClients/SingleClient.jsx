@@ -8,6 +8,7 @@ import Sidebar from './../Home/Sidebar';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Header from '../CommonComponent/Header';
+import { api_url } from '../../../CommonFunctions';
 const UpdateMealPlanModal = ({ show, handleClose, clientId, fetchClientData, currentMealPlan }) => {
   const [mealPlanData, setMealPlanData] = useState({
     dietTitle: '',
@@ -47,7 +48,7 @@ const UpdateMealPlanModal = ({ show, handleClose, clientId, fetchClientData, cur
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://82.112.240.94:5001/api/auth/updateActiveNutrition/${clientId}`,
+        `${api_url}updateActiveNutrition/${clientId}`,
         mealPlanData,
         {
           headers: {
@@ -211,7 +212,7 @@ const UpdatePlanModal = ({ show, handleClose, clientId, fetchClientData, current
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://82.112.240.94:5001/api/auth/updateActivePlan/${clientId}`,
+        `${api_url}updateActivePlan/${clientId}`,
         planData,
         {
           headers: {
@@ -577,7 +578,7 @@ const SingleClient = () => {
   const fetchClientData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://82.112.240.94:5001/api/auth/getClientOverview/${clientId}`, {
+      const response = await axios.get(`${api_url}getClientOverview/${clientId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

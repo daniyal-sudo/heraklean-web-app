@@ -27,7 +27,7 @@ const ProgramPlans = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://82.112.240.94:5001/api/auth/getTrainerProgramPlans",
+          `http://82.112.240.94:5001/api/auth/getTrainerProgramPlans`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -115,6 +115,7 @@ const ProgramPlans = () => {
               <div className="col-12 col-md-6">
                 <Dropdown
                   onSelect={(key) => handleProgramChange(programs[key])}
+                  disabled={programs.length === 0}
                 >
                   <Dropdown.Toggle
                     variant="light"
@@ -122,8 +123,11 @@ const ProgramPlans = () => {
                     style={{
                       height: "55px",
                     }}
+                    disabled={programs.length === 0}
                   >
-                    {selectedProgram
+                    {programs.length === 0
+                      ? "No Program Plans Available"
+                      : selectedProgram
                       ? selectedProgram.programTitle
                       : "Select Program"}
                     <span className="dropdown-icon-wrapper">
@@ -172,15 +176,19 @@ const ProgramPlans = () => {
               <div className="col-12 col-md-6 ">
                 {" "}
                 {/* Margin-top on small screens for separation */}
-                <Dropdown onSelect={(day) => handleDayChange(day)}>
+                <Dropdown onSelect={(day) => handleDayChange(day)}
+                  disabled={programs.length === 0}>
                   <Dropdown.Toggle
                     variant="light"
                     className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
                     style={{
                       height: "55px",
                     }}
+                    disabled={programs.length === 0}
                   >
-                    {selectedDay
+                    {programs.length === 0 ? 
+                    'First Select Program'   
+                    :selectedDay
                       ? capitalizeWords(selectedDayValue)
                       : "Select Day"}
                     <span className="dropdown-icon-wrapper">
@@ -268,10 +276,11 @@ const ProgramPlans = () => {
               </div>
             </div>
           )}
-          {!selectedDay && <div className="text-center record-image no-record-found-h"
-									>
-									<img src="/no-event.jpg" style={{ width: "130px" }} />
-								  </div>}
+          {!selectedDay && (
+            <div className="text-center record-image no-record-found-h">
+              <img src="/no-event.jpg" style={{ width: "130px" }} />
+            </div>
+          )}
         </div>
       </div>
     </div>

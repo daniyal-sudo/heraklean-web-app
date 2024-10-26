@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Profile/Profile.css';
+import { api_url } from '../../../CommonFunctions';
 
 
 const ProfileData = () => {
@@ -41,7 +42,7 @@ const ProfileData = () => {
     e.preventDefault();
     try {
         const token = localStorage.getItem('token');
-      const response = await fetch('http://82.112.240.94:5001/api/auth/updateClientProfile', {
+      const response = await fetch(`${api_url}updateClientProfile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
