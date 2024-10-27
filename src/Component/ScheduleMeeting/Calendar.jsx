@@ -407,9 +407,7 @@ const Calendar = () => {
                           {meetingsForSlot.map((meeting) => (
                             <div
                               key={meeting._id}
-                              className={`meeting ${getMeetingBackgroundColor(
-                                meeting
-                              )} text-white`}
+                              className={`meeting  text-black`}
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedMeeting(meeting);
@@ -421,6 +419,16 @@ const Calendar = () => {
                                   <span className="font-weight-bold">
                                     {meeting.client.fullname}
                                   </span>
+                                  <span className={`${getMeetingBackgroundColor(
+                                meeting
+                              )}`}
+                              style={{
+                                width: '10px',             // Adjust size as needed
+                                height: '10px',            // Adjust size as needed
+                                borderRadius: '50%',       // Makes it a circle
+                                display: 'inline-block',    // Allows it to sit inline with text
+                                 // Dynamic background color
+                              }}></span>
                                 </p>
                               </div>
                             </div>
