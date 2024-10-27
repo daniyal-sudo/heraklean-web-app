@@ -251,13 +251,83 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
     z-index: 1000;
-    width: 300px;
+    width: 1080px;
+    border-radius: 13px !important;
+    padding: 30px;
+    border: none;
+    background: #ffff;
+    margin: 20px 0px;
+    box-shadow: 20px 20px 40px 0px #0000000D;
+
   }
-  
+  #calander-modal .col-6 label {
+    width: 100%;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: left;
+    color: #000;
+}
+.calander-head {
+  font-family: Poppins;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+}
+#calander-modal .col-6 select.form-control {
+  height: 55px;
+  border-radius: 11px;
+  border: 1px solid #9A9A9A33;
+  background: #F5F5F5;
+
+}
+#calander-modal .col-6 input.form-control {
+  height: 55px;
+  border-radius: 11px;
+  border: 1px solid #9A9A9A33;
+  background: #F5F5F5;
+}
+#calander-modal .col-6 .form-control:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #9A9A9A33;
+}
+#calander-modal .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+#calander-modal .col-12 {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+#calander-modal .col-12 button {
+    width: 293px;
+    height: 70px;
+    border-radius: 11px;
+    opacity: 0px;
+    background: #53AFE6;
+    border: 1px solid #53AFE6;
+    color: #fff;
+    font-family: Inter;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 29.03px;
+      text-align: center;
+
+}
+#calander-modal .col-12 button:focus {
+  box-shadow: none !important;
+  border: 1px solid #53AFE6 !important;
+  outline: none !important;
+}
   .form-popup form {
     display: flex;
     flex-direction: column;

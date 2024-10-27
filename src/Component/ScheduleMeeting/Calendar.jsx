@@ -499,59 +499,71 @@ const Calendar = () => {
             )}
 
             {showForm && (
-              <div className="form-popup">
+              <div className="form-popup" id="calander-modal">
                 <form onSubmit={handleFormSubmit}>
-                  <h3>Book a Slot</h3>
-                  <label>
-                    Client Name:
-                    <select
-                      className="form-control"
-                      value={formData.client}
-                      onChange={(e) =>
-                        setFormData({ ...formData, client: e.target.value })
-                      }
-                      required
-                    >
-                      <option value="">Select Client</option>
-                      {clients.map((client) => (
-                        <option key={client._id} value={client._id}>
-                          {client.fullname}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-
-                  <label>
-                    Time:
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={formData.time}
-                      readOnly
-                    />
-                  </label>
-
+                  <h3 className="calander-head">New Meeting</h3>
+                  <div className="row">
+                    <div className="col-6 mb-3">
+                        <label>
+                          Client Name:
+                          </label>
+                          <select
+                            className="form-control"
+                            value={formData.client}
+                            onChange={(e) =>
+                              setFormData({ ...formData, client: e.target.value })
+                            }
+                            required
+                          >
+                            <option value="">Select Client</option>
+                            {clients.map((client) => (
+                              <option key={client._id} value={client._id}>
+                                {client.fullname}
+                              </option>
+                            ))}
+                          </select>
+                     
+                  </div>
+                  <div className="col-6 mb-3">
+                            <label>
+                              Time:
+                              </label>
+                              <input
+                                className="form-control"
+                                type="text"
+                                value={formData.time}
+                                readOnly
+                              />
+            
+                  </div>
+                <div className="col-6 mb-3">
                   <label>
                     Day:
+                    </label>
                     <input
                       className="form-control"
                       type="text"
                       value={formData.day}
                       readOnly
                     />
-                  </label>
+                
+                  </div>
+                  <div className="col-6 mb-3">
                   <label>
                     Date:
+                    </label>
                     <input
                       className="form-control"
                       type="text"
                       value={formData.date}
                       readOnly
                     />
-                  </label>
-
+               
+               </div>
+              <div className="col-6 mb-3">
                   <label>
                     Training Type:
+                    </label>
                     <select
                       className="form-control"
                       value={formData.trainingType}
@@ -570,10 +582,12 @@ const Calendar = () => {
                       <option value="Nutrition">Nutrition</option>
                       <option value="Other">Other</option>
                     </select>
-                  </label>
-
-                  <label>
+             
+                  </div>
+                  <div className="col-6 mb-3 checkbox">
+                  <label className="m-0">
                     Is Recurring?
+                  </label>
                     <input
                       type="checkbox"
                       checked={formData.isRecurring}
@@ -584,11 +598,14 @@ const Calendar = () => {
                         })
                       }
                     />
-                  </label>
-
-                  <button type="submit" className="btn btn-primary mt-2">
-                    Book Meeting
-                  </button>
+              
+                  </div>
+            <div className="col-12"> 
+                      <button type="submit" className="btn btn-primary mt-2">
+                        Book Meeting
+                      </button>
+            </div>
+                  </div>
                 </form>
               </div>
             )}
