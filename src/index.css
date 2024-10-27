@@ -678,7 +678,12 @@ input[type="number"]::-webkit-outer-spin-button,
   line-height: 43.87px;
   text-align: left;
 }
-
+.scrolbar-program {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  height: 520px !important;
+}
 
 
 

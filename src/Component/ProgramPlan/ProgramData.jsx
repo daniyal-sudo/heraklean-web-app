@@ -101,6 +101,7 @@ const ProgramPlans = () => {
               </button>
             </div>
           </div>
+ 
           <div className="program-dropdown">
             <div className="row mb-3 g-2">
               {" "}
@@ -235,6 +236,7 @@ const ProgramPlans = () => {
 
           {/* Show selected day details */}
           {selectedDay && (
+            <div className="scrolbar-program">
             <div className="row mt-5">
               <div className="col-md-6 mb-3">
                 <div className="card p-3 program-2">
@@ -268,6 +270,7 @@ const ProgramPlans = () => {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           )}
           {!selectedDay && (
