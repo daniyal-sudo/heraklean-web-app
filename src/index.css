@@ -694,6 +694,9 @@ input[type="number"]::-webkit-outer-spin-button,
   }
 } 
 @media (max-width: 768px) {
+  .col-6 {
+    width: 100%;
+}
   .crative-button .button {
     width: 50% !important;
   }
@@ -703,6 +706,15 @@ input[type="number"]::-webkit-outer-spin-button,
   }
 }
 @media (max-width: 480px) {
+  .client-pages-mini {
+    padding: 20px !important;
+  }
+  .col-12.col-md-4 h6 {
+    font-size: 18px !important;
+  }
+  .container {
+    padding: 20px !important;
+  }
       .crative-button button.btn.btn-primary {
         background: #53AFE6 !important;
       }
