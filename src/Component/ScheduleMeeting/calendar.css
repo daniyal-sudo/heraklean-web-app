@@ -244,23 +244,7 @@
     background-color: #f9f9f9;
     border-left: 1px solid #ddd;
   }
-  
-  .form-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    width: 1080px;
-    border-radius: 13px !important;
-    padding: 30px;
-    border: none;
-    background: #ffff;
-    margin: 20px 0px;
-    box-shadow: 20px 20px 40px 0px #0000000D;
-
-  }
-  #calander-modal .col-6 label {
+  #calendar-modal .modal-body .col-6 label {
     width: 100%;
     font-family: Poppins;
     font-size: 18px;
@@ -269,7 +253,7 @@
     text-align: left;
     color: #000;
 }
-.calander-head {
+#calendar-modal .modal-header .modal-title {
   font-family: Poppins;
     font-size: 23px;
     font-weight: 600;
@@ -277,48 +261,52 @@
     text-align: start;
     margin-bottom: 0px;
 }
-.clander-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-.icon-cross {
-  padding: 10px;
-  border-radius: 100%;
-  background: #53AFE6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.icon-cross svg {
-  color: #ffff;
-  font-size: 19px;
-}
-#calander-modal .col-6 select.form-control {
+
+#calendar-modal .modal-content .modal-body .col-6 .dropdown button {
   height: 55px;
   border-radius: 11px;
   border: 1px solid #9A9A9A33;
   background: #F5F5F5;
 
 }
-#calander-modal .col-6 input.form-control {
+#calendar-modal .modal-header {
+  padding: 0px 10px 10px 10px;
+  border: none;
+}
+#calendar-modal .modal-content .modal-body .col-6.mb-3 .form-control {
   height: 55px;
   border-radius: 11px;
   border: 1px solid #9A9A9A33;
   background: #F5F5F5;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+
 }
-#calander-modal .col-6 .form-control:focus {
+#calendar-modal .modal-header button.close {
+  padding: 6px 10px;
+  border-radius: 100%;
+  background: #53AFE6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+#calendar-modal .modal-header button.close span {
+  color: #fff;
+  margin-bottom: 5px;
+}
+#calendar-modal .modal-content .modal-body .col-6.mb-3 .form-control:focus {
   box-shadow: none !important;
   outline: none !important;
   border: 1px solid #9A9A9A33;
 }
-#calander-modal .checkbox {
+div#calendar-modal .modal-body .col-6.mb-3.form-check {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: row-reverse;
-  gap: 10px;
+  justify-content: flex-start;
 }
 #calander-modal .col-12 {
     width: 100%;
@@ -326,11 +314,13 @@
     justify-content: center;
     display: flex;
 }
-#calander-modal .col-12 button {
+#calendar-modal .modal-dialog.modal-lg {
+  max-width: 900px;
+}
+#calendar-modal .col-12 button {
     width: 293px;
     height: 70px;
     border-radius: 11px;
-    opacity: 0px;
     background: #53AFE6;
     border: 1px solid #53AFE6;
     color: #fff;
@@ -339,7 +329,13 @@
       font-weight: 600;
       line-height: 29.03px;
       text-align: center;
-
+}
+#calendar-modal .modal-content {
+  border-radius: 17px;
+  background-color: #FFFFFF;
+  border: none !important;
+  position: relative;
+  padding: 35px;
 }
 #calander-modal .col-12 button:focus {
   box-shadow: none !important;
@@ -426,9 +422,9 @@
   }
   /* responsive css */
   @media only screen and (max-width: 768px) {
-    #calander-modal .row .col-6 {
+    #calendar-modal .modal-body .row .col-6.mb-3 {
       width: 100%;
-    }
+  }
 
    }
 

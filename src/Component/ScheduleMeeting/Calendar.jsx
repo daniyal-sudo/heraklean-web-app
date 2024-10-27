@@ -3,7 +3,6 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
 import axios from "axios";
 import "./calendar.css";
-import { RxCross2 } from "react-icons/rx";
 import { api_url } from "../../../CommonFunctions";
 import { Dropdown, Button } from "react-bootstrap";
 
@@ -565,7 +564,7 @@ const Calendar = () => {
               checked={formData.client === client._id}
               onChange={() => setFormData({ ...formData, client: client._id })}
             />
-            <div className="fw-bold">{client.fullname}</div>
+            <div className="text-2">{client.fullname}</div>
           </div>
         </Dropdown.Item>
       ))}
@@ -678,7 +677,7 @@ const Calendar = () => {
                   Is Recurring?
                 </label>
               </div>
-              <div className="col-12">
+              <div className="col-12" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <button type="submit" className="btn btn-primary mt-2">
                   Book Meeting
                 </button>
