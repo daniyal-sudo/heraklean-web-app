@@ -5,6 +5,7 @@ import axios from "axios";
 import "./calendar.css";
 import { RxCross2 } from "react-icons/rx";
 import { api_url } from "../../../CommonFunctions";
+import { Dropdown, Button } from "react-bootstrap";
 
 const Calendar = () => {
   const [selectedMeeting, setSelectedMeeting] = useState(null);
@@ -499,124 +500,197 @@ const Calendar = () => {
               </div>
             )}
 
-            {showForm && (
-          
-                  <div className="form-popup" id="calander-modal">
-                    <form onSubmit={handleFormSubmit}>
-                      <div className="clander-header">
-                            <h3 className="calander-head">New Meeting</h3>
-                            <div className="icon-cross">
-                            <RxCross2 />
-                            </div>
-                          </div>
-                      <div className="row">
-                        <div className="col-6 mb-3">
-                            <label>
-                              Client Name:
-                              </label>
-                              <select
-                                className="form-control"
-                                value={formData.client}
-                                onChange={(e) =>
-                                  setFormData({ ...formData, client: e.target.value })
-                                }
-                                required
-                              >
-                                <option value="">Select Client</option>
-                                {clients.map((client) => (
-                                  <option key={client._id} value={client._id}>
-                                    {client.fullname}
-                                  </option>
-                                ))}
-                              </select>
-                        
-                      </div>
-                      <div className="col-6 mb-3">
-                                <label>
-                                  Time:
-                                  </label>
-                                  <input
-                                    className="form-control"
-                                    type="text"
-                                    value={formData.time}
-                                    readOnly
-                                  />
-                
-                      </div>
-                    <div className="col-6 mb-3">
-                      <label>
-                        Day:
-                        </label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          value={formData.day}
-                          readOnly
-                        />
-                    
-                      </div>
-                      <div className="col-6 mb-3">
-                      <label>
-                        Date:
-                        </label>
-                        <input
-                          className="form-control"
-                          type="text"
-                          value={formData.date}
-                          readOnly
-                        />
-                  
-                  </div>
-                  <div className="col-6 mb-3">
-                      <label>
-                        Training Type:
-                        </label>
-                        <select
-                          className="form-control"
-                          value={formData.trainingType}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              trainingType: e.target.value,
-                            })
-                          }
-                        >
-                          <option value="Weight Training">Weight Training</option>
-                          <option value="Cardio">Cardio</option>
-                          <option value="Yoga">Yoga</option>
-                          <option value="Diet">Diet</option>
-                          <option value="Meditation">Meditation</option>
-                          <option value="Nutrition">Nutrition</option>
-                          <option value="Other">Other</option>
-                        </select>
-                
-                      </div>
-                      <div className="col-6 mb-3 checkbox">
-                      <label className="m-0">
-                        Is Recurring?
-                      </label>
-                        <input
-                          type="checkbox"
-                          checked={formData.isRecurring}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              isRecurring: e.target.checked,
-                            })
-                          }
-                        />
-                  
-                      </div>
-                <div className="col-12"> 
-                          <button type="submit" className="btn btn-primary mt-2">
-                            Book Meeting
-                          </button>
-                </div>
-                      </div>
-                    </form>
-                  </div>
-           
-            )}
+{showForm && (
+  <div className="modal fade show d-block" id="calendar-modal" tabIndex="-1" role="dialog" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+    <div className="modal-dialog modal-lg" role="document">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h3 className="modal-title">New Meeting</h3>
+          <button type="button" className="close" aria-label="Close" onClick={() => setShowForm(false)}>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          <form onSubmit={handleFormSubmit}>
+            <div className="row">
+              <div className="col-6 mb-3">
+                <div className="client-dropdown">
+  <label htmlFor="clientDropdown">Client Name</label>
+  <Dropdown
+    onSelect={(eventKey) =>
+      setFormData({ ...formData, client: eventKey })
+    }
+    disabled={clients.length === 0} // Disable dropdown if no data
+  >
+    <Dropdown.Toggle
+      variant="light"
+      className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
+      disabled={clients.length === 0} // Disable toggle if no data
+    >
+      {clients.length === 0
+        ? "No Clients Available"
+        : clients.find((client) => client._id === formData.client)?.fullname ||
+          "Select Client"}
+      <span className="dropdown-icon-wrapper">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="feather feather-chevron-down"
+          width="18"
+          height="18"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </span>
+      
+    </Dropdown.Toggle>
+
+    <Dropdown.Menu className="custom-dropdown-menu">
+      {clients.map((client) => (
+        <Dropdown.Item
+          key={client._id}
+          eventKey={client._id}
+          className="custom-dropdown-item"
+        >
+          <div className="d-flex align-items-start">
+            <input
+              type="radio"
+              name="client"
+              className="me-2"
+              checked={formData.client === client._id}
+              onChange={() => setFormData({ ...formData, client: client._id })}
+            />
+            <div className="fw-bold">{client.fullname}</div>
+          </div>
+        </Dropdown.Item>
+      ))}
+    </Dropdown.Menu>
+  </Dropdown>
+</div>
+
+              </div>
+              <div className="col-6 mb-3">
+                <label>Time:</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  value={formData.time}
+                  readOnly
+                />
+              </div>
+              <div className="col-6 mb-3">
+                <label>Day:</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  value={formData.day}
+                  readOnly
+                />
+              </div>
+              <div className="col-6 mb-3">
+                <label>Date:</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  value={formData.date}
+                  readOnly
+                />
+              </div>
+              <div className="col-6 mb-3">
+                <div className="training-dropdown">
+  <label htmlFor="trainingDropdown">Training Type</label>
+  <Dropdown
+    onSelect={(eventKey) =>
+      setFormData({ ...formData, trainingType: eventKey })
+    }
+  >
+    <Dropdown.Toggle
+      variant="light"
+      className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
+    >
+       {formData.trainingType || "Select Training Type"}
+      <span className="dropdown-icon-wrapper">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="feather feather-chevron-down"
+          width="18"
+          height="18"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </span>
+     
+    </Dropdown.Toggle>
+
+    <Dropdown.Menu className="custom-dropdown-menu">
+      {[
+        "Weight Training",
+        "Cardio",
+        "Yoga",
+        "Diet",
+        "Meditation",
+        "Nutrition",
+        "Other",
+      ].map((type) => (
+        <Dropdown.Item
+          key={type}
+          eventKey={type}
+          className="custom-dropdown-item"
+        >
+          <div className="d-flex align-items-start">
+            <input
+              type="radio"
+              name="trainingType"
+              className="me-2"
+              checked={formData.trainingType === type}
+              onChange={() =>
+                setFormData({ ...formData, trainingType: type })
+              }
+            />
+            <div className="fw-bold">{type}</div>
+          </div>
+        </Dropdown.Item>
+      ))}
+    </Dropdown.Menu>
+  </Dropdown>
+</div>
+
+              </div>
+              <div className="col-6 mb-3 form-check">
+                <label className="form-check-label">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    checked={formData.isRecurring}
+                    onChange={(e) => setFormData({ ...formData, isRecurring: e.target.checked })}
+                  />
+                  Is Recurring?
+                </label>
+              </div>
+              <div className="col-12">
+                <button type="submit" className="btn btn-primary mt-2">
+                  Book Meeting
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
 
             {showRescheduleForm && (
               <div className="form-popup">
