@@ -71,11 +71,11 @@ const UpdateMealPlanModal = ({ show, handleClose, clientId, fetchClientData, cur
   const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
   return (
-    <Modal show={show} onHide={handleClose} size="lg">
+    <Modal show={show} onHide={handleClose} size="lg" id='calendar-modal'>
       <Modal.Header closeButton>
         <Modal.Title>Update Active Meal Plan</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body id='calendar-modal'>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="dietTitle">
             <Form.Label>Diet Title</Form.Label>
@@ -235,11 +235,11 @@ const UpdatePlanModal = ({ show, handleClose, clientId, fetchClientData, current
   const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
   return (
-    <Modal show={show} onHide={handleClose} size="lg">
+    <Modal show={show} onHide={handleClose} size="lg" id='calendar-modal'>
       <Modal.Header closeButton>
         <Modal.Title>Update Active Plan</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body id='calendar-modal'>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="programTitle">
             <Form.Label>Program Title</Form.Label>
