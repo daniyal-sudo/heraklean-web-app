@@ -71,14 +71,8 @@ const ProgramPlans = () => {
   }
 
   return (
-    <div
-      className="container"
-      style={{
-        height: "100dvh",
-      }}
-    >
-      <div className="diet-plan-section-page">
-        <div className="container mt-5">
+    <div className="container m-0"  style={{ height: "100dvh", padding: "30px", maxWidth: "100%" }}>
+       <div className="diet-plan-section-page">
           <div className="row mb-4">
             <div className="col-12 d-flex justify-content-between align-items-center">
               <h2 className="custom-head">Program Plans</h2>
@@ -283,7 +277,6 @@ const ProgramPlans = () => {
           )}
         </div>
       </div>
-    </div>
   );
 };
 
