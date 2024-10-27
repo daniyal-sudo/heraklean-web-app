@@ -398,8 +398,7 @@ const Calendar = () => {
                         <div
                           key={`${dayIndex}-${time}`}
                           style={{
-                            cursor: "pointer",
-                            border: "1px solid rgb(209, 187, 187)",
+                            border: 'border: 1px solid #ccc',
                           }}
                           className="day-slot"
                           onClick={() => handleSlotClick(time, formattedDay)}
