@@ -209,6 +209,7 @@
   .header-right {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
   
   .calendar-and-details {
@@ -420,6 +421,80 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
     align-items: center;
     border-bottom: 1px solid #ddd;
   }
+  .schedule-container .schedule-header .header-left h2 {
+    font-family: poppins;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    line-height: 21px;
+    text-align: left;
+    color: #000000 !important;
+    background-color: transparent !important;
+  }
+  .schedule-container .schedule-header .header-left  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.date-range {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.13px;
+    text-align: left;
+    color: #000000;
+
+}
+.header-right button.btn.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px 12px 24px;
+  gap: 12px;
+  border-radius: 100px;
+  background: #53AFE6 !important;
+  border: 1px solid #53AFE6 !important;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  color: #fff !important;
+}
+.header-right button.btn.btn-primary svg {
+  font-size: 20px;
+}
+.header-right button.btn.btn-white.dropdown.border-outline {
+    padding: 12px 24px 12px 24px;
+    gap: 12px;
+    border-radius: 100px;
+    color: #000000 !important;
+    border: 1px solid #000000;
+    background-color: transparent !important;
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+
+}
+
+.schedule-container .schedule-header .header-left .month-navigation svg {
+      width: 42px;
+    height: 42px;
+    padding: 12px;
+    gap: 10px;
+    border-radius: 100px;
+    color: #000;
+    border: 1px solid #DEDEDE;
+}
+.schedule-container .schedule-header .header-left .month-navigation span {
+      color: #000000;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 37px;
+      text-align: left;
+}
+
   /* responsive css */
   @media only screen and (max-width: 768px) {
     #calendar-modal .modal-body .row .col-6.mb-3 {
