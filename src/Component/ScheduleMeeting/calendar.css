@@ -2,7 +2,7 @@
   .calendar-and-details {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    /* width: 90%; */
   }
   
   /* Calendar container styling */
@@ -18,7 +18,7 @@
     background-color: white;
     padding: 20px;
     border-radius: 5px;  
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     flex-shrink: 0;
   }
   

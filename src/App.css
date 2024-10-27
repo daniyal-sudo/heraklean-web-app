@@ -14,3 +14,9 @@ body::-webkit-scrollbar {
     height: 100dvh;
 
 }
+.scroll-clander{
+    height: 570px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}

@@ -323,7 +323,7 @@ const Calendar = () => {
     }
   };
   return (
-    <div className="container" style={{ padding: "30px", maxWidth: "100%"}}>
+    <div className="container" style={{ padding: "30px", minWidth: "100%"}}>
       <div
         className="calander-section"
         style={{ border: "1px solid #E5E5E5" }}
@@ -369,7 +369,7 @@ const Calendar = () => {
           </div>
 
           <div className="calendar-and-details">
-            <div className="calendar-container">
+            <div className="calendar-container scroll-clander"> 
               <div className="calendar-header ">
                 <div className="time-slot-header d-flex justify-content-center align-items-center">
                   Time
@@ -444,7 +444,7 @@ const Calendar = () => {
             </div>
 
             {selectedMeeting && (
-              <div className="meeting-details mt-5 h-25 mx-2 text-center">
+              <div className="meeting-details  text-center">
                 {/* Construct the full image URL and handle fallback */}
                 <img
                   src={
