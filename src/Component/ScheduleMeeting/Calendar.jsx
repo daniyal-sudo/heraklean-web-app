@@ -334,7 +334,7 @@ const Calendar = () => {
               <div className="header-left">
                 <h2 className="fw-bold fs-4 bg-white text-black">Schedules</h2>
                 <div className="month-navigation">
-                <span>
+                  <span>
                     {currentDate.toLocaleDateString("en-US", {
                       month: "long",
                       year: "numeric",
@@ -344,7 +344,7 @@ const Calendar = () => {
                     onClick={() => navigateWeek(-1)}
                     style={{ cursor: "pointer" }}
                   />
-                  
+
                   <FaChevronRight
                     onClick={() => navigateWeek(1)}
                     style={{ cursor: "pointer" }}
@@ -419,16 +419,18 @@ const Calendar = () => {
                                   <span className="font-weight-bold">
                                     {meeting.client.fullname}
                                   </span>
-                                  <span className={`${getMeetingBackgroundColor(
-                                meeting
-                              )}`}
-                              style={{
-                                width: '10px',             // Adjust size as needed
-                                height: '10px',            // Adjust size as needed
-                                borderRadius: '50%',       // Makes it a circle
-                                display: 'inline-block',    // Allows it to sit inline with text
-                                 // Dynamic background color
-                              }}></span>
+                                  <span
+                                    className={`${getMeetingBackgroundColor(
+                                      meeting
+                                    )}`}
+                                    style={{
+                                      width: "10px", // Adjust size as needed
+                                      height: "10px", // Adjust size as needed
+                                      borderRadius: "50%", // Makes it a circle
+                                      display: "inline-block", // Allows it to sit inline with text
+                                      // Dynamic background color
+                                    }}
+                                  ></span>
                                 </p>
                               </div>
                             </div>
@@ -479,8 +481,14 @@ const Calendar = () => {
                     Lorem ipsum dolor sit amet consectetur. Elit cursus faibus
                     ipsum sed magna id magna. Turpis imperdiet.
                   </div>
-                  <div className="card-time">9:00 AM to 10:00 AM</div>
-                  <button className="card-button">Recurring Meeting</button>
+                  <div className="card-time">
+                    {selectedMeeting.time} AM to 10:00 AM
+                  </div>
+                  <button className="card-button">
+                    {selectedMeeting.isRecurring
+                      ? "Recurring Meeting"
+                      : "One-time Meeting"}
+                  </button>
                 </div>
                 {/* <div className="meeting-info">
                   <p>{selectedMeeting.trainingType}</p>
@@ -518,16 +526,24 @@ const Calendar = () => {
 
                   {selectedMeeting.type === "clientRequest" &&
                     selectedMeeting.status === "Pending" && (
-                      <>
-                        <button
-                          className="approve-button"
-                          onClick={handleApproveMeeting}
-                        >
-                          Approve
-                        </button>
-                        <button className="decline-button">Decline</button>
-                      </>
-                    )}
+                  <>
+                    <button
+                      className="btn btn-primary btn-radius border-0"
+                      onClick={handleApproveMeeting}
+                    >
+                      Approve
+                    </button>
+                    <button
+                      className=" decline-button btn-radius border-0"
+                      style={{ background: "#37474F3D",
+                        border:'1px solid #37474F3D'
+                       }}
+                       decline-button
+                    >
+                      Decline
+                    </button>
+                  </>
+                 )} 
                 </div>
               </div>
             )}
@@ -672,7 +688,8 @@ const Calendar = () => {
                                   variant="light"
                                   className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
                                 >
-                                  {formData.trainingType && formData.trainingType ||
+                                  {(formData.trainingType &&
+                                    formData.trainingType) ||
                                     "Select Training Type"}
                                   <span className="dropdown-icon-wrapper">
                                     <svg

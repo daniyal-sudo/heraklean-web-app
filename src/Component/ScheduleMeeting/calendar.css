@@ -518,6 +518,18 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
     line-height: 16px;
     text-align: center;
 }
+.meeting-actions button.decline-button.btn-radius.border-0 {
+    height: 64px;
+    padding: 0px 116.5px 0px 107.5px;
+    border-radius: 100px;
+    /* background: #53AFE6; */
+    /* border: 1px solid #53AFE6 !important; */
+    font-family: poppins;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    text-align: center;
+}
 
 .meeting-actions button.btn.btn-danger {
     height: 64px;
