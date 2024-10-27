@@ -258,60 +258,58 @@ const ClientProfile = () => {
 			setShowComponent('')
 		  }}/>
       ) : (
-        <div className="container">
-          <div className="row mb-2 mt-2">
-            <div className="col-lg-6 mbile_screen_margin">
-              <div className="row bg-white p-3 m-2 box_height small-cards">
-                <div className="col-lg-7 col-6 align-self-center">
-                  <h5 className="card-text font-custom-card">Good Morning,</h5>
-                  <p className="card-text text-justify font-custom-large">
-                    {" "}
-                    {trainerInfo.Fname} {trainerInfo.lastName}
-                  </p>
-                </div>
-                <div className="col-lg-5 col-6 align-self-center">
-                  <div className="text-center">
-                    <img
-                      src="phy.png"
-                      alt=""
-                      className="img-fluid"
-                      style={{ width: "98px", height: "90px" }}
-                    />
-                  </div>
-                </div>
+        <div className="container m-0" style={{ padding: "30px"}}>
+          <div className="row">
+                    <div className="col-6">
+                        <div className="small-cards">
+                              <div className="center-flex">
+                                <h5 className="card-text font-custom-card">Good Morning,</h5>
+                                <p className="card-text text-justify font-custom-large">
+                                  {" "}
+                                  {trainerInfo.Fname} {trainerInfo.lastName}
+                                </p>
+                              </div>
+                              <div className="center-flex">
+                                <div className="text-center">
+                                  <img
+                                    src="phy.png"
+                                    alt=""
+                                    className="img-fluid"
+                                    style={{ width: "98px", height: "90px" }}
+                                  />
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="small-cards">
+                      <div className="center-flex">
+                        <h5 className="card-title clinets_score font-custom-card">
+                          {totalClients}
+                        </h5>
+                        <p className="card-text text-justify font-custom-card">
+                          Clients
+                        </p>
+                      </div>
+                      <div className="center-flex">
+                        <div
+                          className="text-end"
+                          onClick={() => {
+                            setShowComponent("createClient");
+                          }}
+                        >
+                          <Link
+                            // to="/create-client"
+                            className="btn px-3 py-2"
+                            style={{ backgroundColor: "#53AFE6", color: "#FFFFFF" }}
+                          >
+                            Create New
+                          </Link>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
               </div>
-            </div>
-
-            <div className="col-lg-6 mbile_screen_margin">
-              <div className="row bg-white p-3 m-2 box_height small-cards">
-                <div className="col-lg-7 col-6 align-self-center">
-                  <h5 className="card-title clinets_score font-custom-card">
-                    {totalClients}
-                  </h5>
-                  <p className="card-text text-justify font-custom-card">
-                    Clients
-                  </p>
-                </div>
-                <div className="col-lg-5 col-6 align-self-center">
-                  <div
-                    className="text-end"
-                    onClick={() => {
-                      setShowComponent("createClient");
-                    }}
-                  >
-                    <Link
-                      // to="/create-client"
-                      className="btn px-3 py-2"
-                      style={{ backgroundColor: "#53AFE6", color: "#FFFFFF" }}
-                    >
-                      Create New
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="row mb-4">
             <div className="col-lg-12">
               <div className="bg-white p-4  rounded-4 client-listing">
@@ -348,7 +346,7 @@ const ClientProfile = () => {
 
           <div className="row">
             <div className="col-lg-12">
-              <div className="bg-white p-4  rounded-4 alert-client mb-4">
+              <div className="bg-white p-4  rounded-4 alert-client">
                 <h4
                   className="card-text upcoming_border-line"
                   style={{ fontWeight: "bold" }}

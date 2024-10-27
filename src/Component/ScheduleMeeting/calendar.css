@@ -1,13 +1,4 @@
  /* Container for the whole calendar and details section */
-
-.calendar-main-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    /* padding: 20px; */
-  }
-  
-  
   .calendar-and-details {
     display: flex;
     justify-content: space-between;
@@ -19,8 +10,6 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    /* margin-right: 20px; 
-    Add some space between calendar and meeting details */
   }
   
   /* Meeting details styling */
@@ -545,6 +534,14 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
     color:#E81616;
     border: 1px solid #E8161630;
 }
+.calander-section {
+    border-radius: 17px;
+    background-color: #FFFFFF;
+    border: none !important;
+    position: relative;
+    padding: 35px;
+}
+
 .meeting-actions button.btn.btn-danger:focus {
   box-shadow: none !important;
   outline: none !important;

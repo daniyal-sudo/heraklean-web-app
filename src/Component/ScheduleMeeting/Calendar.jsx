@@ -323,9 +323,9 @@ const Calendar = () => {
     }
   };
   return (
-    <div className="container mt-2 w-100 mx-2">
+    <div className="container" style={{ padding: "30px"}}>
       <div
-        className="bg-white p-4 rounded"
+        className="calander-section"
         style={{ border: "1px solid #E5E5E5" }}
       >
         <div className="calendar-main-container">

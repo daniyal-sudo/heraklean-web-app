@@ -145,14 +145,14 @@ height: 100%;
     border-radius: 17px;
 }
 .font-custom-card {
-	font-family: 'Poppins';
+	font-family: Poppins;
 	font-weight: 400;
 	font-size: 24.57px;
 	line-height: 30px;
 	margin-bottom: 0px;
   }
   .font-custom-large {
-	font-family: 'Poppins';
+	font-family: Poppins;
 	font-size: 29px;
 	font-weight: 600;
 	line-height: 30px;

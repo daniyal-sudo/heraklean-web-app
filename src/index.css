@@ -147,6 +147,19 @@
   position: relative;
   padding: 35px;
 }
+.center-flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.small-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
 .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
     font-family: 'Poppins';
     font-weight: 600;
