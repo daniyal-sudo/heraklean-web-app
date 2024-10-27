@@ -43,12 +43,7 @@
   .month-navigation {
     display: flex;
     align-items: center;
-    margin-left: 20px;
-  }
-  
-  .date-range {
-    margin-left: 20px;
-    color: gray;
+   gap: 20px;
   }
   
   .header-right {
@@ -56,7 +51,12 @@
     align-items: center;
     justify-content: flex-end;
   }
-  
+  .header-right button.btn.btn-primary:focus {
+    box-shadow: none !important;
+  }
+  .header-right button.btn.btn-white.dropdown.border-outline:focus {
+    box-shadow: none !important;
+  }
   .weekly-button, .add-meeting-button {
     margin-left: 10px;
     padding: 10px 20px;
@@ -187,11 +187,9 @@
   .month-navigation {
     display: flex;
     align-items: center;
-    margin-left: 20px;
   }
   
   .date-range {
-    margin-left: 20px;
     color: #888;
   }
   
@@ -276,16 +274,10 @@
 
 }
 #calendar-modal .modal-header button.close {
-  /* padding: 6px 10px; */
   border-radius: 100%;
-  /* background: #53AFE6; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
   opacity: 1;
 }
 #calendar-modal .modal-header button.close span {
-  /* color: #fff; */
   margin-bottom: 5px;
 }
 #calendar-modal .modal-content .modal-body .col-6.mb-3 .form-control:focus {
@@ -488,7 +480,7 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
 }
 
 .schedule-container .schedule-header .header-left .month-navigation span {
-  color: #00000075 !important;
+      color: #000000 !important;
       font-size: 20px;
       font-weight: 600;
       line-height: 37px;
