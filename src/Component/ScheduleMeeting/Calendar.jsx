@@ -3,6 +3,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
 import axios from "axios";
 import "./calendar.css";
+import { RxCross2 } from "react-icons/rx";
 import { api_url } from "../../../CommonFunctions";
 
 const Calendar = () => {
@@ -499,115 +500,122 @@ const Calendar = () => {
             )}
 
             {showForm && (
-              <div className="form-popup" id="calander-modal">
-                <form onSubmit={handleFormSubmit}>
-                  <h3 className="calander-head">New Meeting</h3>
-                  <div className="row">
-                    <div className="col-6 mb-3">
-                        <label>
-                          Client Name:
-                          </label>
-                          <select
-                            className="form-control"
-                            value={formData.client}
-                            onChange={(e) =>
-                              setFormData({ ...formData, client: e.target.value })
-                            }
-                            required
-                          >
-                            <option value="">Select Client</option>
-                            {clients.map((client) => (
-                              <option key={client._id} value={client._id}>
-                                {client.fullname}
-                              </option>
-                            ))}
-                          </select>
-                     
-                  </div>
-                  <div className="col-6 mb-3">
+          
+                  <div className="form-popup" id="calander-modal">
+                    <form onSubmit={handleFormSubmit}>
+                      <div className="clander-header">
+                            <h3 className="calander-head">New Meeting</h3>
+                            <div className="icon-cross">
+                            <RxCross2 />
+                            </div>
+                          </div>
+                      <div className="row">
+                        <div className="col-6 mb-3">
                             <label>
-                              Time:
+                              Client Name:
                               </label>
-                              <input
+                              <select
                                 className="form-control"
-                                type="text"
-                                value={formData.time}
-                                readOnly
-                              />
-            
-                  </div>
-                <div className="col-6 mb-3">
-                  <label>
-                    Day:
-                    </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={formData.day}
-                      readOnly
-                    />
+                                value={formData.client}
+                                onChange={(e) =>
+                                  setFormData({ ...formData, client: e.target.value })
+                                }
+                                required
+                              >
+                                <option value="">Select Client</option>
+                                {clients.map((client) => (
+                                  <option key={client._id} value={client._id}>
+                                    {client.fullname}
+                                  </option>
+                                ))}
+                              </select>
+                        
+                      </div>
+                      <div className="col-6 mb-3">
+                                <label>
+                                  Time:
+                                  </label>
+                                  <input
+                                    className="form-control"
+                                    type="text"
+                                    value={formData.time}
+                                    readOnly
+                                  />
                 
+                      </div>
+                    <div className="col-6 mb-3">
+                      <label>
+                        Day:
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          value={formData.day}
+                          readOnly
+                        />
+                    
+                      </div>
+                      <div className="col-6 mb-3">
+                      <label>
+                        Date:
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          value={formData.date}
+                          readOnly
+                        />
+                  
                   </div>
                   <div className="col-6 mb-3">
-                  <label>
-                    Date:
-                    </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={formData.date}
-                      readOnly
-                    />
-               
-               </div>
-              <div className="col-6 mb-3">
-                  <label>
-                    Training Type:
-                    </label>
-                    <select
-                      className="form-control"
-                      value={formData.trainingType}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          trainingType: e.target.value,
-                        })
-                      }
-                    >
-                      <option value="Weight Training">Weight Training</option>
-                      <option value="Cardio">Cardio</option>
-                      <option value="Yoga">Yoga</option>
-                      <option value="Diet">Diet</option>
-                      <option value="Meditation">Meditation</option>
-                      <option value="Nutrition">Nutrition</option>
-                      <option value="Other">Other</option>
-                    </select>
-             
+                      <label>
+                        Training Type:
+                        </label>
+                        <select
+                          className="form-control"
+                          value={formData.trainingType}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              trainingType: e.target.value,
+                            })
+                          }
+                        >
+                          <option value="Weight Training">Weight Training</option>
+                          <option value="Cardio">Cardio</option>
+                          <option value="Yoga">Yoga</option>
+                          <option value="Diet">Diet</option>
+                          <option value="Meditation">Meditation</option>
+                          <option value="Nutrition">Nutrition</option>
+                          <option value="Other">Other</option>
+                        </select>
+                
+                      </div>
+                      <div className="col-6 mb-3 checkbox">
+                      <label className="m-0">
+                        Is Recurring?
+                      </label>
+                        <input
+                          type="checkbox"
+                          checked={formData.isRecurring}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              isRecurring: e.target.checked,
+                            })
+                          }
+                        />
+                  
+                      </div>
+                <div className="col-12"> 
+                          <button type="submit" className="btn btn-primary mt-2">
+                            Book Meeting
+                          </button>
+                </div>
+                      </div>
+                    </form>
                   </div>
-                  <div className="col-6 mb-3 checkbox">
-                  <label className="m-0">
-                    Is Recurring?
-                  </label>
-                    <input
-                      type="checkbox"
-                      checked={formData.isRecurring}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          isRecurring: e.target.checked,
-                        })
-                      }
-                    />
-              
-                  </div>
-            <div className="col-12"> 
-                      <button type="submit" className="btn btn-primary mt-2">
-                        Book Meeting
-                      </button>
-            </div>
-                  </div>
-                </form>
-              </div>
+           
             )}
 
             {showRescheduleForm && (

@@ -274,7 +274,26 @@
     font-size: 23px;
     font-weight: 600;
     line-height: 34px;
-    text-align: center;
+    text-align: start;
+    margin-bottom: 0px;
+}
+.clander-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.icon-cross {
+  padding: 10px;
+  border-radius: 100%;
+  background: #53AFE6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-cross svg {
+  color: #ffff;
+  font-size: 19px;
 }
 #calander-modal .col-6 select.form-control {
   height: 55px;
@@ -410,6 +429,6 @@
     #calander-modal .row .col-6 {
       width: 100%;
     }
-    
+
    }
 
