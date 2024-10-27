@@ -182,9 +182,6 @@ nav.custom-sidebar .d-flex a.active {
 		margin-bottom: 10px;
 	}
 	
-	/* .header-fullwidth {
-		display: none !important;
-	} */
 	.home-container .d-flex .navbar-toggler svg {
 		position: relative;
 		z-index: 9;
