@@ -118,7 +118,7 @@ const AllClients = () => {
 			setShowComponent('')
 		  }}/>:
 			<div className="container client-section m-0" style={{ maxWidth: '100%', padding: '30px' }}>
-							<div className="bg-white rounded-3 client-pages-mini">
+							<div className="client-pages-mini">
 								<div className="row">
 									<div className="col-lg-3">
 										<h4 className="mb-4 small fs-5 upcoming_border-line" style={{ fontWeight: "bold" }}>
