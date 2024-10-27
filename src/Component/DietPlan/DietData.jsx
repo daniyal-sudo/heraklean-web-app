@@ -77,7 +77,7 @@ const DietPlans = () => {
 
   return (
     <>
-      <div className="container" style={{ height: "100dvh" }}>
+      <div className="container m-0" style={{ padding: "30px", maxWidth: "100%" }}>
         <div className="diet-plan-section-page">
           <div className="row my-2">
             <div className="col-lg-6">
