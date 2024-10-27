@@ -287,16 +287,16 @@
 
 }
 #calendar-modal .modal-header button.close {
-  padding: 6px 10px;
+  /* padding: 6px 10px; */
   border-radius: 100%;
-  background: #53AFE6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* background: #53AFE6; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
   opacity: 1;
 }
 #calendar-modal .modal-header button.close span {
-  color: #fff;
+  /* color: #fff; */
   margin-bottom: 5px;
 }
 #calendar-modal .modal-content .modal-body .col-6.mb-3 .form-control:focus {
