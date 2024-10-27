@@ -657,7 +657,7 @@ const Calendar = () => {
                 setFormData({ ...formData, trainingType: type })
               }
             />
-            <div className="fw-bold">{type}</div>
+            <div className="text-2">{type}</div>
           </div>
         </Dropdown.Item>
       ))}
