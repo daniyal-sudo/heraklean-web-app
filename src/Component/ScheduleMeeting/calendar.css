@@ -408,7 +408,6 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ddd;
   }
   .schedule-container .schedule-header .header-left h2 {
     font-family: poppins;
