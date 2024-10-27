@@ -323,7 +323,7 @@ const Calendar = () => {
     }
   };
   return (
-    <div className="container" style={{ padding: "30px"}}>
+    <div className="container" style={{ padding: "30px", minWidth: "100%"}}>
       <div
         className="calander-section"
         style={{ border: "1px solid #E5E5E5" }}
