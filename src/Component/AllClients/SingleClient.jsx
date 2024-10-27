@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Header from '../CommonComponent/Header';
 import { api_url } from '../../../CommonFunctions';
+import WeightGraphChart from './WeightGraphChart';
 const UpdateMealPlanModal = ({ show, handleClose, clientId, fetchClientData, currentMealPlan }) => {
   const [mealPlanData, setMealPlanData] = useState({
     dietTitle: '',
@@ -352,13 +353,14 @@ const WeightGraph = ({ data }) => (
     <div className="card-body">
       <h5 className="card-title">Weight Graph</h5>
       <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data}>
+        {/* <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />
           <Tooltip />
           <Line type="monotone" dataKey="weight" stroke="#8884d8" />
-        </LineChart>
+        </LineChart> */}
+         <WeightGraphChart />
       </ResponsiveContainer>
     </div>
   </div>
