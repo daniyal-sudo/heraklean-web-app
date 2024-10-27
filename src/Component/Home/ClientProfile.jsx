@@ -258,7 +258,7 @@ const ClientProfile = () => {
 			setShowComponent('')
 		  }}/>
       ) : (
-        <div className="container m-0" style={{ padding: "30px"}}>
+        <div className="container m-0" style={{ padding: "30px", maxWidth: "100%"}}>
           <div className="row">
                     <div className="col-6">
                         <div className="small-cards">
