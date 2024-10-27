@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import SingleClient from "./SingleClient";
 import axios from "axios";
 import { api_url } from "../../../CommonFunctions";
+import Form from "../CreateClient/Form";
 const Card = ({ name, city, imgSrc, clientId }) => {
 	// Assuming your backend serves images from a folder like 'http://localhost:5001/uploads/'
 	const imageUrl = imgSrc ? `http://82.112.240.94:5001/${imgSrc.replace(/\\/g, "/")}` : "default_image.png";
+
 
 	return (
 		<div className="col-12 mb-4">
@@ -74,6 +76,8 @@ const Card = ({ name, city, imgSrc, clientId }) => {
 
 const AllClients = () => {
 	const [clients, setClients] = useState([]);
+	
+	const [showComponent, setShowComponent] = useState("");
 
 	useEffect(() => {
 		const fetchClients = async () => {
@@ -109,6 +113,10 @@ const AllClients = () => {
 	// ];
 	return (
 		<>
+		{showComponent === "createClient" ? 
+          <Form onClose={()=>{
+			setShowComponent('')
+		  }}/>:
 			<div className="container client-section">
 					<div className="listing-card-client">
 						<div className="row">
@@ -122,7 +130,10 @@ const AllClients = () => {
 									<div className="col-lg-5">
 										<div className="text-start mb-4">
 											<Link
-												to="/create-client"
+											 onClick={() => {
+												setShowComponent("createClient");
+											  }}
+												// to="/create-client"
 												className="btn px-3 py-2"
 												style={{ backgroundColor: "#53AFE6", color: "#FFFFFF" }}
 											>
@@ -166,7 +177,8 @@ const AllClients = () => {
 							</div>
 						</div>
 					</div>
-			</div>
+			</div>}
+			
 		</>
 	);
 };
