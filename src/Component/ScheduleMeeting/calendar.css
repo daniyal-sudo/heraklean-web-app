@@ -413,7 +413,7 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
   .schedule-container .schedule-header .header-left  {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     gap: 10px;
 }
