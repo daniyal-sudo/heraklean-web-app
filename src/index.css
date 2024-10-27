@@ -685,6 +685,23 @@ input[type="number"]::-webkit-outer-spin-button,
   height: 520px !important;
 }
 
+.scrolbar-program::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.scrolbar-program::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+
+}
+ 
+/* Handle */
+.scrolbar-program::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
 
 
 @media (max-width: 1025px) {
