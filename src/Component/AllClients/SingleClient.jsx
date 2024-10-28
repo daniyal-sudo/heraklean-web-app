@@ -76,7 +76,7 @@ const UpdateMealPlanModal = ({ show, handleClose, clientId, fetchClientData, cur
       <Modal.Header closeButton>
         <Modal.Title>Update Active Meal Plan</Modal.Title>
       </Modal.Header>
-      <Modal.Body id='calendar-modal'>
+      <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="dietTitle">
             <Form.Label>Diet Title</Form.Label>
@@ -463,7 +463,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
                     <p>Duration: {plan[selectedMeal].duration}</p>
                   </>
                 )}
-                <a href="#" className="btn btn-outline-primary btn-sm">Active</a>
+                <a href="#" className="btn btn-outline-primary btn-sm active-button">Active</a>
               </div>
             ))}
           </div>

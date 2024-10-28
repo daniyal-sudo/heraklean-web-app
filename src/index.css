@@ -790,7 +790,25 @@ nav.custom-sidebar .d-flex a:focus {
   outline: none !important;
   border: 1px solid #9A9A9A33 !important;
 }
-#calendar-modal button.btn.btn-primary {
+.active-button {
+  font-family: Poppins;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+  border: none;
+  color: #53AFE6;
+}
+.active-button:hover {
+  background-color: transparent !important;
+  color: #53AFE6 !important;
+} 
+.active-button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  color: #53AFE6 !important;
+}
+#calendar-modal .modal-body .btn.btn-primary {
   width: 293px;
   height: 70px;
   border-radius: 11px;
@@ -823,6 +841,11 @@ nav.custom-sidebar .d-flex a:focus {
 }
 .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards a:focus {
   background-color: transparent !important;
+}
+.common-button button.me-2.btn.btn-sm.btn.btn-primary {
+  height: 33px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
 }
 .common-button button {
   width: 20% !important;
@@ -961,6 +984,17 @@ color: #000000;
   }
 } 
 @media (max-width: 768px) {
+  .common-button {
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+.common-button button {
+  width: 30% !important;
+  height: max-content;
+}
+#calendar-modal button.btn.btn-primary {
+  width: 100% !important;
+}
   .col-6 {
     width: 100%;
 }
