@@ -816,6 +816,14 @@ nav.custom-sidebar .d-flex a:focus {
   width: 40px;
   color: #232339 !important;
 }
+.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards svg:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards a:focus {
+  background-color: transparent !important;
+}
 .common-button button {
   width: 20% !important;
   height: max-content;
