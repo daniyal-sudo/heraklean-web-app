@@ -954,7 +954,14 @@ color: #000000;
     color: #000000A3;
 
 }
-
+.fade.modal.show:focus {
+  background-color: transparent !important;
+}
+#calendar-modal .modal-header button.btn-close:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
 .custom-bold {
   font-family: Poppins;
   font-size: 22px;
