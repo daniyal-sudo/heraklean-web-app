@@ -240,7 +240,7 @@ const UpdatePlanModal = ({ show, handleClose, clientId, fetchClientData, current
       <Modal.Header closeButton>
         <Modal.Title>Update Active Plan</Modal.Title>
       </Modal.Header>
-      <Modal.Body id='calendar-modal'>
+      <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="programTitle">
             <Form.Label>Program Title</Form.Label>
@@ -253,7 +253,7 @@ const UpdatePlanModal = ({ show, handleClose, clientId, fetchClientData, current
             />
           </Form.Group>
 
-          <div className="d-flex mb-3 mt-3">
+          <div className="d-flex mb-3 mt-3 common-button">
             {days.map((day) => (
               <Button
                 key={day}
