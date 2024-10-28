@@ -8,6 +8,7 @@ import Sidebar from './../Home/Sidebar';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Header from '../CommonComponent/Header';
+import { MdKeyboardArrowRight } from "react-icons/md";
 import { api_url } from '../../../CommonFunctions';
 import WeightGraphChart from './WeightGraphChart';
 const UpdateMealPlanModal = ({ show, handleClose, clientId, fetchClientData, currentMealPlan }) => {
@@ -565,7 +566,7 @@ const ClientProfile = ({ clientData, selectedDay, setSelectedDay, selectedMeal, 
           <div className="d-flex justify-content-between align-items-center p-3 relative-parent">
               <h5 className="head-profiles">Client Profile</h5>
               <a href="#" className="text-primary">
-                2 Notifications <span>&#8250;</span>
+                2 Notifications <span><MdKeyboardArrowRight /></span>
               </a>
         </div>
                 <ClientInfo name={clientData.fullname} status={clientData.status} image={clientData.profilePic} />
