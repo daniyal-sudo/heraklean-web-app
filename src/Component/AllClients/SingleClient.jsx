@@ -403,7 +403,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
   return (
     <div className="row">
       <div className="col-md-6">
-        <div className="card mb-2">
+        <div className="card mb-2 profile-section-meal">
           <div className="card-body">
             <h5 className="card-title d-flex justify-content-between">
               Active Plans
@@ -455,7 +455,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
         </div>
       </div>
       <div className="col-md-6">
-        <div className="card mb-2">
+        <div className="card mb-2 profile-section-meal">
           <div className="card-body">
             <h5 className="card-title d-flex justify-content-between">
               Active Meal Plans
@@ -567,7 +567,7 @@ const ClientProfile = ({ clientData, selectedDay, setSelectedDay, selectedMeal, 
 
 
           {/* hamid */}
-          <div className="profile-section-meal">
+     
             <ActivePlans 
                       activePlans={clientData.activePlans}
                       activeMealPlans={clientData.activeMealPlans}
@@ -580,7 +580,6 @@ const ClientProfile = ({ clientData, selectedDay, setSelectedDay, selectedMeal, 
                     />
 
             </div>
-        </div>
       </div>
     </div>
     </div>
