@@ -75,7 +75,7 @@ const ProgramPlans = () => {
        <div className="diet-plan-section-page">
           <div className="row mb-4">
             <div className="col-12 d-flex justify-content-between align-items-center">
-              <h2 className="custom-head">Program Plans</h2>
+              <h2 className="custom-head-2">Program Plans</h2>
               <button className="btn btn-primary show-it">
                 <div className="plus-icon mr-2">
                   <Link to="/create-program" className="btn btn-primary ">

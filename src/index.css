@@ -957,6 +957,23 @@ color: #000000;
 .fade.modal.show:focus {
   background-color: transparent !important;
 }
+.custom-head-2 {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+}
+.custom-head-2::after {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 15px;
+    width: 13%;
+    height: 4px;
+    background-color: #53afe6;
+    border-radius: 9px;
+}
 #calendar-modal .modal-header button.btn-close:focus {
   box-shadow: none !important;
   outline: none !important;
