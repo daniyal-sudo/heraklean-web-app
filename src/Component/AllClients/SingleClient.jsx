@@ -421,6 +421,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
                         <a href="/view-all" className="view-all">View All</a>
                     </div>
                 </div>
+                <div className="card-space">
             <div className="mb-3">
               <label htmlFor="mealSelect" className="form-label">Select Meal Day:</label>
               <select
@@ -465,6 +466,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
               </div>
             ))}
           </div>
+          </div>
         </div>
       </div>
       <div className="col-md-6">
@@ -473,6 +475,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
             <h5 className="head-profile-2">
               Active Meal Plans
             </h5>
+            <div className="card-space">
             <div className="mb-3">
               <label htmlFor="mealSelect" className="form-label">Select Day:</label>
               <select
@@ -514,6 +517,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
                 ))}
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>

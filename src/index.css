@@ -721,6 +721,24 @@ nav.custom-sidebar .d-flex a:focus {
   padding: 35px;
 
 }
+.card-space {
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 20px;
+  position: relative;
+}
+.card-space::-webkit-scrollbar {
+  width: 8px;
+}
+.card-space::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+.card-space::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
 .head-profiles::after {
   content: '';
   position: absolute;
