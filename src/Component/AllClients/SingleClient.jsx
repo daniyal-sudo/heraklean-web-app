@@ -532,39 +532,57 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
 
 const ClientProfile = ({ clientData, selectedDay, setSelectedDay, selectedMeal, setSelectedMeal, fetchClientData, clientId }) => {
   return (
+    <div className="home-container"> 
     <div className="d-flex">
       <Sidebar />
       <div className="flex-grow-1">
         <Header trainerName={clientData.trainer.Fname} clientName={clientData.fullname} />
-        <div className="container mt-4">
-          <ClientInfo name={clientData.fullname} status={clientData.status} image={clientData.profilePic} />
-          <div className="row">
-            <div className="col-md-8">
-              <WeightGraph data={clientData.weightGraph} />
-              <ActivePlans 
-                activePlans={clientData.activePlans}
-                activeMealPlans={clientData.activeMealPlans}
-                selectedDay={selectedDay}
-                setSelectedDay={setSelectedDay}
-                selectedMeal={selectedMeal}
-                setSelectedMeal={setSelectedMeal}
-                fetchClientData={fetchClientData}
-                clientId={clientId}
-              />
-            </div>
-            <div className="col-md-4">
-              <div className="card mb-4">
-                <div className="card-body">
-                  <h5 className="card-title">Monthly Payment Amount</h5>
-                  <h2 className="text-primary">${clientData.paymentAmount}</h2>
+        <div className="container m-0" style={{ padding: '30px', maxWidth: '100%' }}>
+          <div className="profile-section mb-4">
+          <div className="d-flex justify-content-between align-items-center p-3 relative-parent">
+              <h5 className="head-profiles">Client Profile</h5>
+              <a href="#" className="text-primary">
+                2 Notifications <span>&#8250;</span>
+              </a>
+        </div>
+                <ClientInfo name={clientData.fullname} status={clientData.status} image={clientData.profilePic} />
+                <div className="row">
+                  <div className="col-md-8">
+                    <WeightGraph data={clientData.weightGraph} />
+                  
+                  </div>
+                  <div className="col-md-4">
+                    <div className="card mb-4">
+                      <div className="card-body">
+                        <h5 className="card-title">Monthly Payment Amount</h5>
+                        <h2 className="text-primary">${clientData.paymentAmount}</h2>
+                      </div>
+                    </div>
+                    <Measurements measurements={clientData.measurements} />
+                    <Membership plan={clientData.membership.name} expiresOn={clientData.membership.expiresOn} />
+                  </div>
                 </div>
-              </div>
-              <Measurements measurements={clientData.measurements} />
-              <Membership plan={clientData.membership.name} expiresOn={clientData.membership.expiresOn} />
-            </div>
           </div>
+
+
+
+          {/* hamid */}
+          <div className="profile-section-meal">
+            <ActivePlans 
+                      activePlans={clientData.activePlans}
+                      activeMealPlans={clientData.activeMealPlans}
+                      selectedDay={selectedDay}
+                      setSelectedDay={setSelectedDay}
+                      selectedMeal={selectedMeal}
+                      setSelectedMeal={setSelectedMeal}
+                      fetchClientData={fetchClientData}
+                      clientId={clientId}
+                    />
+
+            </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
@@ -617,3 +635,5 @@ const SingleClient = () => {
   ) : <p>No client data available.</p>;
 };
 export default SingleClient;
+
+
