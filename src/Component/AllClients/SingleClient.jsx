@@ -410,9 +410,9 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
   const [currentMeal, setCurrentMeal] = useState(null);
 
   return (
-    <div className="row">
+    <div className="row common-card">
       <div className="col-md-6">
-        <div className="card mb-2 profile-section-meal">
+        <div className="card mb-4 profile-section-meal">
           <div className="card-body p-0">
             <div className="flex" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: "relative", marginBottom: "20px" }}>
             <h5 className="head-profile-2">
@@ -472,7 +472,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
       </div>
       <div className="col-md-6">
         <div className="card mb-2 profile-section-meal">
-          <div className="card-body">
+          <div className="card-body p-0">
           <div className="flex" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: "relative", marginBottom: "20px" }}>
                   <h5 className="head-profile-2">
                     Active Meal Plans

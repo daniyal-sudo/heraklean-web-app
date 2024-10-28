@@ -984,6 +984,9 @@ color: #000000;
   }
 } 
 @media (max-width: 768px) {
+  .common-card .col-md-6 {
+    width: 100%;
+} 
   .common-button {
     flex-wrap: wrap;
     row-gap: 10px;
@@ -1007,6 +1010,18 @@ color: #000000;
   }
 }
 @media (max-width: 480px) {
+  .profile-section-meal {
+    padding: 20px !important;
+}
+.profile-section {
+  padding: 20px !important;
+}
+.head-profiles {
+  font-size: 19px;
+  white-space: nowrap;
+  line-height: 22.87px;
+  margin-bottom: 30px;
+}
   .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
     font-size: 14px !important;
   }
