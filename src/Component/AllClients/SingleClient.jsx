@@ -472,9 +472,15 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
       <div className="col-md-6">
         <div className="card mb-2 profile-section-meal">
           <div className="card-body">
-            <h5 className="head-profile-2">
-              Active Meal Plans
-            </h5>
+          <div className="flex" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: "relative", marginBottom: "20px" }}>
+                  <h5 className="head-profile-2">
+                    Active Meal Plans
+                  </h5>
+                  <div className="text-end">
+                              <a href="/view-all" className="view-all">View All</a>
+                  </div>
+            </div>
+                
             <div className="card-space">
             <div className="mb-3">
               <label htmlFor="mealSelect" className="form-label">Select Day:</label>
