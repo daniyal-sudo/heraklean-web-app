@@ -88,7 +88,7 @@ const CreateDietPlan = () => {
         <div className="content-wrapper d-flex flex-column">
           <Header />
 
-          <div className="container mt-4 mx-4">
+          <div className="container m-0" style={{ padding: "30px", maxWidth: "100%" }}>  
             <div className="profile-page">
               <form onSubmit={handleSubmit} className="creative-program">
                 <div className="row mt-4 me-3">

@@ -728,14 +728,24 @@ input[type="number"]::-webkit-outer-spin-button,
   }
 }
 @media (max-width: 480px) {
+  .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
+    font-size: 14px !important;
+  }
+  .create-modal {
+    padding: 20px !important;
+}
   .client-pages-mini {
     padding: 20px !important;
   }
+  .space-page {
+    padding: 10px 0px;
+}
   .col-12.col-md-4 h6 {
     font-size: 18px !important;
   }
   .container {
     padding: 20px !important;
+    height: auto !important;
   }
       .crative-button button.btn.btn-primary {
         background: #53AFE6 !important;
