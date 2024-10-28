@@ -335,23 +335,31 @@ const ClientInfo = ({ name, status, image }) => {
   return (
     <div className="d-flex align-items-center mb-4">
       <img 
-        src={imageUrl} 
+        src="/p-2.png" 
         alt={name} 
-        className="rounded-circle me-3" 
-        style={{ width: '60px', height: '60px', objectFit: 'cover' }} 
+        className="me-3 profile-img" 
+        style={{ width: '162px', height: '162px', objectFit: 'cover' }} 
       />
+          
       <div>
-        <h2 className="mb-0">{name}</h2>
-        <p className="text-muted mb-0">Status: {status}</p>
+        <h2 className="head-profile-client">{name}</h2>
+        <p className="custom-p mb-0">Status:<span className="custom-bold">{status}</span></p>
       </div>
+      {/* hamid */}
+      {/* <div className="card mb-4">
+                      <div className="card-body">
+                        <h5 className="card-title">Monthly Payment Amount</h5>
+                        <h2 className="text-primary">${clientData.paymentAmount}</h2>
+                      </div>
+            </div> */}
     </div>
   );
 };
 
 const WeightGraph = ({ data }) => (
-  <div className="card mb-4">
+  <div className="card-weight mb-4">
     <div className="card-body">
-      <h5 className="card-title">Weight Graph</h5>
+      <h5 className="custom-h">Weight Graph</h5>
       <ResponsiveContainer width="100%" height={200}>
         {/* <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -367,13 +375,13 @@ const WeightGraph = ({ data }) => (
 );
 
 const Measurements = ({ measurements }) => (
-  <div className="card mb-4">
+  <div className="card-weight mb-4">
     <div className="card-body">
-      <h5 className="card-title">Measurements</h5>
+      <h5 className="custom-h">Measurements</h5>
       <div className="row">
         {Object.entries(measurements).map(([key, value]) => (
           <div key={key} className="col-6 mb-2">
-            <strong>{key}:</strong> {value}
+            <strong className="bold-string">{key}:</strong> {value}
           </div>
         ))}
       </div>
@@ -382,11 +390,11 @@ const Measurements = ({ measurements }) => (
 );
 
 const Membership = ({ plan, expiresOn }) => (
-  <div className="card mb-4">
+  <div className="card-weight">
     <div className="card-body">
-      <h5 className="card-title">Membership</h5>
-      <p className="mb-0">{plan}</p>
-      <small className="text-muted">Expires on: {expiresOn}</small>
+      <h5 className="custom-h">Membership</h5>
+      <p className="mb-0 custom-h-1">{plan}</p>
+      <small className="custom-p-1">Expires on: {expiresOn}</small>
     </div>
   </div>
 );
@@ -404,10 +412,15 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
     <div className="row">
       <div className="col-md-6">
         <div className="card mb-2 profile-section-meal">
-          <div className="card-body">
-            <h5 className="card-title d-flex justify-content-between">
+          <div className="card-body p-0">
+            <div className="flex" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: "relative", marginBottom: "20px" }}>
+            <h5 className="head-profile-2">
               Active Plans
             </h5>
+                <div className="text-end">
+                        <a href="/view-all" className="view-all">View All</a>
+                    </div>
+                </div>
             <div className="mb-3">
               <label htmlFor="mealSelect" className="form-label">Select Meal Day:</label>
               <select
@@ -434,14 +447,14 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
                   />
                 </span>
                 {/* <h6>{plan[selectedMeal].programTitle}</h6> */}
-                <p className="text-muted">{plan[selectedMeal].title}</p>
+                <p className="para-2">{plan[selectedMeal].title}</p>
                 {plan[selectedMeal] && (
                   <>
-                    <p className="text-muted">{plan[selectedMeal].description}</p>
+                    <p className="para-2 ">{plan[selectedMeal].description}</p>
                     {plan[selectedMeal].modules && (
                       <ul>
                         {plan[selectedMeal].modules.map((module, i) => (
-                          <li key={i}>{module}</li>
+                          <li className="para-2" key={i}>{module}</li>
                         ))}
                       </ul>
                     )}
@@ -457,7 +470,7 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
       <div className="col-md-6">
         <div className="card mb-2 profile-section-meal">
           <div className="card-body">
-            <h5 className="card-title d-flex justify-content-between">
+            <h5 className="head-profile-2">
               Active Meal Plans
             </h5>
             <div className="mb-3">
@@ -478,8 +491,8 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
             {activeMealPlans.map((plan, index) => (
               <div key={index}>
                 
-                <h6>{plan.dietTitle}</h6>
-                <span className='d-flex justify-content-end'>
+                <h6 className="para-2">{plan.dietTitle}</h6>
+                <span className='d-flex justify-content-end para-2'>
                   <MdModeEdit 
                     onClick={() => {
                       setCurrentMeal(plan);
@@ -489,13 +502,13 @@ const ActivePlans = ({ activePlans, activeMealPlans, selectedDay, setSelectedDay
                 </span>
                 {plan[selectedDay] && Object.entries(plan[selectedDay]).map(([meal, details]) => (
                   <div key={meal}>
-                    <strong>{meal}</strong>
-                    <p>{details.description}</p>
+                    <strong className="para-2">{meal}</strong>
+                    <p className="para-2">{details.description}</p>
                     <ul className="mb-0">
-                      <li>Protein: {details.protein}g</li>
-                      <li>Calories: {details.calories}</li>
-                      <li>Carbs: {details.carb}g</li>
-                      <li>Fat: {details.fat}g</li>
+                      <li className="para-2">Protein: {details.protein}g</li>
+                      <li className="para-2">Calories: {details.calories}</li>
+                      <li className="para-2">Carbs: {details.carb}g</li>
+                      <li className="para-2">Fat: {details.fat}g</li>
                     </ul>
                   </div>
                 ))}
@@ -546,18 +559,14 @@ const ClientProfile = ({ clientData, selectedDay, setSelectedDay, selectedMeal, 
               </a>
         </div>
                 <ClientInfo name={clientData.fullname} status={clientData.status} image={clientData.profilePic} />
+                 
                 <div className="row">
-                  <div className="col-md-8">
+                  <div className="col-md-6">
                     <WeightGraph data={clientData.weightGraph} />
                   
                   </div>
-                  <div className="col-md-4">
-                    <div className="card mb-4">
-                      <div className="card-body">
-                        <h5 className="card-title">Monthly Payment Amount</h5>
-                        <h2 className="text-primary">${clientData.paymentAmount}</h2>
-                      </div>
-                    </div>
+                  <div className="col-md-6">
+                  
                     <Measurements measurements={clientData.measurements} />
                     <Membership plan={clientData.membership.name} expiresOn={clientData.membership.expiresOn} />
                   </div>

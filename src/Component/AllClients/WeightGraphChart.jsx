@@ -98,8 +98,7 @@ const WeightGraph = () => {
   }, []);
 
   return (
-    <div style={{ width: "100%", maxWidth: "600px", margin: "auto" }}>
-      <h2>Weight Graph</h2>
+    <div style={{ width: "100%", maxWidth: "400px", margin: "auto" }}>
       <canvas ref={chartRef} />
     </div>
   );

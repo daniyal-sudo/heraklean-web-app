@@ -731,6 +731,16 @@ nav.custom-sidebar .d-flex a:focus {
   border-radius: 5px;
   background: #53AFE6;
 }
+.head-profile-2 {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 43.87px;
+    text-align: left;
+    color: #000000;
+    margin-bottom: 30px;
+    position: relative;
+}
 .relative-parent {
   position: relative; 
 }
@@ -757,6 +767,127 @@ nav.custom-sidebar .d-flex a:focus {
   border: 2.19px;
   font-size: 20px;
   color: #232339 !important;
+}
+.profile-img {
+  border-radius: 36px;
+}
+.head-profile-client {
+  font-family: Poppins;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: 0.4907959997653961px;
+  text-align: left;
+
+}
+.custom-h {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+   color: #000000;  
+}
+.card-weight {
+     padding: 20px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 26.87px 0px #00000014;
+}
+.bold-string {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30.06px;
+  letter-spacing: 0.4907959997653961px;
+  text-align: justify;
+  color: #000000FC;
+
+}
+.custom-h-1 {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 43.87px;
+  text-align: left;
+  color: #000000;
+}
+.custom-p-1 {
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 43.87px;
+  text-align: left;
+  color: #000000;
+}
+.head-profile-2::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -8px;
+  width: 100px;
+  height: 3px;
+  border-radius: 5px;
+  background: #53AFE6;
+}
+.view-all {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 43.87px;
+  text-align: left;
+  color: #000000;  
+  text-decoration: none;
+}
+.view-all:hover {
+  text-decoration: none !important;
+  color: #000000 !important;  
+}
+.form-label {
+  font-family: Poppins;
+font-size: 22px;
+font-weight: 700;
+line-height: 43.87px;
+text-align: left;
+
+}
+.para-2  {
+font-family: Poppins;
+font-size: 18px;
+font-weight: 400;
+line-height: 30.06px;
+letter-spacing: 0.4907959997653961px;
+text-align: left;
+color: #000000;
+}
+
+.card-weight .col-6 {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30.06px;
+    letter-spacing: 0.4907959997653961px;
+    text-align: justify;
+    color: #000000A3;
+
+}
+
+.custom-bold {
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30.8px;
+  letter-spacing: 0.4907959997653961px;
+  text-align: left;
+}
+.custom-p {
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30.8px;
+  letter-spacing: 0.4907959997653961px;
+  text-align: left;
+  
 }
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
