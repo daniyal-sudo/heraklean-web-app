@@ -20,6 +20,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { api_url } from "../../../CommonFunctions";
 import WeightGraphChart from "./WeightGraphChart";
 import SendPlan from './SendPlan';
+import SaveReport from "./SaveReport";
 const UpdateMealPlanModal = ({
   show,
   handleClose,
@@ -408,7 +409,10 @@ const ClientInfo = ({ name, status, image, clientData }) => {
 const WeightGraph = ({ data }) => (
   <div className="card-weight mb-4">
     <div className="card-body">
+      <div className="graph-section">
       <h5 className="custom-h">Weight Graph</h5>
+      <SaveReport />
+      </div>
       <ResponsiveContainer width="100%" height={200}>
         {/* <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />

@@ -830,6 +830,75 @@ nav.custom-sidebar .d-flex a:focus {
   box-shadow: none !important;
   color: #53AFE6 !important;
 }
+.graph-section {
+  display: flex;
+  justify-content: space-between;
+}
+.save-report-section .btn.btn-outline-dark {
+  height: 33px;
+  border-radius: 10px;
+  font-family: Poppins;
+  font-size: 12.92px;
+  font-weight: 700;
+  line-height: 17.23px;
+  text-align: left;
+  border: 0.72px solid #263238;
+}
+.save-report-section .btn.btn-outline-dark:hover {
+  background-color: transparent !important;
+  color: #000;
+}
+.save-report-section button#dropdown-basic {
+  height: 33px;
+  border-radius: 10px;
+  color: #53AFE6;
+  border: 0.72px solid #53AFE6 !important;
+  font-family: Poppins;
+  font-size: 12.92px;
+  font-weight: 700;
+  line-height: 17.23px;
+  text-align: left;
+}
+.save-report-section .dropdown-menu.show {
+  padding: 0px;
+  border: 1px solid #ccc;
+  width: 100% !important;
+  min-width: 106px !important;
+}
+.save-report-section .dropdown-menu.show a.dropdown-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: left;
+
+}
+.save-report-section .dropdown-menu.show a.dropdown-item:hover{
+    background-color: #53AFE6 !important;
+    color: #fff !important;
+}
+.save-report-section .dropdown-menu.show a.dropdown-item:last-child {
+  border-bottom: 0px !important;
+}
+.save-report-section .dropdown-menu.show a.dropdown-item:hover:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.save-report-section .dropdown-menu.show a.dropdown-item:hover:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.save-report-section button#dropdown-basic svg {
+  width: 15px;
+  height: 15px;
+}
+.save-report-section .btn.btn-outline-dark svg {
+  width: 17px;
+  height: 17px;
+  padding: 1.44px;
+}
 .d-flex.justify-content-between.align-items-center.p-3.relative-parent a.text-primary span svg {
   width: 40px;
   font-size: 25px;
