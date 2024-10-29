@@ -695,13 +695,14 @@ const ClientProfile = ({
               <div className="row">
                 <div className="col-md-6">
                   <WeightGraph data={clientData.weightGraph} />
-                </div>
-                <div className="col-md-6">
-                  <Measurements measurements={clientData.measurements} />
                   <Membership
                     plan={clientData.membership.name}
                     expiresOn={clientData.membership.expiresOn}
                   />
+                </div>
+                <div className="col-md-6">
+                  <Measurements measurements={clientData.measurements} />
+                
                 </div>
               </div>
             </div>
