@@ -413,7 +413,7 @@ const WeightGraph = ({ data }) => (
       <h5 className="custom-h">Weight Graph</h5>
       <SaveReport />
       </div>
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer>
         {/* <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
@@ -443,7 +443,7 @@ const Measurements = ({ measurements }) => (
 );
 
 const Membership = ({ plan, expiresOn }) => (
-  <div className="card-weight">
+  <div className="card-weight mb-4">
     <div className="card-body">
       <h5 className="custom-h">Membership</h5>
       <p className="mb-0 custom-h-1">{plan}</p>
