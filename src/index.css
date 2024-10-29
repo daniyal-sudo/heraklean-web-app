@@ -832,6 +832,7 @@ nav.custom-sidebar .d-flex a:focus {
 }
 .d-flex.justify-content-between.align-items-center.p-3.relative-parent a.text-primary span svg {
   width: 40px;
+  font-size: 25px;
   color: #232339 !important;
 }
 .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards svg:focus {
@@ -994,7 +995,70 @@ color: #000000;
   line-height: 30.8px;
   letter-spacing: 0.4907959997653961px;
   text-align: left;
-  
+}
+.Monthtly-title {
+    font-family: Poppins;
+  font-size: 18.07px;
+  font-weight: 400;
+  line-height: 25.3px;
+  letter-spacing: 0.4907959997653961px;
+  text-align: center;
+}
+.monthly-dolar {
+  font-family: Poppins;
+  font-size: 31.07px;
+  font-weight: 700;
+  line-height: 43.5px;
+  letter-spacing: 0.4907959997653961px;
+  text-align: center;
+  color: #000000 !important;
+}
+.monthtly-payment {
+  width: 226px;
+  border-radius: 9px;
+  background: #53AFE633;
+  border: none !important;
+}
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.send-plane-section button.btn.btn-primary {
+  width: 171.05px;
+  height: 65.4px;
+  border-radius: 10px;
+  background: #53AFE6;
+  font-family: Inter;
+  font-size: 18.69px;
+  font-weight: 600;
+  line-height: 27.13px;
+  text-align: left;
+
+}
+.send-plane-section button.btn.btn-primary svg {
+  width: 25.83px;
+  height: 25px;
+}
+.send-plane-section button.d-flex.align-items-center.btn.btn-dark {
+  width: 82.03px;
+  height: 65.4px;
+  border-radius: 10px;
+}
+.send-plane-section button.d-flex.align-items-center.btn.btn-dark svg {
+  color: rgb(37, 211, 102);
+  width: 44px;
+  height: 44px;
+}
+.Client-Profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {

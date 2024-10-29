@@ -377,26 +377,28 @@ const ClientInfo = ({ name, status, image, clientData }) => {
     : "default_image.png"; // Use default image if no image is available
 
   return (
-    <div className="d-flex align-items-center mb-4">
-      <img
-        src="/p-2.png"
-        alt={name}
-        className="me-3 profile-img"
-        style={{ width: "162px", height: "162px", objectFit: "cover" }}
-      />
+    <div className="d-flex align-items-center mb-4 Client-Profile-section">
+      <div className="name-profile">
+          <img
+            src="/p-2.png"
+            alt={name}
+            className="profile-img"
+            style={{ width: "162px", height: "162px", objectFit: "cover" }}
+          />
 
-      <div>
-        <h2 className="head-profile-client">{name}</h2>
-        <p className="custom-p mb-0">
-          Status:<span className="custom-bold">{status}</span>
-        </p>
+          <div>
+            <h2 className="head-profile-client">{name}</h2>
+            <p className="custom-p mb-0">
+              Status:<span className="custom-bold">{status}</span>
+            </p>
+          </div>
       </div>
       <SendPlan />
       {/* hamid */}
-      <div className="card mb-4">
-        <div className="card-body">
-          <h5 className="card-title">Monthly Payment Amount</h5>
-          <h2 className="text-primary">${clientData.paymentAmount}</h2>
+      <div className="card mb-4" style={{ border: 'none' }}>
+        <div className="card-body monthtly-payment">
+          <h5 className="Monthtly-title">Monthly Payment Amount</h5>
+          <h2 className="text-primary monthly-dolar">${clientData.paymentAmount}</h2>
         </div>
       </div>
     </div>
@@ -676,7 +678,7 @@ const ClientProfile = ({
             <div className="profile-section mb-4">
               <div className="d-flex justify-content-between align-items-center p-3 relative-parent">
                 <h5 className="head-profiles">Client Profile</h5>
-                <a href="#" className="text-primary">
+                <a href="#" className="text-primary notification">
                   2 Notifications{" "}
                   <span>
                     <MdKeyboardArrowRight />
