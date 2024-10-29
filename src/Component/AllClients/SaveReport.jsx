@@ -13,7 +13,7 @@ const SaveReport = () => {
       {/* Dropdown Button */}
       <Dropdown as={ButtonGroup}>
         <Dropdown.Toggle variant="outline-primary" id="dropdown-basic" className="d-flex align-items-center">
-          <FaCalendar className="me-2" /> Weekly
+          <FaCalendar className="context" /> Weekly
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
