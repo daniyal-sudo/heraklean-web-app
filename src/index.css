@@ -1129,6 +1129,39 @@ color: #000000;
   align-items: center;
   gap: 20px;
 }
+.create-profiles {
+  position: relative;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43.87px;
+  text-align: left;
+  margin-bottom: 30px;
+
+}
+.send-plane-section button.btn.btn-primary:hover {
+  background: #53AFE6 !important;
+}
+.send-plane-section button.btn.btn-primary:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #53AFE6 !important;
+}
+.notify-icon img {
+  width: 76px;
+  height: 76px;
+  border-radius: 11px;
+}
+.create-profiles::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    bottom: -5px;
+    width: 90px;
+    height: 3px;
+    border-radius: 5px;
+    background: #53AFE6;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
@@ -1188,6 +1221,22 @@ color: #000000;
   }
 }
 @media (max-width: 480px) {
+    .graph-section {
+      display: flex;
+    flex-direction: column;
+  }
+    .Monthtly-title {
+      text-align: left;
+    }
+    .profile-section-meal .head-profile-2 {
+      font-size: 19px;
+    }
+    .graph-section h5.custom-h {
+      margin-bottom: 0px !important;
+    }
+    .profile-section-meal .form-label {
+      font-size: 18px;
+    }
   .d-flex.justify-content-between.align-items-center.p-3.relative-parent a.text-primary {
     font-size: 16px !important;
   }
@@ -1385,7 +1434,7 @@ color: #000000;
   border: 1px solid #ced4da !important;
 }
 .diet-plan-section-page .program-dropdown button:hover {
-  background-color: transparent !important;
+  background-color: #fff !important;
 }
 .diet-plan-section-page .program-dropdown button {
   font-family: Poppins;
@@ -1415,4 +1464,11 @@ color: #000000;
   border-radius: 10px;
 
 }
-
+.dropdown-toggle {
+  background-color: transparent !important;
+}
+.diet-plan-section-pages button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #ced4da !important;
+}

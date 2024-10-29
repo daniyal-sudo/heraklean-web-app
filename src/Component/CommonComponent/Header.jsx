@@ -127,11 +127,13 @@ const Header = () => {
                       {notifications?.length > 0 ? (
                         notifications.map((notification, index) => (
                           <li key={index}>
-                            <div className="notify-icon">
-                              <span className="icon success"></span>
-                            </div>
-                            <div className="notify-data">
-                              <p>{notification}</p>
+                           <div className="notification-section">
+                                <div className="notify-icon">
+                                  <img src="/notification.png" alt="img"/>
+                                </div>
+                                <div className="notify-data">
+                                  <p>{notification}</p>
+                                </div>
                             </div>
                           </li>
                         ))
@@ -147,7 +149,6 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              {/* Profile Section */}
               <div className="profile">
                 <img src="picture.png" alt="Profile" className="profile-pic" />
               </div>

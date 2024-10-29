@@ -128,7 +128,7 @@ const Form = ({ onClose }) => {
       <div className="container p-4 bg-white modal-crative2">
         <div className="row">
           <div className="col-lg-12">
-            <h1 className="head-profiles"> Create Client</h1>
+            <h1 className="create-profiles"> Create Client</h1>
           </div>
 
           <form onSubmit={handleSubmit} className="creative-from">
