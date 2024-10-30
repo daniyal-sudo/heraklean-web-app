@@ -171,11 +171,13 @@ const ClientProfile = () => {
         return;
       }
 
+
+
       // const trainerId = trainer.trainerId;
 
       // Make the API call with the correct trainerId
       const response = await axios.get(
-        `getinfo/${trainerId}`,
+        `${api_url}getinfo/${trainerId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -184,9 +186,12 @@ const ClientProfile = () => {
       );
 
       console.log("Total clients:", response.data);
+      alert('')
 
       // Set the total clients state from the API response
       setTrainerInfo(response.data);
+     
+     
     } catch (error) {
       console.error("Error fetching total clients:", error);
     }
@@ -251,6 +256,8 @@ const ClientProfile = () => {
     { name: "Kathryn Murphy", city: "New York, USA", imgSrc: "pic.png" },
   ];
 
+  console.log(trainerInfo,'trainerInfotrainerInfo')
+
   return (
     <>
       {showComponent === "createClient" ? (
@@ -265,7 +272,7 @@ const ClientProfile = () => {
                               <div className="center-flex">
                                 <h5 className="card-text font-custom-card">Good Morning,</h5>
                                 <p className="card-text text-justify font-custom-large">
-                                  {" "}
+                                  
                                   {trainerInfo.Fname} {trainerInfo.lastName}
                                 </p>
                               </div>
