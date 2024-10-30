@@ -1233,6 +1233,9 @@ color: #000000;
 .upload-box .upload-label {
   margin-bottom: 0px !important;
 }
+#calendar-modal .modal-header button.btn-close {
+  display: none;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;

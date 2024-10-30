@@ -99,6 +99,14 @@ const UpdateMealPlanModal = ({
     <Modal show={show} onHide={handleClose} size="lg" id="calendar-modal">
       <Modal.Header closeButton>
         <Modal.Title>Update Active Meal Plan</Modal.Title>
+        {/* <button
+          type="button"
+          aria-label="Close"
+          onClick={handleClose}
+          style={styles.customCloseButton}
+        >
+          <span style={styles.crossIcon}>×</span>
+        </button> */}
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
@@ -276,11 +284,43 @@ const UpdatePlanModal = ({
     "saturday",
     "sunday",
   ];
-
+  const styles = {
+    customCloseButton: {
+      position: 'absolute',
+      top: '30px',
+      right: '30px',
+      background: 'none',
+      border: 'none',
+      padding: '0',
+      margin: '0',
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '30px',
+      height: '30px',
+      outline: 'none',
+      zIndex: 1,
+    },
+    crossIcon: {
+      fontSize: '24px',
+      fontWeight: 'bold',
+      color: '#000',
+    },
+  };
+  
   return (
     <Modal show={show} onHide={handleClose} size="lg" id="calendar-modal">
       <Modal.Header closeButton>
         <Modal.Title>Update Active Plan</Modal.Title>
+        <button
+          type="button"
+          aria-label="Close"
+          onClick={handleClose}
+          style={styles.customCloseButton}
+        >
+          <span style={styles.crossIcon}>×</span>
+        </button>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
