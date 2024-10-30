@@ -71,7 +71,7 @@ border: 1px solid #DEDEDE !important;
 
 .from-profile button {
   width: 227px;
-  height: 70px;
+  height: 60px;
   border-radius: 11px;
   font-family: Inter;
   font-size: 20px;
@@ -138,6 +138,7 @@ border: 1px solid #DEDEDE !important;
       font-weight: 500;
       line-height: 18px;
       text-align: left;
+      border-radius: 11px;
 }
 .from-profile button:active, :focus {
   background: #53AFE6;
@@ -152,7 +153,7 @@ border: 1px solid #DEDEDE !important;
   background: #53AFE6;
   border: #53AFE6;
   color: white;
-  border-radius: 17px;
+  border-radius: 11px;
   cursor: pointer;
 }
 .custom-file-upload label:hover, :focus {

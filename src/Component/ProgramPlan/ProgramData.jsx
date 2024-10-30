@@ -76,7 +76,7 @@ const ProgramPlans = () => {
           <div className="row mb-4">
             <div className="col-12 d-flex justify-content-between align-items-center">
               <h2 className="custom-head-2">Program Plans</h2>
-              <button className="btn btn-primary show-it">
+              <button className="btn btn-primary show-it" style={{ height: '60px', width: '227px' }}>
                 <div className="plus-icon mr-2">
                   <Link to="/create-program" className="btn btn-primary ">
                     <svg
@@ -95,7 +95,7 @@ const ProgramPlans = () => {
                     </svg>
                   </Link>
                 </div>
-                <Link to="/create-program" className="btn btn-primary hiide-it">
+                <Link to="/create-program" className="btn btn-primary hiide-it" style={{ width: '227px' }}>
                   Create New
                 </Link>
               </button>

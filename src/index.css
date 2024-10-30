@@ -199,11 +199,8 @@
     font-size: 20px;
 }
 .client-pages-mini .text-start .btn {
-    width: 161px;
+    width: 227px;
     height: 60px;
-    top: 192.34px;
-    left: 475.98px;
-    gap: 0px;
     border-radius: 11px;
     display: flex;
     align-items: center;
@@ -213,7 +210,7 @@
     font-family: Inter;
     font-size: 20px;
     font-weight: 600;
-    line-height: 29.03px;
+    line-height: 29px;
     text-align: left;
 
 }
@@ -221,7 +218,6 @@
     width: 540px;
     height: 56px;
     border-radius: 53px !important;
-    border: 1px 0px 0px 0px;
     font-family: Poppins;
     font-size: 16px;
     font-weight: 400;
@@ -375,7 +371,7 @@
   width: 74px;
 }
 .diet-plan-section-page .row.my-2 button {
-  width: 206px;
+  width: 227px;
   height: 60px;
   border-radius: 11px;
   background: #53AFE6;
@@ -433,7 +429,7 @@ button.btn.btn-primary {
   font-family: Inter;
   font-size: 20px;
   font-weight: 600;
-  line-height: 29.03px;
+  line-height: 29px;
   text-align: left;
   background: #53AFE6;
   border-color: #53AFE6 !important;
@@ -454,6 +450,7 @@ button.btn.btn-primary {
   font-weight: 600;
   line-height: 29.03px;
   text-align: left;
+  white-space: nowrap;
 }
 .diet-plan-section-page button.btn.btn-primary:focus {
   box-shadow: none !important;
@@ -814,9 +811,12 @@ nav.custom-sidebar .d-flex a:focus {
   outline: none !important;
   color: #53AFE6 !important;
 }
+button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
+  box-shadow: none !important;
+}
 #calendar-modal .modal-body .btn.btn-primary {
-  width: 293px;
-  height: 70px;
+  width: 227px;
+  height: 60px;
   border-radius: 11px;
   background: #53AFE6;
   border: 1px solid #53AFE6;
@@ -842,9 +842,9 @@ nav.custom-sidebar .d-flex a:focus {
 }
 .save-report-section .btn.btn-outline-dark {
   height: 33px;
-  border-radius: 10px;
+  border-radius: 11px;
   font-family: Poppins;
-  font-size: 12.92px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 17.23px;
   text-align: left;
@@ -856,7 +856,7 @@ nav.custom-sidebar .d-flex a:focus {
 }
 .save-report-section button#dropdown-basic {
   height: 33px;
-  border-radius: 10px;
+  border-radius: 11px;
   color: #53AFE6;
   border: 0.72px solid #53AFE6 !important;
   font-family: Poppins;
@@ -1100,25 +1100,28 @@ color: #000000;
   gap: 10px;
 }
 .send-plane-section button.btn.btn-primary {
-  width: 171.05px;
-  height: 65.4px;
-  border-radius: 10px;
+  width: 171px;
+  height: 60px;
+  border-radius: 11px;
   background: #53AFE6;
   font-family: Inter;
-  font-size: 18.69px;
+  font-size: 18px;
   font-weight: 600;
-  line-height: 27.13px;
+  line-height: 27px;
   text-align: left;
 
 }
 .send-plane-section button.btn.btn-primary svg {
-  width: 25.83px;
+  width: 25px;
   height: 25px;
 }
 .send-plane-section button.d-flex.align-items-center.btn.btn-dark {
-  width: 82.03px;
-  height: 65.4px;
-  border-radius: 10px;
+  width: 82px;
+  height: 60px;
+  border-radius: 11px;
+}
+.view-all:focus {
+  background-color: transparent !important;
 }
 .send-plane-section button.d-flex.align-items-center.btn.btn-dark svg {
   color: rgb(37, 211, 102);
@@ -1180,7 +1183,7 @@ color: #000000;
     font-size: 20px;
   }
   .small-cards a.btn {
-    height: 70px;
+    height: 60px;
   }
 } 
 @media (max-width: 768px) {

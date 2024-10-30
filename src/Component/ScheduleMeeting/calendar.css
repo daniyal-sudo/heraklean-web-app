@@ -432,7 +432,7 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
   justify-content: center;
   padding: 12px 24px 12px 24px;
   gap: 12px;
-  border-radius: 100px;
+  border-radius: 11px;
   background: #53AFE6 !important;
   border: 1px solid #53AFE6 !important;
   font-size: 16px;
@@ -447,7 +447,7 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
 .header-right button.btn.btn-white.dropdown.border-outline {
     padding: 12px 24px 12px 24px;
     gap: 12px;
-    border-radius: 100px;
+    border-radius: 11px;
     color: #000000 !important;
     border: 1px solid #000000;
     background-color: transparent !important;

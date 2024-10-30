@@ -166,7 +166,8 @@ height: 100%;
 	text-align: left;
   }
   .small-cards a.btn {
-	height: 70px;
+	width: 227px;
+	height: 60px;
     border-radius: 11px;
     display: flex;
     align-items: center;
@@ -242,7 +243,8 @@ body {
     gap: 30px;
 }
 .crative-button .btn.btn-primary{
-	height: 70px;
+	height: 60px;
+	width: 227px;
 	border-radius: 11px;
 	border: 1px solid #53AFE6;
 	font-family: Inter;
@@ -258,7 +260,8 @@ body {
 
 }
 .crative-button .btn.btn-light {
-	height: 70px;
+	height: 60px;
+	width: 227px;
 	border-radius: 11px;
 	border: 1px solid #000000;
 	font-family: Inter;

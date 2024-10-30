@@ -125,7 +125,7 @@ const AllClients = () => {
 											All Clients
 										</h4>
 									</div>
-									<div className="col-lg-5">
+									<div className="col-lg-3">
 										<div className="text-start mb-4">
 											<Link
 											 onClick={() => {
@@ -139,7 +139,7 @@ const AllClients = () => {
 											</Link>
 										</div>
 									</div>
-									<div className="greeting col-lg-4">
+									<div className="greeting col-lg-6">
 										<div className="search-bar-container mb-4">
 											<div className="input-group position-relative">
 												<div className="search-line"></div> {/* New element for the line */}
