@@ -1230,6 +1230,9 @@ color: #000000;
 .notification:focus {
   background-color: transparent !important;
 }
+.upload-box .upload-label {
+  margin-bottom: 0px !important;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
