@@ -145,12 +145,18 @@ console.log(location.pathname,'location.pathname')
                         notifications.map((notification, index) => (
                           <li key={index}>
                            <div className="notification-section">
-                                <div className="notify-icon">
-                                  <img src="/notification.png" alt="img"/>
+                            <div className="notification-content">
+                                  <div className="notify-icon">
+                                    <img src="/notification.png" alt="img"/>
+                                  </div>
+                                  <div className="notify-data">
+                                    <p>{notification}</p>
+                                  </div>
                                 </div>
-                                <div className="notify-data">
-                                  <p>{notification}</p>
-                                </div>
+                                <div className="notification-buttons">
+                                    <button className="accept-button">Accept</button>
+                                    <button className="reject-button">Reject</button>
+                                  </div>
                             </div>
                           </li>
                         ))
