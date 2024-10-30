@@ -243,7 +243,7 @@ body {
 }
 .crative-button .btn.btn-primary{
 	height: 70px;
-	border-radius: 10px;
+	border-radius: 11px;
 	border: 1px solid #53AFE6;
 	font-family: Inter;
 	font-size: 18px;
@@ -259,7 +259,7 @@ body {
 }
 .crative-button .btn.btn-light {
 	height: 70px;
-	border-radius: 10px;
+	border-radius: 11px;
 	border: 1px solid #000000;
 	font-family: Inter;
 	font-size: 20px;

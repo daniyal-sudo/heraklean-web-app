@@ -437,6 +437,7 @@ button.btn.btn-primary {
   text-align: left;
   background: #53AFE6;
   border-color: #53AFE6 !important;
+  border-radius: 11px;
 }
 .diet-plan-section-page button.btn.btn-primary a:focus {
   box-shadow: none !important;
@@ -448,6 +449,11 @@ button.btn.btn-primary {
 .diet-plan-section-page button.btn.btn-primary a {
   background: #53AFE6 !important;
   border-color: #53AFE6 !important;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 29.03px;
+  text-align: left;
 }
 .diet-plan-section-page button.btn.btn-primary:focus {
   box-shadow: none !important;
@@ -642,7 +648,7 @@ input[type="number"]::-webkit-outer-spin-button,
     outline: none !important;
   }
   .meal-button button {
-    border-radius: 10px;
+    border-radius: 11px;
     border: 1px solid #53AFE6 !important;
     background-color: #53AFE6 !important;
     color: #fff !important;
