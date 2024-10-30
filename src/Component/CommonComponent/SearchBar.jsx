@@ -4,8 +4,8 @@ import { FaSearch } from 'react-icons/fa';
 
 const SearchBar = () => {
   return (
-    <div className="d-flex justify-content-center align-items-center">
-      <InputGroup style={styles.inputGroup}>
+    <div className="d-flex justify-content-center align-items-center searchbar-section">
+      <InputGroup className='no-padding-right' style={styles.inputGroup}>
         <FormControl
           placeholder="Search here"
           aria-label="Search"
@@ -42,16 +42,21 @@ const styles = {
     fontWeight: 400,
     lineHeight: '24px',
     textAlign: 'left',
+    paddingRight: '0px !important',
   },
   searchButton: {
     backgroundColor: '#4CAFEB',
-    height: '100%',
+    height: '47px',
     width: '47px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: '25px',
     border: 'none',
+    position: 'relative',
+    right: '9px',
+    top: '5px',
+
   },
   icon: {
     color: '#fff',
