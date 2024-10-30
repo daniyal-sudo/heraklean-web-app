@@ -1192,6 +1192,9 @@ color: #000000;
 .desktop-d-none {
   display: none;
 }
+.d-flex.icon {
+  gap: 10px;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
