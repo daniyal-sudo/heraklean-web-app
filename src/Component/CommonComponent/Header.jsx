@@ -94,7 +94,7 @@ const Header = () => {
   const toggleNotifications = () => {
     setNotificationsActive(!notificationsActive);
   };
-
+console.log(location.pathname,'location.pathname')
   return (
     <>
       <header className="header">
@@ -117,7 +117,7 @@ const Header = () => {
             </>
           ) : (
             <div className="greeting">
-              {location.pathname === '/' ?
+              {location.pathname !== '/' ?
                <h5>Good Morning, {trainerInfo?.Fname && trainerInfo.Fname+ ' '+trainerInfo.lastName}</h5>
               :
               <SearchBar />}
