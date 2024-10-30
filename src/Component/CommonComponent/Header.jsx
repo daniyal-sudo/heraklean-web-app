@@ -117,7 +117,7 @@ const Header = () => {
             </>
           ) : (
             <div className="greeting">
-              {location.pathname === '/schedule-meeting' ?
+              {location.pathname === '/' ?
                <h5>Good Morning, {trainerInfo?.Fname && trainerInfo.Fname+ ' '+trainerInfo.lastName}</h5>
               :
               <SearchBar />}
