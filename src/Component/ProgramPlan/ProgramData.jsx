@@ -244,9 +244,10 @@ const ProgramPlans = () => {
                     <h5 className="custom-heads">
                       {selectedProgram.programTitle}
                     </h5>
-                    <button className="btn btn-secondary btn-sm me-2 icon-hidden">
+                    <button className="btn btn-secondary btn-sm icon-hidden">
                       <RiEdit2Fill size={18} />
                     </button>
+                
                   </div>
                   <div className="mt-2">
                     <h6 className="custom-head-bold">{selectedDay.title}</h6>
@@ -268,6 +269,11 @@ const ProgramPlans = () => {
                       {selectedDay.duration}
                     </p>
                   </div>
+                  <div className="edit-section">    
+                    <button className="btn btn-secondary btn-sm me-2 desktop-d-none">
+                        <RiEdit2Fill size={18} />
+                    </button>
+                    </div>
                 </div>
               </div>
             </div>
