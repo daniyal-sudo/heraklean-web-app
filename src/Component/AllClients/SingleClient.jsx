@@ -115,7 +115,7 @@ const UpdateMealPlanModal = ({
             />
           </Form.Group>
 
-          <div className="d-flex mb-3 mt-3">
+          <div className="d-flex mb-3 mt-3 common-button">
             {days.map((day) => (
               <Button
                 key={day}
