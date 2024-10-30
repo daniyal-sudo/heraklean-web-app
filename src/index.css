@@ -934,6 +934,24 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   border-radius: 4px !important;
   font-size: 14px !important;
 }
+.profile-section button.btn.btn-primary:active {
+  background: #53AFE6 !important;
+  border: 1px solid#53AFE6 !important;
+}
+.crative-button .save-button.btn.btn-primary:active {
+  background: #53AFE6 !important;
+  border: 1px solid#53AFE6 !important;
+}
+.crative-button .btn.btn-primary:active {
+  background: #53AFE6 !important;
+  border: 1px solid#53AFE6 !important;
+}
+.crative-button .btn.btn-light.cancel-section:active {
+  background-color: transparent !important;
+}
+.crative-button button.btn.btn-light:active {
+  background-color: transparent !important;
+}
 .common-button button {
   width: 20% !important;
   height: max-content;
@@ -1224,6 +1242,9 @@ color: #000000;
   }
 } 
 @media (max-width: 768px) {
+  .header-content .greeting .no-padding-right.input-group {
+    display: none;
+}
   .scrolbar-program .row {
     margin-top: 0px !important;
   }
