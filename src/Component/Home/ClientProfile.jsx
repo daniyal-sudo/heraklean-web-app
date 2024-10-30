@@ -186,7 +186,7 @@ const ClientProfile = () => {
       );
 
       console.log("Total clients:", response.data);
-      alert('')
+      // alert('')
 
       // Set the total clients state from the API response
       setTrainerInfo(response.data);
