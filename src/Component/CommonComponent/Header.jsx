@@ -3,11 +3,21 @@ import { useNavigate } from "react-router-dom";
 import "./Header.css";
 import { api_url } from "../../../CommonFunctions";
 import SearchBar from "./SearchBar";
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [notificationsActive, setNotificationsActive] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [profilePic, setProfilePic] = useState("");
+
+  const location = useLocation();
+
+  const [trainerInfo, setTrainerInfo] = useState({
+    profilePic: "",
+    Fname: "",
+    lastName: "",
+    email: "",
+  });
   const navigate = useNavigate();
 
   // Route mapping based on search terms
@@ -67,8 +77,11 @@ const Header = () => {
         if (data.success && data.profilePic) {
           const fixedProfilePic = data.profilePic.replace(/\\/g, "/");
           const imageUrl = `http://82.112.240.94:5001/${fixedProfilePic}`;
-          setProfilePic(imageUrl);
+          
         }
+        // alert('')
+        // console.log('response.data',data)
+        setTrainerInfo(data);
       } catch (error) {
         console.error("Error fetching profile image:", error);
       }
@@ -104,8 +117,10 @@ const Header = () => {
             </>
           ) : (
             <div className="greeting">
-              {/* <h5>Good Morning, Afnan Ali</h5> */}
-              <SearchBar />
+              {location.pathname === '/schedule-meeting' ?
+               <h5>Good Morning, {trainerInfo?.Fname && trainerInfo.Fname+ ' '+trainerInfo.lastName}</h5>
+              :
+              <SearchBar />}
             </div>
           )}
           {window.innerWidth > 786 && (
