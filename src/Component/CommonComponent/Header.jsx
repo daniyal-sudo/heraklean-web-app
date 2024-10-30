@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
 import { api_url } from "../../../CommonFunctions";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const [notificationsActive, setNotificationsActive] = useState(false);
@@ -103,7 +104,8 @@ const Header = () => {
             </>
           ) : (
             <div className="greeting">
-              <h5>Good Morning, Afnan Ali</h5>
+              {/* <h5>Good Morning, Afnan Ali</h5> */}
+              <SearchBar />
             </div>
           )}
           {window.innerWidth > 786 && (

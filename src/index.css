@@ -1187,6 +1187,9 @@ color: #000000;
   }
 } 
 @media (max-width: 768px) {
+  .scrolbar-program .row {
+    margin-top: 0px !important;
+  }
   .profile-section .col-md-6 {
     width: 100%;
 }
