@@ -6,6 +6,7 @@ import "./../CreateClient/CreateClient.css";
 import { Button, Form } from "react-bootstrap";
 import Header from "../CommonComponent/Header";
 import DropdownDay from "./DropdownDay";
+import { errorMessage, successMessage } from "../../Toast/Toast";
 
 const CreateDietPlan = ({ onClose }) => {
   const [dietTitle, setDietTitle] = useState("");
@@ -84,9 +85,10 @@ const CreateDietPlan = ({ onClose }) => {
       );
 
       if (response.status === 201) {
-        alert("Diet plan created successfully!");
+        successMessage("Diet plan created successfully!");
+        onClose();
       } else {
-        alert("Something went wrong!");
+        errorMessage("Something went wrong!");
       }
     } catch (error) {
       console.error(error);

@@ -52,7 +52,7 @@ const DietPlans = () => {
       }
     };
     fetchDiets();
-  }, []);
+  }, [showComponent]);
 
   // Handle day click
   // const handleDayClick = (day, diet) => {
