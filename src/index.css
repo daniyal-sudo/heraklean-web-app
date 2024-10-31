@@ -1665,6 +1665,14 @@ border: none !important;
   background-color: transparent !important;
   border: 1px solid #000000 !important;
 }
+.meal-button .btn.btn-primary {
+  background: #53AFE6;
+  border: 1px solid #53AFE6;
+}
+.meal-button .btn.btn-outline-secondary:hover {
+  background-color: transparent !important;
+  color: #8F8F8F !important;
+}
 .crative-buttons .submit-button {
       width: 162px;
       height: 50px;
