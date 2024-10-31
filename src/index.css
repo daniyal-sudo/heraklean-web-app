@@ -1698,7 +1698,14 @@ border: none !important;
 .calander-mobile-section {
   display: none;
 }
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+  .meeting p.fw-light {
+    margin: 0px !important;
+    font-weight: lighter !important;
+    font-size: 14px !important;
+  }
+}
+@media (max-width: 768px) {
   .show-on-desktop {
     display: none;
   }
