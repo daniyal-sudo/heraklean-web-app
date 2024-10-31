@@ -82,6 +82,7 @@ const Form = ({ onClose }) => {
     formDataToSend.append("password", formData.password);
     formDataToSend.append("subscription", formData.subscription);
 
+ 
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
@@ -330,7 +331,7 @@ const Form = ({ onClose }) => {
                 />
               </div>
               <div className="col-6 mb-3">
-                <UploadButton />
+                <UploadButton handleFileChange={handleFileChange} />
               </div>
             </div>
 

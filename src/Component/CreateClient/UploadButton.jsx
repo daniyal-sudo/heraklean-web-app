@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { LuUpload } from "react-icons/lu";
 
-const UploadButton = () => {
+const UploadButton = ({handleFileChange}) => {
   const [file, setFile] = useState(null);
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
+  // const handleFileChange = (event) => {
+  //   setFile(event.target.files[0]);
+  // };
 
   return (
     <div className="col-6 mb-3 upload-buttons">
