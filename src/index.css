@@ -647,9 +647,9 @@ input[type="number"]::-webkit-outer-spin-button,
   }
   .meal-button button {
     border-radius: 11px;
-    border: 1px solid #53AFE6 !important;
+    /* border: 1px solid #53AFE6 !important;
     background-color: #53AFE6 !important;
-    color: #fff !important;
+    color: #fff !important; */
     font-family: Inter;
     font-size: 15px;
     font-weight: 400;

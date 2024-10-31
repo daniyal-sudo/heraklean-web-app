@@ -137,7 +137,7 @@ const CreateDietPlan = ({ onClose }) => {
                       <Button
                         key={meal}
                         
-                          variant={selectedMeal === meal ? '' : "active"}
+                          variant={selectedMeal === meal ? "primary" : "outline-secondary"}
                         
                         onClick={() => handleMealSelect(meal)}
                       >
