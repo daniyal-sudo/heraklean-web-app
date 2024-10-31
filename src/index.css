@@ -156,7 +156,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 25px;
     background-color: #ffffff;
     margin-bottom: 20px;
 }
@@ -1637,4 +1637,64 @@ border: none !important;
 .custom-text:focus {
   background-color: transparent !important;
   border: none !important;
+}
+.crative-buttons {
+    align-items: center;
+    gap: 30px;
+    justify-content: flex-start;
+    padding: 0px 5px;
+}
+.crative-buttons .cancel-button {
+    width: 162px;
+    height: 50px;
+    border-radius: 11px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+}
+.crative-buttons .cancel-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    border: 1px solid #000000 !important;
+}
+.crative-buttons .cancel-button:active {
+  background-color: transparent !important;
+  border: 1px solid #000000 !important;
+}
+.crative-buttons .submit-button {
+      width: 162px;
+      height: 50px;
+      border-radius: 11px;
+      background: #53AFE6;
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+      text-align: center;
+      color: #fff;
+      border: 1px solid#53AFE6;
+}
+.crative-buttons .submit-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    border: 1px solid#53AFE6 !important;
+}
+.crative-buttons .submit-button:active {
+  background: #53AFE6 !important;
+  border: 1px solid#53AFE6 !important;
+}
+.calander-mobile-section {
+  display: none;
+}
+@media (max-width: 480px) {
+  .show-on-desktop {
+    display: none;
+  }
+  .show-on-mobile {
+    display: block;
+  }
 }

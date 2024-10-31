@@ -5,6 +5,7 @@ import axios from "axios";
 import "./calendar.css";
 import { api_url } from "../../../CommonFunctions";
 import { Dropdown, Button } from "react-bootstrap";
+import ScheduledCalander from "./ScheduledCalander";
 
 const Calendar = () => {
   const [selectedMeeting, setSelectedMeeting] = useState(null);
@@ -328,7 +329,10 @@ const Calendar = () => {
         className="calander-section"
         style={{ border: "1px solid #E5E5E5" }}
       >
-        <div className="calendar-main-container">
+        <div className="calander-mobile-section show-on-mobile">
+           <ScheduledCalander />
+        </div>
+        <div className="calendar-main-container show-on-desktop">
           <div className="schedule-container d-flex justify-content-between">
             <header className="schedule-header">
               <div className="header-left">
@@ -445,7 +449,6 @@ const Calendar = () => {
 
             {selectedMeeting && (
               <div className="meeting-details  text-center">
-                {/* Construct the full image URL and handle fallback */}
                 <img
                   src={
                     selectedMeeting.client.profilePic
@@ -490,23 +493,6 @@ const Calendar = () => {
                       : "One-time Meeting"}
                   </button>
                 </div>
-                {/* <div className="meeting-info">
-                  <p>{selectedMeeting.trainingType}</p>
-                  <p>{selectedMeeting.time}</p>
-                  <p>
-                    {selectedMeeting.isRecurring
-                      ? "Recurring Meeting"
-                      : "One-time Meeting"}
-                  </p>
-                  <p>Status: {selectedMeeting.status}</p>
-                  <p>
-                    Created by:{" "}
-                    {selectedMeeting.createdby ||
-                      (selectedMeeting.type === "clientRequest"
-                        ? "Client"
-                        : "Trainer")}
-                  </p>
-                </div> */}
                 <div className="meeting-actions">
                   <button
                     className="btn btn-primary btn-radius border-0"
