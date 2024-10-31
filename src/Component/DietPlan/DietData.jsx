@@ -262,7 +262,7 @@ const DietPlans = () => {
               </div>
 
               {/* Show selected day and meal details */}
-              {selectedDay ? (
+              {selectedDay  && selectedDay.meal1?.title? (
                 <div className="row">
                   <div className="col-12 diet-plan-scroll">
                     <div className="card diet-plane-2">
