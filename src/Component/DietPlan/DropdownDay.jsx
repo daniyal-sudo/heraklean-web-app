@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-function DropdownDay() {
-  const [selectedDay, setSelectedDay] = useState('monday'); // Default value
+function DropdownDay({selectedDay,setSelectedDay}) {
+  // const [selectedDay, setSelectedDay] = useState('monday'); // Default value
 
   const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
