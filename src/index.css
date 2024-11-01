@@ -1715,6 +1715,10 @@ border: none !important;
   text-align: left;
   color: #000000;
 }
+.custom-file-upload label:active {
+  background: #53AFE6 !important;
+  border: #53AFE6 !important;
+}
 @media (max-width: 1024px) {
   .meeting p.fw-light {
     margin: 0px !important;
