@@ -120,7 +120,7 @@ const Sidebar = () => {
         </div>
 
         {/* Sign Out Button */}
-        <div className="text text-center mt-5">
+        <div className="text text-center mt-5 signout">
           <button className="btn" onClick={logout}>
             <span className="small fw-bold">
               Sign Out

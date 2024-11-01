@@ -1719,6 +1719,15 @@ border: none !important;
   background: #53AFE6 !important;
   border: #53AFE6 !important;
 }
+a.text-decoration-none.text-black:focus {
+  background-color: transparent !important;
+}
+.signout button.btn:focus {
+  box-shadow: none !important;
+}
+.signout button.btn:active {
+  border: none !important;
+}
 @media (max-width: 1024px) {
   .meeting p.fw-light {
     margin: 0px !important;
