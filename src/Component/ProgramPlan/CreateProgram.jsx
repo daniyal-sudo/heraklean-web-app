@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Sidebar from './../Home/Sidebar';
-import './../CreateClient/CreateClient.css';
-import { Modal, Button, Form } from 'react-bootstrap';
-import Header from '../CommonComponent/Header';
-import CommonForm from '../ProgramPlan/CommonFrom'
+import React, { useState } from "react";
+import axios from "axios";
+import Sidebar from "./../Home/Sidebar";
+import "./../CreateClient/CreateClient.css";
+import { Modal, Button, Form } from "react-bootstrap";
+import Header from "../CommonComponent/Header";
+import CommonForm from "../ProgramPlan/CommonFrom";
+import { errorMessage, successMessage } from "../../Toast/Toast";
 
-const CreateProgram = () => {
-  const [programTitle, setProgramTitle] = useState('');
-  const [selectedDay, setSelectedDay] = useState('');
+const CreateProgram = ({ onClose }) => {
+  const [programTitle, setProgramTitle] = useState("");
+  const [selectedDay, setSelectedDay] = useState("");
   const [dayDetails, setDayDetails] = useState({
     monday: {},
     tuesday: {},
@@ -20,27 +21,27 @@ const CreateProgram = () => {
   });
   const [dayModal, setDayModal] = useState(false);
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    modules: '',
-    duration: '',
+    title: "",
+    description: "",
+    modules: "",
+    duration: "",
   });
 
   // Add missing state for the day form
   const [dayForm, setDayForm] = useState({
-    title: '',
-    description: '',
-    modules: '',
-    duration: '',
+    title: "",
+    description: "",
+    modules: "",
+    duration: "",
   });
 
   // Open modal for selected day
-  const handleDayClick = (day) => {
-    setSelectedDay(day);
-    const selectedDayDetails = dayDetails[day] || { title: '', description: '', modules: '', duration: '' };
-    setDayForm(selectedDayDetails); // Set day form with selected day details
-    setDayModal(true);
-  };
+  // const handleDayClick = (day) => {
+  //   setSelectedDay(day);
+  //   const selectedDayDetails = dayDetails[day] || { title: '', description: '', modules: '', duration: '' };
+  //   setDayForm(selectedDayDetails); // Set day form with selected day details
+  //   setDayModal(true);
+  // };
 
   // Close modal
   const handleClose = () => setDayModal(false);
@@ -48,6 +49,7 @@ const CreateProgram = () => {
   // Handle input changes for the day form
   const handleDayFormChange = (e) => {
     const { name, value } = e.target;
+
     setDayForm({
       ...dayForm,
       [name]: value,
@@ -67,43 +69,74 @@ const CreateProgram = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const programData = {
-      programTitle,
-      days: { ...dayDetails }, // Ensure day details are passed under 'days'
+    const days = {
+      monday: {},
+      tuesday: {},
+      wednesday: {},
+      thursday: {},
+      friday: {},
+      saturday: {},
+      sunday: {},
     };
 
-    try {
-      const token = localStorage.getItem('token');
-      console.log(programData); // Verify the programData structure
-      const response = await axios.post('http://localhost:5001/api/auth/createProgramPlan', programData, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
+    if (selectedDay) {
+      days[selectedDay] = { ...dayForm }; // Push data into the selected day's object
+    }
 
-      if (response.status === 200) {
-        alert('Program created successfully!');
+    // Log the updated days object to see the changes
+    console.log("Updated days object:", days);
+
+    const programData = {
+      programTitle,
+      days: days, // Pass the complete days object in the payload
+    };
+    // console.log('vvvvvv',programData)
+    // return false
+
+    try {
+      const token = localStorage.getItem("token");
+      console.log(programData); // Verify the programData structure
+      const response = await axios.post(
+        "http://localhost:5001/api/auth/createProgramPlan",
+        programData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.data.success) {
+        successMessage(response.data.message);
+        onClose();
       } else {
-        alert('Something went wrong!');
+        errorMessage(response.data.message);
       }
     } catch (error) {
       console.error(error);
-      alert('Error creating program');
+      alert("Error creating program");
     }
   };
 
   return (
-    <div className="home-container">
-      <div className="d-flex">
-        <Sidebar />
-        <div className="content-wrapper d-flex flex-column">
-          <Header />
-     <div className="space-page"> 
-              <div className="container p-0 m-0" style={{ height: '100dvh' }}>
-                <div className="diet-plan-section-page">
-                  <CommonForm />
-                  {/* <form onSubmit={handleSubmit}>
+    <>
+      <div className="space-page">
+        <div className="container p-0 m-0" style={{ height: "100dvh" }}>
+          <div className="diet-plan-section-page">
+            <CommonForm
+              handleSubmit={handleSubmit}
+              onClose={onClose}
+              setSelectedDay={setSelectedDay}
+              selectedDay={selectedDay}
+              handleDayFormChange={handleDayFormChange}
+              setDayForm={setDayForm}
+              dayForm={dayForm}
+              handleSaveDayDetails={handleSaveDayDetails}
+              setProgramTitle={setProgramTitle}
+              programTitle={programTitle}
+            />
+            {/* <form onSubmit={handleSubmit}>
                     <div className="row mt-4 me-3">
                       <p className="fs-4 fw-bold">Create Program</p>
                       <div className="col-lg-6">
@@ -135,8 +168,7 @@ const CreateProgram = () => {
                       </div>
                     </div>
                   </form> */}
-                </div>
-              </div>
+          </div>
         </div>
       </div>
 
@@ -198,8 +230,7 @@ const CreateProgram = () => {
           </Button>
         </Modal.Footer>
       </Modal> */}
-    </div>
-    </div>
+    </>
   );
 };
 

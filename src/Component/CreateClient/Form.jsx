@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import UploadButton from "./UploadButton";
 import CustomDropdown from "../CommonComponent/CustomDropdown";
 import { api_url } from "../../../CommonFunctions";
+import { errorMessage, successMessage } from "../../Toast/Toast";
 
 const Form = ({ onClose }) => {
   const [dietPlans, setDietPlans] = useState([]);
@@ -97,11 +98,12 @@ const Form = ({ onClose }) => {
       );
       console.log("Client created successfully", response.data);
       if (response.data.success) {
-        alert("Client created successfully");
+        successMessage("Client created successfully");
+        onClose();
       }
     } catch (error) {
       console.error("Error:", error.response?.data || error.message);
-      setError(
+      errorMessage(
         error.response?.data?.message ||
           "An error occurred while creating the client."
       );

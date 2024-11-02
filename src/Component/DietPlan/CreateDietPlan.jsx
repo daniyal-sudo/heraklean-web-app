@@ -7,8 +7,9 @@ import { Button, Form } from "react-bootstrap";
 import Header from "../CommonComponent/Header";
 import DropdownDay from "./DropdownDay";
 import { errorMessage, successMessage } from "../../Toast/Toast";
+import { useEffect } from "react";
 
-const CreateDietPlan = ({ onClose }) => {
+const CreateDietPlan = ({ onClose,editPlan }) => {
   const [dietTitle, setDietTitle] = useState("");
   const [selectedDay, setSelectedDay] = useState("monday"); // Default to Monday
   const [selectedMeal, setSelectedMeal] = useState("meal1");
@@ -26,9 +27,24 @@ const CreateDietPlan = ({ onClose }) => {
     description: "",
     protein: "",
     calories: "",
-    carbs: "",
+    carb: "",
     fat: "",
   });
+
+  useEffect(() => {
+    if (editPlan) {
+      setDietTitle(editPlan.dietTitle)
+      setDayDetails({
+        monday: editPlan.monday,
+        tuesday: editPlan.tuesday,
+        wednesday: editPlan.wednesday,
+        thursday: editPlan.thursday,
+        friday: editPlan.friday,
+        saturday: editPlan.saturday,
+        sunday: editPlan.sunday,
+      });
+    }
+  }, []);
 
   const handleMealFormChange = (e) => {
     const { name, value } = e.target;
@@ -56,7 +72,7 @@ const CreateDietPlan = ({ onClose }) => {
         description: "",
         protein: "",
         calories: "",
-        carbs: "",
+        carb: "",
         fat: "",
       }
     );
@@ -66,6 +82,7 @@ const CreateDietPlan = ({ onClose }) => {
     e.preventDefault();
 
     const dietData = {
+      ...(editPlan._id && { id: editPlan._id }), // Only include `id` if `editPlan._id` exists
       dietTitle,
       ...dayDetails,
     };
@@ -84,15 +101,15 @@ const CreateDietPlan = ({ onClose }) => {
         }
       );
 
-      if (response.status === 201) {
-        successMessage("Diet plan created successfully!");
+      if (response.success) {
+        successMessage(response.message);
         onClose();
       } else {
-        errorMessage("Something went wrong!");
+        errorMessage(response.message);
       }
     } catch (error) {
       console.error(error);
-      alert("Error creating diet plan");
+      errorMessage("Error creating diet plan");
     }
   };
 
@@ -131,16 +148,21 @@ const CreateDietPlan = ({ onClose }) => {
                         ))}
                       </Form.Select>
                     </div> */}
-                  <DropdownDay setSelectedDay={setSelectedDay}  selectedDay={selectedDay}/>
+                  <DropdownDay
+                    setSelectedDay={setSelectedDay}
+                    selectedDay={selectedDay}
+                  />
                 </div>
                 <div className="col-lg-6 button-section-meals">
                   <div className="d-flex gap-3 meal-button">
                     {["meal1", "meal2", "meal3"].map((meal) => (
                       <Button
                         key={meal}
-                        
-                          variant={selectedMeal === meal ? "primary" : "outline-secondary"}
-                        
+                        variant={
+                          selectedMeal === meal
+                            ? "primary"
+                            : "outline-secondary"
+                        }
                         onClick={() => handleMealSelect(meal)}
                       >
                         {meal.charAt(0).toUpperCase() + meal.slice(1)}
@@ -204,11 +226,11 @@ const CreateDietPlan = ({ onClose }) => {
               <div className="row">
                 <div className="col-lg-6">
                   <Form.Group className="mb-3">
-                    <Form.Label>Carbs</Form.Label>
+                    <Form.Label>Carb</Form.Label>
                     <Form.Control
                       type="number"
-                      name="carbs"
-                      value={mealForm.carbs || ""}
+                      name="carb"
+                      value={mealForm.carb || ""}
                       onChange={handleMealFormChange}
                       required
                     />

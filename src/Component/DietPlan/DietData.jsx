@@ -11,6 +11,7 @@ const DietPlans = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDiet, setSelectedDiet] = useState(null);
   const [showComponent, setShowComponent] = useState("");
+  const [selectedDietForEdit, setSelectedDietForEdit] = useState(null);
 
   const days = [
     "monday",
@@ -79,14 +80,25 @@ const DietPlans = () => {
   }
 
   console.log(selectedDay, "selectedDayselectedDay");
+  console.log(selectedDietForEdit, "selectedDayselectedDay");
 
   return (
     <>
-      {showComponent === "createDietPlan" ? (
-        <CreateDietPlan onClose={()=>{
-          setShowComponent('')
-        }} />
-      ) : (
+      {
+      showComponent === "createDietPlan" ? (
+        <CreateDietPlan
+          onClose={() => {
+            setShowComponent("");
+          }}
+        />
+      ) : showComponent === "editDietPlan" ? (
+        <CreateDietPlan
+          onClose={() => {
+            setShowComponent("");
+          }}
+          editPlan={selectedDiet}
+        />
+      ):(
         <div
           className="container m-0"
           style={{ padding: "30px", maxWidth: "100%" }}
@@ -105,9 +117,7 @@ const DietPlans = () => {
                     }}
                   >
                     <div className="plus-icon mr-2">
-                      <Link 
-                   
-                      >
+                      <Link>
                         <svg
                           width="30"
                           height="30"
@@ -262,7 +272,7 @@ const DietPlans = () => {
               </div>
 
               {/* Show selected day and meal details */}
-              {selectedDay  && selectedDay.meal1?.title? (
+              {selectedDay && selectedDay.meal1?.title ? (
                 <div className="row">
                   <div className="col-12 diet-plan-scroll">
                     <div className="card diet-plane-2">
@@ -309,7 +319,11 @@ const DietPlans = () => {
                                     </div>
                                   </div>
 
-                                  <div className="d-flex icon">
+                                  <div className="d-flex icon" 
+                                   onClick={()=>{
+                                    // setSelectedDietForEdit(selectedDay[meal])
+                                    setShowComponent('editDietPlan')
+                                   }}>
                                     <button className="btn btn-secondary btn-sm me-2">
                                       <i className="bi bi-pencil"></i>
                                     </button>
@@ -326,9 +340,9 @@ const DietPlans = () => {
                                       <li className="meal-list-item">
                                         {selectedDay[meal].title}
                                       </li>
-                                      <li className="meal-list-item">
+                                      {/* <li className="meal-list-item">
                                         {selectedDay[meal].title}
-                                      </li>
+                                      </li> */}
                                     </ul>
                                   </div>
                                   <div className="col-12 col-md-4">
@@ -337,9 +351,9 @@ const DietPlans = () => {
                                       <li className="meal-list-item">
                                         {selectedDay[meal].title}
                                       </li>
-                                      <li className="meal-list-item">
+                                      {/* <li className="meal-list-item">
                                         {selectedDay[meal].title}
-                                      </li>
+                                      </li> */}
                                     </ul>
                                   </div>
                                   <div className="col-12 col-md-4">
@@ -348,13 +362,17 @@ const DietPlans = () => {
                                       <li className="meal-list-item">
                                         {selectedDay[meal].title}
                                       </li>
-                                      <li className="meal-list-item">
+                                      {/* <li className="meal-list-item">
                                         {selectedDay[meal].title}
-                                      </li>
+                                      </li> */}
                                     </ul>
                                   </div>
                                   <div className="d-flex icon-hide">
-                                    <button className="btn btn-secondary btn-sm me-2">
+                                    <button className="btn btn-secondary btn-sm me-2"
+                                    onClick={()=>{
+                                      // setSelectedDietForEdit(selectedDay[meal])
+                                      setShowComponent('editDietPlan')
+                                    }}>
                                       <i className="bi bi-pencil"></i>
                                     </button>
                                     <button className="btn btn-primary btn-sm">
