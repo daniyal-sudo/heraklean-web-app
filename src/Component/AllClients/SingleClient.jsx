@@ -19,7 +19,7 @@ import Header from "../CommonComponent/Header";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { api_url } from "../../../CommonFunctions";
 import WeightGraphChart from "./WeightGraphChart";
-import SendPlan from './SendPlan';
+import SendPlan from "./SendPlan";
 import SaveReport from "./SaveReport";
 const UpdateMealPlanModal = ({
   show,
@@ -286,29 +286,29 @@ const UpdatePlanModal = ({
   ];
   const styles = {
     customCloseButton: {
-      position: 'absolute',
-      top: '30px',
-      right: '30px',
-      background: 'none',
-      border: 'none',
-      padding: '0',
-      margin: '0',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '30px',
-      height: '30px',
-      outline: 'none',
+      position: "absolute",
+      top: "30px",
+      right: "30px",
+      background: "none",
+      border: "none",
+      padding: "0",
+      margin: "0",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "30px",
+      height: "30px",
+      outline: "none",
       zIndex: 1,
     },
     crossIcon: {
-      fontSize: '24px',
-      fontWeight: 'bold',
-      color: '#000',
+      fontSize: "24px",
+      fontWeight: "bold",
+      color: "#000",
     },
   };
-  
+
   return (
     <Modal show={show} onHide={handleClose} size="lg" id="calendar-modal">
       <Modal.Header closeButton>
@@ -420,26 +420,28 @@ const ClientInfo = ({ name, status, image, clientData }) => {
   return (
     <div className="d-flex align-items-center mb-4 Client-Profile-section">
       <div className="name-profile">
-          <img
-            src="/p-2.png"
-            alt={name}
-            className="profile-img"
-            style={{ width: "162px", height: "162px", objectFit: "cover" }}
-          />
+        <img
+          src="/p-2.png"
+          alt={name}
+          className="profile-img"
+          style={{ width: "162px", height: "162px", objectFit: "cover" }}
+        />
 
-          <div>
-            <h2 className="head-profile-client">{name}</h2>
-            <p className="custom-p mb-0">
-              Status:<span className="custom-bold">{status}</span>
-            </p>
-          </div>
+        <div>
+          <h2 className="head-profile-client">{name}</h2>
+          <p className="custom-p mb-0">
+            Status:<span className="custom-bold">{status}</span>
+          </p>
+        </div>
       </div>
       <SendPlan />
       {/* hamid */}
-      <div className="card mb-4" style={{ border: 'none' }}>
+      <div className="card mb-4" style={{ border: "none" }}>
         <div className="card-body monthtly-payment">
           <h5 className="Monthtly-title">Monthly Payment Amount</h5>
-          <h2 className="text-primary monthly-dolar">${clientData.paymentAmount}</h2>
+          <h2 className="text-primary monthly-dolar">
+            ${clientData.paymentAmount}
+          </h2>
         </div>
       </div>
     </div>
@@ -450,8 +452,8 @@ const WeightGraph = ({ data }) => (
   <div className="card-weight mb-4">
     <div className="card-body">
       <div className="graph-section">
-      <h5 className="custom-h">Weight Graph</h5>
-      <SaveReport />
+        <h5 className="custom-h">Weight Graph</h5>
+        <SaveReport />
       </div>
       <ResponsiveContainer>
         {/* <LineChart data={data}>
@@ -707,72 +709,66 @@ const ClientProfile = ({
   clientId,
 }) => {
   return (
-    <div className="home-container">
-      <div className="d-flex">
-        <Sidebar />
-        <div className="flex-grow-1">
-          <Header
-            trainerName={clientData.trainer.Fname}
-            clientName={clientData.fullname}
-          />
-          <div
-            className="container m-0"
-            style={{ padding: "30px", maxWidth: "100%" }}
-          >
-            <div className="profile-section mb-4">
-              <div className="d-flex justify-content-between align-items-center p-3 relative-parent">
-                <h5 className="head-profiles">Client Profile</h5>
-                <a href="#" className="text-primary notification">
-                  2 Notifications{" "}
-                  <span>
-                    <MdKeyboardArrowRight />
-                  </span>
-                </a>
-              </div>
-              <ClientInfo
-                name={clientData.fullname}
-                status={clientData.status}
-                image={clientData.profilePic}
-                clientData={clientData}
-              />
+    <>
+      {clientData && clientData.weightGraph ? (
+        <div
+          className="container m-0"
+          style={{ padding: "30px", maxWidth: "100%" }}
+        >
+          <div className="profile-section mb-4">
+            <div className="d-flex justify-content-between align-items-center p-3 relative-parent">
+              <h5 className="head-profiles">Client Profile</h5>
+              <a href="#" className="text-primary notification">
+                2 Notifications{" "}
+                <span>
+                  <MdKeyboardArrowRight />
+                </span>
+              </a>
+            </div>
+            <ClientInfo
+              name={clientData.fullname}
+              status={clientData.status}
+              image={clientData.profilePic}
+              clientData={clientData}
+            />
 
-              <div className="row">
-                <div className="col-md-6">
-                  <WeightGraph data={clientData.weightGraph} />
-                  <Membership
-                    plan={clientData.membership.name}
-                    expiresOn={clientData.membership.expiresOn}
-                  />
-                </div>
-                <div className="col-md-6">
-                  <Measurements measurements={clientData.measurements} />
-                
-                </div>
+            <div className="row">
+              <div className="col-md-6">
+                <WeightGraph data={clientData.weightGraph} />
+                <Membership
+                  plan={clientData.membership.name}
+                  expiresOn={clientData.membership.expiresOn}
+                />
+              </div>
+              <div className="col-md-6">
+                <Measurements measurements={clientData.measurements} />
               </div>
             </div>
-
-            {/* hamid */}
-
-            <ActivePlans
-              activePlans={clientData.activePlans}
-              activeMealPlans={clientData.activeMealPlans}
-              selectedDay={selectedDay}
-              setSelectedDay={setSelectedDay}
-              selectedMeal={selectedMeal}
-              setSelectedMeal={setSelectedMeal}
-              fetchClientData={fetchClientData}
-              clientId={clientId}
-            />
           </div>
+
+          {/* hamid */}
+
+          <ActivePlans
+            activePlans={clientData.activePlans}
+            activeMealPlans={clientData.activeMealPlans}
+            selectedDay={selectedDay}
+            setSelectedDay={setSelectedDay}
+            selectedMeal={selectedMeal}
+            setSelectedMeal={setSelectedMeal}
+            fetchClientData={fetchClientData}
+            clientId={clientId}
+          />
         </div>
-      </div>
-    </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 
-const SingleClient = () => {
-  const { clientId } = useParams();
-  const [clientData, setClientData] = useState(null);
+const SingleClient = ({clinetId,onClose}) => {
+  
+  const [clientData, setClientData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedDay, setSelectedDay] = useState("monday");
@@ -782,7 +778,7 @@ const SingleClient = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${api_url}getClientOverview/${clientId}`,
+        `${api_url}getClientOverview/${clinetId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -802,11 +798,11 @@ const SingleClient = () => {
   };
 
   useEffect(() => {
-    fetchClientData();
-  }, [clientId]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+    if(clinetId){
+      fetchClientData();
+    }
+  
+  }, [clinetId]);
 
   return clientData ? (
     <ClientProfile
@@ -816,7 +812,7 @@ const SingleClient = () => {
       selectedMeal={selectedMeal}
       setSelectedMeal={setSelectedMeal}
       fetchClientData={fetchClientData}
-      clientId={clientId}
+      clientId={clinetId}
     />
   ) : (
     <p>No client data available.</p>

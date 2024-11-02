@@ -173,7 +173,7 @@ console.log(location.pathname,'location.pathname')
                 )}
               </div>
               <div className="profile">
-                <img src="picture.png" alt="Profile" className="profile-pic" />
+                <img src={trainerInfo?.profilePic || "picture.png"} alt="Profile" className="profile-pic" />
               </div>
             </div>
           )}
