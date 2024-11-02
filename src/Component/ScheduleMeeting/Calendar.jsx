@@ -634,9 +634,17 @@ const Calendar = () => {
                             <label>Time:</label>
                             <input
                               className="form-control"
-                              type="text"
+                              type="time"
                               value={formData.time}
-                              readOnly
+                              onChange={(e)=>{
+                                setFormData({
+                                  ...formData,
+                                  time: e.target.value,
+                                })
+
+                              }}
+                              
+                             
                             />
                           </div>
                           <div className="col-6 mb-3">
@@ -645,16 +653,30 @@ const Calendar = () => {
                               className="form-control"
                               type="text"
                               value={formData.day}
-                              readOnly
+                              onChange={(e)=>{
+                                setFormData({
+                                  ...formData,
+                                  day: e.target.value,
+                                })
+
+                              }}
+                            
                             />
                           </div>
                           <div className="col-6 mb-3">
                             <label>Date:</label>
                             <input
                               className="form-control"
-                              type="text"
+                              type="date"
                               value={formData.date}
-                              readOnly
+                              onChange={(e)=>{
+                                setFormData({
+                                  ...formData,
+                                  date: e.target.value,
+                                })
+
+                              }}
+                              
                             />
                           </div>
                           <div className="col-6 mb-3">
