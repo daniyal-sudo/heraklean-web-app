@@ -4,7 +4,7 @@ import "./Header.css";
 import { api_url } from "../../../CommonFunctions";
 import SearchBar from "./SearchBar";
 import { useLocation } from 'react-router-dom';
-import DurationModal from "./DurationModal";
+import SubscriptionModal from "./SubscriptionModal";
 
 const Header = () => {
   const [notificationsActive, setActive] = useState(false);
@@ -129,7 +129,7 @@ console.log(location.pathname,'location.pathname')
               {/* Notifications Section */}
               <div className="notifications">
                <div className="duration-button">
-               <DurationModal />
+               <SubscriptionModal />
                </div>
                 <div
                   className="notification-icon"

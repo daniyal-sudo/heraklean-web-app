@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const DurationModal = () => {
+const SubscriptionModal = () => {
   const [show, setShow] = useState(false);
   const [name, setName] = useState('');
   const [duration, setDuration] = useState('');
@@ -20,7 +20,7 @@ const DurationModal = () => {
     <>
       <div className="duration-button">
         <button className="btn btn-primary" onClick={handleShow}>
-          Duration
+        Subscription
         </button>
       </div>
 
@@ -29,7 +29,7 @@ const DurationModal = () => {
         <div className="modal-dialog modal-lg modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Duration</h5>
+              <h5 className="modal-title">Subscription</h5>
               <button type="button" class="close" aria-label="Close" onClick={handleClose}><span aria-hidden="true">×</span></button>
             </div>
             <div className="modal-body">
@@ -82,4 +82,4 @@ const DurationModal = () => {
   );
 };
 
-export default DurationModal;
+export default SubscriptionModal;
