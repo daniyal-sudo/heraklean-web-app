@@ -361,7 +361,7 @@ const ClientProfile = () => {
                   Alerted Clients
                 </h4>
 
-                <div className="row mt-4">
+                <div className="row mt-4 alert-client-scrollbar">
                   {clients.map((Clients, index) => (
                     <Card
                       key={index}

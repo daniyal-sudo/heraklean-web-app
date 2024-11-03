@@ -1303,6 +1303,24 @@ border: none !important;
   align-items: flex-start;
   gap: 10px;
 }
+.alert-client-scrollbar {
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.alert-client-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alert-client-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+ 
+.alert-client-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
