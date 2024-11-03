@@ -9,7 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { MdModeEdit } from "react-icons/md";
+import { RiEdit2Fill } from "react-icons/ri";
 
 import { Modal, Button, Form } from "react-bootstrap";
 import Sidebar from "./../Home/Sidebar";
@@ -562,12 +562,14 @@ const ActivePlans = ({
               {activePlans.map((plan) => (
                 <div key={plan._id} className="mb-3">
                   <span className="d-flex justify-content-end">
-                    <MdModeEdit
+                  <div className="edit-button">
+                    <RiEdit2Fill
                       onClick={() => {
                         setCurrentPlan(plan);
                         setShowModal(true);
                       }}
                     />
+                    </div>
                   </span>
                   {/* <h6>{plan[selectedMeal].programTitle}</h6> */}
                   <p className="para-2">{plan[selectedMeal].title}</p>
@@ -642,13 +644,15 @@ const ActivePlans = ({
               {activeMealPlans.map((plan, index) => (
                 <div key={index}>
                   <h6 className="para-2">{plan.dietTitle}</h6>
-                  <span className="d-flex justify-content-end para-2">
-                    <MdModeEdit
+                  <span className="d-flex justify-content-end para-2 ">
+                    <div className="edit-button">
+                    <RiEdit2Fill
                       onClick={() => {
                         setCurrentMeal(plan);
                         setShowEditModal(true);
                       }}
                     />
+                    </div>
                   </span>
                   {plan[selectedDay] &&
                     Object.entries(plan[selectedDay]).map(([meal, details]) => (
@@ -716,33 +720,34 @@ const ClientProfile = ({
           style={{ padding: "30px", maxWidth: "100%" }}
         >
           <div className="profile-section mb-4">
-            <div className="d-flex justify-content-between align-items-center p-3 relative-parent">
-              <h5 className="head-profiles">Client Profile</h5>
-              <a href="#" className="text-primary notification">
-                2 Notifications{" "}
-                <span>
-                  <MdKeyboardArrowRight />
-                </span>
-              </a>
-            </div>
-            <ClientInfo
-              name={clientData.fullname}
-              status={clientData.status}
-              image={clientData.profilePic}
-              clientData={clientData}
-            />
-
-            <div className="row">
-              <div className="col-md-6">
-                <WeightGraph data={clientData.weightGraph} />
-                <Membership
-                  plan={clientData.membership.name}
-                  expiresOn={clientData.membership.expiresOn}
+            <div className="profile-scroolbar">
+                <div className="d-flex justify-content-between align-items-center p-3 relative-parent">
+                  <h5 className="head-profiles">Client Profile</h5>
+                  <a href="#" className="text-primary notification">
+                    2 Notifications{" "}
+                    <span>
+                      <MdKeyboardArrowRight />
+                    </span>
+                  </a>
+                </div>
+                <ClientInfo
+                  name={clientData.fullname}
+                  status={clientData.status}
+                  image={clientData.profilePic}
+                  clientData={clientData}
                 />
-              </div>
-              <div className="col-md-6">
-                <Measurements measurements={clientData.measurements} />
-              </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <WeightGraph data={clientData.weightGraph} />
+                    <Membership
+                      plan={clientData.membership.name}
+                      expiresOn={clientData.membership.expiresOn}
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <Measurements measurements={clientData.measurements} />
+                  </div>
+                </div>
             </div>
           </div>
 

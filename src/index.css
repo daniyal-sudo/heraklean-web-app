@@ -726,7 +726,7 @@ nav.custom-sidebar .d-flex a:focus {
 
 }
 .card-space {
-  height: 300px;
+  height: 150px;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 20px;
@@ -1321,6 +1321,42 @@ border: none !important;
   background: #888; 
   border-radius: 10px;
 }
+.edit-button {
+  width: 47px;
+  height: 45px;
+  margin: 0px !important;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6c757d;
+}
+.edit-button svg {
+  color: #fff;
+  width: 18px;
+  height: auto;
+}
+.profile-scroolbar {
+  height: 440px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+.profile-scroolbar::-webkit-scrollbar {
+  width: 8px;
+}
+.profile-scroolbar::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+ 
+.profile-scroolbar::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+.profile-section-meal {
+  margin-bottom: 0px !important;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
@@ -1333,6 +1369,9 @@ border: none !important;
   }
 } 
 @media (max-width: 768px) {
+  .profile-section-meal {
+    margin-bottom: 20px !important;
+  }
   .header-content .greeting .no-padding-right.input-group {
     display: none;
 }
