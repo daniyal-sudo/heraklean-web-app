@@ -1019,6 +1019,33 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     background: #53AFE6 !important;
     border: 1px solid #53AFE6 !important;
 }
+.duration-button button.btn.btn-primary {
+  width: 200px;
+  height: 60px;
+  border-radius: 11px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 29.03px;
+  text-align: left;
+  color: #FFFFFF;
+  background: #53AFE6;
+  border: 1px solid #53AFE6;
+}
+.duration-button button.btn.btn-primary:active {
+  background: #53AFE6 !important;
+  border: 1px solid #53AFE6 !important;
+}
+.duration-button button.btn.btn-primary:hover {
+  background: #53AFE6 !important;
+  border: 1px solid #53AFE6 !important;
+}
+.duration-button button.btn.btn-primary:focus {
+  background: #53AFE6 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #53AFE6 !important;
+}
 .bold-string {
   font-family: Poppins;
   font-size: 18px;
@@ -1465,6 +1492,9 @@ border: none !important;
 }
 }
 @media (max-width: 480px) {
+  .duration-button button.btn.btn-primary {
+    display: none;
+  }
   .edit-section {
     display: flex;
     align-items: center;

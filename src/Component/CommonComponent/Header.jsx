@@ -4,9 +4,10 @@ import "./Header.css";
 import { api_url } from "../../../CommonFunctions";
 import SearchBar from "./SearchBar";
 import { useLocation } from 'react-router-dom';
+import DurationModal from "./DurationModal";
 
 const Header = () => {
-  const [notificationsActive, setNotificationsActive] = useState(false);
+  const [notificationsActive, setActive] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [profilePic, setProfilePic] = useState("");
 
@@ -127,6 +128,9 @@ console.log(location.pathname,'location.pathname')
             <div className="header-top">
               {/* Notifications Section */}
               <div className="notifications">
+               <div className="duration-button">
+               <DurationModal />
+               </div>
                 <div
                   className="notification-icon"
                   onClick={toggleNotifications}
