@@ -982,6 +982,43 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     background: #FFFFFF;
     box-shadow: 2px 2px 26.87px 0px #00000014;
 }
+.meal-button {
+  width: 100%;
+}
+.meal-button .manas {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.meal-button .plus {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.meal-button .plus svg {
+  font-size: 18px;
+  color: #ffffff;
+}
+.meal-button .manas svg {
+  font-size: 18px;
+  color: #ffffff;
+}
+.meal-button .plus:focus-visible {
+  box-shadow: none !important;
+}
+.meal-button .manas svg:focus-visible {
+  box-shadow: none !important;
+}
+.meal-button .manas svg:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+.meal-button .manas:focus {
+    background: #53AFE6 !important;
+    border: 1px solid #53AFE6 !important;
+}
 .bold-string {
   font-family: Poppins;
   font-size: 18px;

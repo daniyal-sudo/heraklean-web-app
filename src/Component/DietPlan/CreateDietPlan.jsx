@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import Sidebar from "./../Home/Sidebar";
+import { TiPlus } from "react-icons/ti";
+import { RiSubtractFill } from "react-icons/ri";
 import "./../CreateClient/CreateClient.css";
 import { Button, Form } from "react-bootstrap";
 import Header from "../CommonComponent/Header";
@@ -168,7 +170,9 @@ const CreateDietPlan = ({ onClose,editPlan }) => {
                         {meal.charAt(0).toUpperCase() + meal.slice(1)}
                       </Button>
                     ))}
-                  </div>
+                      <button class="plus btn btn-secondary btn-sm"><TiPlus /></button>
+                      <button class="manas btn btn-primary btn-sm"><RiSubtractFill /></button>
+                      </div>
                 </div>
               </div>
               <div className="row">
