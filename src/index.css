@@ -1433,6 +1433,9 @@ border: none !important;
     text-align: left;
     color: #000;
 }
+.modal.fade.show {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
