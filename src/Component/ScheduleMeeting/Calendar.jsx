@@ -542,7 +542,7 @@ const Calendar = () => {
                 role="dialog"
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
               >
-                <div className="modal-dialog modal-lg" role="document">
+                <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
                       <h3 className="modal-title">New Meeting</h3>
