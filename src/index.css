@@ -1421,6 +1421,9 @@ border: none !important;
 .profile-section-meal {
   margin-bottom: 0px !important;
 }
+#calendar-modal .modal-content {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 #calendar-modal label.form-label {
     width: 100%;
     font-family: Poppins;
