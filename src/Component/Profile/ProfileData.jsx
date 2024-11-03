@@ -128,7 +128,7 @@ const ProfileData = () => {
                     </div>
                     <button
                       type="button"
-                      className="btn btn-white"
+                      className="btn btn-white d-none"
                       onClick={() =>
                         setFormData({ ...formData, profilePic: "" })
                       }
