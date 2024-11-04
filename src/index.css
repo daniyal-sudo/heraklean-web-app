@@ -1123,9 +1123,6 @@ color: #000000;
     color: #000000A3;
 
 }
-.fade.modal.show:focus {
-  background-color: transparent !important;
-}
 .custom-head-2 {
   font-family: Poppins;
   font-size: 24px;
@@ -1433,8 +1430,56 @@ border: none !important;
     text-align: left;
     color: #000;
 }
-.modal.fade.show {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+#RescheduleModal .modal-content {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 17px;
+    background-color: #FFFFFF;
+    border: none !important;
+    position: relative;
+    padding: 35px;
+}
+#RescheduleModal .modal-header {
+  padding: 0px 10px 10px 10px;
+  border: none;
+}
+#RescheduleModal .modal-content .reschedule-form label {
+    width: 100%;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: left;
+    color: #000;
+}
+#RescheduleModal .modal-content .reschedule-form .form-control {
+    height: 55px;
+    border-radius: 11px;
+    border: 1px solid #9A9A9A33;
+    background: #F5F5F5;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+#RescheduleModal .modal-content .reschedule-form .form-control:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid #9A9A9A33 !important;
+}
+.reschedule-form .button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reschedule-form .button-group:focus {
+   background-color: transparent !important;
+}
+.modal-open .modal {
+  background-color: transparent !important;
+}
+#RescheduleModal .modal-dialog {
+  max-width: 700px;
 }
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {

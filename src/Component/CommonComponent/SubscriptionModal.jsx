@@ -25,7 +25,7 @@ const SubscriptionModal = () => {
       </div>
 
       {/* Bootstrap 5 Modal Structure */}
-      <div className={`modal fade ${show ? 'show' : ''}`} tabIndex="-1" style={{ display: show ? 'block' : 'none' }} aria-hidden={!show} id="calendar-modal">
+      <div className={`modal fade ${show ? 'show' : ''}`} tabIndex="-1" style={{ display: show ? 'block' : 'none', backgroundColor: 'rgba(0, 0, 0, 0.5)' }} aria-hidden={!show} id="calendar-modal">
         <div className="modal-dialog modal-lg modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
