@@ -1368,7 +1368,7 @@ border: none !important;
   gap: 10px;
 }
 .alert-client-scrollbar {
-  height: 100px;
+  height: 135px;
   overflow-y: auto;
   overflow-x: hidden;
 }
