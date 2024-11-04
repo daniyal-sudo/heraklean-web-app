@@ -7,6 +7,7 @@ const SearchBar = () => {
     <div className="d-flex justify-content-center align-items-center searchbar-section">
       <InputGroup className='no-padding-right' style={styles.inputGroup}>
         <FormControl
+        className='search-input-section'
           placeholder="Search here"
           aria-label="Search"
           aria-describedby="search-icon"
@@ -23,7 +24,7 @@ const SearchBar = () => {
 const styles = {
   inputGroup: {
     overflow: 'hidden',
-    background: '#F9F9F9',
+    background: '#ffffff',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     width: '540px',
     height: '56px',
@@ -38,7 +39,7 @@ const styles = {
     paddingLeft: '15px',
     outline: 'none',
     fontSize: '16px',
-    fontFamily: 'Poppins, sans-serif',
+    fontFamily: 'Poppins',
     fontWeight: 400,
     lineHeight: '24px',
     textAlign: 'left',
