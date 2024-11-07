@@ -91,6 +91,11 @@ const AllClients = () => {
 
   const [showComponent, setShowComponent] = useState("");
 
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   useEffect(() => {
     const fetchClients = async () => {
       try {
@@ -125,6 +130,11 @@ const AllClients = () => {
   // ];
 
   console.log(clinetId, showComponent,'222222222222')
+
+  const filteredClients = clients.filter(
+    (clients) =>
+      clients.fullname.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <>
       {showComponent === "createClient" ? (
@@ -179,6 +189,8 @@ const AllClients = () => {
                       className="form-control form-control-sm search_padding searchbar"
                       placeholder="Search Here"
                       aria-label="Search"
+                      value={searchTerm}
+                      onChange={handleSearch}
                     />
                   </div>
                 </div>
@@ -186,8 +198,8 @@ const AllClients = () => {
             </div>
             <div className="client-mini-cards">
               <div className="row">
-                {clients && clients.length > 0 ? (
-                  clients.map((client) => (
+                {filteredClients && filteredClients.length > 0 ? (
+                  filteredClients.map((client) => (
                     <div className="col-lg-6 p-0 font-poppins">
                       <Card
                         key={client._id}
