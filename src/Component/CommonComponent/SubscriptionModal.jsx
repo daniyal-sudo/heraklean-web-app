@@ -1,26 +1,58 @@
 import React, { useState } from 'react';
+import axiosInstance from '../../Healpers/axiosInstance';
 
-const SubscriptionModal = () => {
+const SubscriptionModal = ({subscriptionId ='672cfb3800e618c910816b5a'}) => {
   const [show, setShow] = useState(false);
-  const [name, setName] = useState('');
-  const [duration, setDuration] = useState('');
-  const [price, setPrice] = useState('');
+  const [subscriptionData, setSubscriptionData] = useState({
+    trainerId: localStorage.getItem("trainerId"),
+    planName: "Gold Plan",
+    planDuration: 30,
+    planAmount: 100,
+    planBenefits: ["Unlimited access", "Priority support", "Monthly analytics"]
+  });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle the submission logic here
-    console.log({ name, duration, price });
-    handleClose(); // Close the modal after submission
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setSubscriptionData({ ...subscriptionData, [name]: value });
   };
+
+  const handleSubmit = async (e) => {
+    const { planName, planDuration, planAmount, planBenefits } = subscriptionData;
+    const data = {
+      trainerId: subscriptionData.trainerId,
+      planName,
+      planDuration,
+      planAmount,
+      planBenefits:["Unlimited access", "Priority support", "Monthly analytics"],
+      subscriptionId: subscriptionId ? subscriptionId :null  // Convert string to array
+    };
+
+    try {
+      if (subscriptionId) {
+        const response = await axiosInstance.delete(`/deleteSubscription/${subscriptionId}`);
+      }else{
+      if (subscriptionId) {
+        await axiosInstance.post(`/deleteSubscription`, data);
+      } else {
+        await axiosInstance.post('/createSubscription', data);
+      }
+    }
+     // Callback to refresh parent component data
+      handleClose();
+    } catch (error) {
+      console.error("Error saving subscription:", error);
+    }
+  };
+
 
   return (
     <>
       <div className="duration-button">
         <button className="btn btn-primary" onClick={handleShow}>
-        Subscription
+        {subscriptionId ? 'Subscription' : 'Subscription'}
         </button>
       </div>
 
@@ -35,13 +67,13 @@ const SubscriptionModal = () => {
             <div className="modal-body">
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="clientName" className="form-label">Name</label>
+                  <label htmlFor="clientName" className="form-label">Plan Name</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="clientName"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    id="planName"
+                    value={subscriptionData.planName}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -51,20 +83,33 @@ const SubscriptionModal = () => {
                     type="text"
                     className="form-control"
                     id="duration"
-                    value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
+                    name="planDuration"
+                    value={subscriptionData.planDuration}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="price" className="form-label">Price</label>
+                  <label htmlFor="price" className="form-label">Plan Amount</label>
                   <input
                     type="text"
                     className="form-control"
                     id="price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
+                    name="planAmount"
+                    value={subscriptionData.planAmount}
+                    onChange={handleInputChange}
                     required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="price" className="form-label">Plan Benefits</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="planBenefits"
+                    name="planBenefits"
+                    value={subscriptionData.planBenefits}
+                    onChange={handleInputChange}
                   />
                 </div>
                
@@ -72,7 +117,8 @@ const SubscriptionModal = () => {
             </div>
             <div className="modal-footer">
             <div className="d-flex justify-content-center duration-button">
-                  <button type="submit" className="btn btn-primary">Book Meeting</button>
+                  <button type="submit" className="btn btn-primary" 
+                  onClick={handleSubmit}>{subscriptionId ? 'Update' : 'Create '}</button>
             </div>
             </div>
           </div>

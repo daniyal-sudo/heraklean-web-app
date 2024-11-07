@@ -77,7 +77,7 @@ const Card = ({ name, city, imgSrc }) => {
   );
 };
 
-const ClientProfile = () => {
+const ClientProfile = ({searchTerm}) => {
   const [totalClients, setTotalClients] = useState(0); // State to hold total clients
   const [trainerInfo, setTrainerInfo] = useState({
     profilePic: "",
@@ -87,6 +87,9 @@ const ClientProfile = () => {
   });
   const [appointments, setAppointments] = useState([]);
   const [showComponent, setShowComponent] = useState("");
+
+
+ 
 
   const fetchTotalClients = async () => {
     try {
@@ -258,6 +261,12 @@ const ClientProfile = () => {
 
   console.log(trainerInfo,'trainerInfotrainerInfo')
 
+  const filteredAppointments = appointments.filter(
+    (appointment) =>
+      appointment.clientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      appointment.date.includes(searchTerm)
+  );
+
   return (
     <>
       {showComponent === "createClient" ? (
@@ -330,8 +339,8 @@ const ClientProfile = () => {
                 {/* Removed the <img> tag and replaced it with the styled border */}
                 <div className="upcoming-card">
                   <div className="row">
-                    {appointments && appointments.length > 0 ? (
-                      appointments.map((appointment, index) => (
+                    {filteredAppointments && filteredAppointments.length > 0 ? (
+                      filteredAppointments.map((appointment, index) => (
                         <AppointmentCard
                           key={index}
                           name={appointment.clientName}

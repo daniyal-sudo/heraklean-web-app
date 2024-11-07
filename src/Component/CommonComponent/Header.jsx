@@ -6,7 +6,7 @@ import SearchBar from "./SearchBar";
 import { useLocation } from 'react-router-dom';
 import SubscriptionModal from "./SubscriptionModal";
 
-const Header = () => {
+const Header = (props) => {
   const [notificationsActive, setNotificationsActive] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [profilePic, setProfilePic] = useState("");
@@ -121,7 +121,7 @@ console.log(location.pathname,'location.pathname')
               {location.pathname !== '/' ?
                <h5>Good Morning, {trainerInfo?.Fname && trainerInfo.Fname+ ' '+trainerInfo.lastName}</h5>
               :
-              <SearchBar />}
+              <SearchBar handleSearch={props.handleSearch} />}
             </div>
           )}
           {window.innerWidth > 786 && (

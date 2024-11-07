@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
 
-const SearchBar = () => {
+const SearchBar = ({handleSearch}) => {
   return (
     <div className="d-flex justify-content-center align-items-center searchbar-section">
       <InputGroup className='no-padding-right' style={styles.inputGroup}>
@@ -12,6 +12,7 @@ const SearchBar = () => {
           aria-label="Search"
           aria-describedby="search-icon"
           style={styles.input}
+          onChange={handleSearch}
         />
         <Button variant="link" style={styles.searchButton} id="search-icon">
           <FaSearch style={styles.icon} />
