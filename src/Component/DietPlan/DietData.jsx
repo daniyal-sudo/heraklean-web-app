@@ -2,51 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Dropdown } from "react-bootstrap";
-import { api_url } from "../../../CommonFunctions";
+import { api_url, calculateCalories } from "../../../CommonFunctions";
 import CreateClient from "../CreateClient/CreateClient";
 import CreateDietPlan from "./CreateDietPlan";
+import axiosInstance from "../../Healpers/axiosInstance";
 
 const DietPlans = () => {
   const [diets, setDiets] = useState([]);
-  const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDiet, setSelectedDiet] = useState(null);
   const [showComponent, setShowComponent] = useState("");
   const [selectedDietForEdit, setSelectedDietForEdit] = useState(null);
-
-  const days = [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-
-    "saturday",
-    "sunday",
-  ];
-  const [selectedDayValue, setSelectedDayValue] = useState(days[0]);
 
   // Fetch diets from API
   useEffect(() => {
     const fetchDiets = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const response = await axios.get(`${api_url}getTrainerDietPlans`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        response.data.dietPlans.forEach((plan) => {
-          console.log(plan.dietTitle);
+        const response = await axiosInstance.post("/getTrainerDietPlans", {
+          trainerId: localStorage.getItem("trainerId"),
         });
 
         const fetchedPrograms = response.data.dietPlans;
         setDiets(fetchedPrograms);
 
         // Default to first program and Monday data
-        if (fetchedPrograms.length > 0) {
-          setSelectedDiet(fetchedPrograms[0]);
-          setSelectedDay(fetchedPrograms[0].monday);
-        }
+
         setDiets(response.data.dietPlans);
       } catch (error) {
         console.error("Error fetching diets:", error);
@@ -60,18 +39,9 @@ const DietPlans = () => {
   //   setSelectedDay(diet[day]);
   //   setSelectedDiet(diet.dietTitle);
   // };
-  const handleDayChange = (day) => {
-    if (selectedDiet) {
-      setSelectedDay(selectedDiet[day]);
-    }
-    setSelectedDayValue(day);
-  };
 
   // Handle program change
-  const handleProgramChange = (program) => {
-    setSelectedDiet(program);
-    setSelectedDay(program.monday); // default to Monday on program change
-  };
+
   function capitalizeWords(str) {
     return str
       .split(" ")
@@ -79,26 +49,22 @@ const DietPlans = () => {
       .join(" ");
   }
 
-  console.log(selectedDay, "selectedDayselectedDay");
-  console.log(selectedDietForEdit, "selectedDayselectedDay");
-
   return (
     <>
-      {
-      showComponent === "createDietPlan" ? (
+      {showComponent === "createDietPlan" ? (
         <CreateDietPlan
           onClose={() => {
             setShowComponent("");
           }}
         />
-      ) : showComponent === "editDietPlan" ? (
+      ) : showComponent === "editDietPlan" && selectedDiet.meals ? (
         <CreateDietPlan
           onClose={() => {
             setShowComponent("");
           }}
           editPlan={selectedDiet}
         />
-      ):(
+      ) : (
         <div
           className="container m-0"
           style={{ padding: "30px", maxWidth: "100%" }}
@@ -142,263 +108,122 @@ const DietPlans = () => {
               </div>
             </div>
             <div className="diet-plan-section-pages">
-              <div className="row mb-3 g-2">
-                {" "}
-                {/* Add gap between columns with `g-2` */}
-                {/* Program Dropdown */}
-                <div className="col-12 col-md-6">
-                  <Dropdown
-                    onSelect={(key) => handleProgramChange(diets[key])}
-                    disabled={diets.length === 0}
-                  >
-                    <Dropdown.Toggle
-                      variant="light"
-                      className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
-                      style={{
-                        height: "55px",
-                      }}
-                      disabled={diets.length === 0}
-                    >
-                      {diets.length === 0
-                        ? "No Diet Plans Available"
-                        : selectedDiet
-                        ? selectedDiet.dietTitle
-                        : "Select Diet"}
-                      <span className="dropdown-icon-wrapper">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="feather feather-chevron-down"
-                          width="18"
-                          height="18"
-                        >
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                      </span>
-                    </Dropdown.Toggle>
+              {/* Show selected day and meal details */}
+              {diets && diets.length > 0 ? (
+                diets.map((item, index) => {
+                  const calculation = calculateCalories(item.meals);
+                  console.log("ddddd", calculation);
+                  // Calculate totals for each diet
+                  return (
+                    <div className="card diet-plan-section" key={index}>
+                      <div className="d-flex justify-content-between align-items-start">
+                        <div className="d-flex align-items-start">
+                          <img
+                            src="/meal.png"
+                            alt="Diet Plan Image"
+                            className="meal"
+                            width="80"
+                            height="80"
+                          />
+                          <div className="ms-3">
+                            <h5 className="fw-bold mb-4">{item.dietTitle}</h5>
+                            <div className="d-flex flex-wrap">
+                              {/* Display Protein, Fats, Carbs for the entire diet */}
 
-                    <Dropdown.Menu className="custom-dropdown-menu">
-                      {diets.map((program, index) => (
-                        <Dropdown.Item
-                          key={index}
-                          eventKey={index}
-                          onClick={() => handleProgramChange(program)}
-                        >
-                          <div className="d-flex align-items-start">
-                            <input
-                              type="radio"
-                              name="program"
-                              className="me-2"
-                              // checked={selectedProgram === program}
-                              readOnly
-                            />
-                            <div className="thin-text">{program.dietTitle}</div>
-                          </div>
-                        </Dropdown.Item>
-                      ))}
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
-                {/* Day Dropdown */}
-                <div className="col-12 col-md-6 ">
-                  {" "}
-                  {/* Margin-top on small screens for separation */}
-                  <Dropdown
-                    onSelect={(day) => handleDayChange(day)}
-                    disabled={diets.length === 0}
-                  >
-                    <Dropdown.Toggle
-                      variant="light"
-                      className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
-                      style={{
-                        height: "55px",
-                      }}
-                      disabled={diets.length === 0}
-                    >
-                      {diets.length === 0
-                        ? "Select diet first"
-                        : selectedDay
-                        ? capitalizeWords(selectedDayValue)
-                        : "Select Day"}
-                      <span className="dropdown-icon-wrapper">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="feather feather-chevron-down"
-                          width="18"
-                          height="18"
-                        >
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                      </span>
-                    </Dropdown.Toggle>
+                              <div className="meal-info">
+                                <span className="badge bg-success  me-1 mb-1">
+                                  {`Protein${calculation.Protein}`}
+                                </span>
 
-                    <Dropdown.Menu className="custom-dropdown-menu">
-                      {days.map((day, index) => (
-                        <Dropdown.Item
-                          key={index}
-                          eventKey={day}
-                          onClick={() => handleDayChange(day)}
-                        >
-                          <div className="d-flex align-items-start">
-                            <input
-                              type="radio"
-                              name="day"
-                              className="me-2"
-                              checked={
-                                selectedDay && selectedDiet[day] === selectedDay
-                              }
-                              readOnly
-                            />
-                            <div className="thin-text">
-                              {day.charAt(0).toUpperCase() + day.slice(1)}
+                                <span
+                                  className="badge  me-1 mb-1"
+                                  style={{
+                                    backgroundColor: "#9F02FF",
+                                  }}
+                                >
+                                  {`Carbs${calculation.Carbs}`}
+                                </span>
+
+                                <span className="badge bg-danger me-1 mb-1">
+                                  {`Fats${calculation.Fats}`}
+                                </span>
+                                <span className="badge bg-warning  me-1 mb-1">
+                                  {`Calories${calculation.Calories}`}
+                                </span>
+                              </div>
                             </div>
                           </div>
-                        </Dropdown.Item>
-                      ))}
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
-              </div>
+                        </div>
 
-              {/* Show selected day and meal details */}
-              {selectedDay && selectedDay.meal1?.title ? (
-                <div className="row">
-                  <div className="col-12 diet-plan-scroll">
-                    <div className="card diet-plane-2">
-                      <h4 className="fw-bold">{selectedDiet.dietTitle}</h4>
+                        <div
+                          className="d-flex icon"
+                          onClick={() => {
+                            setSelectedDiet(item)
+                            setShowComponent("editDietPlan");
+                          }}
+                        >
+                          <button className="btn btn-secondary btn-sm me-2">
+                            <i className="bi bi-pencil"></i>
+                          </button>
+                          <button className="btn btn-primary btn-sm">
+                            <i className="bi bi-send"></i>
+                          </button>
+                        </div>
+                      </div>
 
-                      {["meal1", "meal2", "meal3"].some(
-                        (meal) => selectedDay[meal]
-                      ) ? (
-                        ["meal1", "meal2", "meal3"].map(
-                          (meal, index) =>
-                            selectedDay[meal] && (
-                              <div className="card diet-plan-section">
-                                <div
-                                  className="d-flex justify-content-between align-items-start"
-                                  key={index}
-                                >
-                                  <div className="d-flex align-items-start">
-                                    <img
-                                      src="/meal.png"
-                                      alt="Diet Plan Image"
-                                      className="meal"
-                                      width="80"
-                                      height="80"
-                                    />
-                                    <div className="ms-3">
-                                      <h5 className="fw-bold mb-4">
-                                        {selectedDay[meal].title}
-                                      </h5>
-
-                                      <div className="d-flex flex-wrap">
-                                        <span className="badge bg-danger me-1 mb-1">
-                                          {selectedDay[meal].protein}
-                                        </span>
-                                        <span className="badge bg-success me-1 mb-1">
-                                          {selectedDay[meal].calories} kcal
-                                        </span>
-                                        <span className="badge bg-warning text-dark me-1 mb-1">
-                                          {selectedDay[meal].fat}g
-                                        </span>
-                                        <span className="badge bg-secondary me-1 mb-1">
-                                          {selectedDay[meal].carb}g
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div className="d-flex icon" 
-                                   onClick={()=>{
-                                    // setSelectedDietForEdit(selectedDay[meal])
-                                    setShowComponent('editDietPlan')
-                                   }}>
-                                    <button className="btn btn-secondary btn-sm me-2">
-                                      <i className="bi bi-pencil"></i>
-                                    </button>
-                                    <button className="btn btn-primary btn-sm">
-                                      <i className="bi bi-send"></i>
-                                    </button>
-                                  </div>
-                                </div>
-
-                                <div className="row mt-3">
-                                  <div className="col-12 col-md-4">
-                                    <h6>Meal 1</h6>
-                                    <ul className="list-unstyled">
-                                      <li className="meal-list-item">
-                                        {selectedDay[meal].title}
-                                      </li>
-                                      {/* <li className="meal-list-item">
-                                        {selectedDay[meal].title}
-                                      </li> */}
-                                    </ul>
-                                  </div>
-                                  <div className="col-12 col-md-4">
-                                    <h6>Meal 2</h6>
-                                    <ul className="list-unstyled">
-                                      <li className="meal-list-item">
-                                        {selectedDay[meal].title}
-                                      </li>
-                                      {/* <li className="meal-list-item">
-                                        {selectedDay[meal].title}
-                                      </li> */}
-                                    </ul>
-                                  </div>
-                                  <div className="col-12 col-md-4">
-                                    <h6>Meal 3</h6>
-                                    <ul className="list-unstyled">
-                                      <li className="meal-list-item">
-                                        {selectedDay[meal].title}
-                                      </li>
-                                      {/* <li className="meal-list-item">
-                                        {selectedDay[meal].title}
-                                      </li> */}
-                                    </ul>
-                                  </div>
-                                  <div className="d-flex icon-hide">
-                                    <button className="btn btn-secondary btn-sm me-2"
-                                    onClick={()=>{
-                                      // setSelectedDietForEdit(selectedDay[meal])
-                                      setShowComponent('editDietPlan')
-                                    }}>
-                                      <i className="bi bi-pencil"></i>
-                                    </button>
-                                    <button className="btn btn-primary btn-sm">
-                                      <i className="bi bi-send"></i>
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            )
-                        )
-                      ) : (
-                        <>
-                          <div className="text-center record-image no-record-found-h">
-                            <img
-                              src="/no-event.jpg"
-                              style={{ width: "130px" }}
-                            />
+                      <div className="row mt-3">
+                        {/* Dynamically display each meal's title */}
+                        {item.meals.map((meal, i) => (
+                          <div
+                            className="col-12 col-md-4"
+                            key={`meal-col-${i}`}
+                          >
+                            <h6>{meal.title}</h6>
+                            <ul className="list-unstyled">
+                              <li className="meal-list-item">
+                                {meal.protein
+                                  .map((protein, j) => protein.name)
+                                  .join(", ")}
+                              </li>
+                              <li className="meal-list-item">
+                                {meal.carbs
+                                  .map((carb, j) => carb.name)
+                                  .join(", ")}
+                              </li>
+                              <li className="meal-list-item">
+                                {meal.fats.map((fat, j) => fat.name).join(", ")}
+                              </li>
+                            </ul>
                           </div>
-                        </>
-                      )}
+                        ))}
+                      </div>
+
+                      <div className="d-flex icon-hide">
+                        <button
+                          className="btn btn-secondary btn-sm me-2"
+                          onClick={() => {
+                            setSelectedDiet(item)
+                            setShowComponent("editDietPlan");
+                          }}
+                        >
+                          <i className="bi bi-pencil"></i>
+                        </button>
+                        <button className="btn btn-primary btn-sm">
+                          <i className="bi bi-send"></i>
+                        </button>
+                      </div>
+
+                      {/* Display the total calories and macronutrients (protein, carbs, fats) */}
                     </div>
-                  </div>
-                </div>
+                  );
+                })
               ) : (
                 <div className="text-center record-image no-record-found-h">
-                  <img src="/no-event.jpg" style={{ width: "130px" }} />
+                  <img
+                    src="/no-event.jpg"
+                    style={{ width: "130px" }}
+                    alt="No record found"
+                  />
                 </div>
               )}
             </div>

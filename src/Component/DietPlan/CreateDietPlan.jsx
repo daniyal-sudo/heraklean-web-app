@@ -1,119 +1,128 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-import Sidebar from "./../Home/Sidebar";
 import { TiPlus } from "react-icons/ti";
-import { RiSubtractFill } from "react-icons/ri";
-import "./../CreateClient/CreateClient.css";
 import { Button, Form } from "react-bootstrap";
-import Header from "../CommonComponent/Header";
-import DropdownDay from "./DropdownDay";
+import TagsInput from "react-tagsinput";
+import "react-tagsinput/react-tagsinput.css";
 import { errorMessage, successMessage } from "../../Toast/Toast";
+import axiosInstance from "../../Healpers/axiosInstance";
 import { useEffect } from "react";
 
-const CreateDietPlan = ({ onClose,editPlan }) => {
+const CreateDietPlan = ({ onClose, editPlan }) => {
   const [dietTitle, setDietTitle] = useState("");
-  const [selectedDay, setSelectedDay] = useState("monday"); // Default to Monday
-  const [selectedMeal, setSelectedMeal] = useState("meal1");
-  const [dayDetails, setDayDetails] = useState({
-    monday: { meal1: {}, meal2: {}, meal3: {} },
-    tuesday: { meal1: {}, meal2: {}, meal3: {} },
-    wednesday: { meal1: {}, meal2: {}, meal3: {} },
-    thursday: { meal1: {}, meal2: {}, meal3: {} },
-    friday: { meal1: {}, meal2: {}, meal3: {} },
-    saturday: { meal1: {}, meal2: {}, meal3: {} },
-    sunday: { meal1: {}, meal2: {}, meal3: {} },
-  });
-  const [mealForm, setMealForm] = useState({
-    title: "",
-    description: "",
-    protein: "",
-    calories: "",
-    carb: "",
-    fat: "",
-  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [MealTabLenght, setMealTabLenght] = useState([
+    { id: 1, name: `Meal 1` },
+  ]);
+  const [meals, setMeals] = useState([
+    {
+      title: "",
+      protein: { name: [], grams: "", id: "0" },
+      carbs: { name: [], grams: "" },
+      fats: { name: [], grams: "" },
+    },
+  ]);
 
+  const handleMealFormChange = (index, field, value) => {
+    const updatedMeals = [...meals];
+    updatedMeals[index][field] = value;
+    setMeals(updatedMeals);
+  };
+
+  const handleMacroChange = (index, macro, field, value) => {
+    setMeals((prevMeals) => {
+      const updatedMeals = [...prevMeals];
+      const updatedMeal = { ...updatedMeals[index] };
+      const updatedMacro = { ...updatedMeal[macro] };
+
+      if (field === "name") {
+        // Ensure 'name' is an array before setting it
+        updatedMacro.name = Array.isArray(value) ? value : [];
+      } else if (field === "grams") {
+        updatedMacro.grams = value;
+      }
+
+      updatedMeal[macro] = updatedMacro;
+      updatedMeals[index] = updatedMeal;
+      return updatedMeals;
+    });
+  };
   useEffect(() => {
     if (editPlan) {
-      setDietTitle(editPlan.dietTitle)
-      setDayDetails({
-        monday: editPlan.monday,
-        tuesday: editPlan.tuesday,
-        wednesday: editPlan.wednesday,
-        thursday: editPlan.thursday,
-        friday: editPlan.friday,
-        saturday: editPlan.saturday,
-        sunday: editPlan.sunday,
-      });
+      console.log("Edit Plan:", editPlan); // Log to inspect the data structure
+      setDietTitle(editPlan.dietTitle);
+      setMeals(
+        editPlan.meals.map((meal) => ({
+          ...meal,
+          protein:
+            meal.protein && meal.protein[0]
+              ? meal.protein[0]
+              : { name: [], grams: "" },
+          carbs:
+            meal.carbs && meal.carbs[0]
+              ? meal.carbs[0]
+              : { name: [], grams: "" },
+          fats:
+            meal.fats && meal.fats[0] ? meal.fats[0] : { name: [], grams: "" },
+        }))
+      );
+      setMealTabLenght(
+        editPlan.meals.map((meal, index) => ({
+          id: index + 1,
+          name: `Meal ${index + 1}`,
+        }))
+      );
     }
-  }, []);
+  }, [editPlan]);
 
-  const handleMealFormChange = (e) => {
-    const { name, value } = e.target;
-    setMealForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
+  const handleMealSelect = (index) => {
+    setSelectedIndex(index);
   };
 
-  const handleSaveMealDetails = () => {
-    setDayDetails((prevDetails) => ({
-      ...prevDetails,
-      [selectedDay]: {
-        ...prevDetails[selectedDay],
-        [selectedMeal]: { ...mealForm },
-      },
-    }));
-  };
-
-  const handleMealSelect = (meal) => {
-    setSelectedMeal(meal);
-    setMealForm(
-      dayDetails[selectedDay][meal] || {
+  const handleAddMeal = () => {
+    setMeals([
+      ...meals,
+      {
         title: "",
-        description: "",
-        protein: "",
-        calories: "",
-        carb: "",
-        fat: "",
-      }
-    );
+        protein: { name: [], grams: "" },
+        carbs: { name: [], grams: "" },
+        fats: { name: [], grams: "" },
+      },
+    ]);
+    const newMeal = {
+      id: MealTabLenght.length + 1,
+      name: `Meal ${MealTabLenght.length + 1}`,
+    };
+    setMealTabLenght([...MealTabLenght, newMeal]);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const mealsWithIndex = meals[selectedIndex] || {};
+  const submit = async () => {
     const dietData = {
-      ...(editPlan._id && { id: editPlan._id }), // Only include `id` if `editPlan._id` exists
+      ...(editPlan?._id && { id: editPlan._id }),
       dietTitle,
-      ...dayDetails,
+      meals,
+      trainerId: localStorage.getItem("trainerId"),
     };
 
     try {
-      console.log(dietData);
-      const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "http://localhost:5001/api/auth/createDietPlan",
-        dietData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
+      const response = await axiosInstance.post(
+        editPlan._id ? "/updateDietPlan" : "/createDietPlan",
+        dietData
       );
 
-      if (response.success) {
-        successMessage(response.message);
+      if (response.data.success) {
+        successMessage(response.data.message);
         onClose();
       } else {
-        errorMessage(response.message);
+        errorMessage(response.data.message);
       }
     } catch (error) {
       console.error(error);
       errorMessage("Error creating diet plan");
     }
   };
+  console.log(mealsWithIndex, "mealsWithIndexmealsWithIndex");
 
   return (
     <div
@@ -121,161 +130,134 @@ const CreateDietPlan = ({ onClose,editPlan }) => {
       style={{ padding: "30px", maxWidth: "100%" }}
     >
       <div className="profile-page">
-        <form onSubmit={handleSubmit} className="creative-program">
+        <div className="creative-program">
           <div className="row mt-4 me-3">
-            <p className="custom-header">Create Diet Plan</p>
+            <p className="custom-header">
+              {editPlan ? "Update" : "Create"} Diet Plan
+            </p>
             <div className="col-lg-12">
-              <div className="col-lg-12 p-0">
-                <div className="form-group mb-3">
-                  <label htmlFor="dietTitle">Diet Title</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="dietTitle"
-                    value={dietTitle}
-                    onChange={(e) => setDietTitle(e.target.value)}
-                    required
-                  />
+              <div className="form-group mb-3">
+                <label htmlFor="dietTitle">Diet Title</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="dietTitle"
+                  value={dietTitle}
+                  onChange={(e) => setDietTitle(e.target.value)}
+                />
+              </div>
+              <div className="col-lg-6 button-section-meals">
+                <div className="d-flex gap-3 meal-button">
+                  {MealTabLenght.map((meal, index) => (
+                    <Button
+                      key={meal.id}
+                      variant={
+                        selectedIndex === index
+                          ? "primary"
+                          : "outline-secondary"
+                      }
+                      onClick={() => handleMealSelect(index)}
+                    >
+                      {meal.name}
+                    </Button>
+                  ))}
+                  <button
+                    type="button"
+                    className="plus btn btn-secondary btn-sm"
+                    onClick={handleAddMeal}
+                  >
+                    <TiPlus />
+                  </button>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-lg-6">
-                  {/* <div className="form-group mb-3">
-                      <label htmlFor="days">Select Day</label>
-                      <Form.Select id="days" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
-                        {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map((day) => (
-                          <option key={day} value={day}>
-                            {day.charAt(0).toUpperCase() + day.slice(1)}
-                          </option>
-                        ))}
-                      </Form.Select>
-                    </div> */}
-                  <DropdownDay
-                    setSelectedDay={setSelectedDay}
-                    selectedDay={selectedDay}
-                  />
-                </div>
-                <div className="col-lg-6 button-section-meals">
-                  <div className="d-flex gap-3 meal-button">
-                    {["meal1", "meal2", "meal3"].map((meal) => (
-                      <Button
-                        key={meal}
-                        variant={
-                          selectedMeal === meal
-                            ? "primary"
-                            : "outline-secondary"
-                        }
-                        onClick={() => handleMealSelect(meal)}
-                      >
-                        {meal.charAt(0).toUpperCase() + meal.slice(1)}
-                      </Button>
-                    ))}
-                      <button class="plus btn btn-secondary btn-sm"><TiPlus /></button>
-                      <button class="manas btn btn-primary btn-sm"><RiSubtractFill /></button>
+
+              {mealsWithIndex && (
+                <div className="meal-section">
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <Form.Group className="mb-3">
+                        <Form.Label>Meal Title</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="title"
+                          value={mealsWithIndex.title}
+                          onChange={(e) =>
+                            handleMealFormChange(
+                              selectedIndex,
+                              "title",
+                              e.target.value
+                            )
+                          }
+                        />
+                      </Form.Group>
+                    </div>
+                  </div>
+
+                  {["protein", "carbs", "fats"].map((macro) => (
+                    <div className="row" key={macro}>
+                      <div className="col-lg-6">
+                        <Form.Group className="mb-3">
+                          <Form.Label>
+                            {macro.charAt(0).toUpperCase() + macro.slice(1)}{" "}
+                          </Form.Label>
+                          <TagsInput
+                            value={
+                              (mealsWithIndex && mealsWithIndex[macro]?.name) ||
+                              []
+                            }
+                            onChange={(tags) =>
+                              handleMacroChange(
+                                selectedIndex,
+                                macro,
+                                "name",
+                                tags
+                              )
+                            }
+                            inputProps={{ placeholder: 'Add' }}
+                          />
+                        </Form.Group>
                       </div>
+                      <div className="col-lg-6">
+                        <Form.Group className="mb-3">
+                          <Form.Label>
+                            {macro.charAt(0).toUpperCase() + macro.slice(1)}{" "}
+                            Grams
+                          </Form.Label>
+                          <Form.Control
+                            type="number"
+                            name={`${macro}Grams`}
+                            value={mealsWithIndex[macro].grams || ""}
+                            onChange={(e) =>
+                              handleMacroChange(
+                                selectedIndex,
+                                macro,
+                                "grams",
+                                e.target.value
+                              )
+                            }
+                          />
+                        </Form.Group>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-6">
-                  <Form.Group className="mb-3">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="title"
-                      value={mealForm.title || ""}
-                      onChange={handleMealFormChange}
-                      required
-                    />
-                  </Form.Group>
-                </div>
-                <div className="col-lg-6">
-                  <Form.Group className="mb-3">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control
-                      as="textarea"
-                      name="description"
-                      value={mealForm.description || ""}
-                      onChange={handleMealFormChange}
-                      required
-                    />
-                  </Form.Group>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-6">
-                  <Form.Group className="mb-3">
-                    <Form.Label>Protein</Form.Label>
-                    <Form.Control
-                      type="number"
-                      name="protein"
-                      value={mealForm.protein || ""}
-                      onChange={handleMealFormChange}
-                      required
-                    />
-                  </Form.Group>
-                </div>
-                <div className="col-lg-6">
-                  <Form.Group className="mb-3">
-                    <Form.Label>Calories</Form.Label>
-                    <Form.Control
-                      type="number"
-                      name="calories"
-                      value={mealForm.calories || ""}
-                      onChange={handleMealFormChange}
-                      required
-                    />
-                  </Form.Group>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-6">
-                  <Form.Group className="mb-3">
-                    <Form.Label>Carb</Form.Label>
-                    <Form.Control
-                      type="number"
-                      name="carb"
-                      value={mealForm.carb || ""}
-                      onChange={handleMealFormChange}
-                      required
-                    />
-                  </Form.Group>
-                </div>
-                <div className="col-lg-6">
-                  <Form.Group className="mb-3">
-                    <Form.Label>Fat</Form.Label>
-                    <Form.Control
-                      type="number"
-                      name="fat"
-                      value={mealForm.fat || ""}
-                      onChange={handleMealFormChange}
-                      required
-                    />
-                  </Form.Group>
-                </div>
-              </div>
+              )}
+
               <div className="crative-button">
-                <Button
-                  type="button"
-                  className="save-button"
-                  onClick={handleSaveMealDetails}
-                >
-                  Save Meal Details
-                </Button>
-                <Button type="submit" className="cancel-buuton">
-                  Submit Diet Plan
+                <Button className="save-button" onClick={submit}>
+                  {editPlan ? "Update" : "Create"}
                 </Button>
                 <button
+                  type="button"
                   className="btn btn-light"
-                  onClick={() => {
-                    onClose();
-                  }}
+                  onClick={onClose}
                 >
                   Cancel
                 </button>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
