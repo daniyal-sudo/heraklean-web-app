@@ -1045,6 +1045,12 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   font-size: 18px;
   color: #ffffff;
 }
+.label-input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
 .meal-button .plus:focus-visible {
   box-shadow: none !important;
 }
@@ -1970,6 +1976,31 @@ a.text-decoration-none.text-black:focus {
     text-align: left;
     color: #263238;
 }
+
+/* meal-label css start*/
+.custom-input {
+  background-color: transparent;
+  border: none; 
+  border-bottom: 2px solid #ccc; 
+  transition: all 0.3s ease;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.custom-input:focus {
+  background-color: transparent !important; 
+  border-bottom: 2px solid #f1f1f1;
+  outline: none; 
+}
+
+.custom-input::placeholder {
+  color: #999; 
+}
+
+.custom-input:disabled {
+  background-color: #f1f1f1; 
+}
+
 @media (max-width: 1024px) {
   .meeting p.fw-light {
     margin: 0px !important;

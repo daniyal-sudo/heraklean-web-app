@@ -7,6 +7,7 @@ import "react-tagsinput/react-tagsinput.css";
 import { errorMessage, successMessage } from "../../Toast/Toast";
 import axiosInstance from "../../Healpers/axiosInstance";
 import { useEffect } from "react";
+import CustomInputField from "./CustomInputField";
 
 const CreateDietPlan = ({ onClose, editPlan }) => {
   const [dietTitle, setDietTitle] = useState("");
@@ -197,9 +198,13 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     <div className="row" key={macro}>
                       <div className="col-lg-6">
                         <Form.Group className="mb-3">
+                        <div className="label-input">
                           <Form.Label>
                             {macro.charAt(0).toUpperCase() + macro.slice(1)}{" "}
                           </Form.Label>
+                          <CustomInputField />
+                          <span>G</span>
+                          </div>
                           <TagsInput
                             value={
                               (mealsWithIndex && mealsWithIndex[macro]?.name) ||
