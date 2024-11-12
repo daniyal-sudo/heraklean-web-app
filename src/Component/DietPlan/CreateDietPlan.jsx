@@ -163,7 +163,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                   ))}
                   <button
                     type="button"
-                    className="plus btn btn-secondary btn-sm"
+                    className="plus btn btn-secondary"
                     onClick={handleAddMeal}
                   >
                     <TiPlus />

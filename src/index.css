@@ -866,21 +866,30 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   line-height: 17.23px;
   text-align: left;
 }
-
+.react-tagsinput-tag:focus {
+  border: 1px solid #ccc !important;
+  background-color: transparent !important;
+}
 .react-tagsinput-tag {
   background-color: #53AFE630 !important;
-  border-radius: 10px !important;
+  border-radius: 27px !important;
   border: 1px solid #53AFE630 !important;
-  color: black !important;
-  display: inline-block;
-  font-family: sans-serif;
-  font-size: 13px;
+  font-family: Poppins;
+  font-size: 16px;
   font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #263238 !important;
+  display: inline-block;
   margin-bottom: 5px;
   margin-right: 5px;
   padding: 10px !important;
+  height: 41px !important;
+  cursor: pointer;
 }
-
+.react-tagsinput--focused {
+  border: 1px solid #ccc !important;
+}
 .react-tagsinput-remove {
   cursor: pointer;
   font-weight: lighter;
@@ -1008,6 +1017,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 .meal-button {
   width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 .meal-button .manas {
   width: 50px;
@@ -1020,6 +1031,11 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 43px;
+}
+.meal-button .btn.btn-primary:active {
+  background: #53AFE6 !important;
+  border: 1px solid #53AFE6 !important;
 }
 .meal-button .plus svg {
   font-size: 18px;
@@ -1939,6 +1955,20 @@ a.text-decoration-none.text-black:focus {
 }
 .signout button.btn:active {
   border: none !important;
+}
+.react-tagsinput {
+  border-radius: 11px;
+}
+.react-tagsinput span input.react-tagsinput-input {
+  height: 41px;
+  background-color: transparent !important;
+  border: none !important;
+  font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #263238;
 }
 @media (max-width: 1024px) {
   .meeting p.fw-light {
