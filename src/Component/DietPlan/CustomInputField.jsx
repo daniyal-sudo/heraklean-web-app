@@ -9,13 +9,30 @@ const CustomInputField = () => {
       <div className="row">
         <div className="col-md-6 label-input-section p-0">
           <input
+          style={{
+                fontFamily: 'Poppins',
+                fontSize: '16px',
+                fontWeight: 400,
+                lineHeight: '24px',
+                textAlign: 'left',
+                color: '#263238',
+          }}
             type="text"
             className={`form-control custom-input ${focus ? "focus" : ""}`}
             placeholder="220"
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
           />
-             <span>G</span>
+             <span   style={{
+              width: '13px',
+              height: '24px',
+              fontFamily: 'Poppins',
+              fontSize: '16px',
+              fontWeight: 400,
+              lineHeight: '24px',
+              textAlign: 'left',
+              color: '#263238',
+      }}>G</span>
         </div>
       </div>
     </div>
