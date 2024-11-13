@@ -1531,6 +1531,11 @@ border: none !important;
   background-color: transparent !important;
   text-overflow: ellipsis;
 }
+#calendar-modal .modal-header button.close span {
+  font-size: 24px;
+  font-weight: 400;
+  padding: 5px;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
