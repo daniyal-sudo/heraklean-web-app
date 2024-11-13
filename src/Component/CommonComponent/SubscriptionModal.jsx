@@ -199,6 +199,10 @@ const SubscriptionModal = ({}) => {
                     style={{
                       textAlign: "right",
                       marginBottom: "3px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-end",
+               
                     }}
                   >
                     {" "}
@@ -206,6 +210,7 @@ const SubscriptionModal = ({}) => {
                       style={{
                         backgroundColor: "rgb(83, 175, 230)",
                         color: "white",
+                        borderRadius: "10px",
                       }}
                       onClick={() => {
                         setShowComponent("createSub");
@@ -213,8 +218,8 @@ const SubscriptionModal = ({}) => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
+                        width="35"
+                        height="auto"
                         fill="white"
                         class="bi bi-plus"
                         viewBox="0 0 16 16"

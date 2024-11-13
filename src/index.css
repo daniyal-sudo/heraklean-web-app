@@ -1965,8 +1965,12 @@ a.text-decoration-none.text-black:focus {
 .react-tagsinput {
   border-radius: 11px;
 }
+.duration-button {
+  gap: 20px;
+}
 .react-tagsinput span input.react-tagsinput-input {
   height: 41px;
+  width: auto;
   background-color: transparent !important;
   border: none !important;
   font-family: Poppins;
