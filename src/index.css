@@ -502,7 +502,6 @@ border-radius: 10px;
 }
 .creative-program input {
   padding: 15px 16px 11px 16px;
-  border-radius: 8px;
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
@@ -510,7 +509,7 @@ border-radius: 10px;
   text-align: left;
   height: 55px;
   border-radius: 11px;
-  background: #F5F5F5 !important;
+  background: #F5F5F5;
   border: 1px solid #9A9A9A33;
 }
 .creative-program textarea.form-control {
@@ -1050,6 +1049,16 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 20px;
+  gap: 20px;
+}
+.label-input .label-input-section .custom-input {
+      border-radius: 0px !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      width: 90px;
+      border-color: #00000057 !important;
+      border-width: 0px 0px 1px 0px !important;
+
 }
 .meal-button .plus:focus-visible {
   box-shadow: none !important;
@@ -1969,9 +1978,16 @@ a.text-decoration-none.text-black:focus {
 }
 .react-tagsinput {
   border-radius: 11px;
+  background-color: #F5F5F5 !important;
 }
 .duration-button {
   gap: 20px;
+}
+.label-input-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 .react-tagsinput span input.react-tagsinput-input {
   height: 41px;

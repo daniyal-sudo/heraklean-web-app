@@ -203,7 +203,6 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                             {macro.charAt(0).toUpperCase() + macro.slice(1)}{" "}
                           </Form.Label>
                           <CustomInputField />
-                          <span>G</span>
                           </div>
                           <TagsInput
                             value={
