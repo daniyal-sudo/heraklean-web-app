@@ -147,10 +147,20 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                   onChange={(e) => setDietTitle(e.target.value)}
                 />
               </div>
-              <div className="col-lg-6 button-section-meals">
-                <div className="d-flex gap-3 meal-button">
+              <div className="col-lg-12 button-section-meals">
+                <div className="d-flex meal-button">
                   {MealTabLenght.map((meal, index) => (
                     <Button
+                    style={{
+                      fontFamily: 'Poppins',
+                      fontSize: '18px',
+                      fontWeight: 500,
+                      lineHeight: '27px',
+                      textAlign: 'center',
+                      width: '142px',
+                      height: '55px',
+                      borderRadius: '13px'  
+                    }}
                       key={meal.id}
                       variant={
                         selectedIndex === index
@@ -163,11 +173,22 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     </Button>
                   ))}
                   <button
+                  style={{
+                    fontFamily: 'Poppins',
+                    fontSize: '18px',
+                    fontWeight: 500,
+                    lineHeight: '27px',
+                    textAlign: 'left',
+                    width: '190px',
+                    height: '55px',
+                    borderRadius: '13px' 
+                  }}
                     type="button"
                     className="plus btn btn-secondary"
                     onClick={handleAddMeal}
                   >
                     <TiPlus />
+                    Create Another
                   </button>
                 </div>
               </div>

@@ -877,7 +877,7 @@ const Calendar = () => {
                       data-bs-dismiss="modal"
                       aria-label="Close"
                     ></button> */}
-                    <button type="button" class="close" aria-label="Close"  data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
+                    <button type="button" class="close" aria-label="Close"  data-bs-dismiss="modal"><span style={{ fontWeight: 400,}} aria-hidden="true">×</span></button>
                   </div>
                   <div className="modal-body">
                     {/* Form inside modal */}
