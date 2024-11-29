@@ -12,7 +12,7 @@ const workoutCategories = [
 
 const WorkoutButtons = () => {
   return (
-    <div className="p-4">
+    <div className="p-1">
       {/* Title */}
       <h2 className="head-title-wrokout">Create Workout</h2>
       <div className="rounded mt-1 mb-4" style={{ width: "130px", height: "4px", backgroundColor: "#53AFE6" }}></div>

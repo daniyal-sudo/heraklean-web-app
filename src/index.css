@@ -2386,6 +2386,63 @@ a.text-decoration-none.text-black:focus {
 
 }
 
+  .table-responsive::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+
+  .table-responsive::-webkit-scrollbar-track {
+    background: #53AFE629;
+    border-radius: 10px;
+  }
+   
+  .table-responsive::-webkit-scrollbar-thumb {
+    background: #53AFE6;
+    border-radius: 10px;
+
+  }
+  .table-responsive .table.table-bordered thead.table-bg tr th {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 29.03px;
+    text-align: center;
+    color: #FFFFFF;
+    vertical-align: middle;
+    border: none !important;
+    white-space: nowrap;
+  }
+  .table-responsive .table.table-bordered tbody tr td input:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .table-responsive .table.table-bordered tbody tr td {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 29.03px;
+    text-align: center;
+    color: #000000;
+    vertical-align: middle;
+    border-width: 1px;
+
+  }
+  .table-responsive .table.table-bordered tbody {
+    border: 1px solid #0000003B !important;
+  }
+  .table-responsive .table.table-bordered tbody tr {
+     height: 120px;
+  }
+  .table-responsive .table.table-bordered thead.table-bg {
+    height: 60.78px;
+  }
+  .custom-background {
+    background-color: #53AFE6 !important;
+  }
+  .table-responsive .table.table-bordered thead.table-bg tr {
+    border: none;
+}
 @media (max-width: 1024px) {
   .meeting p.fw-light {
     margin: 0px !important;
