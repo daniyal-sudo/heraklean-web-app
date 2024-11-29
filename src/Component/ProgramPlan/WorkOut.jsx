@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import WorkoutButtons from "../DietPlan/WorkoutButtons";
+import WorkTable from "./WorkTable";
 
 
 const WorkOut = ({
@@ -9,7 +10,19 @@ const WorkOut = ({
     // onClose()
   const [showComponent, setShowComponent] = useState("");
   return (
-   <>hI applicon C</>
+   <><div className="row">
+    <div className="col-md-12 ">
+          <div className="diet-plan-section-page">
+              <WorkoutButtons />
+          </div>
+    </div>
+    <div className="col-md-12  mt-5">
+          <div className="diet-plan-section-page">
+              <WorkTable />
+          </div>
+        </div>
+    </div></>
+    
   );
 };
 

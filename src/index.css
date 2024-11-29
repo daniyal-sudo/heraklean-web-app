@@ -1002,6 +1002,11 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   cursor: pointer;
   font-weight: lighter;
   color: #000 !important;
+  text-decoration: none !important;
+}
+
+.react-tagsinput-remove:hover {
+  text-decoration: none !important;
 }
 
 .react-tagsinput-input {
@@ -1157,9 +1162,11 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   gap: 10px;
   flex-wrap: wrap;
 }
+
 .meal-button button:focus {
   color: #fff;
 }
+
 .meal-button .plus.btn.btn-secondary {
   width: auto;
 }
@@ -2348,6 +2355,35 @@ a.text-decoration-none.text-black:focus {
 
 .custom-input:disabled {
   background-color: #f1f1f1;
+}
+
+/* workout css  */
+.works-out-button {
+  width: 150px;
+  height: 57.68px;
+  border-radius: 39px;
+  text-align: center;
+  background: #F5F5F5;
+  border: 1px solid #9A9A9A33;
+
+  justify-content: center;
+}
+.title-catery {
+  color: #263238;
+  font-family: Poppins;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 31.5px;
+}
+
+.head-title-wrokout {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+  color: #000000;
+  line-height: 43px;
+
 }
 
 @media (max-width: 1024px) {
