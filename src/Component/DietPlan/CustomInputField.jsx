@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 
-const CustomInputField = () => {
+const CustomInputField = (props) => {
   const [focus, setFocus] = useState(false);
 
   return (
@@ -17,9 +17,12 @@ const CustomInputField = () => {
                 textAlign: 'left',
                 color: '#263238',
           }}
-            type="text"
+            type="number"
+            name={props.name}
+            value={props.value}
             className={`form-control custom-input ${focus ? "focus" : ""}`}
-            placeholder="220"
+            placeholder="0"
+            onChange={props.action}
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
           />

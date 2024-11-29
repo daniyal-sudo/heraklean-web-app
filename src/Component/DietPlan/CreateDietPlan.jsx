@@ -217,13 +217,24 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
 
                   {["protein", "carbs", "fats"].map((macro) => (
                     <div className="row" key={macro}>
-                      <div className="col-lg-6">
+                      <div className="col-lg-12">
                         <Form.Group className="mb-3">
                         <div className="label-input">
                           <Form.Label>
                             {macro.charAt(0).toUpperCase() + macro.slice(1)}{" "}
                           </Form.Label>
-                          <CustomInputField />
+                          <CustomInputField 
+                          
+                          name={`${macro}Grams`}
+                          value={mealsWithIndex[macro].grams || ""}
+                          action={(e) =>
+                            handleMacroChange(
+                              selectedIndex,
+                              macro,
+                              "grams",
+                              e.target.value
+                            )
+                          }/>
                           </div>
                           <TagsInput
                             value={
@@ -242,7 +253,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                           />
                         </Form.Group>
                       </div>
-                      <div className="col-lg-6">
+                      {/* <div className="col-lg-6">
                         <Form.Group className="mb-3">
                           <Form.Label>
                             {macro.charAt(0).toUpperCase() + macro.slice(1)}{" "}
@@ -262,7 +273,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                             }
                           />
                         </Form.Group>
-                      </div>
+                      </div> */}
                     </div>
                   ))}
                 </div>
