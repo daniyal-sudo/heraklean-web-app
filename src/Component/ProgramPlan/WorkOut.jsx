@@ -20,8 +20,14 @@ const WorkOut = ({
           <div className="diet-plan-section-page">
               <WorkTable />
           </div>
+         
         </div>
-    </div></>
+    </div>
+ 
+    <div class="crative-button" id="workout">
+    <button type="button" class="btn btn-light">Cancel</button>
+    <button type="button" class="save-button btn btn-primary">Create</button>
+</div></>
     
   );
 };

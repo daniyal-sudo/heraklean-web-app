@@ -2359,7 +2359,7 @@ a.text-decoration-none.text-black:focus {
 
 /* workout css  */
 .works-out-button {
-  width: 150px;
+  width: 215px;
   height: 57.68px;
   border-radius: 39px;
   text-align: center;
@@ -2367,6 +2367,14 @@ a.text-decoration-none.text-black:focus {
   border: 1px solid #9A9A9A33;
 
   justify-content: center;
+}
+#workout .btn.btn-light {
+  background: #263238;
+  color: #fff;
+}
+#workout {
+  justify-content: center;
+  margin-top: 20px;
 }
 .title-catery {
   color: #263238;
