@@ -1031,67 +1031,7 @@ const Calendar = () => {
         )}
 
         {showRescheduleForm && (
-          // <div className="form-popup">
-          //   <h3 className="fw-bold mb-4">Reschedule Meeting</h3>
-          //   <form
-          //     onSubmit={handleRescheduleSubmit}
-          //     className="reschedule-form"
-          //   >
-          //     <div className="form-group mb-3">
-          //       <label htmlFor="newDay">New Day:</label>
-          //       <input
-          //         id="newDay"
-          //         className="form-control"
-          //         type="date"
-          //         value={rescheduleData.newDay}
-          //         onChange={(e) =>
-          //           setRescheduleData({
-          //             ...rescheduleData,
-          //             newDay: e.target.value,
-          //             newDate: e.target.value, // Keep both dates in sync
-          //           })
-          //         }
-          //         required
-          //       />
-          //     </div>
-
-          //     <div className="form-group mb-3">
-          //       <label htmlFor="newTime">New Time:</label>
-          //       <select
-          //         id="newTime"
-          //         className="form-control"
-          //         value={rescheduleData.newTime}
-          //         onChange={(e) =>
-          //           setRescheduleData({
-          //             ...rescheduleData,
-          //             newTime: e.target.value,
-          //           })
-          //         }
-          //         required
-          //       >
-          //         <option value="">Select a new time</option>
-          //         {timeSlots.map((time) => (
-          //           <option key={time} value={time}>
-          //             {time}
-          //           </option>
-          //         ))}
-          //       </select>
-          //     </div>
-
-          //     <div className="button-group">
-          //       <button className="btn btn-primary" type="submit">
-          //         Confirm Reschedule
-          //       </button>
-          //       <button
-          //         className="btn btn-secondary ms-2"
-          //         type="button"
-          //         onClick={() => setShowRescheduleForm(false)}
-          //       >
-          //         Cancel
-          //       </button>
-          //     </div>
-          //   </form>
-          // </div>
+          
           <div
             className="modal fade"
             id="RescheduleModal"
