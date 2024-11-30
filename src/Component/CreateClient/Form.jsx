@@ -28,16 +28,18 @@ const Form = ({ onClose }) => {
       const token = localStorage.getItem("token");
       try {
         const [dietResponse, programResponse] = await Promise.all([
-          axios.get(`${api_url}getTrainerDietPlans`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-          axios.get(
-            `${api_url}getTrainerProgramPlans`,
+          axios.post(
+            `${api_url}getTrainerDietPlans`,
+            { trainerId: localStorage.getItem('trainerId') }, // Corrected payload object
             {
-              headers: { Authorization: `Bearer ${token}` },
+              headers: { Authorization: `Bearer ${token}` }, // Corrected headers object placement
             }
           ),
+          axios.get(`${api_url}getTrainerProgramPlans`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
         ]);
+      
         setDietPlans(dietResponse.data.dietPlans);
         setProgramPlans(programResponse.data.programPlans);
       } catch (error) {
