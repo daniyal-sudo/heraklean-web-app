@@ -4,7 +4,7 @@ import { FaEdit } from "react-icons/fa";
 
 const SubscriptionList = ({ subscriptions, onDelete }) => {
   return (
-    <div className="row" style={{
+    <div className="row subcribtion_scroll" style={{
       overflowY:'auto',
       maxHeight:'250px'
     }}>
