@@ -50,6 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-bottom: 20px;
   }
   .header-right button.btn.btn-primary:focus {
     box-shadow: none !important;
@@ -628,6 +629,8 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
     #calendar-modal .modal-body .row .col-6.mb-3 {
       width: 100%;
   }
-
+  .schedule-container {
+    padding: 0px !important;
+  }
    }
 

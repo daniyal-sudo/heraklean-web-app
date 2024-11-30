@@ -937,7 +937,11 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   box-shadow: none !important;
   color: #53AFE6 !important;
 }
-
+#close-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
 .graph-section {
   display: flex;
   justify-content: space-between;
@@ -1991,9 +1995,11 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   }
 
   .card .diet-plan-section .icon {
-    display: none !important;
+    display: none;
   }
-
+  .meal-button .btn {
+    width: 100px;
+  }
   .card.diet-plan-section .d-flex.icon-hide {
     justify-content: center;
   }

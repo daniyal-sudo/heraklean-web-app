@@ -664,6 +664,7 @@ const Calendar = () => {
               <div className="modal-content">
                 <button
                   type="button"
+                  id="close-icon"
                   className="close"
                   aria-label="Close"
                   onClick={() => setSelectedMeeting(false)}
