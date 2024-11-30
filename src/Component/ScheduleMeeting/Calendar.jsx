@@ -573,7 +573,7 @@ const Calendar = () => {
                     {selectedMeeting.description}
                   </div>
                   <div className="card-time">
-                    {selectedMeeting.time} AM to 10:00 AM
+                    {selectedMeeting.time}  to {moment(selectedMeeting.time, "h:mm A").add(1, 'hour').format("h:mm A")}
                   </div>
                   <button className="card-button">
                     {selectedMeeting.isRecurring
