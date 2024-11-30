@@ -82,13 +82,13 @@ const ScheduledCalander = () => {
 
   return (
     <div className="Clander-mobile" style={containerStyle}>
-      <div className="d-flex justify-content-between mb-3">
+      {/* <div className="d-flex justify-content-between mb-3">
         <h5 className="upcoming_border-line">Scheduled Meetings</h5>
       </div>
       <div className="d-flex mb-3 crative-buttons">
         <Button variant="btn btn-light cancel-button">View Calendar</Button>
         <Button variant="primary submit-button">Schedule New</Button>
-      </div>
+      </div> */}
       
       {meetings.map(meeting => (
         <Card key={meeting.id} style={cardStyle}>

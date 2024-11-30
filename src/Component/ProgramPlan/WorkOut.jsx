@@ -8,7 +8,7 @@ const WorkOut = ({
 }) => {
 
     // onClose()
-  const [showComponent, setShowComponent] = useState("");
+  
   return (
    <><div className="row">
     <div className="col-md-12 ">
@@ -25,7 +25,8 @@ const WorkOut = ({
     </div>
  
     <div class="crative-button" id="workout">
-    <button type="button" class="btn btn-light">Cancel</button>
+    <button type="button" class="btn btn-light" onClick={()=>{
+        onClose();    }}>Cancel</button>
     <button type="button" class="save-button btn btn-primary">Create</button>
 </div></>
     

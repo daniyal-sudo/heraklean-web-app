@@ -3,9 +3,11 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
 import axios from "axios";
 import "./calendar.css";
-import { api_url } from "../../../CommonFunctions";
+import { api_url, formatTimeToAmPm } from "../../../CommonFunctions";
 import { Dropdown, Button } from "react-bootstrap";
 import ScheduledCalander from "./ScheduledCalander";
+import { errorMessage, successMessage } from "../../Toast/Toast";
+import moment from 'moment';
 
 const Calendar = () => {
   const [selectedMeeting, setSelectedMeeting] = useState(null);
@@ -17,8 +19,10 @@ const Calendar = () => {
     client: "",
     time: "",
     day: "",
+    date: "",
     trainingType: "",
     isRecurring: false,
+    discription: "",
   });
   const [currentDate, setCurrentDate] = useState(new Date());
   const [rescheduleData, setRescheduleData] = useState({
@@ -55,7 +59,7 @@ const Calendar = () => {
       });
 
       if (response.data.success) {
-        alert("Meeting canceled successfully");
+        successMessage("Meeting canceled successfully");
         fetchMeetings();
         setSelectedMeeting(null);
       } else {
@@ -79,12 +83,12 @@ const Calendar = () => {
     if (!selectedMeeting) return;
 
     // Format the date properly when initializing reschedule form
-    const currentDate = new Date(selectedMeeting.day);
+    const currentDate = new Date(selectedMeeting.date);
     const formattedDate = currentDate.toISOString().split("T")[0];
 
     setRescheduleData({
       newDay: formattedDate,
-      newTime: selectedMeeting.time,
+      newTime: moment(selectedMeeting.time, "h:mm A").format("HH:mm"),
       newDate: formattedDate,
     });
     setShowRescheduleForm(true);
@@ -143,6 +147,14 @@ const Calendar = () => {
   };
 
   const timeSlots = [
+    "12:00 AM",
+    "1:00 AM",
+    "2:00 AM",
+    "3:00 AM",
+    "4:00 AM",
+    "5:00 AM",
+    "6:00 AM",
+    "7:00 AM",
     "8:00 AM",
     "9:00 AM",
     "10:00 AM",
@@ -154,12 +166,19 @@ const Calendar = () => {
     "4:00 PM",
     "5:00 PM",
     "6:00 PM",
-  ];
+    "7:00 PM",
+    "8:00 PM",
+    "9:00 PM",
+    "10:00 PM",
+    "11:00 PM"
+  ]
 
   useEffect(() => {
     fetchMeetings();
-    fetchClients();
   }, [currentDate]);
+  useEffect(() => {
+    fetchClients();
+  }, []);
   const fetchMeetings = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -218,7 +237,7 @@ const Calendar = () => {
         });
         const data = await response.json();
         if (data.success) {
-          alert("Meeting approved");
+          successMessage("Meeting approved");
           fetchMeetings(); // Refresh meetings after approval
           setSelectedMeeting(null);
         }
@@ -265,16 +284,20 @@ const Calendar = () => {
         body: JSON.stringify({
           clientId: formData.client,
           trainerId: trainerId,
-          day: formData.day,
-          time: formData.time,
+          date: formData.date,
+          time: formatTimeToAmPm(formData.time),
           trainingType: formData.trainingType,
           isRecurring: formData.isRecurring,
+          description: formData.discription,
         }),
       });
       const data = await response.json();
       if (data.success) {
         fetchMeetings(); // Refresh meetings after creating a new one
         setShowForm(false);
+        successMessage(data.message);
+      } else {
+        errorMessage(data.message);
       }
     } catch (error) {
       console.error("Error creating meeting:", error);
@@ -302,6 +325,88 @@ const Calendar = () => {
     });
   };
 
+  const timeHandleDesktop = () => {
+    return (
+      <div className="schedule-container d-flex justify-content-between">
+        <header className="schedule-header">
+          <div className="header-left">
+            <h2 className="fw-bold fs-4 bg-white text-black">Schedules</h2>
+            <div className="month-navigation">
+              <span>
+                {currentDate.toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
+              </span>
+              <FaChevronLeft
+                onClick={() => navigateWeek(-1)}
+                style={{ cursor: "pointer" }}
+              />
+
+              <FaChevronRight
+                onClick={() => navigateWeek(1)}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+            <span className="date-range">
+              {formatDate(daysInWeek[0])} - {formatDate(daysInWeek[6])}
+            </span>
+          </div>
+          <div className="header-right">
+            <button className="btn btn-white dropdown border-outline">
+              Weekly
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setShowForm(true)}
+            >
+              <AiOutlinePlus /> Add Meeting
+            </button>
+          </div>
+        </header>
+      </div>
+    );
+  };
+  const timeHandleMobile = () => {
+    return (
+      <div className="schedule-container d-flex justify-content-between">
+        <header className="schedule-header">
+          <div className="header-left">
+            <h2 className="fw-bold fs-4 bg-white text-black">Schedules</h2>
+            <div className="month-navigation">
+              <span>
+                {currentDate.toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
+              </span>
+              <FaChevronLeft
+                onClick={() => navigateWeek(-1)}
+                style={{ cursor: "pointer" }}
+              />
+
+              <FaChevronRight
+                onClick={() => navigateWeek(1)}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+            <span className="date-range">
+              {formatDate(daysInWeek[0])} - {formatDate(daysInWeek[6])}
+            </span>
+          </div>
+        </header>
+        <div className="header-right">
+          <button className="btn btn-white dropdown border-outline">
+            Weekly
+          </button>
+          <button className="btn btn-primary" onClick={() => setShowForm(true)}>
+            <AiOutlinePlus /> Add Meeting
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   const navigateWeek = (direction) => {
     const newDate = new Date(currentDate);
     newDate.setDate(currentDate.getDate() + direction * 7);
@@ -323,57 +428,38 @@ const Calendar = () => {
         return "bg-secondary";
     }
   };
+
+  const isWithinHourRange = (meetingTime, slotTime) => {
+    const meetingMoment = moment(meetingTime, "h:mm A");
+    const slotMoment = moment(slotTime, "h:mm A");
+  
+    // Extract the hour for both meeting and slot time
+    const meetingHour = meetingMoment.hour();
+    const slotHour = slotMoment.hour();
+  
+    // Check if the meeting time's hour is the same as the slot time's hour
+    if (meetingHour === slotHour) {
+      // If the hour matches, return true if the meeting time is within the same hour range (i.e., between slot's 0 minute and 59 minute)
+      const meetingMinutes = meetingMoment.minute();
+      return meetingMinutes >= 0 && meetingMinutes <= 59; // This ensures the meeting is within the given hour
+    }
+  
+    // If the hours don't match, return false
+    return false;
+  };
+  
   return (
-    <div className="container" style={{ padding: "30px", minWidth: "100%"}}>
-      <div
-        className="calander-section"
-        style={{ border: "1px solid #E5E5E5" }}
-      >
+    <div className="container" style={{ padding: "30px", minWidth: "100%" }}>
+      <div className="calander-section" style={{ border: "1px solid #E5E5E5" }}>
         <div className="calander-mobile-section show-on-mobile">
-           <ScheduledCalander />
+          {timeHandleMobile()}
+          <ScheduledCalander />
         </div>
         <div className="calendar-main-container show-on-desktop">
-          <div className="schedule-container d-flex justify-content-between">
-            <header className="schedule-header">
-              <div className="header-left">
-                <h2 className="fw-bold fs-4 bg-white text-black">Schedules</h2>
-                <div className="month-navigation">
-                  <span>
-                    {currentDate.toLocaleDateString("en-US", {
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </span>
-                  <FaChevronLeft
-                    onClick={() => navigateWeek(-1)}
-                    style={{ cursor: "pointer" }}
-                  />
-
-                  <FaChevronRight
-                    onClick={() => navigateWeek(1)}
-                    style={{ cursor: "pointer" }}
-                  />
-                </div>
-                <span className="date-range">
-                  {formatDate(daysInWeek[0])} - {formatDate(daysInWeek[6])}
-                </span>
-              </div>
-              <div className="header-right">
-                <button className="btn btn-white dropdown border-outline">
-                  Weekly
-                </button>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => setShowForm(true)}
-                >
-                  <AiOutlinePlus /> Add Meeting
-                </button>
-              </div>
-            </header>
-          </div>
+          {timeHandleDesktop()}
 
           <div className="calendar-and-details">
-            <div className="calendar-container scroll-clander"> 
+            <div className="calendar-container scroll-clander">
               <div className="calendar-header ">
                 <div className="time-slot-header d-flex justify-content-center align-items-center">
                   Time
@@ -394,11 +480,14 @@ const Calendar = () => {
                     <div className="time-slot-label fw-light">{time}</div>
                     {daysInWeek.map((day, dayIndex) => {
                       const formattedDay = day.toISOString().split("T")[0];
-                      const meetingsForSlot = meetings.filter(
-                        (meeting) =>
-                          meeting.day === formattedDay && meeting.time === time
-                      );
-
+                      const meetingsForSlot = meetings.filter((meeting) => {
+                        const meetingDate = meeting.date; // Assuming meeting.date is a string like "2024-12-02"
+                        const meetingTime = meeting.time; // Assuming meeting.time is in format "12:30 PM"
+                        
+                        // Check if the meeting is on the same day and if the time is within 1 hour of the slot
+                        return meetingDate === formattedDay && isWithinHourRange(meetingTime, time);
+                      });
+                        
                       return (
                         <div
                           key={`${dayIndex}-${time}`}
@@ -478,11 +567,10 @@ const Calendar = () => {
                         />
                       </svg>
                     </div>
-                    <div className="card-title">Biceps Training</div>
+                    <div className="card-title">{selectedMeeting.trainingType} Training</div>
                   </div>
                   <div className="card-content">
-                    Lorem ipsum dolor sit amet consectetur. Elit cursus faibus
-                    ipsum sed magna id magna. Turpis imperdiet.
+                    {selectedMeeting.description}
                   </div>
                   <div className="card-time">
                     {selectedMeeting.time} AM to 10:00 AM
@@ -496,8 +584,8 @@ const Calendar = () => {
                 <div className="meeting-actions">
                   <button
                     className="btn btn-primary btn-radius border-0"
-                       data-bs-toggle="modal"
-                       data-bs-target="#RescheduleModal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#RescheduleModal"
                     onClick={handleRescheduleClick}
                   >
                     Reschedule
@@ -514,142 +602,139 @@ const Calendar = () => {
 
                   {selectedMeeting.type === "clientRequest" &&
                     selectedMeeting.status === "Pending" && (
-                  <>
-                    <button
-                      className="btn btn-primary btn-radius border-0"
-                      onClick={handleApproveMeeting}
-                    >
-                      Approve
-                    </button>
-                    <button
-                      className=" decline-button btn-radius border-0"
-                      style={{ background: "#37474F3D",
-                        border:'1px solid #37474F3D'
-                       }}
-                       decline-button
-                    >
-                      Decline
-                    </button>
-                  </>
-                 )} 
+                      <>
+                        <button
+                          className="btn btn-primary btn-radius border-0"
+                          onClick={handleApproveMeeting}
+                        >
+                          Approve
+                        </button>
+                        <button
+                          className="decline-button btn-radius border-0"
+                          style={{
+                            background: "#37474F3D",
+                            border: "1px solid #37474F3D",
+                          }}
+                          decline-button
+                        >
+                          Decline
+                        </button>
+                      </>
+                    )}
                 </div>
               </div>
             )}
-
-            {showForm && (
-              <div
-                className="modal fade show d-block"
-                id="calendar-modal"
-                tabIndex="-1"
-                role="dialog"
-                style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-              >
-                <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h3 className="modal-title">New Meeting</h3>
-                      <button
-                        type="button"
-                        className="close"
-                        aria-label="Close"
-                        onClick={() => setShowForm(false)}
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div className="modal-body">
-                      <form onSubmit={handleFormSubmit}>
-                        <div className="row">
-                          <div className="col-6 mb-3">
-                            <div className="client-dropdown">
-                              <label htmlFor="clientDropdown">
-                                Client Name
-                              </label>
-                              <Dropdown
-                                onSelect={(eventKey) =>
-                                  setFormData({ ...formData, client: eventKey })
-                                }
-                                disabled={clients.length === 0} // Disable dropdown if no data
-                              >
-                                <Dropdown.Toggle
-                                  variant="light"
-                                  className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
-                                  disabled={clients.length === 0} // Disable toggle if no data
+          </div>
+        </div>
+        {showForm && (
+          <div
+            className="modal fade show d-block"
+            id="calendar-modal"
+            tabIndex="-1"
+            role="dialog"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+          >
+            <div
+              className="modal-dialog modal-lg modal-dialog-centered"
+              role="document"
+            >
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h3 className="modal-title">New Meeting</h3>
+                  <button
+                    type="button"
+                    className="close"
+                    aria-label="Close"
+                    onClick={() => setShowForm(false)}
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <form onSubmit={handleFormSubmit}>
+                    <div className="row">
+                      <div className="col-6 mb-3">
+                        <div className="client-dropdown">
+                          <label htmlFor="clientDropdown">Client Name</label>
+                          <Dropdown
+                            onSelect={(eventKey) =>
+                              setFormData({ ...formData, client: eventKey })
+                            }
+                            disabled={clients.length === 0} // Disable dropdown if no data
+                          >
+                            <Dropdown.Toggle
+                              variant="light"
+                              className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
+                              disabled={clients.length === 0} // Disable toggle if no data
+                            >
+                              {clients.length === 0
+                                ? "No Clients Available"
+                                : clients.find(
+                                    (client) => client._id === formData.client
+                                  )?.fullname || "Select Client"}
+                              <span className="dropdown-icon-wrapper">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-chevron-down"
+                                  width="18"
+                                  height="18"
                                 >
-                                  {clients.length === 0
-                                    ? "No Clients Available"
-                                    : clients.find(
-                                        (client) =>
-                                          client._id === formData.client
-                                      )?.fullname || "Select Client"}
-                                  <span className="dropdown-icon-wrapper">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      strokeWidth="2"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      className="feather feather-chevron-down"
-                                      width="18"
-                                      height="18"
-                                    >
-                                      <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                  </span>
-                                </Dropdown.Toggle>
+                                  <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                              </span>
+                            </Dropdown.Toggle>
 
-                                <Dropdown.Menu className="custom-dropdown-menu">
-                                  {clients.map((client) => (
-                                    <Dropdown.Item
-                                      key={client._id}
-                                      eventKey={client._id}
-                                      className="custom-dropdown-item"
-                                    >
-                                      <div className="d-flex align-items-start">
-                                        <input
-                                          type="radio"
-                                          name="client"
-                                          className="me-2"
-                                          checked={
-                                            formData.client === client._id
-                                          }
-                                          onChange={() =>
-                                            setFormData({
-                                              ...formData,
-                                              client: client._id,
-                                            })
-                                          }
-                                        />
-                                        <div className="text-2">
-                                          {client.fullname}
-                                        </div>
-                                      </div>
-                                    </Dropdown.Item>
-                                  ))}
-                                </Dropdown.Menu>
-                              </Dropdown>
-                            </div>
-                          </div>
-                          <div className="col-6 mb-3">
-                            <label>Time:</label>
-                            <input
-                              className="form-control"
-                              type="time"
-                              value={formData.time}
-                              onChange={(e)=>{
-                                setFormData({
-                                  ...formData,
-                                  time: e.target.value,
-                                })
-
-                              }}
-                              
-                             
-                            />
-                          </div>
-                          <div className="col-6 mb-3">
+                            <Dropdown.Menu className="custom-dropdown-menu">
+                              {clients.map((client) => (
+                                <Dropdown.Item
+                                  key={client._id}
+                                  eventKey={client._id}
+                                  className="custom-dropdown-item"
+                                >
+                                  <div className="d-flex align-items-start">
+                                    <input
+                                      type="radio"
+                                      name="client"
+                                      className="me-2"
+                                      checked={formData.client === client._id}
+                                      onChange={() =>
+                                        setFormData({
+                                          ...formData,
+                                          client: client._id,
+                                        })
+                                      }
+                                    />
+                                    <div className="text-2">
+                                      {client.fullname}
+                                    </div>
+                                  </div>
+                                </Dropdown.Item>
+                              ))}
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </div>
+                      </div>
+                      <div className="col-6 mb-3">
+                        <label>Select Time</label>
+                        <input
+                          className="form-control"
+                          type="time"
+                          value={formData.time}
+                          onChange={(e) => {
+                            setFormData({
+                              ...formData,
+                              time: e.target.value,
+                            });
+                          }}
+                        />
+                      </div>
+                      {/* <div className="col-6 mb-3">
                             <label>Day:</label>
                             <input
                               className="form-control"
@@ -664,286 +749,314 @@ const Calendar = () => {
                               }}
                             
                             />
-                          </div>
-                          <div className="col-6 mb-3">
-                            <label>Date:</label>
-                            <input
-                              className="form-control"
-                              type="date"
-                              value={formData.date}
-                              onChange={(e)=>{
-                                setFormData({
-                                  ...formData,
-                                  date: e.target.value,
-                                })
-
-                              }}
-                              
-                            />
-                          </div>
-                          <div className="col-6 mb-3">
-                            <div className="training-dropdown">
-                              <label htmlFor="trainingDropdown">
-                                Training Type
-                              </label>
-                              <Dropdown
-                                onSelect={(eventKey) =>
-                                  setFormData({
-                                    ...formData,
-                                    trainingType: eventKey,
-                                  })
-                                }
-                              >
-                                <Dropdown.Toggle
-                                  variant="light"
-                                  className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
-                                >
-                                  {(formData.trainingType &&
-                                    formData.trainingType) ||
-                                    "Select Training Type"}
-                                  <span className="dropdown-icon-wrapper">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      strokeWidth="2"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      className="feather feather-chevron-down"
-                                      width="18"
-                                      height="18"
-                                    >
-                                      <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                  </span>
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu className="custom-dropdown-menu">
-                                  {[
-                                    "Weight Training",
-                                    "Cardio",
-                                    "Yoga",
-                                    "Diet",
-                                    "Meditation",
-                                    "Nutrition",
-                                    "Other",
-                                  ].map((type) => (
-                                    <Dropdown.Item
-                                      key={type}
-                                      eventKey={type}
-                                      className="custom-dropdown-item"
-                                    >
-                                      <div className="d-flex align-items-start">
-                                        <input
-                                          type="radio"
-                                          name="trainingType"
-                                          className="me-2"
-                                          checked={
-                                            formData.trainingType === type
-                                          }
-                                          onChange={() =>
-                                            setFormData({
-                                              ...formData,
-                                              trainingType: type,
-                                            })
-                                          }
-                                        />
-                                        <div className="text-2">{type}</div>
-                                      </div>
-                                    </Dropdown.Item>
-                                  ))}
-                                </Dropdown.Menu>
-                              </Dropdown>
-                            </div>
-                          </div>
-                          <div className="col-6 mb-3 form-check">
-                            <label className="form-check-label">
-                              <input
-                                type="checkbox"
-                                className="form-check-input"
-                                checked={formData.isRecurring}
-                                onChange={(e) =>
-                                  setFormData({
-                                    ...formData,
-                                    isRecurring: e.target.checked,
-                                  })
-                                }
-                              />
-                              Is Recurring?
-                            </label>
-                          </div>
-                          <div
-                            className="col-12"
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                            }}
-                          >
-                            <button
-                              type="submit"
-                              className="btn btn-primary mt-2"
-                            >
-                              Book Meeting
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {showRescheduleForm && (
-              // <div className="form-popup">
-              //   <h3 className="fw-bold mb-4">Reschedule Meeting</h3>
-              //   <form
-              //     onSubmit={handleRescheduleSubmit}
-              //     className="reschedule-form"
-              //   >
-              //     <div className="form-group mb-3">
-              //       <label htmlFor="newDay">New Day:</label>
-              //       <input
-              //         id="newDay"
-              //         className="form-control"
-              //         type="date"
-              //         value={rescheduleData.newDay}
-              //         onChange={(e) =>
-              //           setRescheduleData({
-              //             ...rescheduleData,
-              //             newDay: e.target.value,
-              //             newDate: e.target.value, // Keep both dates in sync
-              //           })
-              //         }
-              //         required
-              //       />
-              //     </div>
-
-              //     <div className="form-group mb-3">
-              //       <label htmlFor="newTime">New Time:</label>
-              //       <select
-              //         id="newTime"
-              //         className="form-control"
-              //         value={rescheduleData.newTime}
-              //         onChange={(e) =>
-              //           setRescheduleData({
-              //             ...rescheduleData,
-              //             newTime: e.target.value,
-              //           })
-              //         }
-              //         required
-              //       >
-              //         <option value="">Select a new time</option>
-              //         {timeSlots.map((time) => (
-              //           <option key={time} value={time}>
-              //             {time}
-              //           </option>
-              //         ))}
-              //       </select>
-              //     </div>
-
-              //     <div className="button-group">
-              //       <button className="btn btn-primary" type="submit">
-              //         Confirm Reschedule
-              //       </button>
-              //       <button
-              //         className="btn btn-secondary ms-2"
-              //         type="button"
-              //         onClick={() => setShowRescheduleForm(false)}
-              //       >
-              //         Cancel
-              //       </button>
-              //     </div>
-              //   </form>
-              // </div>
-              <div
-              className="modal fade"
-              id="RescheduleModal"
-              tabIndex="-1"
-              aria-labelledby="RescheduleModalLabel"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="RescheduleModalLabel">
-                      Reschedule Meeting
-                    </h5>
-                    {/* <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button> */}
-                    <button type="button" class="close" aria-label="Close"  data-bs-dismiss="modal"><span style={{ fontWeight: 400,}} aria-hidden="true">×</span></button>
-                  </div>
-                  <div className="modal-body">
-                    {/* Form inside modal */}
-                    <form onSubmit={handleRescheduleSubmit} className="reschedule-form">
-                      <div className="form-group mb-3">
-                        <label htmlFor="newDay">New Day:</label>
+                          </div> */}
+                      <div className="col-6 mb-3">
+                        <label>Select Date</label>
                         <input
-                          id="newDay"
                           className="form-control"
                           type="date"
-                          value={rescheduleData.newDay}
-                          onChange={(e) =>
-                            setRescheduleData({
-                              ...rescheduleData,
-                              newDay: e.target.value,
-                              newDate: e.target.value, // Keep both dates in sync
-                            })
-                          }
-                          required
+                          value={formData.date}
+                          onChange={(e) => {
+                            setFormData({
+                              ...formData,
+                              date: e.target.value,
+                            });
+                          }}
                         />
                       </div>
-      
-                      <div className="form-group mb-3">
-                        <label htmlFor="newTime">New Time:</label>
-                        <select
-                          id="newTime"
-                          className="form-control"
-                          value={rescheduleData.newTime}
-                          onChange={(e) =>
-                            setRescheduleData({
-                              ...rescheduleData,
-                              newTime: e.target.value,
-                            })
-                          }
-                          required
-                        >
-                          <option value="">Select a new time</option>
-                          {timeSlots.map((time) => (
-                            <option key={time} value={time}>
-                              {time}
-                            </option>
-                          ))}
-                        </select>
+                      <div className="col-6 mb-3">
+                        <div className="training-dropdown">
+                          <label htmlFor="trainingDropdown">Meeting Type</label>
+                          <Dropdown
+                            onSelect={(eventKey) =>
+                              setFormData({
+                                ...formData,
+                                trainingType: eventKey,
+                              })
+                            }
+                          >
+                            <Dropdown.Toggle
+                              variant="light"
+                              className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
+                            >
+                              {(formData.trainingType &&
+                                formData.trainingType) ||
+                                "Select Meeting Type"}
+                              <span className="dropdown-icon-wrapper">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-chevron-down"
+                                  width="18"
+                                  height="18"
+                                >
+                                  <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                              </span>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu className="custom-dropdown-menu">
+                              {[
+                                "Weight Training",
+                                "Cardio",
+                                "Yoga",
+                                "Diet",
+                                "Meditation",
+                                "Nutrition",
+                                "Other",
+                              ].map((type) => (
+                                <Dropdown.Item
+                                  key={type}
+                                  eventKey={type}
+                                  className="custom-dropdown-item"
+                                >
+                                  <div className="d-flex align-items-start">
+                                    <input
+                                      type="radio"
+                                      name="trainingType"
+                                      className="me-2"
+                                      checked={formData.trainingType === type}
+                                      onChange={() =>
+                                        setFormData({
+                                          ...formData,
+                                          trainingType: type,
+                                        })
+                                      }
+                                    />
+                                    <div className="text-2">{type}</div>
+                                  </div>
+                                </Dropdown.Item>
+                              ))}
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </div>
                       </div>
-      
-                      <div className="button-group crative-button">
-                        <button className="btn btn-primary save-button" type="submit">
-                          Confirm Reschedule
-                        </button>
-                        <button
-                          className="btn btn-light cancel-section ms-2"
-                          type="button"
-                          data-bs-dismiss="modal"
-                        >
-                          Cancel
+                      <div className="col-6 mb-3">
+                        <div className="training-dropdown">
+                          <label htmlFor="trainingDropdown">Details</label>
+                          <textarea
+                            className="form-control"
+                            value={formData.text}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                discription: e.target.value,
+                              })
+                            }
+                            rows="4"
+                            placeholder="Enter your text here"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-6 mb-3 form-check">
+                        <label className="form-check-label">
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            checked={formData.isRecurring}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                isRecurring: e.target.checked,
+                              })
+                            }
+                          />
+                          Is Recurring?
+                        </label>
+                      </div>
+                      <div
+                        className="col-12"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <button type="submit" className="btn btn-primary mt-2">
+                          Book Meeting
                         </button>
                       </div>
-                    </form>
-                  </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-            
-            )}
           </div>
-        </div>
+        )}
+
+        {showRescheduleForm && (
+          // <div className="form-popup">
+          //   <h3 className="fw-bold mb-4">Reschedule Meeting</h3>
+          //   <form
+          //     onSubmit={handleRescheduleSubmit}
+          //     className="reschedule-form"
+          //   >
+          //     <div className="form-group mb-3">
+          //       <label htmlFor="newDay">New Day:</label>
+          //       <input
+          //         id="newDay"
+          //         className="form-control"
+          //         type="date"
+          //         value={rescheduleData.newDay}
+          //         onChange={(e) =>
+          //           setRescheduleData({
+          //             ...rescheduleData,
+          //             newDay: e.target.value,
+          //             newDate: e.target.value, // Keep both dates in sync
+          //           })
+          //         }
+          //         required
+          //       />
+          //     </div>
+
+          //     <div className="form-group mb-3">
+          //       <label htmlFor="newTime">New Time:</label>
+          //       <select
+          //         id="newTime"
+          //         className="form-control"
+          //         value={rescheduleData.newTime}
+          //         onChange={(e) =>
+          //           setRescheduleData({
+          //             ...rescheduleData,
+          //             newTime: e.target.value,
+          //           })
+          //         }
+          //         required
+          //       >
+          //         <option value="">Select a new time</option>
+          //         {timeSlots.map((time) => (
+          //           <option key={time} value={time}>
+          //             {time}
+          //           </option>
+          //         ))}
+          //       </select>
+          //     </div>
+
+          //     <div className="button-group">
+          //       <button className="btn btn-primary" type="submit">
+          //         Confirm Reschedule
+          //       </button>
+          //       <button
+          //         className="btn btn-secondary ms-2"
+          //         type="button"
+          //         onClick={() => setShowRescheduleForm(false)}
+          //       >
+          //         Cancel
+          //       </button>
+          //     </div>
+          //   </form>
+          // </div>
+          <div
+            className="modal fade"
+            id="RescheduleModal"
+            tabIndex="-1"
+            aria-labelledby="RescheduleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="RescheduleModalLabel">
+                    Reschedule Meeting
+                  </h5>
+                  
+                  <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    data-bs-dismiss="modal"
+                  >
+                    <span style={{ fontWeight: 400 }} aria-hidden="true">
+                      ×
+                    </span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  {/* Form inside modal */}
+                  <form
+                    onSubmit={handleRescheduleSubmit}
+                    className="reschedule-form"
+                  >
+                    <div className="form-group mb-3">
+                      <label htmlFor="newDay">New Day:</label>
+                      <input
+                        id="newDay"
+                        className="form-control"
+                        type="date"
+                        value={rescheduleData.newDay}
+                        onChange={(e) =>
+                          setRescheduleData({
+                            ...rescheduleData,
+                            newDay: e.target.value,
+                            newDate: e.target.value, // Keep both dates in sync
+                          })
+                        }
+                        required
+                      />
+                    </div>
+
+                    <div className="form-group mb-3">
+                      <label htmlFor="newTime">New Time:</label>
+                      <input
+                        id="newTime"
+                        className="form-control"
+                        type="time"
+                        value={rescheduleData.newTime}
+                        onChange={(e) =>
+                          setRescheduleData({
+                            ...rescheduleData,
+                            newTime: e.target.value,
+                          })
+                        }
+                        required
+                      />
+                      {/* <select
+                        id="newTime"
+                        className="form-control"
+                        value={rescheduleData.newTime}
+                        onChange={(e) =>
+                          setRescheduleData({
+                            ...rescheduleData,
+                            newTime: e.target.value,
+                          })
+                        }
+                        required
+                      >
+                        <option value="">Select a new time</option>
+                        {timeSlots.map((time) => (
+                          <option key={time} value={time}>
+                            {time}
+                          </option>
+                        ))}
+                      </select> */}
+                    </div>
+
+                    <div className="button-group crative-button">
+                      <button
+                        className="btn btn-primary save-button"
+                        type="submit"
+                      >
+                        Confirm Reschedule
+                      </button>
+                      <button
+                        className="btn btn-light cancel-section ms-2"
+                        type="button"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

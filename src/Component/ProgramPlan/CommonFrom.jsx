@@ -13,15 +13,12 @@ const CommonForm = ({
   handleSaveDayDetails,
   programTitle,
   setProgramTitle,
+  setShowComponent,
 }) => {
-  const [showComponent, setShowComponent] = useState("");
+ 
   return (
     <>
-      {showComponent === "showWorkout" ? (
-        <WorkOut onClose={()=>{
-          setShowComponent('')
-        }} />
-      ) : (
+     
         <Form onSubmit={handleSubmit} className="p-4 creative-program">
           <h4>Create Program Plan</h4>
 
@@ -139,8 +136,7 @@ const CommonForm = ({
             </button>
           </div>
         </Form>
-      )}
-    </>
+          </>
   );
 };
 

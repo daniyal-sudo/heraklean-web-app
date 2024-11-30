@@ -4,6 +4,7 @@ import { RiEdit2Fill } from "react-icons/ri";
 import axios from "axios";
 import { Dropdown } from "react-bootstrap";
 import CreateProgram from "./CreateProgram";
+import WorkOut from "./WorkOut";
 
 const ProgramPlans = () => {
   const [programs, setPrograms] = useState([]);
@@ -76,10 +77,21 @@ const ProgramPlans = () => {
     <>
       {showComponent === "craeteProgram" ? (
         <CreateProgram
+        setShowComponent={setShowComponent}
           onClose={() => {
             setShowComponent("");
           }}
         />
+      ) : showComponent === "showWorkout" ? (
+        <div className="space-page">
+          <div className="container p-0 m-0" style={{ height: "100dvh" }}>
+            <WorkOut
+              onClose={() => {
+                setShowComponent("");
+              }}
+            />
+          </div>
+        </div>
       ) : (
         <div
           className="container m-0"
@@ -115,7 +127,6 @@ const ProgramPlans = () => {
                     </Link>
                   </div>
                   <Link
-                  
                     className="btn btn-primary hiide-it"
                     style={{ width: "227px" }}
                   >

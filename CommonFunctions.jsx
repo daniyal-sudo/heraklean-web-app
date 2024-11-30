@@ -1,8 +1,10 @@
-export const api_url ='http://82.112.240.94:5001/api/auth/'
+// export const api_url ='http://82.112.240.94:5001/api/auth/'
+ export const api_url ='http://localhost:5001/api/auth/'
 
 
 
-'http://localhost:5001/api/auth/'
+
+// 'http://localhost:5001/api/auth/'
 
 
 export function calculateCalories(meals) {
@@ -38,4 +40,11 @@ export function calculateCalories(meals) {
   }
  
 
+
+  export  function formatTimeToAmPm(time) {
+    const [hours, minutes] = time.split(':');
+    const period = +hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = +hours % 12 || 12;
+    return `${formattedHours}:${minutes} ${period}`;
+  }
   

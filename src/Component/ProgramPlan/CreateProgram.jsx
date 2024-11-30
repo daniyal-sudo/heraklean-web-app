@@ -6,8 +6,9 @@ import { Modal, Button, Form } from "react-bootstrap";
 import Header from "../CommonComponent/Header";
 import CommonForm from "../ProgramPlan/CommonFrom";
 import { errorMessage, successMessage } from "../../Toast/Toast";
+import WorkOut from "./WorkOut";
 
-const CreateProgram = ({ onClose }) => {
+const CreateProgram = ({ onClose,setShowComponent}) => {
   const [programTitle, setProgramTitle] = useState("");
   const [selectedDay, setSelectedDay] = useState("");
   const [dayDetails, setDayDetails] = useState({
@@ -26,6 +27,8 @@ const CreateProgram = ({ onClose }) => {
     modules: "",
     duration: "",
   });
+
+  // const [showComponent, setShowComponent] = useState("");
 
   // Add missing state for the day form
   const [dayForm, setDayForm] = useState({
@@ -123,6 +126,8 @@ const CreateProgram = ({ onClose }) => {
     <>
       <div className="space-page">
         <div className="container p-0 m-0" style={{ height: "100dvh" }}>
+
+
           <div className="diet-plan-section-page">
             <CommonForm
               handleSubmit={handleSubmit}
@@ -135,6 +140,7 @@ const CreateProgram = ({ onClose }) => {
               handleSaveDayDetails={handleSaveDayDetails}
               setProgramTitle={setProgramTitle}
               programTitle={programTitle}
+              setShowComponent={setShowComponent}
             />
             {/* <form onSubmit={handleSubmit}>
                     <div className="row mt-4 me-3">
