@@ -11,12 +11,12 @@ const WorkOut = ({
   
   return (
    <><div className="row">
-    <div className="col-md-12 ">
+    <div className="col-md-12">
           <div className="diet-plan-section-page">
               <WorkoutButtons />
           </div>
     </div>
-    <div className="col-md-12  mt-5">
+    <div className="col-md-12  mt-3">
           <div className="diet-plan-section-page">
               <WorkTable />
           </div>
