@@ -19,14 +19,15 @@ const SubscriptionList = ({ subscriptions, onDelete }) => {
               <p className="card-title text-center mb-0">
                 {subscription.planDuration} days
               </p>
-
-              <span
+              <button class="btn btn-secondary btn-sm me-2"  onClick={() => onDelete(subscription)}
+                style={{ cursor: "pointer" }}><i class="bi bi-pencil"></i></button>
+              {/* <span
                 className="text-danger"
                 onClick={() => onDelete(subscription)}
                 style={{ cursor: "pointer" }}
               >
                 <FaEdit />
-              </span>
+              </span> */}
             </div>
             <div className="card-body">
               <span className="card-text">${subscription.planAmount}</span>

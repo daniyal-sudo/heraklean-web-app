@@ -2465,6 +2465,14 @@ a.text-decoration-none.text-black:focus {
   .table-responsive .table.table-bordered thead.table-bg tr {
     border: none;
 }
+.subcribtion_scroll .card button.btn.btn-secondary.btn-sm.me-2 {
+  cursor: pointer;
+  background: #263238DE !important;
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 11px;
+  border-color: #263238DE !important;
+}
 @media (max-width: 1024px) {
   .meeting p.fw-light {
     margin: 0px !important;
