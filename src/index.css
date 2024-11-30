@@ -2445,6 +2445,9 @@ a.text-decoration-none.text-black:focus {
   .table-responsive .table.table-bordered thead.table-bg {
     height: 55px;
   }
+  #workout .btn.btn-light:hover {
+    background: #263238 !important;
+  }
   .custom-background {
     background-color: #53AFE6 !important;
   }
