@@ -2473,6 +2473,9 @@ a.text-decoration-none.text-black:focus {
   border-radius: 11px;
   border-color: #263238DE !important;
 }
+.navbar-toggler.display_class:focus {
+  background-color: transparent !important;
+}
 @media (max-width: 1024px) {
   .meeting p.fw-light {
     margin: 0px !important;
