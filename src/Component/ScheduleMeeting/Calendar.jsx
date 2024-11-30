@@ -7,7 +7,7 @@ import { api_url, formatTimeToAmPm } from "../../../CommonFunctions";
 import { Dropdown, Button } from "react-bootstrap";
 import ScheduledCalander from "./ScheduledCalander";
 import { errorMessage, successMessage } from "../../Toast/Toast";
-import moment from 'moment';
+import moment from "moment";
 
 const Calendar = () => {
   const [selectedMeeting, setSelectedMeeting] = useState(null);
@@ -170,8 +170,8 @@ const Calendar = () => {
     "8:00 PM",
     "9:00 PM",
     "10:00 PM",
-    "11:00 PM"
-  ]
+    "11:00 PM",
+  ];
 
   useEffect(() => {
     fetchMeetings();
@@ -432,28 +432,43 @@ const Calendar = () => {
   const isWithinHourRange = (meetingTime, slotTime) => {
     const meetingMoment = moment(meetingTime, "h:mm A");
     const slotMoment = moment(slotTime, "h:mm A");
-  
+
     // Extract the hour for both meeting and slot time
     const meetingHour = meetingMoment.hour();
     const slotHour = slotMoment.hour();
-  
+
     // Check if the meeting time's hour is the same as the slot time's hour
     if (meetingHour === slotHour) {
       // If the hour matches, return true if the meeting time is within the same hour range (i.e., between slot's 0 minute and 59 minute)
       const meetingMinutes = meetingMoment.minute();
       return meetingMinutes >= 0 && meetingMinutes <= 59; // This ensures the meeting is within the given hour
     }
-  
+
     // If the hours don't match, return false
     return false;
   };
-  
+  const MobileViewData = () => {
+    return daysInWeek.flatMap((day) => {
+      const formattedDay = day.toISOString().split("T")[0];
+
+      // Filter meetings for the current day
+      return meetings.filter((meeting) => {
+        const meetingDate = meeting.date; // Assuming "2024-12-02"
+        return meetingDate === formattedDay; // Check if dates match
+      });
+    });
+  };
+
   return (
     <div className="container" style={{ padding: "30px", minWidth: "100%" }}>
       <div className="calander-section" style={{ border: "1px solid #E5E5E5" }}>
         <div className="calander-mobile-section show-on-mobile">
           {timeHandleMobile()}
-          <ScheduledCalander />
+          <ScheduledCalander
+            MobileViewData={MobileViewData}
+            getMeetingBackgroundColor={getMeetingBackgroundColor}
+            setSelectedMeeting={setSelectedMeeting}
+          />
         </div>
         <div className="calendar-main-container show-on-desktop">
           {timeHandleDesktop()}
@@ -483,11 +498,14 @@ const Calendar = () => {
                       const meetingsForSlot = meetings.filter((meeting) => {
                         const meetingDate = meeting.date; // Assuming meeting.date is a string like "2024-12-02"
                         const meetingTime = meeting.time; // Assuming meeting.time is in format "12:30 PM"
-                        
+
                         // Check if the meeting is on the same day and if the time is within 1 hour of the slot
-                        return meetingDate === formattedDay && isWithinHourRange(meetingTime, time);
+                        return (
+                          meetingDate === formattedDay &&
+                          isWithinHourRange(meetingTime, time)
+                        );
                       });
-                        
+
                       return (
                         <div
                           key={`${dayIndex}-${time}`}
@@ -536,7 +554,7 @@ const Calendar = () => {
               </div>
             </div>
 
-            {selectedMeeting && (
+            {selectedMeeting && window.innerWidth > 768 && (
               <div className="meeting-details  text-center">
                 <img
                   src={
@@ -567,13 +585,18 @@ const Calendar = () => {
                         />
                       </svg>
                     </div>
-                    <div className="card-title">{selectedMeeting.trainingType} Training</div>
+                    <div className="card-title">
+                      {selectedMeeting.trainingType} Training
+                    </div>
                   </div>
                   <div className="card-content">
                     {selectedMeeting.description}
                   </div>
                   <div className="card-time">
-                    {selectedMeeting.time}  to {moment(selectedMeeting.time, "h:mm A").add(1, 'hour').format("h:mm A")}
+                    {selectedMeeting.time} to{" "}
+                    {moment(selectedMeeting.time, "h:mm A")
+                      .add(1, "hour")
+                      .format("h:mm A")}
                   </div>
                   <button className="card-button">
                     {selectedMeeting.isRecurring
@@ -626,6 +649,124 @@ const Calendar = () => {
             )}
           </div>
         </div>
+        {selectedMeeting && window.innerWidth <= 768 && (
+          <div
+            className="modal fade show d-block"
+            id="calendar-modal"
+            tabIndex="-1"
+            role="dialog"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+          >
+            <div
+              className="modal-dialog modal-lg modal-dialog-centered"
+              role="document"
+            >
+              <div className="modal-content">
+                <button
+                  type="button"
+                  className="close"
+                  aria-label="Close"
+                  onClick={() => setSelectedMeeting(false)}
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div className="modelDesign">
+                  <img
+                    src={
+                      selectedMeeting.client.profilePic
+                        ? `http://82.112.240.94:5001/${selectedMeeting.client.profilePic.replace(
+                            /\\/g,
+                            "/"
+                          )}`
+                        : "/profile.jpg"
+                    }
+                    alt="Client"
+                    className="trainer-image mx-5 mb-3"
+                  />
+                  <h3>{selectedMeeting.client.fullname}</h3>
+                  <div className="card-calander">
+                    <div className="card-header">
+                      <div className="card-icon">
+                        <svg
+                          width="35"
+                          height="35"
+                          viewBox="0 0 35 35"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.9807 31.3863C12.1102 31.5267 12.1791 31.7125 12.1724 31.9034C12.1656 32.0943 12.0838 32.2749 11.9447 32.4058L10.3809 33.8681C10.2412 33.9979 10.0558 34.0669 9.86532 34.06C9.67483 34.0531 9.49487 33.9709 9.36495 33.8314L0.257674 24.0164C0.128254 23.8759 0.0595125 23.69 0.0663883 23.4991C0.073264 23.3081 0.155201 23.1277 0.294394 22.9968L1.86039 21.5367C1.92949 21.4724 2.01059 21.4223 2.09906 21.3893C2.18752 21.3563 2.28162 21.3411 2.37596 21.3445C2.47031 21.3479 2.56306 21.3699 2.64891 21.4092C2.73477 21.4484 2.81204 21.5043 2.87631 21.5734L11.9807 31.3863ZM23.6015 12.9183C23.7309 13.0588 23.7997 13.2447 23.7928 13.4356C23.7859 13.6265 23.704 13.807 23.5648 13.9378L13.7224 23.1322C13.5828 23.2619 13.3973 23.3309 13.2068 23.3241C13.0164 23.3172 12.8364 23.235 12.7065 23.0955L10.3571 20.5604C10.2277 20.4199 10.159 20.234 10.1658 20.0431C10.1727 19.8521 10.2546 19.6717 10.3938 19.5408L20.2341 10.3464C20.3031 10.2821 20.3842 10.2321 20.4726 10.1991C20.561 10.1661 20.655 10.1509 20.7493 10.1543C20.8436 10.1578 20.9363 10.1797 21.0221 10.219C21.1078 10.2582 21.1851 10.314 21.2493 10.3832L23.6015 12.9183ZM15.3294 28.2564C15.5987 28.5466 15.5822 29.0052 15.2927 29.276L13.7267 30.7376C13.6576 30.8019 13.5765 30.852 13.4881 30.8849C13.3996 30.9179 13.3055 30.9331 13.2111 30.9297C13.1168 30.9263 13.024 30.9043 12.9382 30.8651C12.8523 30.8258 12.7751 30.77 12.7108 30.7008L3.60855 20.8858C3.47904 20.7454 3.41017 20.5595 3.41692 20.3686C3.42366 20.1777 3.50546 19.9972 3.64455 19.8663L5.20767 18.4054C5.34732 18.2757 5.53275 18.2067 5.72323 18.2135C5.91372 18.2204 6.09368 18.3026 6.22359 18.4421L15.3294 28.2564ZM30.4948 13.2704C30.6241 13.411 30.6927 13.5969 30.6857 13.7878C30.6787 13.9787 30.5966 14.1591 30.4574 14.2899L28.8921 15.7515C28.7524 15.8814 28.5669 15.9505 28.3763 15.9438C28.1857 15.937 28.0056 15.8549 27.8754 15.7155L18.7718 5.9026C18.6421 5.76227 18.5731 5.57639 18.5798 5.38543C18.5866 5.19447 18.6685 5.01391 18.8078 4.88308L20.3774 3.41788C20.4464 3.35357 20.5274 3.30351 20.6158 3.27055C20.7042 3.23759 20.7983 3.22237 20.8926 3.22579C20.9869 3.2292 21.0795 3.25116 21.1653 3.29042C21.2511 3.32968 21.3283 3.38547 21.3926 3.4546L30.4948 13.2704ZM33.8385 10.1456C33.9678 10.2863 34.0364 10.4723 34.0295 10.6632C34.0227 10.8542 33.9408 11.0348 33.8018 11.1658L32.2393 12.6267C32.1704 12.691 32.0894 12.7412 32.001 12.7742C31.9126 12.8072 31.8186 12.8225 31.7243 12.8191C31.63 12.8158 31.5373 12.7939 31.4515 12.7547C31.3657 12.7155 31.2884 12.6598 31.2242 12.5907L22.1219 2.77348C21.9925 2.63286 21.9238 2.44693 21.9305 2.25597C21.9372 2.06501 22.0189 1.88439 22.1579 1.75324L23.7218 0.289481C23.7906 0.225063 23.8716 0.174881 23.9599 0.141815C24.0482 0.108749 24.1422 0.0934499 24.2365 0.0967947C24.3307 0.100139 24.4234 0.122063 24.5092 0.161306C24.5949 0.20055 24.6721 0.256342 24.7362 0.325481L33.8385 10.1456Z"
+                            fill="black"
+                          />
+                        </svg>
+                      </div>
+                      <div className="card-title">
+                        {selectedMeeting.trainingType} Training
+                      </div>
+                    </div>
+                    <div className="card-content">
+                      {selectedMeeting.description}
+                    </div>
+                    <div className="card-time">
+                      {selectedMeeting.time} to{" "}
+                      {moment(selectedMeeting.time, "h:mm A")
+                        .add(1, "hour")
+                        .format("h:mm A")}
+                    </div>
+                    <button className="card-button">
+                      {selectedMeeting.isRecurring
+                        ? "Recurring Meeting"
+                        : "One-time Meeting"}
+                    </button>
+                  </div>
+                  <div className="meeting-actions">
+                    <button
+                      className="btn btn-primary btn-radius border-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#RescheduleModal"
+                      onClick={handleRescheduleClick}
+                    >
+                      Reschedule
+                    </button>
+                    {selectedMeeting && (
+                      <button
+                        className="btn btn-danger"
+                        onClick={handleCancelMeeting}
+                        disabled={loading}
+                      >
+                        {loading ? "Canceling..." : "Cancel Meeting"}
+                      </button>
+                    )}
+
+                    {selectedMeeting.type === "clientRequest" &&
+                      selectedMeeting.status === "Pending" && (
+                        <>
+                          <button
+                            className="btn btn-primary btn-radius border-0"
+                            onClick={handleApproveMeeting}
+                          >
+                            Approve
+                          </button>
+                          <button
+                            className="decline-button btn-radius border-0"
+                            style={{
+                              background: "#37474F3D",
+                              border: "1px solid #37474F3D",
+                            }}
+                            decline-button
+                          >
+                            Decline
+                          </button>
+                        </>
+                      )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {showForm && (
           <div
             className="modal fade show d-block"
@@ -964,7 +1105,7 @@ const Calendar = () => {
                   <h5 className="modal-title" id="RescheduleModalLabel">
                     Reschedule Meeting
                   </h5>
-                  
+
                   <button
                     type="button"
                     class="close"

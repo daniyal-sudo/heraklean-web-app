@@ -2,20 +2,16 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FaEllipsisV } from 'react-icons/fa';
 
-const ScheduledCalander = () => {
-  const meetings = [
-    { id: 1, name: "William Jones", time: "11:00 AM", date: "07/04/2024", status: "online" },
-    { id: 2, name: "Bella Jones", time: "10:00 AM", date: "07/04/2024", status: "online" },
-    { id: 3, name: "Relaa Hales", time: "01:00 PM", date: "07/04/2024", status: "online" }
-  ];
+const ScheduledCalander = ({MobileViewData,getMeetingBackgroundColor,setSelectedMeeting}) => {
+;
 
   // Inline styles
   const containerStyle = {
-    maxWidth: '390px',
     margin: 'auto'
   };
  
 
+  const mettings = MobileViewData ? MobileViewData() : []
   const cardStyle = {
         border: 'none',
         width: '100%',
@@ -70,7 +66,6 @@ const ScheduledCalander = () => {
     width: '10px',
     height: '10px',
     borderRadius: '50%',
-    backgroundColor: status === "online" ? 'green' : 'gray',
     marginRight: '10px'
   });
 
@@ -90,20 +85,26 @@ const ScheduledCalander = () => {
         <Button variant="primary submit-button">Schedule New</Button>
       </div> */}
       
-      {meetings.map(meeting => (
-        <Card key={meeting.id} style={cardStyle}>
+      {mettings && mettings.map((meeting,index) => (
+        <Card key={index} style={cardStyle}
+        onClick={()=>{
+          setSelectedMeeting(meeting)
+        }}>
           <Card.Body style={cardBodyStyle}>
             <img
-              src={`https://i.pravatar.cc/50?img=${meeting.id}`}
+              src={meeting.client.profilePic}
               alt="User Avatar"
               style={avatarStyle}
             />
             <div className="flex-grow-1">
-              <h6  style={nameStyle}>Meeting with <span style={nameStyles}>{meeting.name}</span></h6>
+              <h6  style={nameStyle}>Meeting with <span style={nameStyles}>{meeting.client.fullname}</span></h6>
               <small style={smallTextStyle}>{meeting.date} | {meeting.time}</small>
             </div>
             <div className="d-flex align-items-center">
-              <span style={badgeStyle(meeting.status)}></span>
+              <span style={badgeStyle(meeting.status)}
+                className={`${getMeetingBackgroundColor(
+                  meeting
+                )}`}></span>
               <FaEllipsisV style={iconStyle} />
             </div>
           </Card.Body>
