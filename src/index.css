@@ -2448,7 +2448,7 @@ a.text-decoration-none.text-black:focus {
   #workout .btn.btn-light:hover {
     background: #263238 !important;
   }
-  .subcribtion_scroll ::-webkit-scrollbar {
+  .subcribtion_scroll::-webkit-scrollbar {
     width: 8px;
   }
   .subcribtion_scroll::-webkit-scrollbar-track {
