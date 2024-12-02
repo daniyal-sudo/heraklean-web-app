@@ -1966,7 +1966,9 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .col-12.col-md-4 h6 {
     font-size: 18px !important;
   }
-
+  #calander-meeting {
+    height: 100vh !important;
+  }
   .container {
     padding: 20px !important;
     height: auto !important;
