@@ -1969,9 +1969,16 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 
   .container {
     padding: 20px !important;
-    height: auto !important;
+    /* height: auto !important; */
   }
-
+  .schedule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.schedule-container {
+  padding: 0px !important;
+}
   .crative-button button.btn.btn-primary {
     background: #53AFE6 !important;
   }

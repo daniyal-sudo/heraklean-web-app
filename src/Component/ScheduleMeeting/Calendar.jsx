@@ -460,7 +460,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="container" style={{ padding: "30px", minWidth: "100%" }}>
+    <div className="container" style={{ padding: "30px", minWidth: "100%",  height: "100vh"}}>
       <div className="calander-section" style={{ border: "1px solid #E5E5E5" }}>
         <div className="calander-mobile-section show-on-mobile">
           {timeHandleMobile()}

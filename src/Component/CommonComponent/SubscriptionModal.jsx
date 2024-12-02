@@ -171,7 +171,7 @@ const SubscriptionModal = ({}) => {
         id="calendar-modal"
       >
         <div className="modal-dialog modal-lg modal-dialog-centered">
-          <div className="modal-content">
+          <div className="modal-content" style={{ height: '100%', minHeight: '300px' }}>
             <div className="modal-header">
               <h5 className="modal-title">
                 {showComponent === ""
