@@ -629,6 +629,8 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
     #calendar-modal .modal-body .row .col-6.mb-3 {
       width: 100%;
   }
-
+  .custom-sidebar .text-center .hamid-icon {
+    display: block !important;
+}
    }
 
