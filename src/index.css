@@ -1969,7 +1969,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 
   .container {
     padding: 20px !important;
-    /* height: auto !important; */
+    height: auto !important;
   }
   .schedule-container {
     display: flex;
