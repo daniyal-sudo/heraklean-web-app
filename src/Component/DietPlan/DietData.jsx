@@ -173,7 +173,7 @@ const DietPlans = () => {
 
                       <div className="row mt-3">
                         {/* Dynamically display each meal's title */}
-                        {item.meals.map((meal, i) => (
+                        {item.meals.slice(0,3).map((meal, i) => (
                           <div
                             className="col-12 col-md-4"
                             key={`meal-col-${i}`}

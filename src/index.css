@@ -2380,6 +2380,7 @@ a.text-decoration-none.text-black:focus {
   text-align: center;
   background: #F5F5F5;
   border: 1px solid #9A9A9A33;
+  cursor: pointer;
 
   justify-content: center;
 }
@@ -2530,4 +2531,18 @@ a.text-decoration-none.text-black:focus {
     width: 100%;
     height: 100% !important;
   }
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: unset !important;
+  opacity: 1;
+}
+.works-out-button.active{
+  background-color: #5eb0e7;
+  color: #ffffff;
+}
+.works-out-button.active span{
+
+  color: #ffffff;
+ 
 }

@@ -1,35 +1,41 @@
 import React from "react";
+import DayDropdown from "../CommonComponent/CustomDropDownPlan";
 
-const WorkTable = () => {
-    const tableStyle = {
-        borderRadius: '13px', 
-        borderCollapse: 'separate',
-        borderSpacing: '0', 
-        overflow: 'hidden', 
-      };
-  const data = [
-    {
-      category: "XYZ",
-      exercise: "Chest",
-      sets: 12,
-      repetitions: 2,
-      workingLoad: 15,
-      coachNotes: "XYZ",
-    },
-    {
-      category: "XYZ",
-      exercise: "Barbell Bench",
-      sets: 10,
-      repetitions: 1,
-      workingLoad: 10,
-      coachNotes: "XYZ",
-    },
-    // Add more rows here
-  ];
+const WorkTable = ({ data, onUpdate }) => {
+  const tableStyle = {
+    borderRadius: "13px",
+    borderCollapse: "separate",
+    borderSpacing: "0",
+    overflow: "hidden",
+  };
+  const handleInputChange = (index, field, event) => {
+    const { value } = event.target;
+    onUpdate(index, field, value);
+  };
 
+
+
+  // Function to handle changes in the selected day
+  const handleDayChange = (day) => {
+    setSelectedDay(day);
+    console.log("Selected Day:", day); // Perform any additional actions, e.g., API calls or updating another state
+  };
   return (
     <div className="container">
-      <div className="table-responsive">
+      {/* <div className="col-6">
+        <Form.Group className="mb-4">
+          <Form.Label>Days</Form.Label>
+          <DayDropdown
+            selectedDay={selectedDay}
+            handleDayChange={handleDayChange}
+          />
+        </Form.Group>
+      </div> */}
+      <div className="table-responsive" style={{
+            overflowY: 'auto',
+            maxHeight: '291px',
+            height:'100%'
+      }}>
         <table className="table table-bordered" style={tableStyle}>
           <thead className="table-bg">
             <tr>
@@ -49,32 +55,43 @@ const WorkTable = () => {
                     type="text"
                     value={item.category}
                     className="form-control border-0"
+                    readOnly
                     placeholder="text"
                     style={{ border: "none" }}
+                    // onChange={(e) => handleInputChange(index, "category", e)}
                   />
                 </td>
                 <td>
                   <input
                     type="text"
-                    value={item.exercise}
+                    value={item.exerciseName}
                     className="form-control border-0"
                     style={{ border: "none" }}
+                    onChange={(e) =>
+                      handleInputChange(index, "exerciseName", e)
+                    }
                   />
                 </td>
                 <td>
                   <input
                     type="number"
-                    value={item.sets}
+                    value={item.numberOfSets}
                     className="form-control border-0"
                     style={{ border: "none" }}
+                    onChange={(e) =>
+                      handleInputChange(index, "numberOfSets", e)
+                    }
                   />
                 </td>
                 <td>
                   <input
                     type="number"
-                    value={item.repetitions}
+                    value={item.numberOfRepetitions}
                     className="form-control border-0"
                     style={{ border: "none" }}
+                    onChange={(e) =>
+                      handleInputChange(index, "numberOfRepetitions", e)
+                    }
                   />
                 </td>
                 <td>
@@ -83,6 +100,7 @@ const WorkTable = () => {
                     value={item.workingLoad}
                     className="form-control border-0"
                     style={{ border: "none" }}
+                    onChange={(e) => handleInputChange(index, "workingLoad", e)}
                   />
                 </td>
                 <td>
@@ -91,6 +109,7 @@ const WorkTable = () => {
                     value={item.coachNotes}
                     className="form-control border-0"
                     style={{ border: "none" }}
+                    onChange={(e) => handleInputChange(index, "coachNotes", e)}
                   />
                 </td>
               </tr>

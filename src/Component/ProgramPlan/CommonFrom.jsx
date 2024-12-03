@@ -19,27 +19,25 @@ const CommonForm = ({
   return (
     <>
      
-        <Form onSubmit={handleSubmit} className="p-4 creative-program">
+        <div className="p-4 creative-program">
           <h4>Create Program Plan</h4>
 
           {/* Program Title */}
           <div className="row">
-            <div className="col-6">
+            <div className="col-12">
               <Form.Group className="mb-4">
                 <Form.Label>Program Title</Form.Label>
                 <Form.Control
                   type="text"
-                  name="programTitle"
-                  value={programTitle}
-                  onChange={(e) => {
-                    setProgramTitle(e.target.value);
-                  }}
+                  name="title"
+                  value={dayForm.title}
+                  onChange={handleDayFormChange}
                   placeholder="Type"
-                  required
+                 
                 />
               </Form.Group>
             </div>
-            <div className="col-6">
+            {/* <div className="col-6">
               <Form.Group className="mb-4">
                 <Form.Label>Select Day</Form.Label>
                 <DayDropdown
@@ -47,11 +45,11 @@ const CommonForm = ({
                   handleDayChange={setSelectedDay}
                 />
               </Form.Group>
-            </div>
+            </div> */}
 
             {/* Program Title */}
 
-            <div className="col-6">
+            {/* <div className="col-6">
               <Form.Group className="mb-4">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -63,9 +61,9 @@ const CommonForm = ({
                   required
                 />
               </Form.Group>
-            </div>
+            </div> */}
 
-            <div className="col-6">
+            <div className="col-12">
               <Form.Group className="mb-4">
                 <Form.Label>Duration (e.g., 1 hour)</Form.Label>
                 <Form.Control
@@ -74,12 +72,12 @@ const CommonForm = ({
                   value={dayForm.duration}
                   onChange={handleDayFormChange}
                   placeholder="Duration"
-                  required
+                 
                 />
               </Form.Group>
             </div>
             {/* General Notes */}
-            <div className="col-6">
+            <div className="col-12">
               <Form.Group className="mb-4">
                 <Form.Label>General Notes</Form.Label>
                 <Form.Control
@@ -89,13 +87,13 @@ const CommonForm = ({
                   onChange={handleDayFormChange}
                   rows={3}
                   placeholder="Type"
-                  required
+                 
                 />
               </Form.Group>
             </div>
 
             {/* Warm Up */}
-            <div className="col-6">
+            <div className="col-12">
               <Form.Group className="mb-4">
                 <Form.Label>Modules (comma separated)</Form.Label>
                 <Form.Control
@@ -105,7 +103,7 @@ const CommonForm = ({
                   onChange={handleDayFormChange}
                   rows={3}
                   placeholder="Type"
-                  required
+                 
                 />
               </Form.Group>
             </div>
@@ -120,7 +118,8 @@ const CommonForm = ({
         </button> */}
             <button
               onClick={() => {
-                setShowComponent("showWorkout");
+                // setShowComponent("showWorkout");
+                handleSubmit()
               }}
               class="btn btn-primary"
             >
@@ -135,7 +134,7 @@ const CommonForm = ({
               Cancel
             </button>
           </div>
-        </Form>
+        </div>
           </>
   );
 };
