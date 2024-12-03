@@ -20,7 +20,7 @@ const CommonForm = ({
     <>
      
         <div className="p-4 creative-program">
-          <h4>Create Program Plan</h4>
+          <h4>{dayForm.id ? 'Edit':'Create' }Program Plan</h4>
 
           {/* Program Title */}
           <div className="row">

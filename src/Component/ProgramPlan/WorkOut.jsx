@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import WorkoutButtons from "../DietPlan/WorkoutButtons";
 import WorkTable from "./WorkTable";
 
-const WorkOut = ({ onBack, tableData, setTableData,handleSubmit}) => {
+const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
   // onClose()
 
   const updateData = (index, field, value) => {
@@ -50,7 +50,11 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit}) => {
         <div className="col-md-12">
           <div className="diet-plan-section-page"
          >
-            <WorkoutButtons AddDeleteObject={AddDeleteObject} checkCategoryExistence={checkCategoryExistence}/>
+            <WorkoutButtons 
+            name= {dayForm.id ? 'Edit':'Create'}
+            
+            
+            AddDeleteObject={AddDeleteObject} checkCategoryExistence={checkCategoryExistence}/>
           </div>
         </div>
         <div className="col-md-12  mt-3">
@@ -75,7 +79,7 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit}) => {
         </button>
         <button type="button" class="save-button btn btn-primary"
         onClick={handleSubmit}>
-          Create
+          {dayForm.id ? 'Edit':'Create'}
         </button>
       </div>
     </>

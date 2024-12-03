@@ -10,11 +10,11 @@ const workoutCategories = [
   "Shoulder",
 ];
 
-const WorkoutButtons = ({AddDeleteObject,checkCategoryExistence}) => {
+const WorkoutButtons = ({AddDeleteObject,checkCategoryExistence,name}) => {
   return (
     <div className="p-1">
       {/* Title */}
-      <h2 className="head-title-wrokout">Create Workout</h2>
+      <h2 className="head-title-wrokout">{name} Workout</h2>
       <div className="rounded mt-1 mb-4" style={{ width: "130px", height: "4px", backgroundColor: "#53AFE6" }}></div>
 
       {/* Buttons Container */}

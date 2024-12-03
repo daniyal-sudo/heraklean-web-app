@@ -43,26 +43,18 @@ const ProgramPlans = () => {
     description: "",
     modules: "",
     duration: "",
+    id:''
   });
 
   // Fetch programs from API
   useEffect(() => {
-    const fetchPrograms = async () => {
-      try {
-        const response = await axiosInstance.get(`/getTrainerProgramPlans`);
-        const fetchedPrograms = response.data.programPlans;
-        setPrograms(fetchedPrograms);
-
-        // Default to first program and Monday data
-      } catch (error) {
-        console.error("Error fetching programs:", error);
-      }
-    };
+   
     fetchPrograms();
   }, []);
   useEffect(() => {
     if (showComponent === "") {
       setDayForm({
+        id:'',
         title: "",
         description: "",
         modules: "",
@@ -99,6 +91,7 @@ const ProgramPlans = () => {
       return;
     }
     const programData = {
+      id:dayForm.id ? dayForm.id : '',
       title: dayForm.title,
       description: dayForm.description,
       modules: dayForm.modules
@@ -110,7 +103,7 @@ const ProgramPlans = () => {
 
     try {
       const response = await axiosInstance.post(
-        `/createProgramPlan`,
+        dayForm.id  ?   '/editProgramPlan' : `/createProgramPlan`,
         programData
       );
 
@@ -124,20 +117,40 @@ const ProgramPlans = () => {
         errorMessage(response.data.message);
       }
     } catch (error) {
-      console.error(error);
-      errorMessage("Error creating program");
+      if (error.response) {
+        console.error("HTTP Status:", error.response.status);
+        console.error("Response Data:", error.response.data);
+    } else {
+        console.error("Error Message:", error.message);
+    }
     }
   };
 
   const handleEdit = (data) => {
+    alert('')
     setDayForm({
       title: data.title,
       description: data.description,
       modules: data.modules.toString(),
       duration: data.duration,
+      id:data._id
     });
 
     setTableData(data.exercises);
+
+    setShowComponent('craeteProgram')
+  };
+
+  const fetchPrograms = async () => {
+    try {
+      const response = await axiosInstance.get(`/getTrainerProgramPlans`);
+      const fetchedPrograms = response.data.programPlans;
+      setPrograms(fetchedPrograms);
+
+      // Default to first program and Monday data
+    } catch (error) {
+      console.error("Error fetching programs:", error);
+    }
   };
 
   return (
@@ -161,6 +174,7 @@ const ProgramPlans = () => {
               tableData={tableData}
               setTableData={setTableData}
               handleSubmit={handleSubmit}
+              dayForm={dayForm}
               onBack={() => {
                 setShowComponent("craeteProgram");
               }}
@@ -219,11 +233,13 @@ const ProgramPlans = () => {
               <div className="row">
                 {programs.length > 0 &&
                   programs.map((program, index) => (
-                    <div className="col-md-6 mb-3">
+                    <div className="col-md-6 mb-3"key={index}>
                       <div className="card p-3 program-2">
                         <div className="d-flex justify-content-between align-items-start">
                           <h5 className="custom-heads">{program.title}</h5>
-                          <button className="btn btn-secondary btn-sm icon-hidden">
+                          <button className="btn btn-secondary btn-sm icon-hidden" onClick={() => {
+                              handleEdit(program);
+                            }}>
                             <RiEdit2Fill size={18} />
                           </button>
                         </div>
