@@ -1902,9 +1902,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .diet-plan-section-pages.scroll_dietPlan .card.diet-plan-section #diet-icon-hide {
     display: none !important;
 }
-  #calander-meeting {
-    height: auto !important;
-  }
+  
   .duration-button button.btn.btn-primary {
     display: none;
   }
