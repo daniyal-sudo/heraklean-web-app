@@ -47,7 +47,9 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
   };
 
   const isFormValid = (form) => {
-    return Object.values(form).every(value => value.trim() !== "");
+    return Object.entries(form)
+      .filter(([key]) => key !== "id") // Exclude the "id" field
+      .every(([, value]) => value.trim() !== ""); // Check that all remaining fields are non-empty
   };
   
   // Usage Example

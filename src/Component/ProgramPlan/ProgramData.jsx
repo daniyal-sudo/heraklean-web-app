@@ -127,7 +127,7 @@ const ProgramPlans = () => {
   };
 
   const handleEdit = (data) => {
-    alert('')
+    // alert('')
     setDayForm({
       title: data.title,
       description: data.description,
@@ -276,14 +276,15 @@ const ProgramPlans = () => {
                       </div>
                     </div>
                   ))}
-              </div>
-            </div>
-
-            {programs.length === 0 && (
+                   {programs.length === 0 && (
               <div className="text-center record-image no-record-found-h">
                 <img src="/no-event.jpg" style={{ width: "130px" }} />
               </div>
             )}
+              </div>
+            </div>
+
+           
           </div>
         </div>
       )}

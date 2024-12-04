@@ -537,7 +537,7 @@ button.btn.btn-primary {
 }
 
 .no-record-found-h {
-  height: 550px;
+  height: 599px;
 }
 
 .diet-plan-section-pages::-webkit-scrollbar-track {
@@ -767,7 +767,7 @@ input[type="number"]::-webkit-inner-spin-button {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  height: 520px !important;
+  height: 599px !important;
 }
 
 .scrolbar-program::-webkit-scrollbar {
@@ -1839,6 +1839,18 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     width: 100%;
   }
 
+  #calander-meeting {
+    height: 100vh !important;
+  }
+  .calander-section{
+    height: 100%;
+  }
+  .Clander-mobile{
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+  }
   .common-button {
     flex-wrap: wrap;
     row-gap: 10px;
@@ -1966,9 +1978,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .col-12.col-md-4 h6 {
     font-size: 18px !important;
   }
-  #calander-meeting {
-    height: 100vh !important;
-  }
+  
   .container {
     padding: 20px !important;
     height: auto !important;
@@ -2545,4 +2555,12 @@ a.text-decoration-none.text-black:focus {
 
   color: #ffffff;
  
+}
+
+
+
+.scroll_dietPlan{
+  overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 599px;
 }

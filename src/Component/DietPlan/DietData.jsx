@@ -107,7 +107,7 @@ const DietPlans = () => {
                 </div>
               </div>
             </div>
-            <div className="diet-plan-section-pages">
+            <div className="diet-plan-section-pages scroll_dietPlan">
               {/* Show selected day and meal details */}
               {diets && diets.length > 0 ? (
                 diets.map((item, index) => {
