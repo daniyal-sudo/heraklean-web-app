@@ -72,7 +72,7 @@
   }
   
   .calendar-header {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
   }
   
@@ -299,6 +299,7 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
 }
 #calendar-modal .modal-dialog.modal-lg {
   max-width: 900px;
+  padding: 0px 10px;
 }
 #calendar-modal .col-12 button {
     width: 293px;
@@ -341,12 +342,7 @@ div#calendar-modal .modal-body .col-6.mb-3.form-check {
     display: flex;
     flex-direction: column;
   }
-  
-  .calendar-header {
-    display: flex;
-    justify-content: center;
-  }
-  
+    
   .time-slot-header {
     width: 180px; 
   }

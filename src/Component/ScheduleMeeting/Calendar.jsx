@@ -662,7 +662,7 @@ const Calendar = () => {
               role="document"
             >
               <div className="modal-content">
-                <button
+                {/* <button
                   type="button"
                   id="close-icon"
                   className="close"
@@ -670,6 +670,16 @@ const Calendar = () => {
                   onClick={() => setSelectedMeeting(false)}
                 >
                   <span aria-hidden="true">&times;</span>
+                </button> */}
+                <button   style={{
+                      opacity: 1,
+                      display: "flex",
+                      justifyContent: "flex-end",
+                    }} type="button" class="close" aria-label="Close"  onClick={() => setSelectedMeeting(false)}><span  style={{
+                  fontSize: "24px",
+                  fontWeight: 400,
+                  padding: "5px",
+                }} aria-hidden="true">×</span>
                 </button>
 
                 <div className="modelDesign">

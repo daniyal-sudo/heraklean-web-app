@@ -157,6 +157,7 @@ const DietPlans = () => {
 
                         <div
                           className="d-flex icon"
+                          id="diet-icon-hide"
                           onClick={() => {
                             setSelectedDiet(item)
                             setShowComponent("editDietPlan");
@@ -198,7 +199,7 @@ const DietPlans = () => {
                         ))}
                       </div>
 
-                      <div className="d-flex icon-hide">
+                      <div className="d-none">
                         <button
                           className="btn btn-secondary btn-sm me-2"
                           onClick={() => {

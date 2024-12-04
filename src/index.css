@@ -435,7 +435,7 @@
 }
 
 .icon-hide {
-  display: none !important;
+  display: none;
 }
 
 .diet-plan-section-page .row.my-2 .col-lg-6 {
@@ -765,7 +765,13 @@ input[type="number"]::-webkit-inner-spin-button {
   line-height: 43.87px;
   text-align: left;
 }
-
+.meeting p.fw-light {
+  white-space: normal;
+  word-break: break-all;
+}
+.scrolbar-program .col-md-6 .program-2 {
+  height: 100%;
+}
 .scrolbar-program {
   overflow-y: auto;
   overflow-x: hidden;
@@ -1871,7 +1877,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .col-6 {
     width: 100%;
   }
-
+ 
   .crative-button .button {
     width: 50% !important;
   }
@@ -1886,6 +1892,19 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 @media (max-width: 480px) {
+  .diet-plan-section-pages.scroll_dietPlan .card.diet-plan-section .meal-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card.diet-plan-section .d-flex.flex-wrap span.badge {
+  width: 92px !important;
+}
+  .diet-plan-section-pages.scroll_dietPlan .card.diet-plan-section #diet-icon-hide {
+    display: none !important;
+}
+  #calander-meeting {
+    height: auto !important;
+  }
   .duration-button button.btn.btn-primary {
     display: none;
   }
@@ -1961,7 +1980,11 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     line-height: 22.87px;
     margin-bottom: 30px;
   }
-
+  .scroll_dietPlan .card.diet-plan-section .d-none {
+    display: flex !important;
+    justify-content: center;
+    gap: 20px;
+}
   .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
     font-size: 14px !important;
   }
@@ -1997,7 +2020,9 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .crative-button button.btn.btn-primary {
     background: #53AFE6 !important;
   }
-
+  .card.diet-plan-section .d-flex.icon-hide {
+    display: flex !important;
+}
   .diet-plan-section-page .text-white {
     display: none !important;
   }
@@ -2022,9 +2047,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .meal-button .btn {
     width: 100px;
   }
-  .card.diet-plan-section .d-flex.icon-hide {
-    justify-content: center;
-  }
+
 
   .plus-icon {
     padding: 5px;
@@ -2218,7 +2241,10 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   outline: none !important;
   border: 1px solid #ced4da !important;
 }
-
+.card.diet-plan-section .d-flex.icon-hide {
+  justify-content: center;
+  gap: 20px;
+}
 .custom-text:focus {
   background-color: transparent !important;
   border: none !important;
@@ -2559,9 +2585,6 @@ a.text-decoration-none.text-black:focus {
   color: #ffffff;
  
 }
-
-
-
 .scroll_dietPlan{
   overflow-y: auto;
     overflow-x: hidden;

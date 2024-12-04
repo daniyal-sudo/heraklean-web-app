@@ -107,7 +107,7 @@
 	position: absolute;
 	top: 15px;
 	left: 15px;
-	z-index: 1100;
+	/* z-index: 1100; */
 	cursor: pointer;
 }
 .overlay {
@@ -203,9 +203,6 @@ nav.custom-sidebar .d-flex a:hover {
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 1049;
  }
- .home-container .d-flex .d-flex {
-    display: flex !important;
-}
 }
 
 .arrow_icon{
