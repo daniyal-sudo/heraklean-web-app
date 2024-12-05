@@ -148,7 +148,8 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                 />
               </div>
               <div className="col-lg-12 button-section-meals">
-                <div className="d-flex meal-button">
+                <div className="row">
+                <div className="col-9 meal-button">
                   {MealTabLenght.map((meal, index) => (
                     <Button
                     style={{
@@ -172,6 +173,8 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                       {meal.name}
                     </Button>
                   ))}
+                  </div>
+                <div className="col-3">
                   <button
                   style={{
                     fontFamily: 'Poppins',
@@ -190,6 +193,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     <TiPlus />
                     Create Another
                   </button>
+                </div>
                 </div>
               </div>
 
