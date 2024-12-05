@@ -1858,7 +1858,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 300px;
+    max-height: 360px;
   }
   .common-button {
     flex-wrap: wrap;
@@ -1963,7 +1963,9 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .Client-Profile-section {
     flex-direction: column;
   }
-
+  .Clander-mobile {
+    max-height: 240px !important;
+}
   .profile-section-meal {
     padding: 20px !important;
   }
