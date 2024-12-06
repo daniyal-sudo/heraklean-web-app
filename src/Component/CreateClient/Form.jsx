@@ -6,10 +6,12 @@ import UploadButton from "./UploadButton";
 import CustomDropdown from "../CommonComponent/CustomDropdown";
 import { api_url } from "../../../CommonFunctions";
 import { errorMessage, successMessage } from "../../Toast/Toast";
+import axiosInstance from "../../Healpers/axiosInstance";
 
 const Form = ({ onClose }) => {
   const [dietPlans, setDietPlans] = useState([]);
   const [programPlans, setProgramPlans] = useState([]);
+  const [subscription, setSubscription] = useState([]);
   const [formData, setFormData] = useState({
     fullname: "",
     startingWeight: "",
@@ -20,10 +22,14 @@ const Form = ({ onClose }) => {
     password: "",
     email: "",
     subscription: "Active", // Added this field
+    subscriptionId: "Active", // Added this field
   });
   const [error, setError] = useState(null);
 
   useEffect(() => {
+
+
+    
     const fetchPlans = async () => {
       const token = localStorage.getItem("token");
       try {
@@ -35,13 +41,13 @@ const Form = ({ onClose }) => {
               headers: { Authorization: `Bearer ${token}` }, // Corrected headers object placement
             }
           ),
-          axios.get(`${api_url}getTrainerProgramPlans`, {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
+         
         ]);
+
+        const response = await axiosInstance.get(`/getTrainerProgramPlans`);
       
         setDietPlans(dietResponse.data.dietPlans);
-        setProgramPlans(programResponse.data.programPlans);
+        setProgramPlans( response.data.programPlans);
       } catch (error) {
         console.error("Error fetching plans:", error);
         setError("Failed to fetch diet and program plans. Please try again.");
@@ -49,7 +55,17 @@ const Form = ({ onClose }) => {
     };
 
     fetchPlans();
+    getSub();
   }, []);
+
+  const getSub =async()=>{
+
+    const response = await axiosInstance.post(`/getSubscriptionsByTrainerId`, {
+      trainerId: localStorage.getItem("trainerId"),
+    });
+
+    setSubscription(response?.data?.subscriptions)
+  }
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -116,17 +132,15 @@ const Form = ({ onClose }) => {
     return <div className="alert alert-danger">{error}</div>;
   }
 
-  const programs = [
-    {
-      title: "Program Name Here",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-    },
-    {
-      title: "Program Name Here",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-    },
-    // Add more programs as needed
-  ];
+console.log(formData,'formDataformData')
+
+function getPlanDetailsById(plans, id) {
+  const plan = plans.find(plan => plan._id === id);
+  if (!plan) {
+      return "Plan not found";
+  }
+  return `${plan.planName} $${plan.planAmount} ${plan.planDuration} days`;
+}
 
   return (
     <div className="create-modal">
@@ -288,7 +302,7 @@ const Form = ({ onClose }) => {
                       )
                         ? programPlans.find(
                             (plan) => plan._id === formData.attachProgramId[0]
-                          ).programTitle
+                          ).title
                         : "Select Program Plan"}
                     </Dropdown.Toggle>
 
@@ -304,12 +318,12 @@ const Form = ({ onClose }) => {
                               type="radio"
                               name="program"
                               className="me-2"
-                              checked={formData.attachDietId === diet._id}
+                              checked={formData.attachProgramId === diet._id}
                               onChange={() =>
                                 handleSelectChange("attachDietId", diet._id)
                               }
                             />
-                            <div className="fw-bold">{diet.programTitle}</div>
+                            <div className="fw-bold">{diet.title}</div>
                           </div>
                         </Dropdown.Item>
                       ))}
@@ -323,7 +337,71 @@ const Form = ({ onClose }) => {
             </div>
 
             <div className="row">
-              <div className="col-6 mb-3">
+
+            <div className="col-6 mb-3 dropdown-diet">
+                <div className="program-dropdown">
+                  <label htmlFor="attachDietId">Subscription</label>
+                  <Dropdown
+                    onSelect={(eventKey) =>
+                      handleSelectChange("subscriptionId", eventKey)
+                    }
+                    disabled={subscription.length === 0} // Disable dropdown if no data
+                  >
+                    <Dropdown.Toggle
+                      variant="light"
+                      className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
+                      disabled={subscription.length === 0} // Disable toggle if no data
+                    >
+                      <span className="dropdown-icon-wrapper">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="feather feather-chevron-down"
+                          width="18"
+                          height="18"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </span>
+                      {subscription.find(
+                        (plan) => plan._id === formData.subscriptionId[0]
+                      )
+                        ? 
+                          getPlanDetailsById(subscription,formData.subscriptionId[0])
+                        : "Select subcribtion Plan"}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu className="custom-dropdown-menu">
+                      {subscription.map((diet) => (
+                        <Dropdown.Item
+                          key={diet._id}
+                          eventKey={diet._id}
+                          className="custom-dropdown-item"
+                        >
+                          <div className="d-flex align-items-start">
+                            <input
+                              type="radio"
+                              name="program"
+                              className="me-2"
+                              checked={formData.subscriptionId === diet._id}
+                              onChange={() =>
+                                handleSelectChange("subscriptionId", diet._id)
+                              }
+                            />
+                            <div className="fw-bold">{ getPlanDetailsById(subscription, diet._id)}</div>
+                          </div>
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </div>
+              {/* <div className="col-6 mb-3">
                 <label htmlFor="subamount">Subscription Amount</label>
                 <input
                   type="number"
@@ -333,7 +411,7 @@ const Form = ({ onClose }) => {
                   onChange={handleInputChange}
                   required
                 />
-              </div>
+              </div> */}
               <div className="col-6 mb-3">
                 <UploadButton handleFileChange={handleFileChange} />
               </div>
