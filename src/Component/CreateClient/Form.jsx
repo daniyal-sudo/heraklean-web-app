@@ -22,7 +22,7 @@ const Form = ({ onClose }) => {
     password: "",
     email: "",
     subscription: "Active", // Added this field
-    subscriptionId: "Active", // Added this field
+    subscriptionId: "", // Added this field
   });
   const [error, setError] = useState(null);
 
@@ -100,6 +100,7 @@ const Form = ({ onClose }) => {
     formDataToSend.append("email", formData.email);
     formDataToSend.append("password", formData.password);
     formDataToSend.append("subscription", formData.subscription);
+    formDataToSend.append("subscriptionId", formData.subscriptionId[0]);
 
  
     try {
