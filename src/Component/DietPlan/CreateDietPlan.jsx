@@ -149,7 +149,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
               </div>
               <div className="col-lg-12 button-section-meals">
                 <div className="row">
-                <div className="col-9 meal-button">
+                <div className="col-8 meal-button">
                   {MealTabLenght.map((meal, index) => (
                     <Button
                     style={{
@@ -174,7 +174,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     </Button>
                   ))}
                   </div>
-                <div className="col-3">
+                <div className="col-4">
                   <button
                   style={{
                     fontFamily: 'Poppins',
