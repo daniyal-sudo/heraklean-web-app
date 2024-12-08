@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { TiPlus } from "react-icons/ti";
-import { Button, Form } from "react-bootstrap";
+import { Button, CloseButton, Form } from "react-bootstrap";
 import TagsInput from "react-tagsinput";
 import "react-tagsinput/react-tagsinput.css";
 import { errorMessage, successMessage } from "../../Toast/Toast";
 import axiosInstance from "../../Healpers/axiosInstance";
 import { useEffect } from "react";
 import CustomInputField from "./CustomInputField";
+import CloseButton2 from "./CloseButton2";
 
 const CreateDietPlan = ({ onClose, editPlan }) => {
   const [dietTitle, setDietTitle] = useState("");
@@ -171,7 +172,9 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                       onClick={() => handleMealSelect(index)}
                     >
                       {meal.name}
+                      <CloseButton2 />
                     </Button>
+               
                   ))}
                   </div>
                 <div className="col-4">
