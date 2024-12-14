@@ -7,6 +7,7 @@ import CreateProgram from "./CreateProgram";
 import WorkOut from "./WorkOut";
 import axiosInstance from "../../Healpers/axiosInstance";
 import { errorMessage, successMessage } from "../../Toast/Toast";
+import Spinner from "../Loader/Spinner";
 
 const ProgramPlans = () => {
   const [programs, setPrograms] = useState([]);
@@ -14,6 +15,7 @@ const ProgramPlans = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [tbaleselectedDay, setTableSelectedDay] = useState("1");
   const [showComponent, setShowComponent] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
 
   const days = [
     "monday",
@@ -48,6 +50,7 @@ const ProgramPlans = () => {
 
   // Fetch programs from API
   useEffect(() => {
+    setShowLoader(true)
    
     fetchPrograms();
   }, []);
@@ -146,6 +149,7 @@ const ProgramPlans = () => {
       const response = await axiosInstance.get(`/getTrainerProgramPlans`);
       const fetchedPrograms = response.data.programPlans;
       setPrograms(fetchedPrograms);
+      setShowLoader(false)
 
       // Default to first program and Monday data
     } catch (error) {
@@ -278,7 +282,10 @@ const ProgramPlans = () => {
                   ))}
                    {programs.length === 0 && (
               <div className="text-center record-image no-record-found-h">
-                <img src="/no-event.jpg" style={{ width: "130px" }} />
+                 {showLoader ? (
+                    <Spinner />
+                  ) : (
+                <img src="/no-event.jpg" style={{ width: "130px" }} />)}
               </div>
             )}
               </div>

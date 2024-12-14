@@ -7,7 +7,15 @@ import SingleClient from "./SingleClient";
 import axios from "axios";
 import { api_url } from "../../../CommonFunctions";
 import Form from "../CreateClient/Form";
-const Card = ({ name, city, imgSrc, clientId, setClinetId,setShowComponent }) => {
+import Spinner from "../Loader/Spinner";
+const Card = ({
+  name,
+  city,
+  imgSrc,
+  clientId,
+  setClinetId,
+  setShowComponent,
+}) => {
   // Assuming your backend serves images from a folder like 'http://localhost:5001/uploads/'
   const imageUrl = imgSrc
     ? `http://82.112.240.94:5001/${imgSrc.replace(/\\/g, "/")}`
@@ -86,17 +94,19 @@ const Card = ({ name, city, imgSrc, clientId, setClinetId,setShowComponent }) =>
 };
 
 const AllClients = () => {
+  const [showLoader, setShowLoader] = useState(false);
   const [clients, setClients] = useState([]);
   const [clinetId, setClinetId] = useState(null);
 
   const [showComponent, setShowComponent] = useState("");
 
-  const [searchTerm, setSearchTerm] = useState(''); 
+  const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
   useEffect(() => {
+    setShowLoader(true)
     const fetchClients = async () => {
       try {
         const token = localStorage.getItem("token");
@@ -108,6 +118,7 @@ const AllClients = () => {
         if (response.data.success) {
           setClients(response.data.clients);
           console.log(response.data.clients);
+          setShowLoader(false)
         }
       } catch (error) {
         console.error("Error fetching clients:", error);
@@ -129,11 +140,10 @@ const AllClients = () => {
   //   { name: 'Kathryn Murphy', city:"New York, USA", imgSrc: 'pic.png' },
   // ];
 
-  console.log(clinetId, showComponent,'222222222222')
+  console.log(clinetId, showComponent, "222222222222");
 
-  const filteredClients = clients.filter(
-    (clients) =>
-      clients.fullname.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredClients = clients.filter((clients) =>
+    clients.fullname.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
     <>
@@ -208,13 +218,17 @@ const AllClients = () => {
                         imgSrc={client.profilePic || "pic.png"}
                         clientId={client._id}
                         setClinetId={setClinetId}
-						setShowComponent={setShowComponent}
+                        setShowComponent={setShowComponent}
                       />
                     </div>
                   ))
                 ) : (
                   <div className="text-center record-image no-record-found-h">
-                    <img src="/no-event.jpg" style={{ width: "130px" }} />
+                    {showLoader ? (
+                      <Spinner />
+                    ) : (
+                      <img src="/no-event.jpg" style={{ width: "130px" }} />
+                    )}
                   </div>
                 )}
               </div>

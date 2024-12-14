@@ -8,6 +8,7 @@ import Form from "../CreateClient/Form";
 
 import "./ClientProfile.css";
 import { api_url } from "../../../CommonFunctions";
+import Spinner from "../Loader/Spinner";
 
 const AppointmentCard = ({ name, date, time, imgSrc }) => {
   return (
@@ -87,6 +88,7 @@ const ClientProfile = ({searchTerm}) => {
   });
   const [appointments, setAppointments] = useState([]);
   const [showComponent, setShowComponent] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
 
 
  
@@ -119,6 +121,7 @@ const ClientProfile = ({searchTerm}) => {
 
       // Set the total clients state from the API response
       setTotalClients(response.data.totalClients);
+      setShowLoader(false)
     } catch (error) {
       console.error("Error fetching total clients:", error);
     }
@@ -126,6 +129,7 @@ const ClientProfile = ({searchTerm}) => {
 
   // Call the fetchTotalClients function when the component mounts
   useEffect(() => {
+    setShowLoader(true)
     fetchTotalClients();
   }, []);
 
@@ -351,7 +355,8 @@ const ClientProfile = ({searchTerm}) => {
                       ))
                     ) : (
                       <div className="text-center record-image">
-                        <img src="/no-event.jpg" style={{ width: "130px" }} />
+                       {showLoader ? <Spinner /> :  
+                        <img src="/no-event.jpg" style={{ width: "130px" }} />}
                       </div>
                     )}
                   </div>

@@ -6,15 +6,18 @@ import { api_url, calculateCalories } from "../../../CommonFunctions";
 import CreateClient from "../CreateClient/CreateClient";
 import CreateDietPlan from "./CreateDietPlan";
 import axiosInstance from "../../Healpers/axiosInstance";
+import Spinner from "../Loader/Spinner";
 
 const DietPlans = () => {
   const [diets, setDiets] = useState([]);
   const [selectedDiet, setSelectedDiet] = useState(null);
   const [showComponent, setShowComponent] = useState("");
   const [selectedDietForEdit, setSelectedDietForEdit] = useState(null);
+  const [showLoader, setShowLoader] = useState(false);
 
   // Fetch diets from API
   useEffect(() => {
+    setShowLoader(true);
     const fetchDiets = async () => {
       try {
         const response = await axiosInstance.post("/getTrainerDietPlans", {
@@ -27,6 +30,7 @@ const DietPlans = () => {
         // Default to first program and Monday data
 
         setDiets(response.data.dietPlans);
+        setShowLoader(false);
       } catch (error) {
         console.error("Error fetching diets:", error);
       }
@@ -159,7 +163,7 @@ const DietPlans = () => {
                           className="d-flex icon"
                           id="diet-icon-hide"
                           onClick={() => {
-                            setSelectedDiet(item)
+                            setSelectedDiet(item);
                             setShowComponent("editDietPlan");
                           }}
                         >
@@ -174,7 +178,7 @@ const DietPlans = () => {
 
                       <div className="row mt-3">
                         {/* Dynamically display each meal's title */}
-                        {item.meals.slice(0,3).map((meal, i) => (
+                        {item.meals.slice(0, 3).map((meal, i) => (
                           <div
                             className="col-12 col-md-4"
                             key={`meal-col-${i}`}
@@ -203,7 +207,7 @@ const DietPlans = () => {
                         <button
                           className="btn btn-secondary btn-sm me-2"
                           onClick={() => {
-                            setSelectedDiet(item)
+                            setSelectedDiet(item);
                             setShowComponent("editDietPlan");
                           }}
                         >
@@ -220,11 +224,15 @@ const DietPlans = () => {
                 })
               ) : (
                 <div className="text-center record-image no-record-found-h">
-                  <img
-                    src="/no-event.jpg"
-                    style={{ width: "130px" }}
-                    alt="No record found"
-                  />
+                  {showLoader ? (
+                    <Spinner />
+                  ) : (
+                    <img
+                      src="/no-event.jpg"
+                      style={{ width: "130px" }}
+                      alt="No record found"
+                    />
+                  )}
                 </div>
               )}
             </div>
