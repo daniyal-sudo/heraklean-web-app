@@ -13,7 +13,7 @@ const SubscriptionList = ({ subscriptions, onDelete,showLoader }) => {
         maxHeight: "250px",
       }}
     >
-      {subscriptions && subscriptions.length > 10000 ? (
+      {subscriptions && subscriptions.length > 0 ? (
         subscriptions.map((subscription) => (
           <div className="col-12 mb-3" key={subscription._id}>
             <div className="card">
