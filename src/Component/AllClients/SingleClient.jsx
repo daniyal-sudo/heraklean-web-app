@@ -21,6 +21,7 @@ import { api_url } from "../../../CommonFunctions";
 import WeightGraphChart from "./WeightGraphChart";
 import SendPlan from "./SendPlan";
 import SaveReport from "./SaveReport";
+import Spinner from "../Loader/Spinner";
 const UpdateMealPlanModal = ({
   show,
   handleClose,
@@ -778,6 +779,7 @@ const SingleClient = ({clinetId,onClose}) => {
   const [error, setError] = useState(null);
   const [selectedDay, setSelectedDay] = useState("monday");
   const [selectedMeal, setSelectedMeal] = useState("monday");
+  const [showLoader, setShowLoader] = useState(false);
 
   const fetchClientData = async () => {
     try {
@@ -795,6 +797,7 @@ const SingleClient = ({clinetId,onClose}) => {
       } else {
         setError("Failed to fetch client data");
       }
+      setShowLoader(false)
     } catch (err) {
       setError("An error occurred while fetching the client data");
     } finally {
@@ -804,12 +807,13 @@ const SingleClient = ({clinetId,onClose}) => {
 
   useEffect(() => {
     if(clinetId){
+      setShowLoader(true)
       fetchClientData();
     }
   
   }, [clinetId]);
 
-  return clientData ? (
+  return clientData  && !showLoader? (
     <ClientProfile
       clientData={clientData}
       selectedDay={selectedDay}
@@ -820,7 +824,17 @@ const SingleClient = ({clinetId,onClose}) => {
       clientId={clinetId}
     />
   ) : (
-    <p>No client data available.</p>
+    <div className="text-center record-image no-record-found-h">
+    {showLoader ? (
+      <Spinner />
+    ) : (
+      <img
+        src="/no-event.jpg"
+        style={{ width: "130px" }}
+        alt="No record found"
+      />
+    )}
+    </div>
   );
 };
 export default SingleClient;

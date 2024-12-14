@@ -4,7 +4,7 @@ import { Dropdown, Button } from "react-bootstrap";
 import { IoIosArrowDown } from "react-icons/io";
 import UploadButton from "./UploadButton";
 import CustomDropdown from "../CommonComponent/CustomDropdown";
-import { api_url } from "../../../CommonFunctions";
+import { api_url, getTodayDate } from "../../../CommonFunctions";
 import { errorMessage, successMessage } from "../../Toast/Toast";
 import axiosInstance from "../../Healpers/axiosInstance";
 
@@ -21,7 +21,7 @@ const Form = ({ onClose }) => {
     profilePic: null,
     password: "",
     email: "",
-    subscription: "Active", // Added this field
+    subscription_start_Date: '', // Added this field
     subscriptionId: "", // Added this field
   });
   const [error, setError] = useState(null);
@@ -99,7 +99,7 @@ const Form = ({ onClose }) => {
     }
     formDataToSend.append("email", formData.email);
     formDataToSend.append("password", formData.password);
-    formDataToSend.append("subscription", formData.subscription);
+    formDataToSend.append("subscription_start_Date", getTodayDate());
     formDataToSend.append("subscriptionId", formData.subscriptionId[0]);
 
  
