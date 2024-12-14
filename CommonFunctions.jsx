@@ -1,5 +1,6 @@
-export const api_url ='http://82.112.240.94:5001/api/auth/'
-//  export const api_url ='http://localhost:5001/api/auth/'
+export const api_url = window.location.hostname === 'localhost'
+  ? 'http://localhost:5001/api/auth/'
+  : 'http://82.112.240.94:5001/api/auth/';
 
 
 
@@ -47,4 +48,13 @@ export function calculateCalories(meals) {
     const formattedHours = +hours % 12 || 12;
     return `${formattedHours}:${minutes} ${period}`;
   }
+
+  export const getTodayDate = () => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0'); // Ensures 2-digit day
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+    const year = today.getFullYear();
+  
+    return `${year}-${month}-${day}`; // Returns date in YYYY-MM-DD format
+  };
   
