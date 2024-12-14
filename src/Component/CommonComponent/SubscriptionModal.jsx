@@ -19,6 +19,7 @@ const SubscriptionModal = ({}) => {
   const [tags, setTags] = useState([]);
   const [subscriptionId, setSubscriptionId] = useState(null);
   const [subscriptionLising, setSubscriptionListing] = useState([]);
+  const [showLoader, setShowLoader] = useState(false);
 
   const handleChange = (newTags) => {
     setTags(newTags);
@@ -33,6 +34,7 @@ const SubscriptionModal = ({}) => {
   };
 
   useEffect(() => {
+    setShowLoader(true)
     getSubscribtion();
     
   }, [show,showComponent]);
@@ -47,6 +49,7 @@ const SubscriptionModal = ({}) => {
     } else {
       setSubscriptionListing([]);
     }
+    setShowLoader(false)
   };
 
   const handleDelete = async (data) => {
@@ -231,6 +234,7 @@ const SubscriptionModal = ({}) => {
                   <SubscriptionList
                     subscriptions={subscriptionLising}
                     onDelete={handleDelete}
+                    showLoader={showLoader}
                   />
                 </>
               ) : (
