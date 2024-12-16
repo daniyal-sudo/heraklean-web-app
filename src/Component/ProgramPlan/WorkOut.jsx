@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import WorkoutButtons from "../DietPlan/WorkoutButtons";
 import WorkTable from "./WorkTable";
+import TwoButtons from "../DietPlan/TwoButtons";
+import PlusMinusButtons from "./PlusMinusButtons";
 
 const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
   // onClose()
@@ -62,6 +64,21 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
            style={{
             height:'360px'
           }}>
+            <div className="container">
+              <div className="row mb-2">
+                <div className="col-md-12">
+                <h2 class="head-title-wrokout">Days</h2>
+                </div>
+              </div>
+              <div className="row mb-4">
+                <div className="col-md-6">
+                  <TwoButtons />
+                </div>
+                <div className="col-md-6">
+                  <PlusMinusButtons />
+                  </div>
+              </div>
+            </div>
             <WorkTable data={tableData} onUpdate={updateData} />
           </div>
         </div>

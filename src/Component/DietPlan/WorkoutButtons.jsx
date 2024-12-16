@@ -1,6 +1,7 @@
 import React from "react";
 import WorkSearchBar from "./WorkSearchBar";
 import FilterDropdown from "./FilterDropdown";
+import CustomSlider from "../ProgramPlan/CustomSlider";
 const workoutCategories = [
   "Chest",
   "Biceps",
@@ -31,6 +32,13 @@ const WorkoutButtons = ({name}) => {
       <div className="col-md-5">
           <WorkSearchBar />
       </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="custom-slider-section">
+            <CustomSlider />
+          </div>
+        </div>
       </div>
       {/* Buttons Container */}
       {/* <div className="d-flex flex-wrap justify-content-center">

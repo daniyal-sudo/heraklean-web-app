@@ -9,6 +9,7 @@ import axiosInstance from "../../Healpers/axiosInstance";
 import { useEffect } from "react";
 import CustomInputField from "./CustomInputField";
 import CloseButton2 from "./CloseButton2";
+import { FaMinus } from "react-icons/fa";
 
 const CreateDietPlan = ({ onClose, editPlan }) => {
   const [dietTitle, setDietTitle] = useState("");
@@ -177,7 +178,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                
                   ))}
                   </div>
-                <div className="col-4">
+                <div className="col-4" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '20px',}}>
                   <button
                   style={{
                     fontFamily: 'Poppins',
@@ -187,14 +188,40 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     textAlign: 'left',
                     width: '190px',
                     height: '55px',
-                    borderRadius: '13px' 
+                    borderRadius: '13px',
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    gap: '10px',
                   }}
                     type="button"
                     className="plus btn btn-secondary"
                     onClick={handleAddMeal}
                   >
                     <TiPlus />
-                    Create Another
+                    Create 
+                  </button>
+                  <button
+                  style={{
+                    fontFamily: 'Poppins',
+                    fontSize: '18px',
+                    fontWeight: 500,
+                    lineHeight: '27px',
+                    textAlign: 'left',
+                    width: '190px',
+                    height: '55px',
+                    borderRadius: '13px',
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    gap: '10px',
+                  }}
+                    type="button"
+                    className="plus btn btn-secondary"
+                    onClick={'0'}
+                  >
+                    <FaMinus />
+                    Minius
                   </button>
                 </div>
                 </div>

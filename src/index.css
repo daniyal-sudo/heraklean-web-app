@@ -2662,7 +2662,7 @@ a.text-decoration-none.text-black:focus {
   border-bottom: 0px !important;
 }
 .search-work input.form-control {
-  color: #0000005E;
+  color: #000000 !important;
   border: 1px solid #00000030;
   border-radius: 11px !important;
   height: 58px;
@@ -2678,6 +2678,9 @@ a.text-decoration-none.text-black:focus {
   align-items: center;
 
 }
+.search-work input.form-control::placeholder {
+  color: #ccc;
+}
 .search-work input.form-control:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -2691,5 +2694,130 @@ a.text-decoration-none.text-black:focus {
 }
 .dropdown-item:active {
     color: #263238 !important;
+}
+/* slick slider */
+.slider-item {
+  padding: 10px;
+}
 
+.active-item {
+  background-color: #49a9e9; /* Blue Background for Active Slide */
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.inactive-item {
+  background-color: #f0f0f0; /* Gray Background for Inactive Slides */
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.slick-prev,
+.slick-next {
+  color: #333; /* Custom color for navigation arrows */
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: #333; /* Navigation Arrow Color */
+  width: 60px;
+  height: 60px;
+}
+.slider-item {
+  background-color: transparent;
+}
+.slider-item .inactive-item {
+  font-family: Poppins;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 31.5px;
+  text-align: left;
+}
+/* two button */
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-button.active {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.custom-button:not(.active):hover {
+  border-color: #999;
+  color: #999;
+}
+/* + - button */
+.button-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  font-size: 14px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background-color: #f0f0f0;
+}
+
+.icon-button:active {
+  background-color: #dcdcdc;
+}
+#two-button button.custom-button {
+  width: 142.75px;
+  height: 55.96px;
+  border-radius: 13px;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-align: center;
+}
+#two-button button.custom-button.active {
+  color: #53afe6;
+  border-color: #53afe6;
+}
+.icon-button {
+  width: 102.9px;
+  height: 55.96px;
+  border-radius: 13px;
+  border: 1px solid #000000AB;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  background-color: transparent;
+}
+.icon-button:hover {
+  background-color: transparent;
 }
