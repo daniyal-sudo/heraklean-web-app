@@ -68,7 +68,7 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
           }}>
             <div className="container">
               <div className="row mb-2">
-                <div className="col-md-12">
+                <div className="col-md-12 single-button">
                 <h2 class="head-title-wrokout">Days</h2>
                 </div>
               </div>
@@ -76,7 +76,8 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
                 <div className="col-md-6">
                   <TwoButtons />
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 button-combine">
+                <h2 class="head-title-wrokouts" id="hide-buttons2">Days</h2>
                   <PlusMinusButtons />
                   </div>
               </div>

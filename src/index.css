@@ -2444,7 +2444,14 @@ a.text-decoration-none.text-black:focus {
   text-align: left;
   color: #000000;
   line-height: 43px;
-
+}
+.head-title-wrokouts {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+  color: #000000;
+  line-height: 43px;
 }
 
   .table-responsive::-webkit-scrollbar {
@@ -2553,11 +2560,19 @@ a.text-decoration-none.text-black:focus {
     gap: 20px !important;
   }
   #two-button button.custom-button {
-    width: 132px !important;
+    width: 110px !important;
   }
 }
 
 @media (max-width: 480px) {
+  .col-md-6.button-combine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#hide-buttons2 {
+  display: block !important;
+}
   .workout-section .fliter-dropdown {
     width: 100%;
 }
@@ -2614,6 +2629,13 @@ a.text-decoration-none.text-black:focus {
     font-size: 14px !important;
     line-height: 21.5px !important;
 }
+  .icon-button {
+    width: 50px !important;
+    height: 45px !important;
+  }
+  .single-button .head-title-wrokout {
+    display: none;
+  }
 }
 
 .form-control:disabled, .form-control[readonly] {
@@ -2811,6 +2833,9 @@ a.text-decoration-none.text-black:focus {
 }
 .icon-button:hover {
   background-color: transparent;
+}
+#hide-buttons2 {
+  display: none;
 }
 /* slick slider */
 .slider-item {
