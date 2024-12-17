@@ -2061,10 +2061,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     background: #53AFE6;
   }
 
-  .diet-plan-section-page .col-12 {
-    padding: 0px;
-  }
-
   .diet-plan-section-page .show-it {
     background-color: transparent !important;
     border: none !important;
