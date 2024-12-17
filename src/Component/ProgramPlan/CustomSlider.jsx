@@ -1,27 +1,49 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from "react";
+import Slider from "react-slick";
+import { MdOutlineNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+
 const items = [
-  'Palms-down wrist curl over bench',
-  'Incline Hammer Curls',
-  'Standing behind-the-back',
-  'Biceps Curl',
-  'Shoulder Press',
+  "Palms-down wrist curl over bench",
+  "Incline Hammer Curls",
+  "Standing behind-the-back",
+  "Biceps Curl",
+  "Standing behind-the-back wrist curl",
 ];
+
+const CustomArrow = ({ className, style, onClick }) => (
+  <div
+    className={`${className} custom-arrow`}
+    style={{ ...style }}
+    onClick={onClick}
+  >
+  <div className="arrow-circle">
+      {className.includes("next") ? (
+        <MdOutlineNavigateNext className="arrow-icon" />
+      ) : (
+        <GrFormPrevious className="arrow-icon" />
+      )}
+    </div>
+  </div>
+);
 
 const CustomSlider = () => {
   const settings = {
-    dots: false,         // Pagination dots
-    infinite: false,      // Infinite scroll
-    speed: 500,          // Transition speed
-    slidesToShow: 3,     // Number of visible slides
-    slidesToScroll: 1,   // Slides to scroll
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    nextArrow: <CustomArrow />,
+    prevArrow: <CustomArrow />,
     responsive: [
       {
-        breakpoint: 768, // For smaller devices
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1.5,
         },
       },
       {
@@ -40,7 +62,7 @@ const CustomSlider = () => {
           <div key={index} className="slider-item">
             <div
               className={`rounded-pill text-center px-3 py-2 ${
-                index === 0 ? 'active-item' : 'inactive-item'
+                index === 0 ? "active-item" : "inactive-item"
               }`}
             >
               {item}
@@ -53,3 +75,4 @@ const CustomSlider = () => {
 };
 
 export default CustomSlider;
+

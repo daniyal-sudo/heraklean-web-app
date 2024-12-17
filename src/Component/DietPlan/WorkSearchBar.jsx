@@ -2,9 +2,8 @@ import React from 'react';
 
 const WorkSearchBar = () => {
       return (
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-12 search-work">
+          <div className="row justify-content-center mt-3">
+            <div className="search-work">
               <input
                 type="text"
                 className="form-control"
@@ -13,7 +12,6 @@ const WorkSearchBar = () => {
               />
             </div>
           </div>
-        </div>
       );
     
 };

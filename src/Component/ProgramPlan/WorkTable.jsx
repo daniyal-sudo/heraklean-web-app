@@ -21,7 +21,9 @@ const WorkTable = ({ data, onUpdate }) => {
     console.log("Selected Day:", day); // Perform any additional actions, e.g., API calls or updating another state
   };
   return (
-    <div className="container">
+    <div className="container" style={{
+      padding: '0px',
+}}>
       {/* <div className="col-6">
         <Form.Group className="mb-4">
           <Form.Label>Days</Form.Label>
