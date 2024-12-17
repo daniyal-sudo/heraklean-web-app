@@ -2,7 +2,7 @@ import React from 'react';
 
 const WorkSearchBar = () => {
       return (
-          <div className="row justify-content-center mt-3">
+          <div className="justify-content-center mt-3">
             <div className="search-work">
               <input
                 type="text"

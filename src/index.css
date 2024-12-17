@@ -2610,6 +2610,10 @@ a.text-decoration-none.text-black:focus {
     width: 100%;
     height: 100% !important;
   }
+  .slick-list .slick-track .slick-slide .slider-item .rounded-pill {
+    font-size: 14px !important;
+    line-height: 21.5px !important;
+}
 }
 
 .form-control:disabled, .form-control[readonly] {
@@ -2723,47 +2727,6 @@ a.text-decoration-none.text-black:focus {
 .dropdown-item:active {
     color: #263238 !important;
 }
-/* slick slider */
-.slider-item {
-  padding: 10px;
-}
-
-.active-item {
-  background-color: #49a9e9; /* Blue Background for Active Slide */
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-}
-
-.inactive-item {
-  background-color: #f0f0f0; /* Gray Background for Inactive Slides */
-  color: black;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.slick-prev,
-.slick-next {
-  color: #333; /* Custom color for navigation arrows */
-}
-
-.slick-prev::before,
-.slick-next::before {
-  color: #333; /* Navigation Arrow Color */
-  width: 60px;
-  height: 60px;
-}
-.slider-item {
-  background-color: transparent;
-}
-.slider-item .inactive-item {
-  font-family: Poppins;
-  font-size: 19px;
-  font-weight: 400;
-  line-height: 31.5px;
-  text-align: left;
-}
 /* two button */
 .button-container {
   display: flex;
@@ -2849,7 +2812,36 @@ a.text-decoration-none.text-black:focus {
 .icon-button:hover {
   background-color: transparent;
 }
+/* slick slider */
+.slider-item {
+  padding: 10px;
+}
+.active-item {
+  background-color: #49a9e9; 
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
 
+.inactive-item {
+  background-color: #f0f0f0;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.slider-item {
+  background-color: transparent;
+}
+.slider-item .inactive-item {
+  font-family: Poppins;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 31.5px;
+  text-align: left;
+}
 .slick-list .slick-track .slick-slide .slider-item .rounded-pill {
   height: 57.68px;
   display: flex;
@@ -2860,8 +2852,7 @@ a.text-decoration-none.text-black:focus {
   font-weight: 600;
   line-height: 31.5px;
 }
-/* ===== */
-/* Styling the custom arrows */
+
 .custom-arrow {
   position: absolute;
   z-index: 1000;
@@ -2894,8 +2885,8 @@ a.text-decoration-none.text-black:focus {
 }
 
 .arrow-circle:hover {
-  background-color: #f5f5f5;
-  border-color: #333;
+  background-color: transparent;
+  border-color: #ccc;
 }
 
 .arrow-icon {

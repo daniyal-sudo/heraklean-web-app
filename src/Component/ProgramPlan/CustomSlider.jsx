@@ -11,7 +11,7 @@ const items = [
   "Incline Hammer Curls",
   "Standing behind-the-back",
   "Biceps Curl",
-  "Standing behind-the-back wrist curl",
+  "Standing behind-the-back",
 ];
 
 const CustomArrow = ({ className, style, onClick }) => (

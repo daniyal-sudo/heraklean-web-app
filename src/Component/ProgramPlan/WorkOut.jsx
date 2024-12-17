@@ -59,6 +59,8 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
             AddDeleteObject={AddDeleteObject} checkCategoryExistence={checkCategoryExistence}/>
           </div>
         </div>
+        </div>
+        <div className="row">
         <div className="col-md-12  mt-3">
           <div className="diet-plan-section-page"
            style={{
