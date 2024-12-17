@@ -62,7 +62,7 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
         <div className="col-md-12  mt-3">
           <div className="diet-plan-section-page"
            style={{
-            height:'360px'
+            height:'100%'
           }}>
             <div className="container">
               <div className="row mb-2">
@@ -70,7 +70,7 @@ const WorkOut = ({ onBack, tableData, setTableData,handleSubmit,dayForm}) => {
                 <h2 class="head-title-wrokout">Days</h2>
                 </div>
               </div>
-              <div className="row mb-4">
+              <div className="row mb-4 diet-button-exersice">
                 <div className="col-md-6">
                   <TwoButtons />
                 </div>

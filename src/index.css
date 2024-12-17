@@ -2552,9 +2552,33 @@ a.text-decoration-none.text-black:focus {
 }
 
 @media (max-width: 480px) {
+  .fliter-dropdown #dropdown-basics {
+    display: flex !important;
+}
+.workout-section {
+  flex-direction: column;
+}
+.diet-button-exersice .col-md-6 {
+  width: 100%;
+  padding: 0px;
+}
+.diet-button-exersice {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.button-container {
+  justify-content: space-between;
+  align-items: center;
+}
   .col-lg-12.button-section-meals .meal-button {
     width: 100%;
     padding: 0px;
+}
+#two-button button.custom-button {
+  width: 132px !important;
 }
 .col-lg-12.button-section-meals .col-4 {
   padding: 0px;
