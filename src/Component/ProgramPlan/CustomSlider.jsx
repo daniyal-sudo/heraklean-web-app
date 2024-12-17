@@ -13,7 +13,7 @@ const items = [
 const CustomSlider = () => {
   const settings = {
     dots: false,         // Pagination dots
-    infinite: true,      // Infinite scroll
+    infinite: false,      // Infinite scroll
     speed: 500,          // Transition speed
     slidesToShow: 3,     // Number of visible slides
     slidesToScroll: 1,   // Slides to scroll
