@@ -67,7 +67,7 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
   return (
     <>
       <div className="space-page">
-        <div className="container p-0 m-0" style={{ height: "100dvh" }}>
+        <div className="container m-0" style={{ height: "100dvh" }}>
 
 
           <div className="diet-plan-section-page">
