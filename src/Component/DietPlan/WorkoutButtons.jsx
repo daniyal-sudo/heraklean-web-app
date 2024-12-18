@@ -34,7 +34,7 @@ const WorkoutButtons = ({name}) => {
       </div>
       </div>
       <div className="row">
-        <div className="col-md-12">
+        <div className="col-md-12 p-0">
           <div className="custom-slider-section">
             <CustomSlider />
           </div>

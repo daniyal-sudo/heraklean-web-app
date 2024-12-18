@@ -1,78 +1,44 @@
 import React from "react";
-import Slider from "react-slick";
-import { MdOutlineNavigateNext } from "react-icons/md";
-import { GrFormPrevious } from "react-icons/gr";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-
-const items = [
-  "Palms-down wrist curl over bench",
-  "Incline Hammer Curls",
-  "Standing behind-the-back",
-  "Biceps Curl",
-  "Standing behind-the-back",
-];
-
-const CustomArrow = ({ className, style, onClick }) => (
-  <div
-    className={`${className} custom-arrow`}
-    style={{ ...style }}
-    onClick={onClick}
-  >
-  <div className="arrow-circle">
-      {className.includes("next") ? (
-        <MdOutlineNavigateNext className="arrow-icon" />
-      ) : (
-        <GrFormPrevious className="arrow-icon" />
-      )}
-    </div>
-  </div>
-);
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const CustomSlider = () => {
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    nextArrow: <CustomArrow />,
-    prevArrow: <CustomArrow />,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1.5,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
+  const sliderRef = React.useRef(null);
+
+  const slideLeft = () => {
+    sliderRef.current.scrollLeft -= 200; 
+  };
+
+  const slideRight = () => {
+    sliderRef.current.scrollLeft += 200;
   };
 
   return (
-    <div className="container mt-4">
-      <Slider {...settings}>
-        {items.map((item, index) => (
-          <div key={index} className="slider-item">
-            <div
-              className={`rounded-pill text-center px-3 py-2 ${
-                index === 0 ? "active-item" : "inactive-item"
-              }`}
-            >
-              {item}
-            </div>
-          </div>
-        ))}
-      </Slider>
+    <div className="slider-container">
+      {/* Left Arrow */}
+      <button className="slider-arrow left-arrow" onClick={slideLeft}>
+        <FaChevronLeft />
+      </button>
+
+      {/* Slider Content */}
+      <div className="slider" ref={sliderRef}>
+        <div className="slider-item active">Palms-down wrist curl over bench</div>
+        <div className="slider-item">Incline Hammer Curls</div>
+        <div className="slider-item">Standing behind-the-back</div>
+        <div className="slider-item">Standing behind-the-back</div>
+        <div className="slider-item">Standing behind-the-back</div>
+        <div className="slider-item">Palms-down wrist curl over bench</div> 
+        <div className="slider-item">Palms-down wrist curl over bench</div>
+
+      </div>
+
+      {/* Right Arrow */}
+      <button className="slider-arrow right-arrow" onClick={slideRight}>
+        <FaChevronRight />
+      </button>
     </div>
   );
 };
 
 export default CustomSlider;
+
 
