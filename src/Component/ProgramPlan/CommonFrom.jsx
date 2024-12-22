@@ -19,7 +19,7 @@ const CommonForm = ({
   return (
     <>
      
-        <div className="p-4 creative-program">
+        <div className="p-0 creative-program">
           <h4>{dayForm.id ? 'Edit':'Create' }Program Plan</h4>
 
           {/* Program Title */}
