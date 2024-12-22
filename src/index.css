@@ -2841,11 +2841,12 @@ a.text-decoration-none.text-black:focus {
 .slider-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
   width: 100%;
+  padding: 0 50px;
+  box-sizing: border-box; 
   overflow: hidden;
-  padding: 10px;
 }
 
 /* Slider */
@@ -2853,20 +2854,20 @@ a.text-decoration-none.text-black:focus {
   display: flex;
   overflow-x: scroll;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+  padding: 10px 0; 
 }
 
 .slider::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome/Safari */
+  display: none; 
 }
 
-/* Individual Slider Items */
 .slider-item {
   flex: 0 0 auto;
   background-color: #f2f2f2;
   border-radius: 50px;
-  margin-right: 10px;
+  margin: 0 10px; 
   padding: 12px 20px;
   font-size: 19px;
   font-weight: 600;
@@ -2875,12 +2876,11 @@ a.text-decoration-none.text-black:focus {
   transition: all 0.3s ease;
   font-family: Poppins;
   line-height: 31.5px;
-  text-align: left;
-
+  text-align: center;
 }
 
 .slider-item.active {
-  background-color: #55acee; /* Highlighted blue */
+  background-color: #55acee; 
   color: white;
 }
 
