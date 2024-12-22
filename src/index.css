@@ -11,6 +11,8 @@
 
 }
 
+
+
 /*  */
 /* -------- */
 .upload-container {
@@ -2911,4 +2913,9 @@ a.text-decoration-none.text-black:focus {
 
 .right-arrow {
   right: 10px;
+}
+
+.slider-arrow.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
