@@ -170,7 +170,7 @@ const ProgramPlans = () => {
         />
       ) : showComponent === "showWorkout" ? (
         <div className="space-page">
-          <div className="container m-0" style={{ height: "100dvh" }}>
+          <div className="container m-0 p-0" style={{ height: "100dvh" }}>
             <WorkOut
               onClose={() => {
                 setShowComponent("");

@@ -68,8 +68,6 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
     <>
       <div className="space-page">
         <div className="container m-0" style={{ height: "100dvh" }}>
-
-
           <div className="diet-plan-section-page">
             <CommonForm
               handleSubmit={validateForm}

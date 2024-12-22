@@ -15,7 +15,7 @@ const workoutCategories = [
 
 const WorkoutButtons = ({name}) => {
   return (
-    <div className="p-1">
+    <div className="p-section">
       <div className="row">
       <div className="col-md-7">
         <div className="workout-section">
