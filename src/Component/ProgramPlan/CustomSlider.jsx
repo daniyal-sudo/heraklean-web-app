@@ -65,9 +65,7 @@ const CustomSlider = () => {
 
       {/* Slider Content */}
       <div className="slider" ref={sliderRef}
-      style={{
-        width:'1105px'
-      }}>
+    >
         {sliderItems.map((item, index) => (
           <div key={index} className={`slider-item index-${index}`}>
             {item}

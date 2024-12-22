@@ -2845,7 +2845,7 @@ a.text-decoration-none.text-black:focus {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   padding: 0 50px;
   box-sizing: border-box; 
   overflow: hidden;
@@ -2873,7 +2873,7 @@ a.text-decoration-none.text-black:focus {
   padding: 12px 20px;
   font-size: 19px;
   font-weight: 600;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: Poppins;
