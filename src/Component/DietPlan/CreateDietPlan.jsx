@@ -164,7 +164,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                 />
               </div>
               <div className="col-lg-12 button-section-meals">
-                <div className="row">
+                <div className="row diet-twins-button">
                 <div className="col-8 meal-button">
                   {MealTabLenght.map((meal, index) => (
                     <Button
@@ -192,7 +192,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                
                   ))}
                   </div>
-                <div className="col-4" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '20px',}}>
+                <div className="col-4 twins-button" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '20px',}}>
                   <button
                   style={{
                     fontFamily: 'Poppins',
@@ -200,16 +200,17 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     fontWeight: 500,
                     lineHeight: '27px',
                     textAlign: 'left',
-                    width: '190px',
+                    width: '55px',
                     height: '55px',
                     borderRadius: '13px',
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center', 
                     gap: '10px',
+                    background: 'transparent',
                   }}
                     type="button"
-                    className="plus btn btn-secondary"
+                    className="plus"
                     onClick={handleAddMeal}
                   >
                     <TiPlus />
@@ -222,16 +223,17 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     fontWeight: 500,
                     lineHeight: '27px',
                     textAlign: 'left',
-                    width: '190px',
+                    width: '55px',
                     height: '55px',
                     borderRadius: '13px',
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center', 
                     gap: '10px',
+                    background: 'transparent',
                   }}
                     type="button"
-                    className="plus btn btn-secondary"
+                    className="plus"
                     onClick={handleDeleteMeal}
                   >
                     <FaMinus />

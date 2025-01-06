@@ -2987,3 +2987,24 @@ a.text-decoration-none.text-black:focus {
   font-weight: 600;
   padding-top: 30px;
 }
+.twins-button button.plus:focus {
+  border: 1px solid #000;
+}
+.diet-twins-button {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100px;
+}
+.diet-twins-button::-webkit-scrollbar {
+  width: 8px;
+}
+
+.diet-twins-button::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+.diet-twins-button::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
