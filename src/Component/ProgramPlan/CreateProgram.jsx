@@ -67,8 +67,8 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
 
   return (
     <>
-      <div className="space-page">
-        <div className="container m-0" style={{ height: "100dvh" }}>
+     
+        <div className="container" style={{ height: "100dvh", padding: "30px 15px" }}>
           <div className="diet-plan-section-page">
             <CommonForm
               handleSubmit={validateForm}
@@ -86,7 +86,7 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
            
           </div>
         </div>
-      </div>
+  
 
     
     </>
