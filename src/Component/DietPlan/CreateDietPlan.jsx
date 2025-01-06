@@ -196,6 +196,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                   <button
                   style={{
                     fontFamily: 'Poppins',
+                    border: '1px solid #000',
                     fontSize: '18px',
                     fontWeight: 500,
                     lineHeight: '27px',
@@ -219,6 +220,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                   <button
                   style={{
                     fontFamily: 'Poppins',
+                    border: '1px solid #000',
                     fontSize: '18px',
                     fontWeight: 500,
                     lineHeight: '27px',
