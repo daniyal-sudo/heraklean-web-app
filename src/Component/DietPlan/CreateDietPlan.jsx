@@ -127,6 +127,20 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
   };
   console.log(mealsWithIndex, "mealsWithIndexmealsWithIndex");
 
+  const handleDeleteMeal = () => {
+    // Remove the last meal from the meals array
+    if(meals.length > 1){
+    setMeals(meals.slice(0, -1));
+
+    // Remove the last meal tab from MealTabLenght array
+    setMealTabLenght(MealTabLenght.slice(0, -1));
+    }else{
+      errorMessage('One meal is required')
+    }
+  }
+
+
+  console.log(meals,'meals')
   return (
     <div
       className="container m-0"
@@ -173,7 +187,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                       onClick={() => handleMealSelect(index)}
                     >
                       {meal.name}
-                      <CloseButton2 />
+                      {/* <CloseButton2 /> */}
                     </Button>
                
                   ))}
@@ -218,7 +232,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                   }}
                     type="button"
                     className="plus btn btn-secondary"
-                    onClick={'0'}
+                    onClick={handleDeleteMeal}
                   >
                     <FaMinus />
                     
