@@ -63,7 +63,7 @@ const CommonForm = ({
               </Form.Group>
             </div> */}
 
-            <div className="col-12">
+            {/* <div className="col-12">
               <Form.Group className="mb-4">
                 <Form.Label>Duration (e.g., 1 hour)</Form.Label>
                 <Form.Control
@@ -75,7 +75,7 @@ const CommonForm = ({
                  
                 />
               </Form.Group>
-            </div>
+            </div> */}
             {/* General Notes */}
             <div className="col-12">
               <Form.Group className="mb-4">
@@ -85,8 +85,8 @@ const CommonForm = ({
                   name="description"
                   value={dayForm.description}
                   onChange={handleDayFormChange}
-                  rows={3}
-                  placeholder="Type"
+                  rows={6}
+                  placeholder="General notes"
                  
                 />
               </Form.Group>
@@ -95,14 +95,14 @@ const CommonForm = ({
             {/* Warm Up */}
             <div className="col-12">
               <Form.Group className="mb-4">
-                <Form.Label>Modules (comma separated)</Form.Label>
+                <Form.Label>Modules</Form.Label>
                 <Form.Control
                   as="textarea"
                   name="modules"
                   value={dayForm.modules || ""}
                   onChange={handleDayFormChange}
-                  rows={3}
-                  placeholder="Type"
+                  rows={6}
+                  placeholder="Modules"
                  
                 />
               </Form.Group>

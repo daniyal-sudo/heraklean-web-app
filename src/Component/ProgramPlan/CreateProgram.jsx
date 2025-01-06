@@ -54,7 +54,8 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
   
   // Usage Example
   const validateForm = () => {
-   
+   console.log(isFormValid(dayForm))
+   console.log(dayForm)
     if (isFormValid(dayForm)) {
       setShowComponent("showWorkout");
     } else {

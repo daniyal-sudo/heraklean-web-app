@@ -28,14 +28,7 @@ const ProgramPlans = () => {
   ];
 
   const [tableData, setTableData] = useState([
-    {
-      category: "Chest",
-      exerciseName: "",
-      numberOfSets: 0,
-      numberOfRepetitions: 0,
-      workingLoad: 0,
-      coachNotes: "",
-    },
+   
   ]);
 
   const [selectedDayValue, setSelectedDayValue] = useState(days[0]);
@@ -44,7 +37,6 @@ const ProgramPlans = () => {
     title: "",
     description: "",
     modules: "",
-    duration: "",
     id:''
   });
 
@@ -61,19 +53,10 @@ const ProgramPlans = () => {
         title: "",
         description: "",
         modules: "",
-        duration: "",
+      
       });
 
-      setTableData([
-        {
-          category: "Chest",
-          exerciseName: "",
-          numberOfSets: 0,
-          numberOfRepetitions: 0,
-          workingLoad: 0,
-          coachNotes: "",
-        },
-      ]);
+     
     }
   }, [showComponent]);
 
@@ -135,7 +118,7 @@ const ProgramPlans = () => {
       title: data.title,
       description: data.description,
       modules: data.modules.toString(),
-      duration: data.duration,
+  
       id:data._id
     });
 
@@ -169,8 +152,8 @@ const ProgramPlans = () => {
           dayForm={dayForm}
         />
       ) : showComponent === "showWorkout" ? (
-        <div className="space-page">
-          <div className="container m-0" style={{ height: "100dvh" }}>
+      
+          <div className="container m-0" style={{ height: "100dvh",padding:'30px' }}>
             <WorkOut
               onClose={() => {
                 setShowComponent("");
@@ -184,7 +167,7 @@ const ProgramPlans = () => {
               }}
             />
           </div>
-        </div>
+        
       ) : (
         <div
           className="container m-0"

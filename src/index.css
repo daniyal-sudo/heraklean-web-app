@@ -8,10 +8,7 @@
   font-weight: 600;
   line-height: 43.87px;
   text-align: left;
-
 }
-
-
 
 /*  */
 /* -------- */
@@ -52,7 +49,6 @@
 
 .upload-icon {
   margin-right: 8px;
-
 }
 
 .upload-icon svg {
@@ -70,25 +66,6 @@
 .upload-box:hover .upload-label {
   color: #000;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .custom-dropdown-toggle {
   text-align: left;
@@ -133,7 +110,7 @@
   color: #888;
 }
 
-.custom-dropdown-item input[type='radio'] {
+.custom-dropdown-item input[type="radio"] {
   margin-top: 2px;
 }
 
@@ -143,13 +120,17 @@
 }
 
 /* client-page */
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards {
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards {
   width: 100%;
 }
 
 .client-pages-mini {
   border-radius: 17px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none !important;
   position: relative;
   padding: 35px;
@@ -170,15 +151,25 @@
   margin-bottom: 20px;
 }
 
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
-  font-family: 'Poppins';
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards
+  h6 {
+  font-family: "Poppins";
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;
   letter-spacing: 0.31px;
 }
 
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .para {
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards
+  .para {
   font-family: Poppins;
   font-size: 15px;
   font-weight: 400;
@@ -187,7 +178,12 @@
   text-align: left;
 }
 
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .notification_badge_icon_padding {
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards
+  .notification_badge_icon_padding {
   background: rgba(83, 175, 230, 0.31);
   position: relative;
   border-radius: 50%;
@@ -196,7 +192,13 @@
   position: relative;
 }
 
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .notification_badge_icon_padding .icon_wrap {
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards
+  .notification_badge_icon_padding
+  .icon_wrap {
   width: 31px;
   height: 31px;
   padding: 2.58px 5.07px 2.58px 5.07px;
@@ -205,7 +207,14 @@
   right: 6px;
 }
 
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards .notification_badge_icon_padding .icon_wrap i {
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards
+  .notification_badge_icon_padding
+  .icon_wrap
+  i {
   width: 20px;
   height: 25px;
   position: relative;
@@ -227,7 +236,6 @@
   font-weight: 600;
   line-height: 29px;
   text-align: left;
-
 }
 
 .client-pages-mini .searchbar {
@@ -240,12 +248,10 @@
   line-height: 24px;
   text-align: left;
   padding: 20px;
-
 }
 
 .client-pages-mini .searchbar::placeholder {
-  color: #AAAAAA;
-
+  color: #aaaaaa;
 }
 
 .client-mini-cards::-webkit-scrollbar {
@@ -276,7 +282,7 @@
 
 .diet-plan-section-page {
   border-radius: 17px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none !important;
   position: relative;
   padding: 35px;
@@ -328,7 +334,6 @@
 
 .diet-plane-2 {
   border: none !important;
-
 }
 
 .card.diet-plan-section h5 {
@@ -362,20 +367,19 @@
 }
 
 .card.diet-plan-section button.btn.btn-secondary.btn-sm.me-2 {
-  background: #263238DE;
+  background: #263238de;
   width: 45px;
   height: 45px;
   border-radius: 11px;
-  border-color: #263238DE;
+  border-color: #263238de;
 }
 
 .card.diet-plan-section button.btn.btn-primary.btn-sm {
-  background: #53AFE6;
+  background: #53afe6;
   width: 45px;
   height: 45px;
   border-radius: 11px;
-  border-color: #53AFE6;
-
+  border-color: #53afe6;
 }
 
 .card.diet-plan-section button:focus {
@@ -385,15 +389,14 @@
 .card.diet-plan-section i {
   font-size: 20px;
   padding: 2.7px 4px 2.67px 4px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .meal-list-item::before {
   content: "• ";
   font-weight: bold;
   margin-right: 5px;
-  color: #000000A6;
-
+  color: #000000a6;
 }
 
 .card.diet-plan-section .d-flex.flex-wrap span.badge {
@@ -410,18 +413,18 @@
   width: 227px;
   height: 60px;
   border-radius: 11px;
-  background: #53AFE6;
-  border-color: #53AFE6;
+  background: #53afe6;
+  border-color: #53afe6;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .diet-plan-section-page .row.my-2 button:focus {
-  background-color: #53AFE6 !important;
+  background-color: #53afe6 !important;
   box-shadow: none !important;
   outline: none !important;
-  border-color: #53AFE6 !important;
+  border-color: #53afe6 !important;
 }
 
 .card.diet-plan-section button:focus {
@@ -457,7 +460,7 @@
   background-color: #ffffff;
   padding: 20px;
   border-radius: 17px;
-  border: 1.96px solid #0000002E;
+  border: 1.96px solid #0000002e;
 }
 
 button.btn.btn-primary {
@@ -475,8 +478,8 @@ button.btn.btn-primary {
   font-weight: 600;
   line-height: 29px;
   text-align: left;
-  background: #53AFE6;
-  border-color: #53AFE6 !important;
+  background: #53afe6;
+  border-color: #53afe6 !important;
   border-radius: 11px;
 }
 
@@ -485,13 +488,13 @@ button.btn.btn-primary {
 }
 
 .diet-plan-section-page button.btn.btn-primary:active {
-  background: #53AFE6 !important;
-  border-color: #53AFE6 !important;
+  background: #53afe6 !important;
+  border-color: #53afe6 !important;
 }
 
 .diet-plan-section-page button.btn.btn-primary a {
-  background: #53AFE6 !important;
-  border-color: #53AFE6 !important;
+  background: #53afe6 !important;
+  border-color: #53afe6 !important;
   font-family: Inter;
   font-size: 20px;
   font-weight: 600;
@@ -503,8 +506,8 @@ button.btn.btn-primary {
 .diet-plan-section-page button.btn.btn-primary:focus {
   box-shadow: none !important;
   outline: none !important;
-  background: #53AFE6 !important;
-  border-color: #53AFE6 !important;
+  background: #53afe6 !important;
+  border-color: #53afe6 !important;
 }
 
 .diet-plan-section-page button.btn.btn-secondary.btn-sm {
@@ -565,33 +568,33 @@ button.btn.btn-primary {
   text-align: left;
   height: 55px;
   border-radius: 11px;
-  background: #F5F5F5;
-  border: 1px solid #9A9A9A33;
+  background: #f5f5f5;
+  border: 1px solid #9a9a9a33;
 }
 
 .creative-program textarea.form-control {
-  background: #F5F5F5 !important;
-  border: 1px solid #9A9A9A33;
+  background: #f5f5f5 !important;
+  border: 1px solid #9a9a9a33;
 }
 
 .creative-program input:focus {
   box-shadow: none !important;
   outline: none !important;
-  border: 1px solid #DEDEDE !important;
+  border: 1px solid #dedede !important;
 }
 
 .creative-program input::placeholder {
-  color: #9A9A9A;
+  color: #9a9a9a;
 }
 
 .creative-program textarea.form-control::placeholder {
-  color: #9A9A9A;
+  color: #9a9a9a;
 }
 
 .creative-program textarea.form-control:focus {
   box-shadow: none !important;
   outline: none !important;
-  border: 1px solid #DEDEDE !important;
+  border: 1px solid #dedede !important;
 }
 
 .creative-program label {
@@ -603,14 +606,14 @@ button.btn.btn-primary {
 }
 
 .creative-program h4::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 26px;
   top: 69px;
   width: 15%;
   height: 3px;
   border-radius: 5px;
-  background: #53AFE6;
+  background: #53afe6;
 }
 
 .creative-program h4 {
@@ -634,17 +637,25 @@ button.btn.btn-primary {
 .program-dropdown .col-6 .dropdown button {
   height: 55px;
   border-radius: 11px;
-  border: 1px solid #9A9A9A33;
+  border: 1px solid #9a9a9a33;
   color: #000000;
   padding: 0px 20px;
   line-height: 50px;
 }
 
-.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:first-child {
+.program-dropdown
+  .col-6
+  .dropdown
+  .custom-dropdown-menu.dropdown-menu.show
+  a:first-child {
   border-top-left-radius: 4px;
 }
 
-.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:last-child {
+.program-dropdown
+  .col-6
+  .dropdown
+  .custom-dropdown-menu.dropdown-menu.show
+  a:last-child {
   border-bottom-left-radius: 4px;
   border-bottom: none !important;
 }
@@ -659,7 +670,11 @@ button.btn.btn-primary {
   border-bottom: 1px solid #ccc;
 }
 
-.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:hover {
+.program-dropdown
+  .col-6
+  .dropdown
+  .custom-dropdown-menu.dropdown-menu.show
+  a:hover {
   background: transparent !important;
 }
 
@@ -682,7 +697,11 @@ button.btn.btn-primary {
   outline: none !important;
 }
 
-.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show a:focus {
+.program-dropdown
+  .col-6
+  .dropdown
+  .custom-dropdown-menu.dropdown-menu.show
+  a:focus {
   background-color: transparent !important;
 }
 
@@ -692,19 +711,27 @@ button.btn.btn-primary {
   overflow-x: hidden;
 }
 
-.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar {
+.program-dropdown
+  .col-6
+  .dropdown
+  .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar {
   width: 8px;
 }
 
-.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-track {
-  background: #53AFE65E;
+.program-dropdown
+  .col-6
+  .dropdown
+  .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-track {
+  background: #53afe65e;
   border-radius: 10px;
 }
 
-.program-dropdown .col-6 .dropdown .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-thumb {
-  background: #53AFE6;
+.program-dropdown
+  .col-6
+  .dropdown
+  .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-thumb {
+  background: #53afe6;
   border-radius: 10px;
-
 }
 
 input[type="number"] {
@@ -718,9 +745,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .creative-from input:focus {
-  border: 1px solid #9A9A9A33 !important;
+  border: 1px solid #9a9a9a33 !important;
 }
-.creative-from{
+.creative-from {
   height: 599px;
 }
 
@@ -736,7 +763,6 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 400;
   line-height: 29.03px;
   text-align: left;
-
 }
 
 .custom-header::before {
@@ -789,7 +815,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .scrolbar-program::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
-
 }
 
 /* Handle */
@@ -798,14 +823,13 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 10px;
 }
 
-
 nav.custom-sidebar .d-flex a:focus {
   background-color: transparent !important;
 }
 
 .profile-section {
   border-radius: 17px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none !important;
   position: relative;
   padding: 35px;
@@ -813,11 +837,10 @@ nav.custom-sidebar .d-flex a:focus {
 
 .profile-section-meal {
   border-radius: 17px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none !important;
   position: relative;
   padding: 35px;
-
 }
 
 .card-space {
@@ -843,14 +866,14 @@ nav.custom-sidebar .d-flex a:focus {
 }
 
 .head-profiles::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 11px;
   bottom: 41px;
   width: 10%;
   height: 3px;
   border-radius: 5px;
-  background: #53AFE6;
+  background: #53afe6;
 }
 
 .head-profile-2 {
@@ -868,14 +891,15 @@ nav.custom-sidebar .d-flex a:focus {
   position: relative;
 }
 
-.d-flex.justify-content-between.align-items-center.p-3.relative-parent a.text-primary {
+.d-flex.justify-content-between.align-items-center.p-3.relative-parent
+  a.text-primary {
   font-family: Poppins;
   font-size: 20px;
   font-weight: 700;
   line-height: 33.4px;
   letter-spacing: 0.5382619500160217px;
   text-decoration: none;
-  color: #53AFE6 !important;
+  color: #53afe6 !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -884,8 +908,8 @@ nav.custom-sidebar .d-flex a:focus {
 #calendar-modal .modal-body .form-control {
   height: 55px;
   border-radius: 11px;
-  border: 1px solid #9A9A9A33;
-  background: #F5F5F5;
+  border: 1px solid #9a9a9a33;
+  background: #f5f5f5;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -896,7 +920,7 @@ nav.custom-sidebar .d-flex a:focus {
 #calendar-modal .modal-body .form-control:focus {
   box-shadow: none !important;
   outline: none !important;
-  border: 1px solid #9A9A9A33 !important;
+  border: 1px solid #9a9a9a33 !important;
 }
 
 .active-button {
@@ -906,18 +930,18 @@ nav.custom-sidebar .d-flex a:focus {
   line-height: 43.87px;
   text-align: left;
   border: none;
-  color: #53AFE6;
+  color: #53afe6;
 }
 
 .active-button:hover {
   background-color: transparent !important;
-  color: #53AFE6 !important;
+  color: #53afe6 !important;
 }
 
 .active-button:focus {
   box-shadow: none !important;
   outline: none !important;
-  color: #53AFE6 !important;
+  color: #53afe6 !important;
 }
 
 button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
@@ -928,8 +952,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   width: 227px;
   height: 60px;
   border-radius: 11px;
-  background: #53AFE6;
-  border: 1px solid #53AFE6;
+  background: #53afe6;
+  border: 1px solid #53afe6;
   color: #fff;
   font-family: Inter;
   font-size: 20px;
@@ -941,12 +965,13 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 #calendar-modal button.btn.btn-primary:focus {
   box-shadow: none !important;
   outline: none !important;
-  border: 1px solid #53AFE6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
-.d-flex.justify-content-between.align-items-center.p-3.relative-parent a.text-primary:focus {
+.d-flex.justify-content-between.align-items-center.p-3.relative-parent
+  a.text-primary:focus {
   box-shadow: none !important;
-  color: #53AFE6 !important;
+  color: #53afe6 !important;
 }
 #close-icon {
   position: absolute;
@@ -977,8 +1002,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 .save-report-section button#dropdown-basic {
   height: 33px;
   border-radius: 11px;
-  color: #53AFE6;
-  border: 0.72px solid #53AFE6 !important;
+  color: #53afe6;
+  border: 0.72px solid #53afe6 !important;
   font-family: Poppins;
   font-size: 12.92px;
   font-weight: 700;
@@ -992,9 +1017,9 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .react-tagsinput-tag {
-  background-color: #53AFE630 !important;
+  background-color: #53afe630 !important;
   border-radius: 27px !important;
-  border: 1px solid #53AFE630 !important;
+  border: 1px solid #53afe630 !important;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -1025,8 +1050,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .react-tagsinput-input {
-  width: '40px';
-
+  width: "40px";
 }
 
 .save-report-section .dropdown-menu.show {
@@ -1060,7 +1084,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .save-report-section .dropdown-menu.show a.dropdown-item:hover {
-  background-color: #53AFE6 !important;
+  background-color: #53afe6 !important;
   color: #fff !important;
 }
 
@@ -1089,19 +1113,32 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   padding: 1.44px;
 }
 
-.d-flex.justify-content-between.align-items-center.p-3.relative-parent a.text-primary span svg {
+.d-flex.justify-content-between.align-items-center.p-3.relative-parent
+  a.text-primary
+  span
+  svg {
   width: 40px;
   font-size: 25px;
   color: #232339 !important;
 }
 
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards svg:focus {
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards
+  svg:focus {
   box-shadow: none !important;
   outline: none !important;
   border: none !important;
 }
 
-.client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards a:focus {
+.client-pages-mini
+  .client-mini-cards
+  .col-lg-6
+  .col-12.mb-4
+  .upconcoming-cards
+  a:focus {
   background-color: transparent !important;
 }
 
@@ -1112,17 +1149,17 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .profile-section button.btn.btn-primary:active {
-  background: #53AFE6 !important;
+  background: #53afe6 !important;
   border: 1px solid#53AFE6 !important;
 }
 
 .crative-button .save-button.btn.btn-primary:active {
-  background: #53AFE6 !important;
+  background: #53afe6 !important;
   border: 1px solid#53AFE6 !important;
 }
 
 .crative-button .btn.btn-primary:active {
-  background: #53AFE6 !important;
+  background: #53afe6 !important;
   border: 1px solid#53AFE6 !important;
 }
 
@@ -1150,7 +1187,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   line-height: 44px;
   letter-spacing: 0.4907959997653961px;
   text-align: left;
-
 }
 
 .custom-h {
@@ -1165,7 +1201,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 .card-weight {
   padding: 20px;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 2px 2px 26.87px 0px #00000014;
 }
 
@@ -1204,8 +1240,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .meal-button .btn.btn-primary:active {
-  background: #53AFE6 !important;
-  border: 1px solid #53AFE6 !important;
+  background: #53afe6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
 .meal-button .plus svg {
@@ -1234,7 +1270,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   width: 90px;
   border-color: #00000057 !important;
   border-width: 0px 0px 1px 0px !important;
-
 }
 
 .meal-button .plus:focus-visible {
@@ -1251,8 +1286,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .meal-button .manas:focus {
-  background: #53AFE6 !important;
-  border: 1px solid #53AFE6 !important;
+  background: #53afe6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
 .duration-button button.btn.btn-primary {
@@ -1264,26 +1299,26 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   font-weight: 600;
   line-height: 29.03px;
   text-align: left;
-  color: #FFFFFF;
-  background: #53AFE6;
-  border: 1px solid #53AFE6;
+  color: #ffffff;
+  background: #53afe6;
+  border: 1px solid #53afe6;
 }
 
 .duration-button button.btn.btn-primary:active {
-  background: #53AFE6 !important;
-  border: 1px solid #53AFE6 !important;
+  background: #53afe6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
 .duration-button button.btn.btn-primary:hover {
-  background: #53AFE6 !important;
-  border: 1px solid #53AFE6 !important;
+  background: #53afe6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
 .duration-button button.btn.btn-primary:focus {
-  background: #53AFE6 !important;
+  background: #53afe6 !important;
   box-shadow: none !important;
   outline: none !important;
-  border: 1px solid #53AFE6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
 .bold-string {
@@ -1293,8 +1328,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   line-height: 30px;
   letter-spacing: 0.4907959997653961px;
   text-align: justify;
-  color: #000000FC;
-
+  color: #000000fc;
 }
 
 .custom-h-1 {
@@ -1316,14 +1350,14 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .head-profile-2::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0px;
   bottom: -8px;
   width: 100px;
   height: 3px;
   border-radius: 5px;
-  background: #53AFE6;
+  background: #53afe6;
 }
 
 .view-all {
@@ -1347,7 +1381,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   font-weight: 700;
   line-height: 43px;
   text-align: left;
-
 }
 
 .para-2 {
@@ -1367,8 +1400,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   line-height: 30.06px;
   letter-spacing: 0.4907959997653961px;
   text-align: justify;
-  color: #000000A3;
-
+  color: #000000a3;
 }
 
 .custom-head-2 {
@@ -1436,7 +1468,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 .monthtly-payment {
   width: 226px;
   border-radius: 9px;
-  background: #53AFE633;
+  background: #53afe633;
   border: none !important;
 }
 
@@ -1450,17 +1482,17 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   width: 171px;
   height: 60px;
   border-radius: 11px;
-  background: #53AFE6;
+  background: #53afe6;
   font-family: Inter;
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
   text-align: left;
-  border: 1px solid #53AFE6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
 .send-plane-section button.btn.btn-primary:active {
-  background-color: #53AFE6 !important;
+  background-color: #53afe6 !important;
   border: none !important;
 }
 
@@ -1505,17 +1537,16 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   line-height: 43.87px;
   text-align: left;
   margin-bottom: 30px;
-
 }
 
 .send-plane-section button.btn.btn-primary:hover {
-  background: #53AFE6 !important;
+  background: #53afe6 !important;
 }
 
 .send-plane-section button.btn.btn-primary:focus {
   box-shadow: none !important;
   outline: none !important;
-  border: 1px solid #53AFE6 !important;
+  border: 1px solid #53afe6 !important;
 }
 
 .notify-icon img {
@@ -1525,14 +1556,14 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .create-profiles::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   bottom: -5px;
   width: 90px;
   height: 3px;
   border-radius: 5px;
-  background: #53AFE6;
+  background: #53afe6;
 }
 
 .custom-file-upload label {
@@ -1585,7 +1616,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 /* Accept Button */
 .accept-button {
   padding: 8px 16px;
-  background-color: #53AFE6;
+  background-color: #53afe6;
   color: white;
   border: none;
   border-radius: 4px;
@@ -1599,18 +1630,18 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   font-weight: 600;
   line-height: 25px;
   letter-spacing: 0.23632286489009857px;
-  text-align: center
+  text-align: center;
 }
 
 .accept-button:hover {
-  background-color: #53AFE6;
-  border: 1px solid #53AFE6;
+  background-color: #53afe6;
+  border: 1px solid #53afe6;
 }
 
 .accept-button:focus {
   box-shadow: none !important;
   border: none !important;
-  border: 1px solid #53AFE6;
+  border: 1px solid #53afe6;
 }
 
 .reject-button {
@@ -1728,7 +1759,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 #RescheduleModal .modal-content {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 17px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none !important;
   position: relative;
   padding: 35px;
@@ -1752,8 +1783,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 #RescheduleModal .modal-content .reschedule-form .form-control {
   height: 55px;
   border-radius: 11px;
-  border: 1px solid #9A9A9A33;
-  background: #F5F5F5;
+  border: 1px solid #9a9a9a33;
+  background: #f5f5f5;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -1764,7 +1795,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 #RescheduleModal .modal-content .reschedule-form .form-control:focus {
   box-shadow: none !important;
   outline: none !important;
-  border: 1px solid #9A9A9A33 !important;
+  border: 1px solid #9a9a9a33 !important;
 }
 
 .reschedule-form .button-group {
@@ -1855,11 +1886,10 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   #calander-meeting {
     height: 100vh !important;
   }
-  .calander-section{
+  .calander-section {
     height: 100%;
   }
-  .Clander-mobile{
-
+  .Clander-mobile {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 270px;
@@ -1881,7 +1911,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .col-6 {
     width: 100%;
   }
- 
+
   .crative-button .button {
     width: 50% !important;
   }
@@ -1899,14 +1929,16 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .diet-plan-section-pages.scroll_dietPlan .card.diet-plan-section .meal-info {
     display: flex;
     flex-wrap: wrap;
-}
-.card.diet-plan-section .d-flex.flex-wrap span.badge {
-  width: 92px !important;
-}
-  .diet-plan-section-pages.scroll_dietPlan .card.diet-plan-section #diet-icon-hide {
+  }
+  .card.diet-plan-section .d-flex.flex-wrap span.badge {
+    width: 92px !important;
+  }
+  .diet-plan-section-pages.scroll_dietPlan
+    .card.diet-plan-section
+    #diet-icon-hide {
     display: none !important;
-}
-  
+  }
+
   .duration-button button.btn.btn-primary {
     display: none;
   }
@@ -1947,7 +1979,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     font-size: 18px;
   }
 
-  .d-flex.justify-content-between.align-items-center.p-3.relative-parent a.text-primary {
+  .d-flex.justify-content-between.align-items-center.p-3.relative-parent
+    a.text-primary {
     font-size: 16px !important;
   }
 
@@ -1969,7 +2002,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   }
   .Clander-mobile {
     max-height: 305px !important;
-}
+  }
   .profile-section-meal {
     padding: 20px !important;
   }
@@ -1988,8 +2021,13 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     display: flex !important;
     justify-content: center;
     gap: 20px;
-}
-  .client-pages-mini .client-mini-cards .col-lg-6 .col-12.mb-4 .upconcoming-cards h6 {
+  }
+  .client-pages-mini
+    .client-mini-cards
+    .col-lg-6
+    .col-12.mb-4
+    .upconcoming-cards
+    h6 {
     font-size: 14px !important;
   }
 
@@ -2008,7 +2046,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   .col-12.col-md-4 h6 {
     font-size: 18px !important;
   }
-  
+
   .container {
     padding: 20px !important;
     height: auto !important;
@@ -2017,16 +2055,16 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-.schedule-container {
-  padding: 0px !important;
-}
+  }
+  .schedule-container {
+    padding: 0px !important;
+  }
   .crative-button button.btn.btn-primary {
-    background: #53AFE6 !important;
+    background: #53afe6 !important;
   }
   .card.diet-plan-section .d-flex.icon-hide {
     display: flex !important;
-}
+  }
   .diet-plan-section-page .text-white {
     display: none !important;
   }
@@ -2052,15 +2090,14 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     width: 100px;
   }
 
-
   .plus-icon {
     padding: 5px;
-    background: #53AFE6;
+    background: #53afe6;
     border-radius: 5px !important;
   }
 
   .plus-icon.mr-2 svg {
-    background: #53AFE6;
+    background: #53afe6;
   }
 
   .diet-plan-section-page .show-it {
@@ -2094,7 +2131,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
     padding: 20px !important;
   }
 }
-
 
 /* custom-dropdpown */
 /* Customize the label */
@@ -2181,14 +2217,13 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-track {
-  background: #53AFE65E;
+  background: #53afe65e;
   border-radius: 10px;
 }
 
 .custom-dropdown-menu.dropdown-menu.show::-webkit-scrollbar-thumb {
-  background: #53AFE6;
+  background: #53afe6;
   border-radius: 10px;
-
 }
 
 .diet-plan-section-page .program-dropdown button:focus {
@@ -2212,7 +2247,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 
 .client-pages-mini a.btn:focus {
   box-shadow: none !important;
-
 }
 
 .diet-plan-scroll::-webkit-scrollbar {
@@ -2229,7 +2263,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 .diet-plan-scroll::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
-
 }
 
 .dropdown-toggle {
@@ -2282,20 +2315,20 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .meal-button .btn.btn-primary {
-  background: #53AFE6;
-  border: 1px solid #53AFE6;
+  background: #53afe6;
+  border: 1px solid #53afe6;
 }
 
 .meal-button .btn.btn-outline-secondary:hover {
   background-color: transparent !important;
-  color: #8F8F8F !important;
+  color: #8f8f8f !important;
 }
 
 .crative-buttons .submit-button {
   width: 162px;
   height: 50px;
   border-radius: 11px;
-  background: #53AFE6;
+  background: #53afe6;
   font-family: Inter;
   font-size: 14px;
   font-weight: 500;
@@ -2312,7 +2345,7 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .crative-buttons .submit-button:active {
-  background: #53AFE6 !important;
+  background: #53afe6 !important;
   border: 1px solid#53AFE6 !important;
 }
 
@@ -2342,8 +2375,8 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .custom-file-upload label:active {
-  background: #53AFE6 !important;
-  border: #53AFE6 !important;
+  background: #53afe6 !important;
+  border: #53afe6 !important;
 }
 
 a.text-decoration-none.text-black:focus {
@@ -2360,7 +2393,7 @@ a.text-decoration-none.text-black:focus {
 
 .react-tagsinput {
   border-radius: 11px;
-  background-color: #F5F5F5 !important;
+  background-color: #f5f5f5 !important;
 }
 
 .duration-button {
@@ -2417,8 +2450,8 @@ a.text-decoration-none.text-black:focus {
   height: 50px;
   border-radius: 39px;
   text-align: center;
-  background: #F5F5F5;
-  border: 1px solid #9A9A9A33;
+  background: #f5f5f5;
+  border: 1px solid #9a9a9a33;
   cursor: pointer;
 
   justify-content: center;
@@ -2456,84 +2489,82 @@ a.text-decoration-none.text-black:focus {
   line-height: 43px;
 }
 
-  .table-responsive::-webkit-scrollbar {
-    width: 10px;
-    height: 8px;
-  }
+.table-responsive::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
 
-  .table-responsive::-webkit-scrollbar-track {
-    background: #53AFE629;
-    border-radius: 10px;
-  }
-   
-  .table-responsive::-webkit-scrollbar-thumb {
-    background: #53AFE6;
-    border-radius: 10px;
+.table-responsive::-webkit-scrollbar-track {
+  background: #53afe629;
+  border-radius: 10px;
+}
 
-  }
-  .table-responsive .table.table-bordered thead.table-bg tr th {
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 29.03px;
-    text-align: center;
-    color: #FFFFFF;
-    vertical-align: middle;
-    border: none !important;
-    white-space: nowrap;
-  }
-  .table-responsive .table.table-bordered tbody tr td input:focus {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  .table-responsive .table.table-bordered tbody tr td {
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 28px;
-    text-align: center;
-    color: #000000;
-    vertical-align: middle;
-    border-width: 1px;
-
-  }
-  .table-responsive .table.table-bordered tbody {
-    border: 1px solid #0000003B !important;
-  }
-  .table-responsive .table.table-bordered tbody tr {
-     height: 110px;
-  }
-  .table-responsive .table.table-bordered thead.table-bg {
-    height: 55px;
-  }
-  #workout .btn.btn-light:hover {
-    background: #263238 !important;
-  }
-  .subcribtion_scroll::-webkit-scrollbar {
-    width: 8px;
-  }
-  .subcribtion_scroll::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-    border-radius: 10px;
-  }
-  .subcribtion_scroll::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px;
-  }
-  .custom-background {
-    background-color: #53AFE6 !important;
-  }
-  .table-responsive .table.table-bordered thead.table-bg tr {
-    border: none;
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #53afe6;
+  border-radius: 10px;
+}
+.table-responsive .table.table-bordered thead.table-bg tr th {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 29.03px;
+  text-align: center;
+  color: #ffffff;
+  vertical-align: middle;
+  border: none !important;
+  white-space: nowrap;
+}
+.table-responsive .table.table-bordered tbody tr td input:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.table-responsive .table.table-bordered tbody tr td {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: center;
+  color: #000000;
+  vertical-align: middle;
+  border-width: 1px;
+}
+.table-responsive .table.table-bordered tbody {
+  border: 1px solid #0000003b !important;
+}
+.table-responsive .table.table-bordered tbody tr {
+  height: 110px;
+}
+.table-responsive .table.table-bordered thead.table-bg {
+  height: 55px;
+}
+#workout .btn.btn-light:hover {
+  background: #263238 !important;
+}
+.subcribtion_scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.subcribtion_scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.subcribtion_scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.custom-background {
+  background-color: #53afe6 !important;
+}
+.table-responsive .table.table-bordered thead.table-bg tr {
+  border: none;
 }
 .subcribtion_scroll .card button.btn.btn-secondary.btn-sm.me-2 {
   cursor: pointer;
-  background: #263238DE !important;
+  background: #263238de !important;
   width: 45px !important;
   height: 45px !important;
   border-radius: 11px;
-  border-color: #263238DE !important;
+  border-color: #263238de !important;
 }
 .navbar-toggler.display_class:focus {
   background-color: transparent !important;
@@ -2549,7 +2580,7 @@ a.text-decoration-none.text-black:focus {
 @media (max-width: 768px) {
   .space-page .container.m-0 {
     height: auto !important;
-}
+  }
   .show-on-desktop {
     display: none;
   }
@@ -2571,42 +2602,42 @@ a.text-decoration-none.text-black:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-#hide-buttons2 {
-  display: block !important;
-}
+  }
+  #hide-buttons2 {
+    display: block !important;
+  }
   .workout-section .fliter-dropdown {
     width: 100%;
-}
+  }
   .fliter-dropdown #dropdown-basics {
     display: flex !important;
-}
-.diet-button-exersice .col-md-6 {
-  width: 100%;
-  padding: 0px;
-}
-.diet-button-exersice {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-}
-.button-container {
-  justify-content: flex-start;
-  gap: 15px !important;
-  align-items: center;
-}
+  }
+  .diet-button-exersice .col-md-6 {
+    width: 100%;
+    padding: 0px;
+  }
+  .diet-button-exersice {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .button-container {
+    justify-content: flex-start;
+    gap: 15px !important;
+    align-items: center;
+  }
   .col-lg-12.button-section-meals .meal-button {
     width: 100%;
     padding: 0px;
-}
+  }
 
-.col-lg-12.button-section-meals .col-4 {
-  padding: 0px;
-  width: 100%;
-  margin-bottom: 20px;
-}
+  .col-lg-12.button-section-meals .col-4 {
+    padding: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
   .client-listing .upcoming-card .upconcoming-cards .ms-3 {
     margin-left: 10px !important;
   }
@@ -2630,7 +2661,7 @@ a.text-decoration-none.text-black:focus {
   .custom-slider-section .slider-item {
     font-size: 14px !important;
     line-height: 21.5px !important;
-}
+  }
   .icon-button {
     width: 50px !important;
     height: 45px !important;
@@ -2640,7 +2671,8 @@ a.text-decoration-none.text-black:focus {
   }
 }
 
-.form-control:disabled, .form-control[readonly] {
+.form-control:disabled,
+.form-control[readonly] {
   background-color: unset !important;
   opacity: 1;
 }
@@ -2650,12 +2682,11 @@ a.text-decoration-none.text-black:focus {
 }
 .works-out-button.active span {
   color: #ffffff;
- 
 }
 .scroll_dietPlan {
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 599px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 599px;
 }
 .workout-section {
   display: flex;
@@ -2670,7 +2701,6 @@ a.text-decoration-none.text-black:focus {
   font-weight: 600;
   line-height: 31.5px;
   text-align: left;
-
 }
 .fliter-dropdown #dropdown-basics {
   box-shadow: none !important;
@@ -2693,11 +2723,11 @@ a.text-decoration-none.text-black:focus {
   width: 7px;
 }
 .fliter-dropdown .dropdown-menu.show::-webkit-scrollbar-track {
-  background: #53AFE65E;
+  background: #53afe65e;
   border-radius: 10px;
 }
 .fliter-dropdown .dropdown-menu.show::-webkit-scrollbar-thumb {
-  background: #53afe6;  
+  background: #53afe6;
   border-radius: 10px;
 }
 .fliter-dropdown .dropdown-menu.show a.dropdown-item {
@@ -2732,7 +2762,6 @@ a.text-decoration-none.text-black:focus {
   text-align: start;
   padding: 10px 15px;
   align-items: center;
-
 }
 .search-work input.form-control::placeholder {
   color: #ccc;
@@ -2749,7 +2778,7 @@ a.text-decoration-none.text-black:focus {
   outline: none !important;
 }
 .dropdown-item:active {
-    color: #263238 !important;
+  color: #263238 !important;
 }
 /* two button */
 .button-container {
@@ -2825,7 +2854,7 @@ a.text-decoration-none.text-black:focus {
   width: 102.9px;
   height: 55.96px;
   border-radius: 13px;
-  border: 1px solid #000000AB;
+  border: 1px solid #000000ab;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -2839,7 +2868,7 @@ a.text-decoration-none.text-black:focus {
 #hide-buttons2 {
   display: none;
 }
- /* Slider Container */
+/* Slider Container */
 .slider-container {
   display: flex;
   align-items: center;
@@ -2847,7 +2876,7 @@ a.text-decoration-none.text-black:focus {
   position: relative;
   /* width: 100%; */
   padding: 0 50px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -2856,20 +2885,20 @@ a.text-decoration-none.text-black:focus {
   display: flex;
   overflow-x: scroll;
   scroll-behavior: smooth;
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
-  padding: 10px 0; 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
 }
 
 .slider::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .slider-item {
   flex: 0 0 auto;
   background-color: #f2f2f2;
   border-radius: 50px;
-  margin: 0 10px; 
+  margin: 0 10px;
   padding: 12px 20px;
   font-size: 19px;
   font-weight: 600;
@@ -2882,7 +2911,7 @@ a.text-decoration-none.text-black:focus {
 }
 
 .slider-item.active {
-  background-color: #55acee; 
+  background-color: #55acee;
   color: white;
 }
 
@@ -2904,7 +2933,7 @@ a.text-decoration-none.text-black:focus {
   z-index: 10;
   font-size: 16px;
   transition: all 0.3s ease;
-  border: 1px solid #0000004F;
+  border: 1px solid #0000004f;
 }
 
 .left-arrow {
@@ -2918,4 +2947,18 @@ a.text-decoration-none.text-black:focus {
 .slider-arrow.disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.noPlanFound {
+  font-size: 21px;
+  text-align: center;
+  height: 122px;
+  padding-top: 31px;
+  font-weight: 600;
+}
+.noSlider {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: 600;
 }
