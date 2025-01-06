@@ -43,7 +43,7 @@ const WorkTable = ({ data, onUpdate, selectedButton,onDelete }) => {
         className="table-responsive"
         style={{
           overflowY: "auto",
-          maxHeight: "291px",
+          maxHeight: "220px",
           height: "100%",
         }}
       >
@@ -128,6 +128,7 @@ const WorkTable = ({ data, onUpdate, selectedButton,onDelete }) => {
                       }
                     />
                   </td>
+                  <td>
                   <div
                     onClick={()=>{
                       onDelete(item)
@@ -136,6 +137,7 @@ const WorkTable = ({ data, onUpdate, selectedButton,onDelete }) => {
                   >
                     <AiOutlineClose />
                   </div>
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -214,7 +214,7 @@ const WorkOut = ({
                 </div>
               </div>
               <div className="row mb-4 diet-button-exersice">
-                <div className="col-md-6">
+                <div className="col-md-9">
                   <div className="button-container" id="two-button">
                   {days.map((day, index) => (
                     <button
@@ -228,7 +228,7 @@ const WorkOut = ({
                     </button>))}
                   </div>
                 </div>
-                <div className="col-md-6 button-combine">
+                <div className="col-md-3 button-combine">
                   <h2 class="head-title-wrokouts" id="hide-buttons2">
                     Days
                   </h2>

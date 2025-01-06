@@ -1826,7 +1826,9 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   font-weight: 400;
   padding: 5px;
 }
-
+.p-section {
+  height: 160px;
+}
 @media (max-width: 1025px) {
   .client-mini-cards .col-lg-6 {
     width: 100%;
@@ -2694,13 +2696,17 @@ a.text-decoration-none.text-black:focus {
   gap: 60px;
 }
 .fliter-dropdown #dropdown-basics {
-  background: #53afe6 !important;
-  border-color: #53afe6 !important;
+  border-color: #000 !important;
   font-family: Poppins;
   font-size: 21px;
   font-weight: 600;
   line-height: 31.5px;
+  color: #000 !important;
   text-align: left;
+}
+.fliter-dropdown #dropdown-basics:focus {
+  border-color: #000 !important;
+  border: 1px solid #000;
 }
 .fliter-dropdown #dropdown-basics {
   box-shadow: none !important;
@@ -2850,9 +2856,27 @@ a.text-decoration-none.text-black:focus {
   color: #53afe6;
   border-color: #53afe6;
 }
+.diet-button-exersice {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100px;
+}
+.diet-button-exersice::-webkit-scrollbar {
+  width: 8px;
+
+}
+.diet-button-exersice::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+.diet-button-exersice::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
 .icon-button {
-  width: 102.9px;
-  height: 55.96px;
+  width: 55px;
+  height: 55px;
   border-radius: 13px;
   border: 1px solid #000000ab;
   font-family: Poppins;
@@ -2961,4 +2985,5 @@ a.text-decoration-none.text-black:focus {
   justify-content: center;
   font-size: 19px;
   font-weight: 600;
+  padding-top: 30px;
 }

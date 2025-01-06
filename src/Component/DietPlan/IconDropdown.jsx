@@ -12,6 +12,7 @@ const IconDropdown = () => {
           cursor: 'pointer',
           backgroundColor: '#fff',
           color: '#263238',
+          border: '1px solid #000',
         }}
       >
         <FaChevronDown color="#0B0B0B" /> {/* Arrow Icon */}
