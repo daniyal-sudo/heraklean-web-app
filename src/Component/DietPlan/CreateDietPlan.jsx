@@ -199,7 +199,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     onClick={handleAddMeal}
                   >
                     <TiPlus />
-                    Create 
+                   
                   </button>
                   <button
                   style={{
@@ -221,7 +221,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                     onClick={'0'}
                   >
                     <FaMinus />
-                    Minius
+                    
                   </button>
                 </div>
                 </div>
