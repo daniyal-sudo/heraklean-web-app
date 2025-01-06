@@ -9,6 +9,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import CustomSlider from "./CustomSlider";
 import IconDropdown from "../DietPlan/IconDropdown";
 import { TestObject } from "../../../CommonFunctions";
+import { errorMessage } from "../../Toast/Toast";
 
 const WorkOut = ({
   onBack,
@@ -58,7 +59,7 @@ const WorkOut = ({
           workingLoad: 0,
           coachNotes: "",
           dayName: selectedButton,
-          _id:generateRandomId(),
+          uniqueid:generateRandomId(),
         },
       ];
     });
@@ -75,16 +76,32 @@ const WorkOut = ({
 
   // Function to delete the last day
   const deleteDay = () => {
-    setDays((prevDays) => prevDays.slice(0, -1));
+    if (days.length > 1) {
+      const deletedDay = days[days.length - 1];
+      setDays((prevDays) => prevDays.slice(0, -1));
+  
+      setTableData((prevData) => {
+        // Filter out the items where dayName matches the one you want to delete
+        return prevData.filter(item => item.dayName !== deletedDay);
+      });
+    } else {
+      errorMessage('One day is required');
+    }
   };
 
-  const onDelete=(data)=>{
-   
-      setTableData((prevData) => {
-        return prevData.filter((item) => item._id !== data._id);
+  const onDelete = (data) => {
+    setTableData((prevData) => {
+      return prevData.filter((item) => {
+        // First, check if the _id matches, otherwise check if uniqueid matches
+        if (data._id && item._id === data._id) {
+          return false; // Don't include this item (it will be deleted)
+        } else if (data.uniqueid && item.uniqueid === data.uniqueid) {
+          return false; // Don't include this item (it will be deleted)
+        }
+        return true; // Keep the item if it doesn't match
       });
-    
-  }
+    });
+  };
   console.log(tableData)
   return (
     <>
