@@ -157,7 +157,7 @@ const ProgramPlans = () => {
         />
       ) : showComponent === "showWorkout" ? (
       
-          <div className="container" style={{ height: "100dvh",padding:'30px' }}>
+          <div className="container" style={{ height: "100dvh",padding:'30px 15px' }}>
             <WorkOut
               onClose={() => {
                 setShowComponent("");
