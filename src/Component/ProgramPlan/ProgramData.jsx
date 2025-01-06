@@ -76,6 +76,10 @@ const ProgramPlans = () => {
       errorMessage("Please add one exercise");
       return;
     }
+    const modifiedData = tableData.map((item) => {
+      const { uniqueid, ...rest } = item;  // Destructure to remove 'uniqueid' key
+      return rest;  // Return a new object without the 'uniqueid'
+    });
     const programData = {
       id:dayForm.id ? dayForm.id : '',
       title: dayForm.title,
@@ -84,7 +88,7 @@ const ProgramPlans = () => {
         ? dayForm.modules.split(",").map((item) => item.trim())
         : [],
       duration: dayForm.duration,
-      exercises: tableData,
+      exercises: modifiedData,
     };
 
     try {
