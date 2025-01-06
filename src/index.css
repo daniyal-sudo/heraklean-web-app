@@ -754,6 +754,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .meal-button button:focus {
   box-shadow: none !important;
   outline: none !important;
+  border: 1px solid #6c757d;
 }
 
 .meal-button button {
@@ -1240,8 +1241,14 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .meal-button .btn.btn-primary:active {
-  background: #53afe6 !important;
-  border: 1px solid #53afe6 !important;
+  background: transparent;
+  border: 1px solid #53afe6;
+  color: #53afe6;
+}
+.meal-button .btn.btn-primary:focus {
+  background: transparent !important;
+  border: 1px solid #53afe6;
+  color: #53afe6;
 }
 
 .meal-button .plus svg {
@@ -2317,8 +2324,9 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 }
 
 .meal-button .btn.btn-primary {
-  background: #53afe6;
+  background: transparent;
   border: 1px solid #53afe6;
+  color: #53afe6;
 }
 
 .meal-button .btn.btn-outline-secondary:hover {
