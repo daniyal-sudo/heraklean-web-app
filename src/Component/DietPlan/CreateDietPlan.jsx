@@ -278,7 +278,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                           <CustomInputField 
                           
                           name={`${macro}Grams`}
-                          value={mealsWithIndex[macro].grams || ""}
+                          value={mealsWithIndex[macro] && mealsWithIndex[macro].grams ? mealsWithIndex[macro].grams : ""}
                           action={(e) =>
                             handleMacroChange(
                               selectedIndex,
@@ -290,8 +290,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
                           </div>
                           <TagsInput
                             value={
-                              (mealsWithIndex && mealsWithIndex[macro]?.name) ||
-                              []
+                              (mealsWithIndex && mealsWithIndex[macro]?.name) || [] 
                             }
                             onChange={(tags) =>
                               handleMacroChange(
