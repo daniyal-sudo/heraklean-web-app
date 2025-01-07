@@ -2209,13 +2209,6 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
   box-shadow: none !important;
 }
 
-.custom-dropdown-menu.dropdown-menu.show {
-  padding: 0px !important;
-  height: 180px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
 .custom-dropdown-menu.dropdown-menu.show a:first-child {
   border-top-left-radius: 4px;
 }
