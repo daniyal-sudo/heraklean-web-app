@@ -422,7 +422,7 @@ const ClientInfo = ({ name, status, image, clientData }) => {
     <div className="d-flex align-items-center mb-4 Client-Profile-section">
       <div className="name-profile">
         <img
-          src="/p-2.png"
+          src={"/p-2.png"}
           alt={name}
           className="profile-img"
           style={{ width: "162px", height: "162px", objectFit: "cover" }}
@@ -543,38 +543,22 @@ const ActivePlans = ({
               </div>
             </div>
             <div className="card-space">
-              <div className="mb-3">
-                <label htmlFor="mealSelect" className="form-label">
-                  Select Meal Day:
-                </label>
-                <select
-                  id="mealSelect"
-                  className="form-select"
-                  value={selectedMeal}
-                  onChange={(e) => setSelectedMeal(e.target.value)}
-                >
-                  {daysOfWeek.map((day) => (
-                    <option key={day} value={day}>
-                      {day.charAt(0).toUpperCase() + day.slice(1)}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              
               {activePlans.map((plan) => (
                 <div key={plan._id} className="mb-3">
                   <span className="d-flex justify-content-end">
-                  <div className="edit-button">
+                  {/* <div className="edit-button">
                     <RiEdit2Fill
                       onClick={() => {
                         setCurrentPlan(plan);
                         setShowModal(true);
                       }}
                     />
-                    </div>
+                    </div> */}
                   </span>
                   {/* <h6>{plan[selectedMeal].programTitle}</h6> */}
-                  <p className="para-2">{plan[selectedMeal].title}</p>
-                  {plan[selectedMeal] && (
+                  <p className="para-2">{plan.title}</p>
+                  {/* {plan[selectedMeal] && (
                     <>
                       <p className="para-2 ">
                         {plan[selectedMeal].description}
@@ -590,7 +574,7 @@ const ActivePlans = ({
                       )}
                       <p>Duration: {plan[selectedMeal].duration}</p>
                     </>
-                  )}
+                  )} */}
                   <a
                     href="#"
                     className="btn btn-outline-primary btn-sm active-button"
@@ -625,7 +609,7 @@ const ActivePlans = ({
             </div>
 
             <div className="card-space">
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <label htmlFor="mealSelect" className="form-label">
                   Select Day:
                 </label>
@@ -641,21 +625,21 @@ const ActivePlans = ({
                     </option>
                   ))}
                 </select>
-              </div>
+              </div> */}
               {activeMealPlans.map((plan, index) => (
                 <div key={index}>
                   <h6 className="para-2">{plan.dietTitle}</h6>
                   <span className="d-flex justify-content-end para-2 ">
-                    <div className="edit-button">
+                    {/* <div className="edit-button">
                     <RiEdit2Fill
                       onClick={() => {
                         setCurrentMeal(plan);
                         setShowEditModal(true);
                       }}
                     />
-                    </div>
+                    </div> */}
                   </span>
-                  {plan[selectedDay] &&
+                  {/* {plan[selectedDay] &&
                     Object.entries(plan[selectedDay]).map(([meal, details]) => (
                       <div key={meal}>
                         <strong className="para-2">{meal}</strong>
@@ -671,7 +655,7 @@ const ActivePlans = ({
                           <li className="para-2">Fat: {details.fat}g</li>
                         </ul>
                       </div>
-                    ))}
+                    ))} */}
                 </div>
               ))}
             </div>

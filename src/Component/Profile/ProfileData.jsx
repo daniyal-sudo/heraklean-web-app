@@ -103,7 +103,8 @@ const ProfileData = () => {
         style={{ border: "1px solid #E5E5E5", width: "100%" }}
       >
         {showLoader ? (
-          <div className="text-center record-image no-record-found-h">
+          <div className="text-center record-image "
+          style={{height:'750px'}}>
           <Spinner />
           </div>
         ) : (
