@@ -134,8 +134,11 @@
   border: none !important;
   position: relative;
   padding: 35px;
+  height: 750px;
 }
-
+.container.client-section {
+  height: 100%;
+}
 .center-flex {
   display: flex;
   align-items: flex-start;
@@ -286,6 +289,7 @@
   border: none !important;
   position: relative;
   padding: 35px;
+  height: 750px;
 }
 
 .card.diet-plan-section {
