@@ -21,33 +21,29 @@ const Form = ({ onClose }) => {
     profilePic: null,
     password: "",
     email: "",
-    subscription_start_Date: '', // Added this field
+    subscription_start_Date: "", // Added this field
     subscriptionId: "", // Added this field
   });
   const [error, setError] = useState(null);
 
   useEffect(() => {
-
-
-    
     const fetchPlans = async () => {
       const token = localStorage.getItem("token");
       try {
         const [dietResponse, programResponse] = await Promise.all([
           axios.post(
             `${api_url}getTrainerDietPlans`,
-            { trainerId: localStorage.getItem('trainerId') }, // Corrected payload object
+            { trainerId: localStorage.getItem("trainerId") }, // Corrected payload object
             {
               headers: { Authorization: `Bearer ${token}` }, // Corrected headers object placement
             }
           ),
-         
         ]);
 
         const response = await axiosInstance.get(`/getTrainerProgramPlans`);
-      
+
         setDietPlans(dietResponse.data.dietPlans);
-        setProgramPlans( response.data.programPlans);
+        setProgramPlans(response.data.programPlans);
       } catch (error) {
         console.error("Error fetching plans:", error);
         setError("Failed to fetch diet and program plans. Please try again.");
@@ -58,14 +54,13 @@ const Form = ({ onClose }) => {
     getSub();
   }, []);
 
-  const getSub =async()=>{
-
+  const getSub = async () => {
     const response = await axiosInstance.post(`/getSubscriptionsByTrainerId`, {
       trainerId: localStorage.getItem("trainerId"),
     });
 
-    setSubscription(response?.data?.subscriptions)
-  }
+    setSubscription(response?.data?.subscriptions);
+  };
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -88,6 +83,27 @@ const Form = ({ onClose }) => {
     event.preventDefault();
     setError(null);
 
+    const { fullname, startingWeight, attachDietId, attachProgramId, subamount, profilePic, password, email, subscription_start_Date, subscriptionId } = formData;
+
+    // Check if any of the required fields are empty
+    if (
+      !fullname ||
+      !startingWeight ||
+      // !subamount ||
+      !profilePic ||
+      !password ||
+      !email ||
+      // !subscription_start_Date ||
+      !subscriptionId
+    ) {
+      return  errorMessage("All fields are required!");
+    }
+  
+    // Check if arrays have at least one element
+    if (attachDietId.length === 0 || attachProgramId.length === 0) {
+      return errorMessage("Both diet and program must be attached!");
+    }
+
     const formDataToSend = new FormData();
     formDataToSend.append("fullname", formData.fullname);
     formDataToSend.append("startingWeight", Number(formData.startingWeight));
@@ -102,7 +118,6 @@ const Form = ({ onClose }) => {
     formDataToSend.append("subscription_start_Date", getTodayDate());
     formDataToSend.append("subscriptionId", formData.subscriptionId[0]);
 
- 
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
@@ -133,15 +148,15 @@ const Form = ({ onClose }) => {
     return <div className="alert alert-danger">{error}</div>;
   }
 
-console.log(formData,'formDataformData')
+  console.log(formData, "formDataformData");
 
-function getPlanDetailsById(plans, id) {
-  const plan = plans.find(plan => plan._id === id);
-  if (!plan) {
+  function getPlanDetailsById(plans, id) {
+    const plan = plans.find((plan) => plan._id === id);
+    if (!plan) {
       return "Plan not found";
+    }
+    return `${plan.planName} $${plan.planAmount} ${plan.planDuration} days`;
   }
-  return `${plan.planName} $${plan.planAmount} ${plan.planDuration} days`;
-}
 
   return (
     <div className="create-modal">
@@ -159,10 +174,10 @@ function getPlanDetailsById(plans, id) {
                   className="form-control"
                   type="text"
                   id="fullname"
-                  placeholder="Type"
+                  placeholder="Full name"
                   value={formData.fullname}
                   onChange={handleInputChange}
-                  required
+                  // required
                 />
               </div>
               <div className="col-6 mb-3">
@@ -171,10 +186,10 @@ function getPlanDetailsById(plans, id) {
                   className="form-control"
                   type="email"
                   id="email"
-                  placeholder="Type"
+                  placeholder="Email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  required
+                  // required
                 />
               </div>
             </div>
@@ -188,7 +203,8 @@ function getPlanDetailsById(plans, id) {
                   id="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  required
+                  placeholder="Password"
+                  // required
                 />
               </div>
               <div className="col-6 mb-3">
@@ -199,7 +215,8 @@ function getPlanDetailsById(plans, id) {
                   id="startingWeight"
                   value={formData.startingWeight}
                   onChange={handleInputChange}
-                  required
+                  // required
+                  placeholder="Starting weight"
                 />
               </div>
             </div>
@@ -338,8 +355,7 @@ function getPlanDetailsById(plans, id) {
             </div>
 
             <div className="row">
-
-            <div className="col-6 mb-3 dropdown-diet">
+              <div className="col-6 mb-3 dropdown-diet">
                 <div className="program-dropdown">
                   <label htmlFor="attachDietId">Subscription</label>
                   <Dropdown
@@ -372,8 +388,10 @@ function getPlanDetailsById(plans, id) {
                       {subscription.find(
                         (plan) => plan._id === formData.subscriptionId[0]
                       )
-                        ? 
-                          getPlanDetailsById(subscription,formData.subscriptionId[0])
+                        ? getPlanDetailsById(
+                            subscription,
+                            formData.subscriptionId[0]
+                          )
                         : "Select subcribtion Plan"}
                     </Dropdown.Toggle>
 
@@ -394,7 +412,9 @@ function getPlanDetailsById(plans, id) {
                                 handleSelectChange("subscriptionId", diet._id)
                               }
                             />
-                            <div className="fw-bold">{ getPlanDetailsById(subscription, diet._id)}</div>
+                            <div className="fw-bold">
+                              {getPlanDetailsById(subscription, diet._id)}
+                            </div>
                           </div>
                         </Dropdown.Item>
                       ))}
