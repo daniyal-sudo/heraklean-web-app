@@ -27,9 +27,7 @@ const ProgramPlans = () => {
     "sunday",
   ];
 
-  const [tableData, setTableData] = useState([
-   
-  ]);
+  const [tableData, setTableData] = useState([]);
 
   const [selectedDayValue, setSelectedDayValue] = useState(days[0]);
 
@@ -37,26 +35,24 @@ const ProgramPlans = () => {
     title: "",
     description: "",
     modules: "",
-    id:''
+    id: "",
   });
 
   // Fetch programs from API
   useEffect(() => {
-    setShowLoader(true)
-   
+    setShowLoader(true);
+
     fetchPrograms();
   }, []);
   useEffect(() => {
     if (showComponent === "") {
+      setTableData([])
       setDayForm({
-        id:'',
+        id: "",
         title: "",
         description: "",
         modules: "",
-      
       });
-
-     
     }
   }, [showComponent]);
 
@@ -77,11 +73,11 @@ const ProgramPlans = () => {
       return;
     }
     const modifiedData = tableData.map((item) => {
-      const { uniqueid, ...rest } = item;  // Destructure to remove 'uniqueid' key
-      return rest;  // Return a new object without the 'uniqueid'
+      const { uniqueid, ...rest } = item; // Destructure to remove 'uniqueid' key
+      return rest; // Return a new object without the 'uniqueid'
     });
     const programData = {
-      id:dayForm.id ? dayForm.id : '',
+      id: dayForm.id ? dayForm.id : "",
       title: dayForm.title,
       description: dayForm.description,
       modules: dayForm.modules
@@ -93,7 +89,7 @@ const ProgramPlans = () => {
 
     try {
       const response = await axiosInstance.post(
-        dayForm.id  ?   '/editProgramPlan' : `/createProgramPlan`,
+        dayForm.id ? "/editProgramPlan" : `/createProgramPlan`,
         programData
       );
 
@@ -110,9 +106,9 @@ const ProgramPlans = () => {
       if (error.response) {
         console.error("HTTP Status:", error.response.status);
         console.error("Response Data:", error.response.data);
-    } else {
+      } else {
         console.error("Error Message:", error.message);
-    }
+      }
     }
   };
 
@@ -122,13 +118,13 @@ const ProgramPlans = () => {
       title: data.title,
       description: data.description,
       modules: data.modules.toString(),
-  
-      id:data._id
+
+      id: data._id,
     });
 
     setTableData(data.exercises);
 
-    setShowComponent('craeteProgram')
+    setShowComponent("craeteProgram");
   };
 
   const fetchPrograms = async () => {
@@ -136,7 +132,7 @@ const ProgramPlans = () => {
       const response = await axiosInstance.get(`/getTrainerProgramPlans`);
       const fetchedPrograms = response.data.programPlans;
       setPrograms(fetchedPrograms);
-      setShowLoader(false)
+      setShowLoader(false);
 
       // Default to first program and Monday data
     } catch (error) {
@@ -156,22 +152,23 @@ const ProgramPlans = () => {
           dayForm={dayForm}
         />
       ) : showComponent === "showWorkout" ? (
-      
-          <div className="container" style={{ height: "100dvh",padding:'30px 15px' }}>
-            <WorkOut
-              onClose={() => {
-                setShowComponent("");
-              }}
-              tableData={tableData}
-              setTableData={setTableData}
-              handleSubmit={handleSubmit}
-              dayForm={dayForm}
-              onBack={() => {
-                setShowComponent("craeteProgram");
-              }}
-            />
-          </div>
-        
+        <div
+          className="container"
+          style={{ height: "100dvh", padding: "30px 15px" }}
+        >
+          <WorkOut
+            onClose={() => {
+              setShowComponent("");
+            }}
+            tableData={tableData}
+            setTableData={setTableData}
+            handleSubmit={handleSubmit}
+            dayForm={dayForm}
+            onBack={() => {
+              setShowComponent("craeteProgram");
+            }}
+          />
+        </div>
       ) : (
         <div
           className="container m-0"
@@ -223,62 +220,67 @@ const ProgramPlans = () => {
             <div className="scrolbar-program">
               <div className="row">
                 {programs.length > 0 &&
-                  programs.map((program, index) => (
-                    <div className="col-md-6 mb-3"key={index}>
-                      <div className="card p-3 program-2">
-                        <div className="d-flex justify-content-between align-items-start">
-                          <h5 className="custom-heads">{program.title}</h5>
-                          <button className="btn btn-secondary btn-sm icon-hidden" onClick={() => {
-                              handleEdit(program);
-                            }}>
-                            <RiEdit2Fill size={18} />
-                          </button>
-                        </div>
-                        <div className="mt-2">
-                          <h6 className="custom-head-bold">Introduction</h6>
-                          <p className="text-muted text-start">
-                            {program.description}
-                          </p>
-                        </div>
-                        <div className="mt-3">
-                          <h6 className="custom-head-bold">Modules</h6>
-                          <ol className="ps-3">
-                            {program.modules.map((module, index) => (
-                              <li key={index}>{module}</li>
-                            ))}
-                          </ol>
-                        </div>
-                        <div className="mt-3">
-                          <h6 className="custom-head-bold">Duration</h6>
-                          <p className="text-muted text-start">
-                            {program.duration}
-                          </p>
-                        </div>
-                        <div className="edit-section">
-                          <button
-                            className="btn btn-secondary btn-sm me-2 desktop-d-none"
-                            onClick={() => {
-                              handleEdit(program);
-                            }}
-                          >
-                            <RiEdit2Fill size={18} />
-                          </button>
+                  programs.map((program, index) => {
+                    const filteredData = program.exercises.filter((item) => item.dayName === 1);
+                    return (
+                      <div className="col-md-6 mb-3" key={index}>
+                        <div className="card p-3 program-2">
+                          <div className="d-flex justify-content-between align-items-start">
+                            <h5 className="custom-heads">{program.title}</h5>
+                            <button
+                              className="btn btn-secondary btn-sm icon-hidden"
+                              onClick={() => {
+                                handleEdit(program);
+                              }}
+                            >
+                              <RiEdit2Fill size={18} />
+                            </button>
+                          </div>
+                          {/* <div className="mt-2">
+                            <h6 className="custom-head-bold">Introduction</h6>
+                            <p className="text-muted text-start">
+                              {program.description}
+                            </p>
+                          </div> */}
+                          <div className="mt-3">
+                            <h6 className="custom-head-bold">Exercises</h6>
+                            <ol className="ps-3">
+                              {filteredData.map((item, index) => (
+                                <li key={index}>{item.exerciseName}</li>
+                              ))}
+                            </ol>
+                          </div>
+                          {/* <div className="mt-3">
+                            <h6 className="custom-head-bold">Duration</h6>
+                            <p className="text-muted text-start">
+                              {program.duration}
+                            </p>
+                          </div> */}
+                          <div className="edit-section">
+                            <button
+                              className="btn btn-secondary btn-sm me-2 desktop-d-none"
+                              onClick={() => {
+                                handleEdit(program);
+                              }}
+                            >
+                              <RiEdit2Fill size={18} />
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                   {programs.length === 0 && (
-              <div className="text-center record-image no-record-found-h">
-                 {showLoader ? (
-                    <Spinner />
-                  ) : (
-                <img src="/no-event.jpg" style={{ width: "130px" }} />)}
-              </div>
-            )}
+                    );
+                  })}
+                {programs.length === 0 && (
+                  <div className="text-center record-image no-record-found-h">
+                    {showLoader ? (
+                      <Spinner />
+                    ) : (
+                      <img src="/no-event.jpg" style={{ width: "130px" }} />
+                    )}
+                  </div>
+                )}
               </div>
             </div>
-
-           
           </div>
         </div>
       )}

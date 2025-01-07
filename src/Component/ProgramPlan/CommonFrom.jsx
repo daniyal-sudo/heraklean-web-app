@@ -32,7 +32,7 @@ const CommonForm = ({
                   name="title"
                   value={dayForm.title}
                   onChange={handleDayFormChange}
-                  placeholder="Type"
+                  placeholder="Program title"
                  
                 />
               </Form.Group>
@@ -95,14 +95,14 @@ const CommonForm = ({
             {/* Warm Up */}
             <div className="col-12">
               <Form.Group className="mb-4">
-                <Form.Label>Modules</Form.Label>
+                <Form.Label>Warm Up</Form.Label>
                 <Form.Control
                   as="textarea"
                   name="modules"
                   value={dayForm.modules || ""}
                   onChange={handleDayFormChange}
                   rows={6}
-                  placeholder="Modules"
+                  placeholder="Warm up"
                  
                 />
               </Form.Group>

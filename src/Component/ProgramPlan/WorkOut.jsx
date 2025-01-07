@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import WorkoutButtons from "../DietPlan/WorkoutButtons";
 import WorkTable from "./WorkTable";
 import TwoButtons from "../DietPlan/TwoButtons";
@@ -10,6 +10,7 @@ import CustomSlider from "./CustomSlider";
 import IconDropdown from "../DietPlan/IconDropdown";
 import { TestObject } from "../../../CommonFunctions";
 import { errorMessage } from "../../Toast/Toast";
+
 
 const WorkOut = ({
   onBack,
@@ -36,7 +37,21 @@ const WorkOut = ({
       return updatedData;
     });
   };
+  // Fetch programs from API
+  useEffect(() => {
+    getUniqueDays(tableData)
+  }, []);
 
+const getUniqueDays = (data) => {
+  if (data.length > 0) {
+    const uniqueDays = [...new Set(data.map(item => item.dayName))];
+    setDays(uniqueDays)
+  } else {
+    setDays([1])
+  }
+  // Use Set to get unique values, then convert it to an array
+
+};
 
   const generateRandomId = () => {
     return '_' + Math.random().toString(36).substr(2, 9); 

@@ -47,9 +47,7 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
   };
 
   const isFormValid = (form) => {
-    return Object.entries(form)
-      .filter(([key]) => key !== "id") // Exclude the "id" field
-      .every(([, value]) => value.trim() !== ""); // Check that all remaining fields are non-empty
+    return form.title.trim() !== ""; // Only validate title field
   };
   
   // Usage Example
@@ -59,7 +57,7 @@ const CreateProgram = ({ onClose,setShowComponent,setDayForm,dayForm}) => {
     if (isFormValid(dayForm)) {
       setShowComponent("showWorkout");
     } else {
-      errorMessage('All fileds are required')
+      errorMessage('Program title is required')
       // Handle validation error
     }
   };
