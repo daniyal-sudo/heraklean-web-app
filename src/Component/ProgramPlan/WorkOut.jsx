@@ -122,7 +122,7 @@ const getUniqueDays = (data) => {
     <>
       <div className="row">
         <div className="col-md-12">
-          <div className="diet-plan-section-page">
+          <div className="diet-plan-section-pages-2">
             <div className="p-section">
               <div className="row">
                 <div className="col-md-7">

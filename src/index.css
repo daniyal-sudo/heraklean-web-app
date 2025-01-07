@@ -2208,7 +2208,13 @@ button.btn.btn-secondary.btn-sm.me-2.icon-hidden:focus {
 #dropdown-basic:focus {
   box-shadow: none !important;
 }
-
+.diet-plan-section-pages-2 {
+  border-radius: 17px;
+  background-color: #ffffff;
+  border: none !important;
+  position: relative;
+  padding: 35px;
+}
 .custom-dropdown-menu.dropdown-menu.show a:first-child {
   border-top-left-radius: 4px;
 }
