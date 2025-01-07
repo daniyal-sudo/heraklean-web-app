@@ -110,7 +110,7 @@ const CreateDietPlan = ({ onClose, editPlan }) => {
 
     try {
       const response = await axiosInstance.post(
-        editPlan._id ? "/updateDietPlan" : "/createDietPlan",
+        editPlan?._id ? "/updateDietPlan" : "/createDietPlan",
         dietData
       );
 
