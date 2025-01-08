@@ -5,7 +5,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SingleClient from "./SingleClient";
 import axios from "axios";
-import { api_url } from "../../../CommonFunctions";
+import { api_url, api_url_Img } from "../../../CommonFunctions";
 import Form from "../CreateClient/Form";
 import Spinner from "../Loader/Spinner";
 const Card = ({
@@ -17,9 +17,7 @@ const Card = ({
   setShowComponent,
 }) => {
   // Assuming your backend serves images from a folder like 'http://localhost:5001/uploads/'
-  const imageUrl = imgSrc
-    ? `http://82.112.240.94:5001/${imgSrc.replace(/\\/g, "/")}`
-    : "default_image.png";
+  const imageUrl = imgSrc ? `${api_url_Img}/${imgSrc.replace(/\\/g, "/")}` : "default_image.png";
 
   return (
     <div className="col-12 mb-4">
@@ -30,8 +28,8 @@ const Card = ({
         {/* Image Section */}
         <div className="col-auto">
           <img
-            src="pic.png"
-            alt={name}
+            src={imageUrl}
+            alt={imageUrl}
             className="rounded"
             style={{ width: "100px", height: "100px", objectFit: "cover" }}
             onError={(e) => {

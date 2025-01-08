@@ -2,6 +2,10 @@ export const api_url =
   window.location.hostname === "localhost"
     ? "http://localhost:5001/api/auth/"
     : "http://82.112.240.94:5001/api/auth/";
+export const api_url_Img =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5001"
+    : "http://82.112.240.94:5001";
 
 // 'http://localhost:5001/api/auth/'
 

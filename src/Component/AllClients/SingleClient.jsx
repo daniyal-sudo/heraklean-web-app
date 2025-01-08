@@ -17,7 +17,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Header from "../CommonComponent/Header";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { api_url } from "../../../CommonFunctions";
+import { api_url, api_url_Img } from "../../../CommonFunctions";
 import WeightGraphChart from "./WeightGraphChart";
 import SendPlan from "./SendPlan";
 import SaveReport from "./SaveReport";
@@ -415,15 +415,15 @@ const ClientHeader = ({ trainerName, clientName }) => (
 const ClientInfo = ({ name, status, image, clientData }) => {
   // Construct the full image URL
   const imageUrl = image
-    ? `http://82.112.240.94:5001/${image.replace(/\\/g, "/")}`
+    ? `${api_url_Img}/${image.replace(/\\/g, "/")}`
     : "default_image.png"; // Use default image if no image is available
 
   return (
     <div className="d-flex align-items-center mb-4 Client-Profile-section">
       <div className="name-profile">
         <img
-          src={"/p-2.png"}
-          alt={name}
+          src={imageUrl}
+          alt={imageUrl}
           className="profile-img"
           style={{ width: "162px", height: "162px", objectFit: "cover" }}
         />
