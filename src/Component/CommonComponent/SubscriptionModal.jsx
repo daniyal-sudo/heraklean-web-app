@@ -5,6 +5,7 @@ import "react-tagsinput/react-tagsinput.css";
 import { useEffect } from "react";
 import SubscriptionList from "./SubscriptionList";
 import { errorMessage, successMessage } from "../../Toast/Toast";
+import { Dropdown } from "react-bootstrap";
 
 const SubscriptionModal = ({}) => {
   const [show, setShow] = useState(false);
@@ -106,46 +107,46 @@ const SubscriptionModal = ({}) => {
     setSubscriptionId("");
   };
   const handleSubmit = async (e) => {
-    const { planName, planDuration, planAmount } = subscriptionData;
+    e.preventDefault(); // Prevent the default form submission
+  
+    const { planName, planDuration, planAmount, trainerId } = subscriptionData;
     const data = {
-      trainerId: subscriptionData.trainerId,
+      trainerId,
       planName,
       planDuration,
       planAmount,
       planBenefits: tags,
       subscriptionId: subscriptionId ? subscriptionId : null, // Convert string to array
     };
-
+  
+    // Validation
+    if (!planName || !planDuration || !planAmount || !trainerId || !tags || tags.length === 0) {
+      errorMessage("All fields are required, including plan benefits (tags).");
+      return; // Prevent submission if validation fails
+    }
+  
     try {
-      if (subscriptionId) {
-        const response = await axiosInstance.post(`/createSubscription`, data);
-        if (response.data.success) {
-          successMessage(response.data.message);
-          // handleAddSubscription(response.data.subscription)
-          setSubscriptionId(null);
-         setShowComponent('')
-          handleReset();
-        } else {
-          errorMessage(response.data.message);
-        }
+      // Make API call based on whether subscriptionId exists
+      const endpoint = "/createSubscription";
+      const method = subscriptionId ? "post" : "post"; // You could use PUT for update if needed
+      
+      const response = await axiosInstance[method](endpoint, data);
+  
+      if (response.data.success) {
+        successMessage(response.data.message);
+        setSubscriptionId(null);
+        setShowComponent('');
+        handleReset();
       } else {
-        const response = await axiosInstance.post("/createSubscription", data);
-        if (response.data.success) {
-          successMessage(response.data.message);
-          // handleEditSubscription(response.data.subscription)
-          setSubscriptionId(null);
-         setShowComponent('')
-          handleReset();
-        } else {
-          errorMessage(response.data.message);
-        }
+        errorMessage(response.data.message);
       }
-
-      // Callback to refresh parent component data
     } catch (error) {
       console.error("Error saving subscription:", error);
+      errorMessage("An error occurred while saving the subscription.");
     }
   };
+  
+
 
   return (
     <>
@@ -205,6 +206,7 @@ const SubscriptionModal = ({}) => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "flex-end",
+                      
                
                     }}
                   >
@@ -214,6 +216,7 @@ const SubscriptionModal = ({}) => {
                         backgroundColor: "rgb(83, 175, 230)",
                         color: "white",
                         borderRadius: "10px",
+                        cursor:'pointer'
                       }}
                       onClick={() => {
                         setShowComponent("createSub");
@@ -253,7 +256,7 @@ const SubscriptionModal = ({}) => {
                       required
                     />
                   </div>
-                  <div className="mb-3">
+                  {/* <div className="mb-3">
                     <label htmlFor="duration" className="form-label">
                       Duration (in days)
                     </label>
@@ -266,7 +269,77 @@ const SubscriptionModal = ({}) => {
                       onChange={handleInputChange}
                       required
                     />
-                  </div>
+                  </div> */}
+                   <div className=" mb-3 dropdown-diet">
+                <div className="program-dropdown">
+                  {/* <label htmlFor="attachDietId">Duration</label> */}
+                  <label htmlFor="clientName" className="form-label">
+                  Duration
+                    </label>
+                  <Dropdown
+                    onSelect={(eventKey) =>
+                      // handleSelectChange("attachDietId", eventKey)
+                      setSubscriptionData((prevData) => ({
+                        ...prevData,
+                        planDuration: eventKey,
+                      }))
+                    }
+                    // Disable dropdown if no data
+                  >
+                    <Dropdown.Toggle
+                      variant="light"
+                      className="form-control custom-dropdown-toggle d-flex justify-content-between align-items-center"
+              
+                    >
+                       {subscriptionData.planDuration || "Select Duration"}
+                      <span className="dropdown-icon-wrapper">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="feather feather-chevron-down"
+                          width="18"
+                          height="18"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </span>
+                     
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu className="custom-dropdown-menu">
+                    {["Monthly", "Quarterly", "Yearly"].map((duration, index) => (
+                        <Dropdown.Item
+                          key={index}
+                          eventKey={duration}
+                          className="custom-dropdown-item"
+                        >
+                          <div className="d-flex align-items-start">
+                            <input
+                              type="radio"
+                              name="program"
+                              className="me-2"
+                              checked={duration === subscriptionData.planDuration}
+                              onChange={() =>
+                                setSubscriptionData((prevData) => ({
+                                  ...prevData,
+                                  planDuration: duration,
+                                }))
+                                
+                              }
+                            />
+                            <div className="fw-bold">{duration}</div>
+                          </div>
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </div>
                   <div className="mb-3">
                     <label htmlFor="price" className="form-label">
                       Plan Amount

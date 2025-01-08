@@ -23,7 +23,7 @@ const SubscriptionList = ({ subscriptions, onDelete,showLoader }) => {
                 </div>
 
                 <p className="card-title text-center mb-0">
-                  {subscription.planDuration} days
+                  {subscription.planDuration}
                 </p>
                 <button
                   class="btn btn-secondary btn-sm me-2"
