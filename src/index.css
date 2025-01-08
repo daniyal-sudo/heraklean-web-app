@@ -922,7 +922,13 @@ nav.custom-sidebar .d-flex a:focus {
   text-align: left;
   color: #000;
 }
-
+.dropdown-menu.show {
+  display: block;
+  min-height: 70px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 #calendar-modal .modal-body .form-control:focus {
   box-shadow: none !important;
   outline: none !important;
