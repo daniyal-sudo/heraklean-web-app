@@ -8,6 +8,7 @@ export const api_url_Img =
     : "http://82.112.240.94:5001";
 
 // 'http://localhost:5001/api/auth/'
+import moment from "moment";
 
 export function calculateCalories(meals) {
   // Initialize totals
@@ -237,3 +238,20 @@ export const TestObject = [
     ],
   },
 ];
+export function getExpirationDate(startDate, period) {
+  const start = moment(startDate); // Convert the input date to a moment object
+
+  switch (period) {
+    case 'Monthly':
+      return start.add(1, 'months').format('YYYY-MM-DD'); // Adds one month to the start date
+
+    case 'Quarterly':
+      return start.add(3, 'months').format('YYYY-MM-DD'); // Adds three months to the start date
+
+    case 'Yearly':
+      return start.add(1, 'years').format('YYYY-MM-DD'); // Adds one year to the start date
+
+    default:
+      throw new Error('Invalid period. Please choose Monthly, Quarterly, or Yearly.');
+  }
+}

@@ -155,7 +155,7 @@ const Form = ({ onClose }) => {
     if (!plan) {
       return "Plan not found";
     }
-    return `${plan.planName} $${plan.planAmount} ${plan.planDuration} days`;
+    return `${plan.planName} $${plan.planAmount} ${plan.planDuration}`;
   }
 
   return (

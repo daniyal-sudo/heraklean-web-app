@@ -124,7 +124,7 @@ const AllClients = () => {
     };
 
     fetchClients();
-  }, []);
+  }, [showComponent]);
 
   // const clients = [
   //   { name: 'Kathryn Murphy', city:"New York, USA", imgSrc: 'pic.png' },

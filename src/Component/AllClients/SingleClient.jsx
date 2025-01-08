@@ -17,7 +17,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Header from "../CommonComponent/Header";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { api_url, api_url_Img } from "../../../CommonFunctions";
+import { api_url, api_url_Img, getExpirationDate } from "../../../CommonFunctions";
 import WeightGraphChart from "./WeightGraphChart";
 import SendPlan from "./SendPlan";
 import SaveReport from "./SaveReport";
@@ -418,6 +418,8 @@ const ClientInfo = ({ name, status, image, clientData }) => {
     ? `${api_url_Img}/${image.replace(/\\/g, "/")}`
     : "default_image.png"; // Use default image if no image is available
 
+    const sub = clientData?.subscription && clientData?.subscription[0]
+
   return (
     <div className="d-flex align-items-center mb-4 Client-Profile-section">
       <div className="name-profile">
@@ -439,9 +441,9 @@ const ClientInfo = ({ name, status, image, clientData }) => {
       {/* hamid */}
       <div className="card mb-4" style={{ border: "none" }}>
         <div className="card-body monthtly-payment">
-          <h5 className="Monthtly-title">Monthly Payment Amount</h5>
+          <h5 className="Monthtly-title">{sub.planDuration} Payment Amount</h5>
           <h2 className="text-primary monthly-dolar">
-            ${clientData.paymentAmount}
+            ${sub.planAmount}
           </h2>
         </div>
       </div>
@@ -489,8 +491,8 @@ const Membership = ({ plan, expiresOn }) => (
   <div className="card-weight mb-4">
     <div className="card-body">
       <h5 className="custom-h">Membership</h5>
-      <p className="mb-0 custom-h-1">{plan}</p>
-      <small className="custom-p-1">Expires on: {expiresOn}</small>
+      <p className="mb-0 custom-h-1">{plan.subscription[0].planName}</p>
+      <small className="custom-p-1">Expires on: {getExpirationDate(plan.subscription[0].startDate,plan.subscription[0].planDuration)}</small>
     </div>
   </div>
 );
@@ -725,7 +727,7 @@ const ClientProfile = ({
                   <div className="col-md-6">
                     <WeightGraph data={clientData.weightGraph} />
                     <Membership
-                      plan={clientData.membership.name}
+                      plan={clientData}
                       expiresOn={clientData.membership.expiresOn}
                     />
                   </div>

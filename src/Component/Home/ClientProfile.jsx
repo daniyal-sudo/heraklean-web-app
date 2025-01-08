@@ -232,11 +232,9 @@ const ClientProfile = ({searchTerm}) => {
 
       // Update state with the fetched appointments
       if (response.data.success) {
-        if (!response.data.meetings) {
-          setAppointments(appointmentsStaticData);
-        } else {
+       
           setAppointments(response.data.meetings);
-        }
+        
         console.log("Upcoming meetings:", response.data.meetings);
       } else {
         console.error("Failed to fetch meetings");
@@ -258,14 +256,14 @@ const ClientProfile = ({searchTerm}) => {
   // ];
 
   const clients = [
-    { name: "Kathryn Murphy", city: "New York, USA", imgSrc: "pic.png" },
-    { name: "Kathryn Murphy", city: "New York, USA", imgSrc: "pic.png" },
-    { name: "Kathryn Murphy", city: "New York, USA", imgSrc: "pic.png" },
+    // { name: "Kathryn Murphy", city: "New York, USA", imgSrc: "pic.png" },
+    // { name: "Kathryn Murphy", city: "New York, USA", imgSrc: "pic.png" },
+    // { name: "Kathryn Murphy", city: "New York, USA", imgSrc: "pic.png" },
   ];
 
   console.log(trainerInfo,'trainerInfotrainerInfo')
 
-  const filteredAppointments = appointments.filter(
+  const filteredAppointments = appointments?.length > 0 && appointments.filter(
     (appointment) =>
       appointment.clientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       appointment.date.includes(searchTerm)
@@ -376,14 +374,17 @@ const ClientProfile = ({searchTerm}) => {
                 </h4>
 
                 <div className="row mt-4 alert-client-scrollbar">
-                  {clients.map((Clients, index) => (
+                  {clients.length > 0 ? clients.map((Clients, index) => (
                     <Card
                       key={index}
                       name={Clients.name}
                       city={Clients.city}
                       imgSrc={Clients.imgSrc}
                     />
-                  ))}
+                  )):
+                  <div className="text-center ">
+                  <img src="/no-event.jpg" style={{ width: "130px" }} />
+                  </div>}
                 </div>
               </div>
             </div>
