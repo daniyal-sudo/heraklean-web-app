@@ -7,10 +7,13 @@ import axios from "axios";
 import Form from "../CreateClient/Form";
 
 import "./ClientProfile.css";
-import { api_url } from "../../../CommonFunctions";
+import { api_url, api_url_Img } from "../../../CommonFunctions";
 import Spinner from "../Loader/Spinner";
 
 const AppointmentCard = ({ name, date, time, imgSrc }) => {
+  const imageUrl = imgSrc
+      ? `${api_url_Img}/${imgSrc.replace(/\\/g, "/")}`
+      : "default_image.png"; 
   return (
     <div className="col-12 col-md-6 mb-4">
       <div
@@ -20,7 +23,7 @@ const AppointmentCard = ({ name, date, time, imgSrc }) => {
         {/* Profile Image */}
         <div className="d-flex align-items-center">
           <img
-            src={imgSrc}
+            src={imageUrl}
             alt={name}
             className="rounded"
             style={{ width: "80px", height: "80px", objectFit: "cover" }}
@@ -346,7 +349,7 @@ const ClientProfile = ({searchTerm}) => {
                         <AppointmentCard
                           key={index}
                           name={appointment.clientName}
-                          date={new Date(appointment.date).toLocaleDateString()} // Format date as needed
+                          date={appointment.day} // Format date as needed
                           time={appointment.time}
                           imgSrc={appointment.clientProfilePic || "anothet.png"} // Use default pic if none available
                         />
